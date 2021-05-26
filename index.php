@@ -353,7 +353,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">						
 						<!--begin::Entry-->
-						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #e8e9ff; padding: 20px; border: 2px solid #5a00e0">
+						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #f8f7ff; padding: 20px; border: 2px solid #5a00e0; opacity: 0.99;">
 									<div class="form-group">
 									  <label for="">Teste</label>
 									  <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
