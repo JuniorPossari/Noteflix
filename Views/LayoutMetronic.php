@@ -122,124 +122,294 @@ License: You must have a valid license purchased only from themeforest(the above
 												<a href="index.php" class="menu-link">													
 													<span class="menu-text">Home</span>
 												</a>
-											</li>											
-											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+											</li>	
+											<!--Menu-->										
+											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
 												<a href="javascript:;" class="menu-link menu-toggle">
 													<span class="menu-text">Filmes</span>
 													<span class="menu-desc"></span>
 													<i class="menu-arrow"></i>
 												</a>
-												<div class="menu-submenu menu-submenu-classic menu-submenu-left">
-													<ul class="menu-subnav">
-														<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
-															<a href="javascript:;" class="menu-link menu-toggle">
-																<span class="svg-icon menu-icon">
-																	<img src="Content/icon/netflix.png" style="height: 24px; width: 24px;"></img>
-																</span>
-																<span class="menu-text">Netflix</span>
-																<i class="menu-arrow"></i>
-															</a>
-															<div class="menu-submenu menu-submenu-classic menu-submenu-right">
-																<ul class="menu-subnav">
+												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
+													<div class="menu-subnav">
+														<ul class="menu-content">
+															<li class="menu-item">																
+																<ul class="menu-inner">
 																	<li class="menu-item" aria-haspopup="true">
-																		<a href="Metronic/demo2/dist/crud/forms/controls/base.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-dot">
+																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
 																				<span></span>
 																			</i>
 																			<span class="menu-text">Ação</span>
 																		</a>
-																	</li>																				
-																</ul>
-															</div>
-														</li>
-														<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
-															<a href="javascript:;" class="menu-link menu-toggle">
-																<span class="svg-icon menu-icon">
-																	<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/General/Thunder-move.svg-->
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																			<rect x="0" y="0" width="24" height="24" />
-																			<path d="M16.3740377,19.9389434 L22.2226499,11.1660251 C22.4524142,10.8213786 22.3592838,10.3557266 22.0146373,10.1259623 C21.8914367,10.0438285 21.7466809,10 21.5986122,10 L17,10 L17,4.47708173 C17,4.06286817 16.6642136,3.72708173 16.25,3.72708173 C15.9992351,3.72708173 15.7650616,3.85240758 15.6259623,4.06105658 L9.7773501,12.8339749 C9.54758575,13.1786214 9.64071616,13.6442734 9.98536267,13.8740377 C10.1085633,13.9561715 10.2533191,14 10.4013878,14 L15,14 L15,19.5229183 C15,19.9371318 15.3357864,20.2729183 15.75,20.2729183 C16.0007649,20.2729183 16.2349384,20.1475924 16.3740377,19.9389434 Z" fill="#000000" />
-																			<path d="M4.5,5 L9.5,5 C10.3284271,5 11,5.67157288 11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L4.5,8 C3.67157288,8 3,7.32842712 3,6.5 C3,5.67157288 3.67157288,5 4.5,5 Z M4.5,17 L9.5,17 C10.3284271,17 11,17.6715729 11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L4.5,20 C3.67157288,20 3,19.3284271 3,18.5 C3,17.6715729 3.67157288,17 4.5,17 Z M2.5,11 L6.5,11 C7.32842712,11 8,11.6715729 8,12.5 C8,13.3284271 7.32842712,14 6.5,14 L2.5,14 C1.67157288,14 1,13.3284271 1,12.5 C1,11.6715729 1.67157288,11 2.5,11 Z" fill="#000000" opacity="0.3" />
-																		</g>
-																	</svg>
-																	<!--end::Svg Icon-->
-																</span>
-																<span class="menu-text">Prime Video</span>
-																<i class="menu-arrow"></i>
-															</a>
-															<div class="menu-submenu menu-submenu-classic menu-submenu-right">
-																<ul class="menu-subnav">
+																	</li>
 																	<li class="menu-item" aria-haspopup="true">
-																		<a href="Metronic/demo2/dist/crud/forms/controls/base.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-dot">
+																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Aventura</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Comédia</span>
+																		</a>
+																	</li>
+																</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Documentário</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Drama</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Ficção</span>
+																		</a>
+																	</li>
+
+																</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Filmes de guerra</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Musical</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Romance</span>
+																		</a>
+																	</li>
+																</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-4.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Suspense</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-5.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Terror</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/login/login-3/signup.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Porno</span>
+																			<span class="menu-label">
+																				<span class="label label-inline label-danger">+18</span>
+																			</span>
+																		</a>
+																	</li>
+																</li>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
+												<a href="javascript:;" class="menu-link menu-toggle">
+													<span class="menu-text">Séries</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>
+												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
+													<div class="menu-subnav">
+														<ul class="menu-content">
+															<li class="menu-item">																
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
 																				<span></span>
 																			</i>
 																			<span class="menu-text">Ação</span>
 																		</a>
-																	</li>																				
-																</ul>
-															</div>
-														</li>
-														<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
-															<a href="javascript:;" class="menu-link menu-toggle">
-																<span class="svg-icon menu-icon">
-																	<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Communication/Add-user.svg-->
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																			<polygon points="0 0 24 0 24 24 0 24" />
-																			<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-																			<path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
-																		</g>
-																	</svg>
-																	<!--end::Svg Icon-->
-																</span>
-																<span class="menu-text">Globoplay</span>
-																<i class="menu-arrow"></i>
-															</a>
-															<div class="menu-submenu menu-submenu-classic menu-submenu-right">
-																<ul class="menu-subnav">
+																	</li>
 																	<li class="menu-item" aria-haspopup="true">
-																		<a href="Metronic/demo2/dist/crud/forms/controls/base.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-dot">
+																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
 																				<span></span>
 																			</i>
-																			<span class="menu-text">Ação</span>
+																			<span class="menu-text">Aventura</span>
 																		</a>
-																	</li>																				
-																</ul>
-															</div>
-														</li>
-														<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
-															<a href="javascript:;" class="menu-link menu-toggle">
-																<span class="svg-icon menu-icon">
-																	<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Shopping/Gift.svg-->
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																			<rect x="0" y="0" width="24" height="24" />
-																			<path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000" />
-																			<path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-																		</g>
-																	</svg>
-																	<!--end::Svg Icon-->
-																</span>
-																<span class="menu-text">Disney+</span>
-																<i class="menu-arrow"></i>
-															</a>
-															<div class="menu-submenu menu-submenu-classic menu-submenu-right">
-																<ul class="menu-subnav">
+																	</li>
 																	<li class="menu-item" aria-haspopup="true">
-																		<a href="Metronic/demo2/dist/crud/forms/controls/base.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-dot">
+																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
 																				<span></span>
 																			</i>
-																			<span class="menu-text">Ação</span>
+																			<span class="menu-text">Comédia</span>
 																		</a>
-																	</li>																				
+																	</li>
 																</ul>
-															</div>
-														</li>
-													</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Documentário</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Drama</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/wizard/wizard-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Ficção</span>
+																		</a>
+																	</li>
+
+																</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Filmes de guerra</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Musical</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Romance</span>
+																		</a>
+																	</li>
+																</ul>
+															</li>
+															<li class="menu-item">
+																<ul class="menu-inner">
+																<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-4.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Suspense</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/invoices/invoice-5.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Terror</span>
+																		</a>
+																	</li>
+																</li>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
+												<a href="javascript:;" class="menu-link menu-toggle">
+													<span class="menu-text">Plataformas</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>
+												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
+													<div class="menu-subnav">
+														<ul class="menu-content">
+															<li class="menu-item">																
+																<ul class="menu-inner">
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Netflix</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Amazon Prime</span>
+																		</a>
+																	</li>
+																	<li class="menu-item" aria-haspopup="true">
+																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
+																			<i class="menu-bullet menu-bullet-line">
+																				<span></span>
+																			</i>
+																			<span class="menu-text">Disney +</span>
+																		</a>
+																	</li>
+																</ul>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</li>
 										</ul>
