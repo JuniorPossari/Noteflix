@@ -108,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--begin::Header Logo-->
 								<div class="header-logo">
 									<a href="Index.php">
-										<img alt="Logo" src="Content/icon/noteflix.png" heigth="40" width="40" />
+										<img alt="Logo" src="Content/icon/noteflix-lg.png" heigth="40" width="150" />
 									</a>
 								</div>
 								<!--end::Header Logo-->
