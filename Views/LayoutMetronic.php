@@ -241,7 +241,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #f8f7ff; padding: 20px; border: 2px solid #5a00e0; opacity: 0.99;">
 							<?php
 								
-								include $view;
+								$this->CarregarView($nomeView, $dadosModel);
 											
 							?>
 						</div>

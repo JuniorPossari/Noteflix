@@ -1,7 +1,6 @@
 <?php
 	
-	$view = 'Home/Index.php';
-
-	include 'Views/LayoutMetronic.php';
+	require 'autoload.php';
+	$c = new Core();
 				
 ?>
