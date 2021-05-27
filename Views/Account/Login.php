@@ -47,6 +47,14 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+		<style>
+			.img-auto-size {
+				width: 100%;
+				height: auto;
+			}
+		</style>
+
+
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -72,9 +80,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								<form class="form" novalidate="novalidate" id="kt_login_signin_form">
 									<!--begin::Title-->
 									<div class="text-center pb-8">
-										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Sign In</h2>
-										<span class="text-muted font-weight-bold font-size-h4">Or
-										<a href="" class="text-primary font-weight-bolder" id="kt_login_signup">Create An Account</a></span>
+										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Login</h2>
+										<span class="text-muted font-weight-bold font-size-h4">Ou
+										<a href="" class="text-primary font-weight-bolder" id="kt_login_signup">Criar Conta</a></span>
 									</div>
 									<!--end::Title-->
 									<!--begin::Form group-->
@@ -86,15 +94,15 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--begin::Form group-->
 									<div class="form-group">
 										<div class="d-flex justify-content-between mt-n5">
-											<label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
-											<a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Forgot Password ?</a>
+											<label class="font-size-h6 font-weight-bolder text-dark pt-5">Senha</label>
+											<a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Esqueceu sua senha?</a>
 										</div>
 										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="password" name="password" autocomplete="off" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Action-->
 									<div class="text-center pt-2">
-										<button id="kt_login_signin_submit" class="btn btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Sign In</button>
+										<button id="kt_login_signin_submit" class="btn btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Entrar</button>
 									</div>
 									<!--end::Action-->
 								</form>
@@ -107,13 +115,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<form class="form" novalidate="novalidate" id="kt_login_signup_form">
 									<!--begin::Title-->
 									<div class="text-center pb-8">
-										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Sign Up</h2>
-										<p class="text-muted font-weight-bold font-size-h4">Enter your details to create your account</p>
+										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Login</h2>
+										<p class="text-muted font-weight-bold font-size-h4">Preencha com informações para cadastrar.</p>
 									</div>
 									<!--end::Title-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Fullname" name="fullname" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Nome Completo" name="fullname" autocomplete="off" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -123,26 +131,26 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Password" name="password" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Senha" name="password" autocomplete="off" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm password" name="cpassword" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirmar senha" name="cpassword" autocomplete="off" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group">
 										<label class="checkbox mb-0">
-										<input type="checkbox" name="agree" />I Agree the
-										<a href="#">terms and conditions</a>.
+										<input class="ml-2" type="checkbox" name="agree" />Eu concordo com os 
+										<a class = "ml-2" href="#"> termos de uso</a>.
 										<span></span></label>
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
-										<button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Submit</button>
-										<button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancel</button>
+										<button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Enviar</button>
+										<button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
 									</div>
 									<!--end::Form group-->
 								</form>
@@ -155,8 +163,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<form class="form" novalidate="novalidate" id="kt_login_forgot_form">
 									<!--begin::Title-->
 									<div class="text-center pb-8">
-										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Forgotten Password ?</h2>
-										<p class="text-muted font-weight-bold font-size-h4">Enter your email to reset your password</p>
+										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Esqueceu a senha ?</h2>
+										<p class="text-muted font-weight-bold font-size-h4">Preencha com o Email cadastrado.</p>
 									</div>
 									<!--end::Title-->
 									<!--begin::Form group-->
@@ -166,8 +174,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
-										<button type="button" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Submit</button>
-										<button type="button" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancel</button>
+										<button type="button" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Enviar</button>
+										<button type="button" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
 									</div>
 									<!--end::Form group-->
 								</form>
@@ -184,14 +192,15 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)">
 					<!--begin::Title-->
 					<div class="d-flex flex-column justify-content-center text-center pt-lg-40 pt-md-5 pt-sm-5 px-lg-0 pt-5 px-7">
-						<h3 class="display4 font-weight-bolder my-7">Amazing Wireframes</h3>
-						<p class="font-weight-bolder font-size-h2-md font-size-lg opacity-70">User Experience &amp; Interface Design, Product Strategy
-						<br />Web Application SaaS Solutions</p>
+						<h3 class="display4 font-weight-bolder my-7">Um lugar de Avaliação.</h3>
+						<p class="font-weight-bolder font-size-h2-md font-size-lg opacity-70"> O melhor site de avaliação de filmes
+						<br />de todos os tempos
+						<br/>com conteudos 100% atualizados. </p>
 					</div>
 					<!--end::Title-->
 					<!--begin::Image-->
-					<div class="d-flex align-items-center justify-content-center">
-                        <img class="opacity-70" src="/Noteflix/Content/icon/noteflix-pipoca.png" width="900">
+					<div class="container">
+                        <img class="opacity-70 img-auto-size"  src="/Noteflix/Content/icon/noteflix-pipoca.png" >
                     </div>
 					<!--end::Image-->
 				</div>
