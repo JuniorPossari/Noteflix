@@ -21,7 +21,7 @@
                 array_shift($url);
 
                 if(isset($url[0]) && !empty($url[0])){
-                    $metodo = url[0];
+                    $metodo = $url[0];
                     array_shift($url);
                 }
                 else{
