@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="Metronic/demo2/dist/assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="Content/icon/noteflix.ico" />
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -67,8 +67,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile">
 			<!--begin::Logo-->
-			<a href="index.html">
-				<img alt="Logo" src="Metronic/demo2/dist/assets/media/logos/logo-letter-1.png" class="logo-default max-h-30px" />
+			<a href="Index.php">
+				<img alt="Logo" src="Content/icon/noteflix.png" heigth="30" width="30" />
+				<!--Metronic/demo2/dist/assets/media/logos/logo-letter-1.png-->
 			</a>
 			<!--end::Logo-->
 			<!--begin::Toolbar-->
@@ -106,318 +107,21 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="d-flex align-items-stretch mr-3">
 								<!--begin::Header Logo-->
 								<div class="header-logo">
-									<a href="index.html">
-										<img alt="Logo" src="Metronic/demo2/dist/assets/media/logos/logo-letter-9.png" class="logo-default max-h-40px" />
-										<img alt="Logo" src="Metronic/demo2/dist/assets/media/logos/logo-letter-1.png" class="logo-sticky max-h-40px" />
+									<a href="Index.php">
+										<img alt="Logo" src="Content/icon/noteflix.png" heigth="40" width="40" />
 									</a>
 								</div>
 								<!--end::Header Logo-->
-								<!--begin::Header Menu Wrapper-->
-								<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-									<!--begin::Header Menu-->
-									<div id="kt_header_menu" class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
-										<!--begin::Header Nav-->
-										<ul class="menu-nav">
-											<li class="menu-item" aria-haspopup="true">
-												<a href="index.php" class="menu-link">													
-													<span class="menu-text">Home</span>
-												</a>
-											</li>	
-											<!--Menu-->										
-											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-												<a href="javascript:;" class="menu-link menu-toggle">
-													<span class="menu-text">Filmes</span>
-													<span class="menu-desc"></span>
-													<i class="menu-arrow"></i>
-												</a>
-												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
-													<div class="menu-subnav">
-														<ul class="menu-content">
-															<li class="menu-item">																
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Ação</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Aventura</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Comédia</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Documentário</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Drama</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Ficção</span>
-																		</a>
-																	</li>
 
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Filmes de guerra</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Musical</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Romance</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-4.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Suspense</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-5.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Terror</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/login/login-3/signup.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Porno</span>
-																			<span class="menu-label">
-																				<span class="label label-inline label-danger">+18</span>
-																			</span>
-																		</a>
-																	</li>
-																</li>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</li>
-											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-												<a href="javascript:;" class="menu-link menu-toggle">
-													<span class="menu-text">Séries</span>
-													<span class="menu-desc"></span>
-													<i class="menu-arrow"></i>
-												</a>
-												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
-													<div class="menu-subnav">
-														<ul class="menu-content">
-															<li class="menu-item">																
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Ação</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Aventura</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Comédia</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Documentário</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Drama</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/wizard/wizard-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Ficção</span>
-																		</a>
-																	</li>
 
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Filmes de guerra</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Musical</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Romance</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-item">
-																<ul class="menu-inner">
-																<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-4.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Suspense</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/invoices/invoice-5.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Terror</span>
-																		</a>
-																	</li>
-																</li>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</li>
-											<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-												<a href="javascript:;" class="menu-link menu-toggle">
-													<span class="menu-text">Plataformas</span>
-													<span class="menu-desc"></span>
-													<i class="menu-arrow"></i>
-												</a>
-												<div class="menu-submenu menu-submenu-fixed menu-submenu-center" style="width:1150px">
-													<div class="menu-subnav">
-														<ul class="menu-content">
-															<li class="menu-item">																
-																<ul class="menu-inner">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-1.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Netflix</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-2.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Amazon Prime</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/pages/pricing/pricing-3.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">Disney +</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</li>
-										</ul>
-										<!--end::Header Nav-->
-									</div>
-									<!--end::Header Menu-->
-								</div>
-								<!--end::Header Menu Wrapper-->
+								<?php
+
+									include 'Views/Metronic/Menu.php'
+
+								?>
+
+
+								
 							</div>
 							<!--end::Left-->
 							<!--begin::Topbar-->
@@ -508,8 +212,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 										echo '
 											<!--begin::Login-->
-											<div class="d-flex justify-content-center align-items-center">
-												<a href="Views/Account/Login.php" class="btn btn-success">Login</a>
+											<div class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
+												<ul class="menu-nav">
+													<li class="menu-item" aria-haspopup="true">
+														<a href="Views/Account/Login.php" class="menu-link">													
+															<span class="menu-text text-hover-success">Login</span>
+														</a>
+													</li>
+												</ul>
 											</div>
 											<!--end::Login-->
 										';
