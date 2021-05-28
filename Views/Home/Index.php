@@ -27,7 +27,11 @@
         z-index: 9999;
     }
 
-    .slick-prev:before .slick-next:before {
+    .slick-prev:before{
+        color: #5a00e0;
+    }
+    
+    .slick-next:before {
         color: #5a00e0;
     }
 </style>
@@ -60,9 +64,7 @@
             autoplaySpeed: 2000,
             variableWidth: true,
             adaptiveHeight: true,
-            centerMode: true,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='Content/img/prev.png'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='Content/img/next.png'>"       
+            centerMode: true,       
         });
     });
 
