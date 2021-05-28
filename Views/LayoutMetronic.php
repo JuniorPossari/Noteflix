@@ -63,12 +63,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- jQuery library -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-		<!-- Popper JS -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 		<!--begin::Main-->
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile">
@@ -135,7 +129,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--begin::Search-->
 								<div class="dropdown">
 									<!--begin::Toggle-->
-									<div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+									<div class="topbar-item" data-toggle="dropdown" data-offset="-70px,-70px">
 										<div class="btn btn-icon btn-hover-transparent-white btn-lg btn-dropdown mr-1">
 											<span class="svg-icon svg-icon-xl">
 												<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/General/Search.svg-->
