@@ -6,9 +6,13 @@
         line-height: 400px;
         font-size: 100px;
         color: #fff;
-        height: 400px;
-        width: 320px;
+        height: 420px;
+        width: 310px;
 
+    }
+
+    .previa:hover {
+        opacity: 0.9;
     }
 
     .slick-slide {
@@ -42,12 +46,11 @@
     </div>
     <div class="mt-20">
         <div class="carousel">
-            <div class="previa">1</div>
-            <div class="previa">2</div>
-            <div class="previa">3</div>
-            <div class="previa">4</div>
-            <div class="previa">5</div>
-            <div class="previa">6</div>
+            <div class="previa"><img src="Content/img/invocação-do-mal-3.jpg"></div>
+            <div class="previa"><img src="Content/img/cruella.jpg"></div>
+            <div class="previa"><img src="Content/img/aqueles-que-me-desejam-a-morte.jpg"></div>
+            <div class="previa"><img src="Content/img/godzilla-vs-kong.jpg"></div>
+            <div class="previa"><img src="Content/img/mortal-kombat.jpg"></div>
         </div>
     </div>
 </div>
