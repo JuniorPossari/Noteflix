@@ -140,12 +140,18 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
-									<div class="form-group">
-										<label class="checkbox mb-0">
-										<input class="ml-2" type="checkbox" name="agree" />Eu concordo com os 
-										<a class = "ml-2" href="#"> termos de uso</a>.
-										<span></span></label>
+									<div class="form-group d-flex align-items-center justify-content-center">
+										<label>Eu concordo com os <a href="#">termos de uso</a>.</label>
+										<div class="ml-3">
+											<div class="checkbox-inline">
+												<label class="checkbox checkbox-primary">
+													<input type="checkbox"/>
+													<span></span>
+												</label>
+											</div>
+										</div>
 									</div>
+									
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
@@ -192,10 +198,9 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)">
 					<!--begin::Title-->
 					<div class="d-flex flex-column justify-content-center text-center pt-lg-40 pt-md-5 pt-sm-5 px-lg-0 pt-5 px-7">
-						<h3 class="display4 font-weight-bolder my-7">Um lugar de Avaliação.</h3>
-						<p class="font-weight-bolder font-size-h2-md font-size-lg opacity-70"> O melhor site de avaliação de filmes
-						<br />de todos os tempos
-						<br/>com conteudos 100% atualizados. </p>
+						<h3 class="display4 font-weight-bolder my-7">Dê sua nota!</h3>
+						<p class="font-weight-bolder font-size-h2-md font-size-lg opacity-80">Avalie suas obras favoritas do cinema.
+						<br/>Conteúdo 100% atualizado com as séries e filmes mais recentes.</p>
 					</div>
 					<!--end::Title-->
 					<!--begin::Image-->

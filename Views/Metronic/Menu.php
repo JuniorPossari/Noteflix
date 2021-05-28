@@ -5,7 +5,7 @@
 		<!--begin::Header Nav-->
 		<ul class="menu-nav">
 			<li class="menu-item" aria-haspopup="true">
-				<a href="index.php" class="menu-link">													
+				<a href="/Noteflix" class="menu-link">													
 					<span class="menu-text">Home</span>
 				</a>
 			</li>										

@@ -48,21 +48,27 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Add the slick-theme.css if you want default styling -->
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+		<!-- Add the slick-theme.css if you want default styling -->
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
-		<!-- Popper JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		
-		
 
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" style="background-image: url(Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
+
+
+		<!-- jQuery library -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Popper JS -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 		<!--begin::Main-->
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile">
@@ -107,7 +113,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="d-flex align-items-stretch mr-3">
 								<!--begin::Header Logo-->
 								<div class="header-logo">
-									<a href="Index.php">
+									<a href="/Noteflix">
 										<img alt="Logo" src="Content/icon/noteflix-lg.png" heigth="40" width="150" />
 									</a>
 								</div>
@@ -238,7 +244,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">						
 						<!--begin::Entry-->
-						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #f8f7ff; padding: 20px; border: 2px solid #5a00e0; opacity: 0.99;">
+						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #f8f7ff; padding: 20px; border: 2px solid #5a00e0;">
 							<?php
 								
 								$this->CarregarView($nomeView, $dadosModel);
@@ -319,6 +325,10 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="Metronic/demo2/dist/assets/js/pages/widgets.js"></script>
 		<!--end::Page Scripts-->
+
+		<!-- Slick JavaScript -->
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 	</body>
 	<!--end::Body-->
 </html>
