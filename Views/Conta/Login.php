@@ -88,7 +88,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--begin::Form group-->
 									<div class="form-group">
 										<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="username" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="email" autocomplete="off" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -116,12 +116,12 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--begin::Title-->
 									<div class="text-center pb-8">
 										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Login</h2>
-										<p class="text-muted font-weight-bold font-size-h4">Preencha com informações para cadastrar.</p>
+										<p class="text-muted font-weight-bold font-size-h4">Preencha as informações para cadastrar.</p>
 									</div>
 									<!--end::Title-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Nome Completo" name="fullname" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Usuário" name="username" autocomplete="off" maxlength="20" minlength="8" data-fv-string-length___message="O nome de usuário deve ter entre 8 e 20 caracteres!" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -131,7 +131,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Senha" name="password" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Senha" name="password" autocomplete="off" minlength="8" data-fv-string-length___message="A senha deve ter no mínimo 8 caracteres!" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -224,7 +224,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="/Noteflix/Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="/Noteflix/Metronic/demo2/dist/assets/js/pages/custom/login/login-general.js"></script>
+		<script src="/Noteflix/Scripts/Conta/Login.js"></script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
