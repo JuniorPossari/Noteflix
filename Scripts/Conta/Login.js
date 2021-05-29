@@ -112,8 +112,8 @@ var KTLogin = function() {
 								message: 'O nome de usuário é obrigatório!'
 							},
                             regexp: {
-                                regexp: /^[a-z0-9]+$/i,
-                                message: 'O nome de usuário só pode ter letras e números!'
+                                regexp: /^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/i,
+                                message: 'O nome de usuário digitado é inválido!'
                             }
 						}
 					},
