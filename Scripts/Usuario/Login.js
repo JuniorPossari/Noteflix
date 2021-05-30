@@ -4,7 +4,8 @@
 var KTLogin = function() {
     var _login;
 
-	var urlSalvarUsuario = "/Noteflix/Usuario/SalvarUsuario/"
+	var urlSalvarUsuario = "/Noteflix/Usuario/SalvarUsuario/";
+	var urlEntrar = "/Noteflix/Usuario/Entrar/";
 
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
@@ -59,20 +60,61 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "Você foi logado com sucesso!",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
+					
+            		var email = $('#kt_login_signin_form input[name="email"]').val();
+					var password = $('#kt_login_signin_form input[name="password"]').val();					
+
+					$.ajax({
+						url: urlEntrar,
+						type: 'POST',
+						dataType: "html",
+						data: {"email":email, "password":password},
+						success: function (json) {
+
+							var data = JSON.parse(json);
+
+							if(data.Ok){							
+								window.location.href = "/Noteflix/";
+							}
+							else{
+
+								swal.fire({
+									text: data.Message,
+									icon: data.Ok ? "success" : "error",
+									buttonsStyling: false,
+									confirmButtonText: "Ok",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function() {	
+									KTUtil.scrollTop();	
+								});
+								
+							}
+			
+							
+		
+						},
+						error: function () {
+		
+							swal.fire({
+								text: "Desculpe, houve um erro na requisição!",
+								icon: "error",
+								buttonsStyling: false,
+								confirmButtonText: "Ok",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function() {
+								KTUtil.scrollTop();
+							});
+			
+						}
 					});
+                    
 				} else {
 					swal.fire({
-		                text: "Desculpe! Houve um erro, tente novamente.",
+		                text: "Você deve preencher todos os campos!",
 		                icon: "error",
 		                buttonsStyling: false,
 		                confirmButtonText: "Ok",
@@ -198,12 +240,17 @@ var KTLogin = function() {
 								}
 							}).then(function() {
 
-								if(data.Ok){
-									_showForm('signin');
+								if(data.Ok){									
 									$('#kt_login_signup_form input[name="username"]').val('');
 									$('#kt_login_signup_form input[name="email"]').val('');
 									$('#kt_login_signup_form input[name="password"]').val('');
 									$('#kt_login_signup_form input[name="cpassword"]').val('');
+									$('#kt_login_signup_form input[name="username"]').removeClass('is-valid');
+									$('#kt_login_signup_form input[name="email"]').removeClass('is-valid');
+									$('#kt_login_signup_form input[name="password"]').removeClass('is-valid');
+									$('#kt_login_signup_form input[name="cpassword"]').removeClass('is-valid');
+									$('#kt_login_signup_form input[name="agree"]').prop('checked', false);
+									_showForm('signin');									
 									//window.location.href = "/Noteflix/Home/Index";
 								}
 								else{
@@ -232,7 +279,7 @@ var KTLogin = function() {
                     
 				} else {
 					swal.fire({
-		                text: "Desculpe! Houve um erro, tente novamente.",
+		                text: "Você deve preencher todos os campos!",
 		                icon: "error",
 		                buttonsStyling: false,
 		                confirmButtonText: "Ok",

@@ -5,7 +5,7 @@ var IndexAPI = function() {
     
     var MontarSlickCarousel = function(){
 
-        $('.carousel').slick({
+        $('.carousel').not('.slick-initialized').slick({
             dots: true,
             slidesToShow: 3,
             slidesToScroll: 1,

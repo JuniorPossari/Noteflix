@@ -2,7 +2,10 @@
 
     Class Core{
 
+        private $user;
+
         public function __construct(){
+            $this->user = $_SESSION['usr'] ?? null;
             $this->run();
         }
 
@@ -43,6 +46,24 @@
             if(!file_exists($caminho) && !method_exists($controller, $metodo)){
                 $controller = 'HomeController';
                 $metodo = 'Index';
+            }
+
+            if($this->user){
+                $pg_permission = ['HomeController', 'UsuarioController'];
+
+                if(!isset($controller) || !in_array($controller, $pg_permission)){
+                    $controller = 'HomeController';
+                    $metodo = 'Index';
+                }
+
+            }
+            else{
+                $pg_permission = ['HomeController', 'UsuarioController'];
+
+                if(!isset($controller) || !in_array($controller, $pg_permission)){
+                    $controller = 'UsuarioController';
+                    $metodo = 'Login';
+                }
             }
 
             $c = new $controller;

@@ -8,31 +8,34 @@
 
         }
 
-        public function SalvarUsuario($dados){
+        public function Entrar($dados){
 
-            $json = new JsonResult();
-            $result = array();
+            $usuarioService = new UsuarioService();
 
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $cpassword = $_POST['cpassword'];
-
-            if(isset($username) && isset($email) && isset($password) && isset($cpassword))
-            {                
-
-                $passwordhash = password_hash($password, PASSWORD_DEFAULT);
-
-                $result = $json->Data(true, "Sucesso", "Seu usuário foi cadastrado com sucesso!");
-                
-            }
-            else{
-
-                $result = $json->Data(false, "Aviso", "Desculpe, não foi possível cadastrar seu usuário!");
-
-            }
+            $result = $usuarioService->Entrar($dados);
 
             header('Content-Type: application/json');
+
+            echo $result;
+
+        }
+
+        public function Sair(){
+
+            session_unset();
+		    session_destroy();
+            header("location:/Noteflix/");
+
+        }
+
+        public function SalvarUsuario($dados){
+
+            $usuarioService = new UsuarioService();
+
+            $result = $usuarioService->Salvar($dados);
+
+            header('Content-Type: application/json');
+
             echo $result;
 
         }

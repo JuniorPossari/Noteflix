@@ -1,10 +1,38 @@
-<?php
+<?php	
 
 	$isAuthenticated = false;
+	$isAdmin = false;
 
-	$cargoService = new CargoService();
+	if (isset($_SESSION['usr'])) {
 
-	$isAdmin = $cargoService->VerificarCargoDoUsuario(1, "Administrador");
+		$usuarioService = new UsuarioService();
+		$cargoService = new CargoService();
+
+		$idUsuario = $_SESSION['usr'];
+
+		$user = $usuarioService->ObterPorId($idUsuario);
+
+		if(isset($user)){
+
+			extract($user);
+
+			if(isset($Id)){
+
+				$isAuthenticated = true;
+
+				$isAdmin = $cargoService->VerificarCargoDoUsuario($Id, "Administrador");
+
+			}
+
+		}
+
+		
+	}
+	
+	if(!$isAuthenticated){
+		session_unset();
+		session_destroy();
+	}
 
 ?>
 
@@ -298,7 +326,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				include 'Metronic/Userprofile.php';
 			}
 
-			if($isAdmin){
+			if($isAdmin && $isAuthenticated){
 				include 'Metronic/Toolbar.php';
 			}
 

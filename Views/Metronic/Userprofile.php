@@ -37,7 +37,7 @@
 							<span class="navi-text text-muted text-hover-primary"><?php echo $Email; ?></span>
 						</span>
 					</a>
-					<a href="#" class="btn btn-sm btn-light-danger font-weight-bolder py-2 px-5">Sair</a>
+					<a href="Usuario/Sair" class="btn btn-sm btn-light-danger font-weight-bolder py-2 px-5">Sair</a>
 				</div>
 			</div>
 		</div>

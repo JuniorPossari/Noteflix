@@ -115,8 +115,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<form class="form" novalidate="novalidate" id="kt_login_signup_form">
 									<!--begin::Title-->
 									<div class="text-center pb-8">
-										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Login</h2>
-										<p class="text-muted font-weight-bold font-size-h4">Preencha as informações para cadastrar.</p>
+										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Criar conta</h2>
+										<p class="text-muted font-weight-bold font-size-h4">Preencha as informações para se cadastrar.</p>
 									</div>
 									<!--end::Title-->
 									<!--begin::Form group-->
@@ -140,13 +140,13 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
-									<div class="form-group d-flex align-items-center justify-content-center">
-										<label>Eu concordo com os <a href="#">termos de uso</a>.</label>
+									<div class="form-group">										
 										<div class="ml-3">
 											<div class="checkbox-inline">
 												<label class="checkbox checkbox-primary">
-													<input type="checkbox"/>
-													<span></span>
+													Eu concordo com os <a class="ml-2" href="#">termos de uso</a>.
+													<input type="checkbox" name="agree" />
+													<span class="ml-2"></span>
 												</label>
 											</div>
 										</div>
