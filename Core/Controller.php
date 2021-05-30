@@ -9,7 +9,7 @@
         }
 
         public function CarregarLayout($nomeView, $dadosModel = array()){
-            $this->dados = $dadosModel;
+            extract($dadosModel);
             require 'Views/LayoutMetronic.php';
         }
 

@@ -4,6 +4,8 @@
 var KTLogin = function() {
     var _login;
 
+	var urlSalvarUsuario = "/Noteflix/Usuario/SalvarUsuario/"
+
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
         var form = 'kt_login_' + form + '_form';
@@ -170,17 +172,64 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "Sua conta foi criada com sucesso!",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
+
+
+					var username = $('#kt_login_signup_form input[name="username"]').val();
+            		var email = $('#kt_login_signup_form input[name="email"]').val();
+					var password = $('#kt_login_signup_form input[name="password"]').val();
+					var cpassword = $('#kt_login_signup_form input[name="cpassword"]').val();
+
+					$.ajax({
+						url: urlSalvarUsuario,
+						type: 'POST',
+						dataType: "html",
+						data: {"username":username, "email":email, "password":password, "cpassword":cpassword},
+						success: function (json) {
+
+							var data = JSON.parse(json);
+			
+							swal.fire({
+								text: data.Message,
+								icon: data.Ok ? "success" : "error",
+								buttonsStyling: false,
+								confirmButtonText: "Ok",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function() {
+
+								if(data.Ok){
+									_showForm('signin');
+									$('#kt_login_signup_form input[name="username"]').val('');
+									$('#kt_login_signup_form input[name="email"]').val('');
+									$('#kt_login_signup_form input[name="password"]').val('');
+									$('#kt_login_signup_form input[name="cpassword"]').val('');
+									//window.location.href = "/Noteflix/Home/Index";
+								}
+								else{
+									KTUtil.scrollTop();
+								}
+
+							});
+		
+						},
+						error: function () {
+		
+							swal.fire({
+								text: "Desculpe, houve um erro na requisição!",
+								icon: "error",
+								buttonsStyling: false,
+								confirmButtonText: "Ok",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function() {
+								KTUtil.scrollTop();
+							});
+			
+						}
 					});
+                    
 				} else {
 					swal.fire({
 		                text: "Desculpe! Houve um erro, tente novamente.",

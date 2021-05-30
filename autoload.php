@@ -11,6 +11,9 @@
 		elseif(file_exists('Models/'.$nome_arquivo.'.php')){
 			require 'Models/'.$nome_arquivo.'.php';
 		}
+		elseif(file_exists('Services/'.$nome_arquivo.'.php')){
+			require 'Services/'.$nome_arquivo.'.php';
+		}
 		
 
 	});

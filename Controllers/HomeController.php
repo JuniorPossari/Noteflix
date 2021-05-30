@@ -4,7 +4,11 @@
 
         public function Index(){
 
-            $this->CarregarLayout('Home/Index');
+            $usuarioService = new UsuarioService();
+            $dados = $usuarioService->ObterPorId(1);
+
+
+            $this->CarregarLayout('Home/Index', $dados);
 
         }
 

@@ -2,9 +2,9 @@
 
 	$isAuthenticated = false;
 
-	$isAdmin = false;
+	$cargoService = new CargoService();
 
-	$nome = 'Junior';
+	$isAdmin = $cargoService->VerificarCargoDoUsuario(1, "Administrador");
 
 ?>
 
@@ -196,9 +196,9 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="topbar-item">
 													<div class="btn btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto" id="kt_quick_user_toggle">
 														<span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Olá,</span>
-														<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">'.$nome.'</span>
+														<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">'.$Usuario.'</span>
 														<span class="symbol symbol-35">
-															<span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">S</span>
+															<span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">'.strtoupper(substr($Usuario, 0, 1)).'</span>
 														</span>
 													</div>
 												</div>
@@ -215,7 +215,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
 												<ul class="menu-nav">
 													<li class="menu-item" aria-haspopup="true">
-														<a href="Conta/Login" class="menu-link">													
+														<a href="Usuario/Login" class="menu-link">													
 															<span class="menu-text text-hover-success">Login</span>
 														</a>
 													</li>

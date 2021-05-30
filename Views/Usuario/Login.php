@@ -224,7 +224,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="/Noteflix/Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="/Noteflix/Scripts/Conta/Login.js"></script>
+		<script src="/Noteflix/Scripts/Usuario/Login.js"></script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

@@ -56,20 +56,10 @@
 </div>
 
 
-<script>
-
-    $(document).ready(function(){
-        $('.carousel').slick({
-            dots: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            variableWidth: true,
-            adaptiveHeight: true,
-            centerMode: true,       
-        });
+<script src="/Noteflix/Scripts/Home/Index.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        IndexAPI.init();
     });
-
 </script>
 
