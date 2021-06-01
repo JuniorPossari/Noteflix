@@ -12,11 +12,24 @@
 	<div class="offcanvas-content pr-5 mr-n5">
 		<!--begin::Header-->
 		<div class="d-flex align-items-center mt-5">
-			<div class="symbol symbol-100 mr-5 border border-dark" style="border-width:2px !important;">
-				<img class="symbol-label" src="<?php if(isset($Foto)){ echo 'data:image/jpeg;base64,'.base64_encode($Foto); }else{ echo '/Noteflix/Content/img/sem-foto.png'; } ?>">				
-				<img class="symbol-badge bg-success"></>
+			<div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(<?php if(isset($Foto) && $Foto != ""){ echo 'data:image;base64,'.base64_encode($Foto); }else{ echo '/Noteflix/Content/img/sem-foto.png'; } ?>)">
+				<div class="image-input-wrapper border border-dark" style="border-width:2px !important;"></div>
+				<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Alterar">
+					<i class="fa fa-pen icon-sm text-muted"></i>
+					<input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
+					<input type="hidden" name="profile_avatar_remove" />
+					<input type="hidden" class="d-none" id="HdnNovaFoto" />
+					<input type="hidden" class="d-none" id="HdnVelhaFoto" value="<?php if(isset($Foto) && $Foto != ""){ echo 'data:image;base64,'.base64_encode($Foto); }else{ echo ''; } ?>" />
+					<input type="hidden" class="d-none" id="HdnIdUsuario" value="<?php if(isset($Id)){ echo $Id; }else{ echo ''; } ?>">
+				</label>
+				<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Voltar">
+					<i class="ki ki-bold-close icon-xs text-muted"></i>
+				</span>
+				<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Excluir">
+					<i class="ki ki-bold-close icon-xs text-muted"></i>
+				</span>
 			</div>
-			<div class="d-flex flex-column">
+			<div class="d-flex flex-column ml-2">
 				<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $Usuario; ?></a>
 				<div class="navi mt-2">
 					<a href="#" class="navi-item">
@@ -226,3 +239,10 @@
 	<!--end::Content-->
 </div>
 <!-- end::User Panel-->
+
+<script src="/Noteflix/Scripts/Home/Foto.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        FotoAPI.init();
+    });
+</script>

@@ -40,6 +40,18 @@
 
         }
 
+        public function AlterarFoto($dados){
+
+            $usuarioService = new UsuarioService();
+
+            $result = $usuarioService->AlterarFoto($dados);
+
+            header('Content-Type: application/json');
+
+            echo $result;
+
+        }
+
     }
 
 ?>

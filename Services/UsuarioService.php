@@ -206,6 +206,41 @@
 
         }
 
+        public function AlterarFoto($dados){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar sua foto!");
+            
+            $idUsuario = $_POST['idUsuario'];
+            $foto64 = $_POST['foto64'];
+
+            if(!isset($idUsuario)){
+                return $result;
+            }
+
+            if(isset($foto64) && $foto64 != ""){
+                $foto64 = base64_decode($foto64);
+            }
+
+            if($foto64 == ""){
+                $result = $json->Data(false, "Aviso", "Desculpe, não foi possível remover sua foto!");
+            }
+
+            $cmd = $this->con->prepare('UPDATE Usuario SET Foto = :foto64 WHERE Id = :idUsuario');
+
+            $cmd->bindValue(':idUsuario', $idUsuario);
+            $cmd->bindValue(':foto64', $foto64 != "" ? $foto64 : '' );
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", $foto64 != "" ? "Sua foto foi alterada com sucesso!" : "Sua foto foi removida com sucesso!");
+            }
+
+            return $result;
+
+        }
+
     }
 
 ?>
