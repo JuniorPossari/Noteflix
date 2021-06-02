@@ -58,7 +58,7 @@
 
         public function VerificarSeUsuarioExiste($username){
 
-            $cmd = $this->con->prepare('SELECT Usuario FROM Usuario WHERE Usuario = :username');
+            $cmd = $this->con->prepare('SELECT Nome FROM Usuario WHERE Nome = :username');
 
             $cmd->bindValue(':username', $username);
 
@@ -187,7 +187,7 @@
 
             $passwordhash = password_hash($password, PASSWORD_DEFAULT);
 
-            $cmd = $this->con->prepare('INSERT INTO Usuario (Usuario, Email, Senha, Ativo, DataCadastro, EmailConfirmado) VALUES (:username, :email, :senha, :ativo, :dataCadastro, :emailConfirmado)');
+            $cmd = $this->con->prepare('INSERT INTO Usuario (Nome, Email, Senha, Ativo, DataCadastro, EmailConfirmado, TelefoneConfirmado) VALUES (:username, :email, :senha, :ativo, :dataCadastro, :emailConfirmado, :telefoneConfirmado)');
 
             $cmd->bindValue(':username', $username);
             $cmd->bindValue(':email', $email);
@@ -195,6 +195,7 @@
             $cmd->bindValue(':ativo', 1);
             $cmd->bindValue(':dataCadastro', 'CURRENT_TIMESTAMP');
             $cmd->bindValue(':emailConfirmado', 0);
+            $cmd->bindValue(':telefoneConfirmado', 0);
 
             $sucesso = $cmd->execute();
 

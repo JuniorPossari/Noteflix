@@ -10,6 +10,14 @@
 
         }
 
+        public function DataError(){
+
+            $response = array("Ok" => false, "MessageTitle" => "Aviso", "Message" => "Desculpe, houve um erro na requisição. Tente novamente mais tarde!", "Result" => array());
+            
+            return json_encode($response);
+
+        }
+
     }
 
 ?>

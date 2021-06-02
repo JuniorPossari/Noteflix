@@ -10,13 +10,26 @@
 
         public function Entrar($dados){
 
-            $usuarioService = new UsuarioService();
+            try{
 
-            $result = $usuarioService->Entrar($dados);
+                $usuarioService = new UsuarioService();
 
-            header('Content-Type: application/json');
+                $result = $usuarioService->Entrar($dados);
 
-            echo $result;
+                header('Content-Type: application/json');
+
+                echo $result;
+
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
 
         }
 
@@ -30,25 +43,52 @@
 
         public function SalvarUsuario($dados){
 
-            $usuarioService = new UsuarioService();
+            try{
 
-            $result = $usuarioService->Salvar($dados);
+                $usuarioService = new UsuarioService();
 
-            header('Content-Type: application/json');
+                $result = $usuarioService->Salvar($dados);
 
-            echo $result;
+                header('Content-Type: application/json');
+
+                echo $result;
+
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
 
         }
 
         public function AlterarFoto($dados){
 
-            $usuarioService = new UsuarioService();
+            try{
 
-            $result = $usuarioService->AlterarFoto($dados);
+                $usuarioService = new UsuarioService();
 
-            header('Content-Type: application/json');
+                $result = $usuarioService->AlterarFoto($dados);
 
-            echo $result;
+                header('Content-Type: application/json');
+
+                echo $result;
+
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
+            
 
         }
 

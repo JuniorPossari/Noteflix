@@ -14,10 +14,10 @@ var FotoAPI = function () {
 
         avatar5.on('change', function (imageInput) {
 
-            KTApp.block('#kt_quick_user', {
+            KTApp.blockPage({
                 overlayColor: '#000000',
-                state: 'success', // a bootstrap color
-                size: 'lg' //available custom sizes: sm|lg
+                state: 'info', // a bootstrap color
+                message: 'Aguarde...'
             });
 
             var file = imageInput.input.files[0];
@@ -31,12 +31,11 @@ var FotoAPI = function () {
                 debugger
 
                 if (reader.result == null || reader.result == "") {
-                    KTApp.unblock('#kt_quick_user');
+                    KTApp.unblockPage();
 
                     swal.fire({
                         text: 'Escolha um formato válido!',
                         icon: 'error',
-                        buttonsStyling: false,
                         confirmButtonText: 'Ok!',
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
@@ -58,13 +57,12 @@ var FotoAPI = function () {
                             var data = JSON.parse(json);
 
                             debugger;
-                            KTApp.unblock('#kt_quick_user');
+                            KTApp.unblockPage();
 
                             if (data.Ok) {
                                 swal.fire({
                                     text: data.Message,
                                     icon: data.Ok ? "success" : "error",
-                                    buttonsStyling: false,
                                     confirmButtonText: "Ok",
                                     customClass: {
                                         confirmButton: "btn font-weight-bold btn-light-primary"
@@ -87,7 +85,6 @@ var FotoAPI = function () {
                                 swal.fire({
                                     text: data.Message,
                                     icon: data.Ok ? "success" : "error",
-                                    buttonsStyling: false,
                                     confirmButtonText: "Ok",
                                     customClass: {
                                         confirmButton: "btn font-weight-bold btn-light-primary"
@@ -110,12 +107,11 @@ var FotoAPI = function () {
                                 document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
                             }
 
-                            KTApp.unblock('#kt_quick_user');
+                            KTApp.unblockPage();
 
                             swal.fire({
                                 text: "Desculpe, houve um erro na requisição!",
                                 icon: "error",
-                                buttonsStyling: false,
                                 confirmButtonText: "Ok",
                                 customClass: {
                                     confirmButton: "btn font-weight-bold btn-light-primary"
@@ -135,153 +131,183 @@ var FotoAPI = function () {
     //cancel
     var onClickCancel = function () {
 
-        KTApp.block('#kt_quick_user', {
-            overlayColor: '#000000',
-            state: 'success', // a bootstrap color
-            size: 'lg' //available custom sizes: sm|lg
-        });
+        swal.fire({
+            title: "Você tem certeza?",
+            text: "Realmente deseja voltar a foto anterior?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim",
+            cancelButtonText: "Não",
+            customClass: {
+                confirmButton: "btn font-weight-bold btn-primary",
+                cancelButton: "btn font-weight-bold btn-light"
+            }
+        }).then(function(result) {
+            if(result.value){
 
-        var avatar5 = new KTImageInput('kt_profile_avatar');
-        avatar5.on('cancel', function (imageInput) {
-            debugger;
-            var foto64 = $('#HdnVelhaFoto').val();
-            var idUsuario = $('#HdnIdUsuario').val();
-
-            if (foto64 != ""){
-                foto64 = foto64.split(',')[1];
-            }                
-
-            $.ajax({
-                url: urlAlterarFoto,
-                type: 'POST',
-                dataType: "html",
-                data: { 'idUsuario': idUsuario, 'foto64': foto64 },
-                success: function (json) {
-
-                    var data = JSON.parse(json);
-
+                KTApp.blockPage({
+                    overlayColor: '#000000',
+                    state: 'info', // a bootstrap color
+                    message: 'Aguarde...'
+                });
+        
+                var avatar5 = new KTImageInput('kt_profile_avatar');
+                avatar5.on('cancel', function (imageInput) {
                     debugger;
-                    if (!data.Ok) {
-                        var foto64atual = $('#HdnNovaFoto').val();
-                        var stringFoto = "url('data:image;base64," + foto64atual + "')";
-                        document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
-                    }
-                    else{
-                        var stringFoto = "";
-                        if (foto64 != ""){
-                            stringFoto = "url('data:image;base64," + foto64 + "')";
+                    var foto64 = $('#HdnVelhaFoto').val();
+                    var idUsuario = $('#HdnIdUsuario').val();
+        
+                    if (foto64 != ""){
+                        foto64 = foto64.split(',')[1];
+                    }                
+        
+                    $.ajax({
+                        url: urlAlterarFoto,
+                        type: 'POST',
+                        dataType: "html",
+                        data: { 'idUsuario': idUsuario, 'foto64': foto64 },
+                        success: function (json) {
+        
+                            var data = JSON.parse(json);
+        
+                            debugger;
+                            if (!data.Ok) {
+                                var foto64atual = $('#HdnNovaFoto').val();
+                                var stringFoto = "url('data:image;base64," + foto64atual + "')";
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            }
+                            else{
+                                var stringFoto = "";
+                                if (foto64 != ""){
+                                    stringFoto = "url('data:image;base64," + foto64 + "')";
+                                }
+                                else{
+                                    stringFoto = "url(/Noteflix/Content/img/sem-foto.png)";
+                                } 
+                                
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            }
+                            KTApp.unblockPage();
+                            swal.fire({
+                                text: data.Message,
+                                icon: data.Ok ? "success" : "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                
+                            });
+                        },
+        
+                        error: function () {
+                            var foto64atual = $('#HdnNovaFoto').val();
+                            var stringFoto = "url('data:image;base64," + foto64atual + "')";
+                            document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            swal.fire({
+                                text: "Desculpe, houve um erro na requisição!",
+                                icon: "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                
+                            });
                         }
-                        else{
-                            stringFoto = "url(/Noteflix/Content/img/sem-foto.png)";
-                        } 
-                        
-                        document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
-                    }
-                    KTApp.unblock('#kt_quick_user');
-                    swal.fire({
-                        text: data.Message,
-                        icon: data.Ok ? "success" : "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok",
-                        customClass: {
-                            confirmButton: "btn font-weight-bold btn-light-primary"
-                        }
-                    }).then(function() {
-                        
-                    });
-                },
+                    });                    
+        
+                });
 
-                error: function () {
-                    var foto64atual = $('#HdnNovaFoto').val();
-                    var stringFoto = "url('data:image;base64," + foto64atual + "')";
-                    document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
-                    swal.fire({
-                        text: "Desculpe, houve um erro na requisição!",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok",
-                        customClass: {
-                            confirmButton: "btn font-weight-bold btn-light-primary"
-                        }
-                    }).then(function() {
-                        
-                    });
-                }
-            })
-            //end teste
-
+            }
         });
+        
     }
 
     //remove
     var onClickRemove = function () {
 
-        KTApp.block('#kt_quick_user', {
-            overlayColor: '#000000',
-            state: 'success', // a bootstrap color
-            size: 'lg' //available custom sizes: sm|lg
-        });
+        swal.fire({
+            title: "Você tem certeza?",
+            text: "Realmente deseja remover sua foto de usuário?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim",
+            cancelButtonText: "Não",
+            customClass: {
+                confirmButton: "btn font-weight-bold btn-primary",
+                cancelButton: "btn font-weight-bold btn-light"
+            }
+        }).then(function(result) {
+            if(result.value){
 
-        var avatar5 = new KTImageInput('kt_profile_avatar');
-        avatar5.on('remove', function (imageInput) {
-            debugger;
-            var idUsuario = $('#HdnIdUsuario').val();
-
-            $.ajax({
-                url: urlAlterarFoto,
-                type: 'POST',
-                dataType: "html",
-                data: { 'idUsuario': idUsuario, 'foto64': "" },
-                success: function (json) {
-
-                    var data = JSON.parse(json);
-
+                KTApp.blockPage({
+                    overlayColor: '#000000',
+                    state: 'info', // a bootstrap color
+                    message: 'Aguarde...'
+                });
+        
+                var avatar5 = new KTImageInput('kt_profile_avatar');
+                avatar5.on('remove', function (imageInput) {
                     debugger;
-                    if (data.Ok) {
-                        document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";                        
-                    }
-                    else {
-                        var foto64atual = $('#HdnNovaFoto').val();
-                        var stringFoto = "url('data:image;base64," + foto64atual + "')";
-                        document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
-                    }
-                    KTApp.unblock('#kt_quick_user');
-                    swal.fire({
-                        text: data.Message,
-                        icon: data.Ok ? "success" : "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok",
-                        customClass: {
-                            confirmButton: "btn font-weight-bold btn-light-primary"
+                    var idUsuario = $('#HdnIdUsuario').val();
+        
+                    $.ajax({
+                        url: urlAlterarFoto,
+                        type: 'POST',
+                        dataType: "html",
+                        data: { 'idUsuario': idUsuario, 'foto64': "" },
+                        success: function (json) {
+        
+                            var data = JSON.parse(json);
+        
+                            debugger;
+                            if (data.Ok) {
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";                        
+                            }
+                            else {
+                                var foto64atual = $('#HdnNovaFoto').val();
+                                var stringFoto = "url('data:image;base64," + foto64atual + "')";
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            }
+                            KTApp.unblockPage();
+                            swal.fire({
+                                text: data.Message,
+                                icon: data.Ok ? "success" : "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                
+                            });
+        
+                        },
+        
+                        error: function () {
+                            var foto64atual = $('#HdnNovaFoto').val();
+                            var stringFoto = "url('data:image;base64," + foto64atual + "')";
+                            document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            KTApp.unblockPage();
+                            swal.fire({
+                                text: "Desculpe, houve um erro na requisição!",
+                                icon: "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+        
+                            });
+        
                         }
-                    }).then(function() {
-                        
                     });
+        
+                });
 
-                },
-
-                error: function () {
-                    var foto64atual = $('#HdnNovaFoto').val();
-                    var stringFoto = "url('data:image;base64," + foto64atual + "')";
-                    document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
-                    KTApp.unblock('#kt_quick_user');
-                    swal.fire({
-                        text: "Desculpe, houve um erro na requisição!",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok",
-                        customClass: {
-                            confirmButton: "btn font-weight-bold btn-light-primary"
-                        }
-                    }).then(function() {
-
-                    });
-
-                }
-            })
-            //end teste
-
+            }
         });
+       
     }
 
     return {
@@ -290,7 +316,6 @@ var FotoAPI = function () {
             onChange();
             onClickCancel();
             onClickRemove();
-            KTApp.unblock('#kt_quick_user');
         },
     };
 }();
