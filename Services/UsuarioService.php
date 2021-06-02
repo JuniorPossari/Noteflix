@@ -242,6 +242,36 @@
 
         }
 
+        public function TemPermissaoDeAdministrador(){
+
+            $isAdmin = false;
+
+            if (isset($_SESSION['usr'])) {
+                
+                $cargoService = new CargoService();
+        
+                $idUsuario = $_SESSION['usr'];
+        
+                $user = $this->ObterPorId($idUsuario);
+        
+                if(isset($user)){
+        
+                    extract($user);
+        
+                    if(isset($Id)){
+        
+                        $isAdmin = $cargoService->VerificarCargoDoUsuario($Id, "Administrador");
+        
+                    }
+        
+                }        
+                
+            }
+
+            return $isAdmin;
+
+        }
+
     }
 
 ?>

@@ -28,7 +28,7 @@ var FotoAPI = function () {
                 inputNovaFoto.value = reader.result.split(',')[1];
                 var foto64 = inputNovaFoto.value;
                 var idUsuario = $('#HdnIdUsuario').val();
-                debugger
+                
 
                 if (reader.result == null || reader.result == "") {
                     KTApp.unblockPage();
@@ -50,13 +50,8 @@ var FotoAPI = function () {
                         data: { 'idUsuario': idUsuario, 'foto64': foto64 },
                         success: function (json) {
 
-
-                            debugger;
-
-
                             var data = JSON.parse(json);
-
-                            debugger;
+                            
                             KTApp.unblockPage();
 
                             if (data.Ok) {
@@ -72,7 +67,7 @@ var FotoAPI = function () {
                                 });
                             }
                             else {
-                                debugger
+                                
                                 var inputVelhaFoto = $('#HdnVelhaFoto').val();
 
                                 if (inputVelhaFoto == "" || inputVelhaFoto == null)
@@ -131,29 +126,30 @@ var FotoAPI = function () {
     //cancel
     var onClickCancel = function () {
 
-        swal.fire({
-            title: "Você tem certeza?",
-            text: "Realmente deseja voltar a foto anterior?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Sim",
-            cancelButtonText: "Não",
-            customClass: {
-                confirmButton: "btn font-weight-bold btn-primary",
-                cancelButton: "btn font-weight-bold btn-light"
-            }
-        }).then(function(result) {
-            if(result.value){
+        var avatar5 = new KTImageInput('kt_profile_avatar');
+        avatar5.on('cancel', function (imageInput) {
 
-                KTApp.blockPage({
-                    overlayColor: '#000000',
-                    state: 'info', // a bootstrap color
-                    message: 'Aguarde...'
-                });
-        
-                var avatar5 = new KTImageInput('kt_profile_avatar');
-                avatar5.on('cancel', function (imageInput) {
-                    debugger;
+            swal.fire({
+                title: "Você tem certeza?",
+                text: "Realmente deseja voltar a foto anterior?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não",
+                customClass: {
+                    confirmButton: "btn font-weight-bold btn-primary",
+                    cancelButton: "btn font-weight-bold btn-light"
+                }
+            }).then(function(result) {
+                if(result.value){
+
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'info', // a bootstrap color
+                        message: 'Aguarde...'
+                    });
+                    
+                    
                     var foto64 = $('#HdnVelhaFoto').val();
                     var idUsuario = $('#HdnIdUsuario').val();
         
@@ -170,7 +166,7 @@ var FotoAPI = function () {
         
                             var data = JSON.parse(json);
         
-                            debugger;
+                            
                             if (!data.Ok) {
                                 var foto64atual = $('#HdnNovaFoto').val();
                                 var stringFoto = "url('data:image;base64," + foto64atual + "')";
@@ -215,41 +211,49 @@ var FotoAPI = function () {
                                 
                             });
                         }
-                    });                    
-        
-                });
+                    }); 
 
-            }
+                }
+                else{
+                    var foto64atual = $('#HdnNovaFoto').val();
+                    var stringFoto = "url('data:image;base64," + foto64atual + "')";
+                    document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                }
+
+            });
+
         });
         
     }
 
     //remove
     var onClickRemove = function () {
-
-        swal.fire({
-            title: "Você tem certeza?",
-            text: "Realmente deseja remover sua foto de usuário?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Sim",
-            cancelButtonText: "Não",
-            customClass: {
-                confirmButton: "btn font-weight-bold btn-primary",
-                cancelButton: "btn font-weight-bold btn-light"
-            }
-        }).then(function(result) {
-            if(result.value){
-
-                KTApp.blockPage({
-                    overlayColor: '#000000',
-                    state: 'info', // a bootstrap color
-                    message: 'Aguarde...'
-                });
         
-                var avatar5 = new KTImageInput('kt_profile_avatar');
-                avatar5.on('remove', function (imageInput) {
-                    debugger;
+        var avatar5 = new KTImageInput('kt_profile_avatar');
+        avatar5.on('remove', function (imageInput) {
+
+            swal.fire({
+                title: "Você tem certeza?",
+                text: "Realmente deseja remover sua foto de usuário?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não",
+                customClass: {
+                    confirmButton: "btn font-weight-bold btn-primary",
+                    cancelButton: "btn font-weight-bold btn-light"
+                }
+            }).then(function(result) {
+                if(result.value){
+
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'info', // a bootstrap color
+                        message: 'Aguarde...'
+                    });
+            
+                    
+                    
                     var idUsuario = $('#HdnIdUsuario').val();
         
                     $.ajax({
@@ -261,7 +265,7 @@ var FotoAPI = function () {
         
                             var data = JSON.parse(json);
         
-                            debugger;
+                            
                             if (data.Ok) {
                                 document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";                        
                             }
@@ -302,10 +306,10 @@ var FotoAPI = function () {
         
                         }
                     });
-        
-                });
 
-            }
+                }
+            });
+
         });
        
     }

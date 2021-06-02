@@ -8,6 +8,14 @@
 
         }
 
+        public function Gerenciamento(){
+
+            
+                $this->CarregarLayout('Home/Gerenciamento');
+                     
+
+        }
+
     }
 
 ?>

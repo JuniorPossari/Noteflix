@@ -62,16 +62,16 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Page Vendors Styles(used by this page)-->
-		<link href="Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendors Styles-->
 		<!--begin::Global Theme Styles(used by all pages)-->
-		<link href="Metronic/demo2/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="Metronic/demo2/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Noteflix/Metronic/demo2/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="Content/icon/noteflix.ico" />
+		<link rel="shortcut icon" href="/Noteflix/Content/icon/noteflix.ico" />
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -96,7 +96,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div id="kt_header_mobile" class="header-mobile">
 			<!--begin::Logo-->
 			<a href="Index.php">
-				<img alt="Logo" src="Content/icon/noteflix.png" heigth="30" width="30" />
+				<img alt="Logo" src="/Noteflix/Content/icon/noteflix.png" heigth="30" width="30" />
 				<!--Metronic/demo2/dist/assets/media/logos/logo-letter-1.png-->
 			</a>
 			<!--end::Logo-->
@@ -136,7 +136,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--begin::Header Logo-->
 								<div class="header-logo">
 									<a href="/Noteflix">
-										<img alt="Logo" src="Content/icon/noteflix-lg.png" heigth="40" width="150" />
+										<img alt="Logo" src="/Noteflix/Content/icon/noteflix-lg.png" heigth="40" width="150" />
 									</a>
 								</div>
 								<!--end::Header Logo-->
@@ -337,15 +337,15 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#6993FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#E1E9FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="Metronic/demo2/dist/assets/plugins/global/plugins.bundle.js"></script>
-		<script src="Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
+		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<script src="/Noteflix/Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Vendors(used by this page)-->
-		<script src="Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="Metronic/demo2/dist/assets/js/pages/widgets.js"></script>
+		<script src="/Noteflix/Metronic/demo2/dist/assets/js/pages/widgets.js"></script>
 		<!--end::Page Scripts-->
 
 		<!-- Slick JavaScript -->

@@ -60,6 +60,12 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
+
+					KTApp.blockPage({
+						overlayColor: '#000000',
+						state: 'info', // a bootstrap color
+						message: 'Aguarde...'
+					});
 					
             		var email = $('#kt_login_signin_form input[name="email"]').val();
 					var password = $('#kt_login_signin_form input[name="password"]').val();					
@@ -72,6 +78,8 @@ var KTLogin = function() {
 						success: function (json) {
 
 							var data = JSON.parse(json);
+
+							KTApp.unblockPage();
 
 							if(data.Ok){							
 								window.location.href = "/Noteflix/";
@@ -215,6 +223,11 @@ var KTLogin = function() {
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
 
+					KTApp.blockPage({
+						overlayColor: '#000000',
+						state: 'info', // a bootstrap color
+						message: 'Aguarde...'
+					});
 
 					var username = $('#kt_login_signup_form input[name="username"]').val();
             		var email = $('#kt_login_signup_form input[name="email"]').val();
@@ -229,6 +242,8 @@ var KTLogin = function() {
 						success: function (json) {
 
 							var data = JSON.parse(json);
+
+							KTApp.unblockPage();
 			
 							swal.fire({
 								text: data.Message,
@@ -333,6 +348,14 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
+
+					KTApp.blockPage({
+						overlayColor: '#000000',
+						state: 'info', // a bootstrap color
+						message: 'Aguarde...'
+					});
+
+					KTApp.unblockPage();
                     // Submit form
                     KTUtil.scrollTop();
 				} else {

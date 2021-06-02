@@ -267,7 +267,7 @@
 						<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
 							<a href="javascript:;" class="menu-link menu-toggle">
 								<span class="svg-icon menu-icon">
-									<img src="Content/icon/netflix.svg" height="30" width="30">
+									<img src="/Noteflix/Content/icon/netflix.svg" height="30" width="30">
 								</span>
 								<span class="menu-text">Netflix</span>
 							</a>
@@ -275,7 +275,7 @@
 						<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
 							<a href="javascript:;" class="menu-link menu-toggle">
 								<span class="svg-icon menu-icon">
-									<img src="Content/icon/primevideo.svg" height="30" width="30">
+									<img src="/Noteflix/Content/icon/primevideo.svg" height="30" width="30">
 								</span>
 								<span class="menu-text">Prime Video</span>
 							</a>
@@ -283,7 +283,7 @@
 						<li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true">
 							<a href="javascript:;" class="menu-link menu-toggle">
 								<span class="svg-icon menu-icon">
-									<img src="Content/icon/disneyplus.svg" height="30" width="30">
+									<img src="/Noteflix/Content/icon/disneyplus.svg" height="30" width="30">
 								</span>
 								<span class="menu-text">Disney+</span>
 							</a>
