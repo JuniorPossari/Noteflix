@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin: Aside Container-->
 					<div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-35">
 						<!--begin::Logo-->
-						<a href="/Noteflix" class="text-center pt-2">
+						<a href="/Noteflix/Home/Index" class="text-center pt-2">
 							<img src="/Noteflix/Content/icon/noteflix.png" class="max-h-75px" alt="" />
 						</a>
 						<!--end::Logo-->

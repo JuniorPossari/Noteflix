@@ -95,7 +95,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile">
 			<!--begin::Logo-->
-			<a href="Index.php">
+			<a href="/Noteflix/Home/Index">
 				<img alt="Logo" src="/Noteflix/Content/icon/noteflix.png" heigth="30" width="30" />
 				<!--Metronic/demo2/dist/assets/media/logos/logo-letter-1.png-->
 			</a>
@@ -135,7 +135,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="d-flex align-items-stretch mr-3">
 								<!--begin::Header Logo-->
 								<div class="header-logo">
-									<a href="/Noteflix">
+									<a href="/Noteflix/Home/Index">
 										<img alt="Logo" src="/Noteflix/Content/icon/noteflix-lg.png" heigth="40" width="150" />
 									</a>
 								</div>
@@ -264,13 +264,13 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">						
 						<!--begin::Entry-->
-						<div class="container-fluid mt-20" style="height: 100%; width: 70% !important; border-radius: 20px; background-color: #f8f7ff; padding: 20px; border: 2px solid #5a00e0;">
+						
 							<?php
 								
 								$this->CarregarView($nomeView, $dadosModel);
 											
 							?>
-						</div>
+							
 						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
