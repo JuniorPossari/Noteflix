@@ -9,6 +9,22 @@
 			<!--begin::Navigation-->
 			<ul class="navi navi-hover py-3">
 				<li class="navi-item">
+					<a href="/Noteflix/Diretor/Index" class="navi-link">
+						<span class="navi-icon">
+							<i class="flaticon2-arrow"></i>
+						</span>
+						<span class="navi-text">Diretores</span>
+					</a>
+				</li>
+				<li class="navi-item">
+					<a href="/Noteflix/Elenco/Index" class="navi-link">
+						<span class="navi-icon">
+							<i class="flaticon2-arrow"></i>
+						</span>
+						<span class="navi-text">Elencos</span>
+					</a>
+				</li>
+				<li class="navi-item">
 					<a href="/Noteflix/Filme/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="flaticon2-arrow"></i>

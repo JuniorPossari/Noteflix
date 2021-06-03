@@ -45,14 +45,14 @@
                 <h3 class="card-label font-weight-bolder text-dark">Séries</h3>
             </div>
             <div class="card-toolbar">
-                <a href="/Noteflix/Serie/Cadastrar" class="btn btn-primary">Cadastrar</a>
+                <a href="/Noteflix/Serie/Cadastrar" class="btn btn-primary font-weight-bold">Cadastrar</a>
             </div>
         </div>
         <!--end::Header-->
         <!--begin::Body-->                    
         <div class="card-body">
             
-
+            <div id="kt_datatable"></div>
 
         </div>                    
         <!--end::Body-->

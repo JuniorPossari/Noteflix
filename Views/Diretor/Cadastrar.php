@@ -19,8 +19,12 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Filme/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Filmes</a>
-                    <!--end::Item-->                   
+                    <a href="/Noteflix/Diretor/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Diretores</a>
+                    <!--end::Item--> 
+                    <!--begin::Item-->
+                    <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
+                    <a href="/Noteflix/Diretor/Cadastrar" class="text-white text-hover-white opacity-75 hover-opacity-100">Cadastrar</a>
+                    <!--end::Item-->                    
                 </div>
                 <!--end::Breadcrumb-->
             </div>
@@ -42,21 +46,36 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Filmes</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Diretor</h3>
             </div>
             <div class="card-toolbar">
-                <a href="/Noteflix/Filme/Cadastrar" class="btn btn-primary font-weight-bold">Cadastrar</a>
             </div>
         </div>
         <!--end::Header-->
         <!--begin::Body-->                    
         <div class="card-body">
-            
-            <div id="kt_datatable"></div>
-
+            <form id="Form">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="DiretorNome" class="form-control" id="DiretorNome">
+                </div>
+            </form>            
         </div>                    
         <!--end::Body-->
+        <!--begin:Footer-->
+        <div class="card-footer">
+            <a href="/Noteflix/Diretor/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
+        </div>
+        <!--end:Footer-->
     </div>
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<script src="/Noteflix/Scripts/Diretor/Diretor.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        DiretorAPI.initCadastrar();
+    });
+</script>

@@ -46,7 +46,7 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Filmes</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Filme</h3>
             </div>
             <div class="card-toolbar">
             </div>

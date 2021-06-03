@@ -87,9 +87,9 @@ var KTLogin = function() {
 							else{
 
 								swal.fire({
+									title: data.MessageTitle,
 									text: data.Message,
 									icon: data.Ok ? "success" : "error",
-									buttonsStyling: false,
 									confirmButtonText: "Ok",
 									customClass: {
 										confirmButton: "btn font-weight-bold btn-light-primary"
@@ -106,9 +106,9 @@ var KTLogin = function() {
 						error: function () {
 		
 							swal.fire({
+								title: "Aviso",
 								text: "Desculpe, houve um erro na requisição!",
 								icon: "error",
-								buttonsStyling: false,
 								confirmButtonText: "Ok",
 								customClass: {
 									confirmButton: "btn font-weight-bold btn-light-primary"
@@ -122,9 +122,9 @@ var KTLogin = function() {
                     
 				} else {
 					swal.fire({
+						title: "Aviso",
 		                text: "Você deve preencher todos os campos!",
 		                icon: "error",
-		                buttonsStyling: false,
 		                confirmButtonText: "Ok",
                         customClass: {
     						confirmButton: "btn font-weight-bold btn-light-primary"
@@ -246,9 +246,9 @@ var KTLogin = function() {
 							KTApp.unblockPage();
 			
 							swal.fire({
+								title: data.MessageTitle,
 								text: data.Message,
 								icon: data.Ok ? "success" : "error",
-								buttonsStyling: false,
 								confirmButtonText: "Ok",
 								customClass: {
 									confirmButton: "btn font-weight-bold btn-light-primary"
@@ -278,9 +278,9 @@ var KTLogin = function() {
 						error: function () {
 		
 							swal.fire({
+								title: "Aviso",
 								text: "Desculpe, houve um erro na requisição!",
 								icon: "error",
-								buttonsStyling: false,
 								confirmButtonText: "Ok",
 								customClass: {
 									confirmButton: "btn font-weight-bold btn-light-primary"
@@ -294,9 +294,9 @@ var KTLogin = function() {
                     
 				} else {
 					swal.fire({
+						title: "Aviso",
 		                text: "Você deve preencher todos os campos!",
 		                icon: "error",
-		                buttonsStyling: false,
 		                confirmButtonText: "Ok",
                         customClass: {
     						confirmButton: "btn font-weight-bold btn-light-primary"
@@ -360,9 +360,9 @@ var KTLogin = function() {
                     KTUtil.scrollTop();
 				} else {
 					swal.fire({
+						title: "Aviso",
 		                text: "Desculpe! Houve um erro, tente novamente.",
 		                icon: "error",
-		                buttonsStyling: false,
 		                confirmButtonText: "Ok",
                         customClass: {
     						confirmButton: "btn font-weight-bold btn-light-primary"

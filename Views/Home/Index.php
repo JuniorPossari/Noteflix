@@ -116,7 +116,7 @@
 
 <script src="/Noteflix/Scripts/Home/Index.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(function () {
+    jQuery(document).ready(function() {
         IndexAPI.init();
     });
 </script>

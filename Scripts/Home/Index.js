@@ -1,6 +1,5 @@
 "use strict";
 
-// Class Definition
 var IndexAPI = function() {
     
     var MontarSlickCarousel = function(){
@@ -28,8 +27,3 @@ var IndexAPI = function() {
         }
     };
 }();
-
-// Class Initialization
-jQuery(document).ready(function() {
-    IndexAPI.init();
-});

@@ -10,9 +10,9 @@
 
         }
 
-        public function DataError(){
+        public function DataError($e = null){
 
-            $response = array("Ok" => false, "MessageTitle" => "Aviso", "Message" => "Desculpe, houve um erro na requisição. Tente novamente mais tarde!", "Result" => array());
+            $response = array("Ok" => false, "MessageTitle" => "Aviso", "Message" => isset($e) ? $e : "Desculpe, houve um erro na requisição. Tente novamente mais tarde!", "Result" => array());
             
             return json_encode($response);
 
