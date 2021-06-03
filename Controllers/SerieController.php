@@ -8,6 +8,12 @@
 
         }
 
+        public function Cadastrar(){
+
+            $this->CarregarLayout('Serie/Cadastrar');
+
+        }
+
     }
 
 ?>

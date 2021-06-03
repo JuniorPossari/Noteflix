@@ -48,16 +48,7 @@
                 $metodo = 'Index';
             }
 
-            if($this->user){
-                $pg_permission = ['HomeController', 'UsuarioController'];
-
-                if(!isset($controller) || !in_array($controller, $pg_permission)){
-                    $controller = 'HomeController';
-                    $metodo = 'Index';
-                }
-
-            }
-            else{
+            if(!$this->user){
                 $pg_permission = ['HomeController', 'UsuarioController'];
 
                 if(!isset($controller) || !in_array($controller, $pg_permission)){
@@ -65,6 +56,10 @@
                     $metodo = 'Login';
                 }
             }
+            else{
+                //Verificar se é admin e configurar as paginas que não são permitidas
+            }
+            
 
             $c = new $controller;
 
