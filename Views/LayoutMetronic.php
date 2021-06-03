@@ -85,7 +85,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
-	<body id="kt_body" style="background-image: url(Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
+	<body id="kt_body" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
 
 
 		<!-- jQuery library -->
@@ -143,9 +143,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 								<?php
-
-									include 'Views/Metronic/Menu.php'
-
+									include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Menu.php');
 								?>
 
 
@@ -323,11 +321,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<?php
 		
 			if($isAuthenticated){
-				include 'Metronic/Userprofile.php';
+				include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Userprofile.php');
 			}
 
-			if($isAdmin && $isAuthenticated){
-				include 'Metronic/Toolbar.php';
+			if($isAdmin && $isAuthenticated){				
+				include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Toolbar.php');
 			}
 
 		?>

@@ -46,11 +46,11 @@
     </div>
     <div class="mt-20">
         <div class="carousel">
-            <div class="previa"><img src="Content/img/invocação-do-mal-3.jpg"></div>
-            <div class="previa"><img src="Content/img/cruella.jpg"></div>
-            <div class="previa"><img src="Content/img/aqueles-que-me-desejam-a-morte.jpg"></div>
-            <div class="previa"><img src="Content/img/godzilla-vs-kong.jpg"></div>
-            <div class="previa"><img src="Content/img/mortal-kombat.jpg"></div>
+            <div class="previa"><img src="/Noteflix/Content/img/invocação-do-mal-3.jpg"></div>
+            <div class="previa"><img src="/Noteflix/Content/img/cruella.jpg"></div>
+            <div class="previa"><img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg"></div>
+            <div class="previa"><img src="/Noteflix/Content/img/godzilla-vs-kong.jpg"></div>
+            <div class="previa"><img src="/Noteflix/Content/img/mortal-kombat.jpg"></div>
         </div>
     </div>
 </div>
