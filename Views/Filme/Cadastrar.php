@@ -56,39 +56,39 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" id="FilmeNome">
+                <input type="text" class="form-control" name="FilmeNome" id="FilmeNome">
             </div>
             <div class="form-group">   
                 <label>Duração</label>
-                <input type="time" class="form-control" id="FilmeDuracao">
+                <input type="time" class="form-control" name="FilmeDuracao" id="FilmeDuracao">
             </div>
             <div class="form-group"> 
                 <label>Data de lançamento</label>
-                <input type="date" class="form-control" id="FilmeDataLancamento">
+                <input type="date" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento">
             </div>
             <div class="form-group"> 
                 <label>Diretor</label>
-                <input type="text" class="form-control" id="FilmeDiretor">
+                <input type="text" class="form-control" name="FilmeDiretor" id="FilmeDiretor">
             </div>
             <div class="form-group"> 
                 <label>Elenco</label>
-                <input type="text" class="form-control" id="FilmeElenco">
+                <input type="text" class="form-control" name="FilmeElenco" id="FilmeElenco">
             </div>
             <div class="form-group">       
                 <label>Genero</label>
-                <input type="text" class="form-control" id="FilmeGenero">
+                <input type="text" class="form-control" name="FilmeGenero" id="FilmeGenero">
             </div>
             <div class="form-group"> 
                 <label>Plataforma</label>
-                <input type="text" class="form-control" id="FilmePlataforma">
+                <input type="text" class="form-control" name="FilmePlataforma" id="FilmePlataforma">
             </div>
             <div class="form-group"> 
                 <label>Foto</label>
-                <input type="text" class="form-control" id="FilmeFoto">
+                <input type="text" class="form-control" name="FilmeFoto" id="FilmeFoto">
             </div>
             <div class="form-group"> 
                 <label>Sinopse</label>
-                <textarea rows="5" class="form-control" id="FilmeSinopse"></textarea>
+                <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse"></textarea>
             </div>
         </div>                    
         <!--end::Body-->

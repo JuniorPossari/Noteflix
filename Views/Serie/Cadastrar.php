@@ -56,43 +56,43 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" id="SerieNome">
+                <input type="text" class="form-control" name="SerieNome" id="SerieNome">
             </div>
             <div class="form-group">   
                 <label>Primeiro Episódio</label>
-                <input type="date" class="form-control" id="SeriePrimeiroEp">
+                <input type="date" class="form-control"  name="SeriePrimeiroEp" id="SeriePrimeiroEp">
             </div>
             <div class="form-group"> 
                 <label>Numero de Temporadas</label>
-                <input type="number" class="form-control" id="SerieNumeroTemp">
+                <input type="number" class="form-control" name="SerieNumeroTemp" id="SerieNumeroTemp">
             </div>
             <div class="form-group"> 
                 <label>Data de Termino</label>
-                <input type="date" class="form-control" id="SerieDataTermino">
+                <input type="date" class="form-control" name="SerieDataTermino" id="SerieDataTermino">
             </div>
             <div class="form-group"> 
                 <label>Criador</label>
-                <input type="text" class="form-control" id="SerieCriador">
+                <input type="text" class="form-control" name="SerieCriador" id="SerieCriador">
             </div>
             <div class="form-group">       
                 <label>Elenco</label>
-                <input type="text" class="form-control" id="SerieElenco">
+                <input type="text" class="form-control" name="SerieElenco" id="SerieElenco">
             </div>
             <div class="form-group">       
                 <label>Genero</label>
-                <input type="text" class="form-control" id="SerieGenero">
+                <input type="text" class="form-control" name="SerieGenero" id="SerieGenero">
             </div>
             <div class="form-group"> 
                 <label>Plataforma</label>
-                <input type="text" class="form-control" id="SeriePlataforma">
+                <input type="text" class="form-control" name="SeriePlataforma" id="SeriePlataforma">
             </div>
             <div class="form-group"> 
                 <label>Foto</label>
-                <input type="text" class="form-control" id="SerieFoto">
+                <input type="text" class="form-control" name="SerieFoto" id="SerieFoto">
             </div>
             <div class="form-group"> 
                 <label>Sinopse</label>
-                <textarea rows="5" class="form-control" id="SerieSinopse"></textarea>
+                <textarea rows="5" class="form-control" name="SerieSinopse" id="SerieSinopse"></textarea>
             </div>
         </div>                                      
         <!--end::Body-->
