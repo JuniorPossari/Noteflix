@@ -56,9 +56,45 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" id="FilmeNome">
+                <input type="text" class="form-control" id="SerieNome">
             </div>
-        </div>                    
+            <div class="form-group">   
+                <label>Primeiro Episódio</label>
+                <input type="date" class="form-control" id="SeriePrimeiroEp">
+            </div>
+            <div class="form-group"> 
+                <label>Numero de Temporadas</label>
+                <input type="number" class="form-control" id="SerieNumeroTemp">
+            </div>
+            <div class="form-group"> 
+                <label>Data de Termino</label>
+                <input type="date" class="form-control" id="SerieDataTermino">
+            </div>
+            <div class="form-group"> 
+                <label>Criador</label>
+                <input type="text" class="form-control" id="SerieCriador">
+            </div>
+            <div class="form-group">       
+                <label>Elenco</label>
+                <input type="text" class="form-control" id="SerieElenco">
+            </div>
+            <div class="form-group">       
+                <label>Genero</label>
+                <input type="text" class="form-control" id="SerieGenero">
+            </div>
+            <div class="form-group"> 
+                <label>Plataforma</label>
+                <input type="text" class="form-control" id="SeriePlataforma">
+            </div>
+            <div class="form-group"> 
+                <label>Foto</label>
+                <input type="text" class="form-control" id="SerieFoto">
+            </div>
+            <div class="form-group"> 
+                <label>Sinopse</label>
+                <textarea rows="5" class="form-control" id="SerieSinopse"></textarea>
+            </div>
+        </div>                                      
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
