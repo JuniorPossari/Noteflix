@@ -241,7 +241,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
 												<ul class="menu-nav">
 													<li class="menu-item" aria-haspopup="true">
-														<a href="Usuario/Login" class="menu-link">													
+														<a href="/Noteflix/Usuario/Login" class="menu-link">													
 															<span class="menu-text text-hover-success">Login</span>
 														</a>
 													</li>

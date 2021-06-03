@@ -3,6 +3,7 @@
 var DiretorAPI = function() {
 
     var urlSalvar = "/Noteflix/Diretor/Salvar/";
+    var urlSuccess = "/Noteflix/Diretor/Index/";
 
     var validation = null;
     
@@ -82,7 +83,7 @@ var DiretorAPI = function() {
                                     }).then(function() {
     
                                         if(data.Ok){							
-                                            //window.location.href = urlSuccess;
+                                            window.location.href = urlSuccess;
                                         }
                                         else{        
                                             
