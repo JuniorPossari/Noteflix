@@ -58,6 +58,38 @@
                 <label>Nome</label>
                 <input type="text" class="form-control" id="FilmeNome">
             </div>
+            <div class="form-group">   
+                <label>Duração</label>
+                <input type="time" class="form-control" id="FilmeDuracao">
+            </div>
+            <div class="form-group"> 
+                <label>Data de lançamento</label>
+                <input type="date" class="form-control" id="FilmeDataLancamento">
+            </div>
+            <div class="form-group"> 
+                <label>Diretor</label>
+                <input type="text" class="form-control" id="FilmeDiretor">
+            </div>
+            <div class="form-group"> 
+                <label>Elenco</label>
+                <input type="text" class="form-control" id="FilmeElenco">
+            </div>
+            <div class="form-group">       
+                <label>Genero</label>
+                <input type="text" class="form-control" id="FilmeGenero">
+            </div>
+            <div class="form-group"> 
+                <label>Plataforma</label>
+                <input type="text" class="form-control" id="FilmePlataforma">
+            </div>
+            <div class="form-group"> 
+                <label>Foto</label>
+                <input type="text" class="form-control" id="FilmeFoto">
+            </div>
+            <div class="form-group"> 
+                <label>Sinopse</label>
+                <textarea rows="5" class="form-control" id="FilmeSinopse"></textarea>
+            </div>
         </div>                    
         <!--end::Body-->
         <!--begin:Footer-->
