@@ -14,6 +14,29 @@
 
         }
 
+        public function Listar($param){
+
+            try{
+                $diretorService = new DiretorService();
+
+                $result = $diretorService->Listar($param);
+
+                header('Content-Type: application/json');
+
+                echo $result;
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
+
+        }
+
         public function Salvar($dados){
 
             try{
