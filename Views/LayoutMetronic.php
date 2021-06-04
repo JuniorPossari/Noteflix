@@ -81,15 +81,19 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- Add the slick-theme.css if you want default styling -->
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
+		<link rel="stylesheet" href="/Noteflix/Content/css/site.css">
+
+		<!-- jQuery library -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script src="/Noteflix/Content/js/NoteflixDefaultOptions.js"></script>
+
 
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
-
-
-		<!-- jQuery library -->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
 
 		<!--begin::Main-->
 		<!--begin::Header Mobile-->

@@ -1,0 +1,30 @@
+.tabela-noteflix th:not(.table-cell-center) span, .tabela-noteflix td:not(.table-cell-center) > span, .tabela-noteflix td:not(.table-cell-center) > div {
+    padding-left: 1.55rem !important; }
+  
+.tabela-noteflix th {
+background-color: #000000; }
+
+.tabela-noteflix th span {
+    color: white !important;
+    text-transform: capitalize !important;
+    font-weight: normal !important; }
+
+.tabela-noteflix th:last-child {
+border-top-right-radius: 0.42rem;
+border-bottom-right-radius: 0.42rem; }
+
+.tabela-noteflix th:first-child {
+border-top-left-radius: 0.42rem;
+border-bottom-left-radius: 0.42rem; }
+
+.tabela-noteflix .datatable-pager-link-active {
+background-color: #000000 !important; }
+
+.tabela-noteflix .datatable-pager-link:hover:not(.datatable-pager-link-disabled) {
+background-color: #000000 !important; }
+
+.tabela-noteflix .flaticon2-arrow-up, .tabela-noteflix .flaticon2-arrow-down {
+color: white !important; }
+
+.datatable.datatable-default.tabela-noteflix > .datatable-pager > .datatable-pager-info .datatable-pager-size .btn.dropdown-toggle:hover {
+background-color: #000000 !important; }
