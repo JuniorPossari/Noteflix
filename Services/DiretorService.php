@@ -73,7 +73,7 @@
             $existeDiretor = $this::VerificarSeDiretorExiste($diretorNome);
 
             if($existeDiretor){
-                $result = $json->Data(false, "Aviso", "Desculpe, esse nome diretor já existe!");
+                $result = $json->Data(false, "Aviso", "Desculpe, esse diretor já foi cadastrado!");
                 return $result;
             }
 

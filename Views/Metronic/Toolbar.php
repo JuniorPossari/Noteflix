@@ -21,7 +21,7 @@
 						<span class="navi-icon">
 							<i class="flaticon2-arrow"></i>
 						</span>
-						<span class="navi-text">Elencos</span>
+						<span class="navi-text">Atores</span>
 					</a>
 				</li>
 				<li class="navi-item">
