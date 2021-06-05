@@ -1,45 +1,45 @@
 <?php
 
-    Class DiretorController extends Controller{
+    Class CriadorController extends Controller{
 
         public function Index(){
 
-            $this->CarregarLayout('Diretor/Index');
+            $this->CarregarLayout('Criador/Index');
 
         }
 
         public function Cadastrar(){
 
-            $this->CarregarLayout('Diretor/Cadastrar');
+            $this->CarregarLayout('Criador/Cadastrar');
 
         }
 
         public function Alterar($id){
 
-            $diretorService = new DiretorService();
+            $criadorService = new CriadorService();
 
-            $dados = $diretorService->ObterPorId($id);
+            $dados = $criadorService->ObterPorId($id);
 
-            $this->CarregarLayout('Diretor/Alterar', $dados);
+            $this->CarregarLayout('Criador/Alterar', $dados);
 
         }
 
         public function Visualizar($id){
 
-            $diretorService = new DiretorService();
+            $criadorService = new CriadorService();
 
-            $dados = $diretorService->ObterPorId($id);
+            $dados = $criadorService->ObterPorId($id);
 
-            $this->CarregarLayout('Diretor/Visualizar', $dados);
+            $this->CarregarLayout('Criador/Visualizar', $dados);
 
         }
 
         public function Salvar($dados){
 
             try{
-                $diretorService = new DiretorService();
+                $criadorService = new CriadorService();
 
-                $result = $diretorService->Salvar($dados);
+                $result = $criadorService->Salvar($dados);
 
                 header('Content-Type: application/json');
 
@@ -60,9 +60,9 @@
         public function SalvarAlteracao($dados){
 
             try{
-                $diretorService = new DiretorService();
+                $criadorService = new CriadorService();
 
-                $result = $diretorService->SalvarAlteracao($dados);
+                $result = $criadorService->SalvarAlteracao($dados);
 
                 header('Content-Type: application/json');
 
@@ -83,9 +83,9 @@
         public function Excluir($dados){
 
             try{
-                $diretorService = new DiretorService();
+                $criadorService = new CriadorService();
 
-                $result = $diretorService->Excluir($dados);
+                $result = $criadorService->Excluir($dados);
 
                 header('Content-Type: application/json');
 

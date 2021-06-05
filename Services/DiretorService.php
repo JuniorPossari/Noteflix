@@ -89,7 +89,34 @@
 
             return $result;
 
-        }  
+        } 
+        
+        public function SalvarAlteracao($dados){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar esse diretor!");
+
+            $diretorId = $_POST['diretorId'];
+            $diretorNome = $_POST['diretorNome'];
+
+            if(!isset($diretorId) || !isset($diretorNome)){
+                return $result;
+            }            
+
+            $cmd = $this->con->prepare('UPDATE Diretor SET Nome = :diretorNome WHERE Id = :diretorId');
+
+            $cmd->bindValue(':diretorId', $diretorId);
+            $cmd->bindValue(':diretorNome', $diretorNome);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Diretor alterado com sucesso!");
+            }
+
+            return $result;
+
+        }
         
         public function Excluir($dados){
 

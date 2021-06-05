@@ -19,7 +19,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Elenco/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Elenco</a>
+                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Ator</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->
@@ -42,10 +42,10 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Elenco</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Atores</h3>
             </div>
             <div class="card-toolbar">
-                <a href="/Noteflix/Elenco/Cadastrar" class="btn btn-primary font-weight-bold">Cadastrar</a>
+                <a href="/Noteflix/Ator/Cadastrar" class="btn btn-primary font-weight-bold">Cadastrar</a>
             </div>
         </div>
         <!--end::Header-->
@@ -61,9 +61,9 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Elenco/Elenco.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Ator/Ator.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        ElencoAPI.initIndex();
+        AtorAPI.initIndex();
     });
 </script>

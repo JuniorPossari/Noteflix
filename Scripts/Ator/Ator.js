@@ -1,9 +1,9 @@
 "use strict";
 
-var ElencoAPI = function() {
+var AtorAPI = function() {
 
-    var urlSalvar = "/Noteflix/Elenco/Salvar/";
-    var urlSuccess = "/Noteflix/Elenco/Index/";
+    var urlSalvar = "/Noteflix/Ator/Salvar/";
+    var urlSuccess = "/Noteflix/Ator/Index/";
 
     var validation = null;
     
@@ -13,7 +13,7 @@ var ElencoAPI = function() {
 			KTUtil.getById('Form'),
 			{
 				fields: {
-					ElencoNome: {
+					AtorNome: {
 						validators: {
 							notEmpty: {
 								message: 'O nome do ator é obrigatório!'
@@ -38,7 +38,7 @@ var ElencoAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja salvar?",
+                text: "Realmente deseja salvar esse ator?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -59,7 +59,7 @@ var ElencoAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var elencoNome = $('#ElencoNome').val();					
+                            var elencoNome = $('#AtorNome').val();					
             
                             $.ajax({
                                 url: urlSalvar,
@@ -137,9 +137,6 @@ var ElencoAPI = function() {
     return {
         
         initIndex: function() {
-
-            Validar();
-            Salvar();
             
         },
         initCadastrar: function() {
@@ -151,13 +148,9 @@ var ElencoAPI = function() {
         initAlterar: function() {
 
             Validar();
-            Salvar();
             
         },
         initVisualizar: function() {
-
-            Validar();
-            Salvar();
             
         }
 

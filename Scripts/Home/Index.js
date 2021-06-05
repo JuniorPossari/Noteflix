@@ -4,7 +4,7 @@ var IndexAPI = function() {
     
     var MontarSlickCarousel = function(){
 
-        $('.carousel').not('.slick-initialized').slick({
+        $('#FilmesLancamentos').not('.slick-initialized').slick({
             dots: true,
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -14,6 +14,8 @@ var IndexAPI = function() {
             adaptiveHeight: true,
             centerMode: true,       
         });
+
+        $('#FilmesLancamentos').removeClass('d-none');
 
     }
 

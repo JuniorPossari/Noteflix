@@ -1,23 +1,23 @@
 <?php
 
-    Class ElencoController extends Controller{
+    Class AtorController extends Controller{
 
         public function Index(){
 
-            $this->CarregarLayout('Elenco/Index');
+            $this->CarregarLayout('Ator/Index');
 
         }
 
         public function Cadastrar(){
 
-            $this->CarregarLayout('Elenco/Cadastrar');
+            $this->CarregarLayout('Ator/Cadastrar');
 
         }
 
         public function Salvar($dados){
 
             try{
-                $elencoService = new ElencoService();
+                $elencoService = new AtorService();
 
                 $result = $elencoService->Salvar($dados);
 

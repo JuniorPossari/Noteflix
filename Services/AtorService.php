@@ -2,7 +2,7 @@
 
     require_once 'ConexaoService.php';
 
-    Class ElencoService{
+    Class AtorService{
 
         private $con;
 
@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Elenco ORDER BY Nome');
+            $cmd = $this->con->query('SELECT * FROM Ator ORDER BY Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             
@@ -26,7 +26,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->prepare('SELECT * FROM Elenco WHERE Id = :id');
+            $cmd = $this->con->prepare('SELECT * FROM Ator WHERE Id = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -40,11 +40,11 @@
 
         }        
 
-        public function VerificarSeElencoExiste($ElencoNome){
+        public function VerificarSeAtorExiste($atorNome){
 
-            $cmd = $this->con->prepare('SELECT Nome FROM Elenco WHERE Nome = :elencoNome');
+            $cmd = $this->con->prepare('SELECT Nome FROM Ator WHERE Nome = :atorNome');
 
-            $cmd->bindValue(':elencoNome', $elencoNome);
+            $cmd->bindValue(':atorNome', $atorNome);
 
             $cmd->execute();
 
@@ -64,22 +64,22 @@
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível cadastrar esse ator!");
 
-            $elencoNome = $_POST['elencoNome'];
+            $atorNome = $_POST['atorNome'];
 
-            if(!isset($elencoNome)){
+            if(!isset($atorNome)){
                 return $result;
             }
 
-            $existeElenco = $this::VerificarSeElencoExiste($elencoNome);
+            $existeAtor = $this::VerificarSeAtorExiste($atorNome);
 
-            if($existeElenco){
+            if($existeAtor){
                 $result = $json->Data(false, "Aviso", "Desculpe, esse ator já foi cadastrado!");
                 return $result;
             }
 
-            $cmd = $this->con->prepare('INSERT INTO Elenco (Nome) VALUES (:elencoNome)');
+            $cmd = $this->con->prepare('INSERT INTO Ator (Nome) VALUES (:atorNome)');
 
-            $cmd->bindValue(':elencoNome', $elencoNome);
+            $cmd->bindValue(':atorNome', $atorNome);
 
             $sucesso = $cmd->execute();
 

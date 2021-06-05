@@ -1,13 +1,13 @@
 "use strict";
 
-var DiretorAPI = function() {
+var CriadorAPI = function() {
 
-    var urlSalvar = "/Noteflix/Diretor/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Diretor/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Diretor/Visualizar/";
-    var urlAlterar = "/Noteflix/Diretor/Alterar/";
-    var urlExcluir = "/Noteflix/Diretor/Excluir/";
-    var urlSuccess = "/Noteflix/Diretor/Index/";
+    var urlSalvar = "/Noteflix/Criador/Salvar/";
+    var urlSalvarAlteracao = "/Noteflix/Criador/SalvarAlteracao/";
+    var urlVisualizar = "/Noteflix/Criador/Visualizar/";
+    var urlAlterar = "/Noteflix/Criador/Alterar/";
+    var urlExcluir = "/Noteflix/Criador/Excluir/";
+    var urlSuccess = "/Noteflix/Criador/Index/";
 
     var validation = null;    
 
@@ -89,7 +89,7 @@ var DiretorAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja excluir esse diretor?",
+                text: "Realmente deseja excluir esse criador?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -171,10 +171,10 @@ var DiretorAPI = function() {
 			KTUtil.getById('Form'),
 			{
 				fields: {
-					DiretorNome: {
+					CriadorNome: {
 						validators: {
 							notEmpty: {
-								message: 'O nome do diretor é obrigatório!'
+								message: 'O nome do criador é obrigatório!'
 							},
 						},
 					},
@@ -196,7 +196,7 @@ var DiretorAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja cadastrar esse diretor?",
+                text: "Realmente deseja cadastrar esse criador?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -217,13 +217,13 @@ var DiretorAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var diretorNome = $('#DiretorNome').val();					
+                            var criadorNome = $('#CriadorNome').val();					
             
                             $.ajax({
                                 url: urlSalvar,
                                 type: 'POST',
                                 dataType: "html",
-                                data: {"diretorNome":diretorNome},
+                                data: {"criadorNome":criadorNome},
                                 success: function (json) {
             
                                     var data = JSON.parse(json);
@@ -297,7 +297,7 @@ var DiretorAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja alterar esse diretor?",
+                text: "Realmente deseja alterar esse criador?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -318,14 +318,14 @@ var DiretorAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var diretorId = $('#DiretorId').val();
-                            var diretorNome = $('#DiretorNome').val();					
+                            var criadorId = $('#CriadorId').val();
+                            var criadorNome = $('#CriadorNome').val();					
             
                             $.ajax({
                                 url: urlSalvarAlteracao,
                                 type: 'POST',
                                 dataType: "html",
-                                data: {"diretorId":diretorId, "diretorNome":diretorNome},
+                                data: {"criadorId":criadorId, "criadorNome":criadorNome},
                                 success: function (json) {
             
                                     var data = JSON.parse(json);

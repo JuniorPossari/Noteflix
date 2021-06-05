@@ -19,11 +19,11 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Elenco/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Elenco</a>
+                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Ator</a>
                     <!--end::Item--> 
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Elenco/Cadastrar" class="text-white text-hover-white opacity-75 hover-opacity-100">Cadastrar</a>
+                    <a href="/Noteflix/Ator/Cadastrar" class="text-white text-hover-white opacity-75 hover-opacity-100">Cadastrar</a>
                     <!--end::Item-->                    
                 </div>
                 <!--end::Breadcrumb-->
@@ -57,18 +57,18 @@
             <form id="Form">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" name="ElencoNome" class="form-control" id="ElencoNome">
+                    <input type="text" name="AtorNome" class="form-control" id="AtorNome">
                 </div>
                 <div class="form-group">
                     <label>Foto</label>
-                    <input type="text" name="ElencoFoto" class="form-control" id="ElencoFoto">
+                    <input type="text" name="AtorFoto" class="form-control" id="AtorFoto">
                 </div>
             </form>            
         </div>                    
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
-            <a href="/Noteflix/Elenco/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="/Noteflix/Ator/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
             <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
         </div>
         <!--end:Footer-->
@@ -77,9 +77,9 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Elenco/Elenco.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Ator/Ator.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        ElencoAPI.initCadastrar();
+        AtorAPI.initCadastrar();
     });
 </script>
