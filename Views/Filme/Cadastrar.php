@@ -1,3 +1,9 @@
+<style>
+    textarea {
+        resize: none;
+    }
+</style>
+
 <!--begin::Subheader-->
 <div class="subheader py-2 py-lg-12 subheader-transparent" id="kt_subheader">
     <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -60,15 +66,22 @@
             </div>
             <div class="form-group">   
                 <label>Duração</label>
-                <input type="time" class="form-control" name="FilmeDuracao" id="FilmeDuracao">
+                <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" readonly placeholder="Selecione a hora" />
             </div>
             <div class="form-group"> 
                 <label>Data de lançamento</label>
-                <input type="date" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento">
+                <div class="input-group date">
+                    <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" readonly placeholder="Selecione uma data"/>
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="la la-calendar-check-o"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="form-group"> 
                 <label>Diretor</label>
-                <select class="form-control" name="FilmeDiretor" id="FilmeDiretor">
+                <select class="form-control select2" name="FilmeDiretor" id="FilmeDiretor">
 
                     <option value="">Selecione...</option>
                     <?php
@@ -91,17 +104,80 @@
                 
                 </select>
             </div>
-            <div class="form-group"> 
+            <div class="form-group">       
                 <label>Elenco</label>
-                <input type="text" class="form-control" name="FilmeElenco" id="FilmeElenco">
+                <select class="form-control select2" name="FilmeElenco" id="FilmeElenco" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $atorService = new AtorService();
+
+                        $atores = $atorService->ObterTodos();                        
+
+                        foreach ($atores as $ator) {
+
+                            $idAtor = $ator["Id"];
+                            $nomeAtor = $ator["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group">       
                 <label>Genero</label>
-                <input type="text" class="form-control" name="FilmeGenero" id="FilmeGenero">
+                <select class="form-control select2" name="FilmeGenero" id="FilmeGenero" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $generoService = new GeneroService();
+
+                        $generos = $generoService->ObterTodos();                        
+
+                        foreach ($generos as $genero) {
+
+                            $idGenero = $genero["Id"];
+                            $nomeGenero = $genero["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group"> 
                 <label>Plataforma</label>
-                <input type="text" class="form-control" name="FilmePlataforma" id="FilmePlataforma">
+                <select class="form-control select2" name="FilmePlataforma" id="FilmePlataforma" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $plataformaService = new PlataformaService();
+
+                        $plataformas = $plataformaService->ObterTodos();                        
+
+                        foreach ($plataformas as $plataforma) {
+
+                            $idPlataforma = $plataforma["Id"];
+                            $nomePlataforma = $plataforma["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group"> 
                 <label>Foto</label>
@@ -109,7 +185,7 @@
             </div>
             <div class="form-group"> 
                 <label>Sinopse</label>
-                <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse"></textarea>
+                <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse" maxlength="1000"></textarea>
             </div>
         </div>                    
         <!--end::Body-->
@@ -123,3 +199,10 @@
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<script src="/Noteflix/Scripts/Filme/Filme.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        FilmeAPI.initCadastrar();
+    });
+</script>

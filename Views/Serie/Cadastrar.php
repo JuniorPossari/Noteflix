@@ -1,3 +1,9 @@
+<style>
+    textarea {
+        resize: none;
+    }
+</style>
+
 <!--begin::Subheader-->
 <div class="subheader py-2 py-lg-12 subheader-transparent" id="kt_subheader">
     <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -60,31 +66,129 @@
             </div>
             <div class="form-group">   
                 <label>Primeiro Episódio</label>
-                <input type="date" class="form-control"  name="SeriePrimeiroEp" id="SeriePrimeiroEp">
+                <div class="input-group date">
+                    <input type="text" class="form-control" name="SeriePrimeiroEp" id="SeriePrimeiroEp" readonly placeholder="Selecione uma data"/>
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="la la-calendar-check-o"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="form-group"> 
                 <label>Numero de Temporadas</label>
-                <input type="number" class="form-control" name="SerieNumeroTemp" id="SerieNumeroTemp">
+                <input type="number" class="form-control" min="1" name="SerieNumeroTemp" id="SerieNumeroTemp">
             </div>
             <div class="form-group"> 
                 <label>Data de Termino</label>
-                <input type="date" class="form-control" name="SerieDataTermino" id="SerieDataTermino">
+                <div class="input-group date">
+                    <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" readonly placeholder="Selecione uma data"/>
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="la la-calendar-check-o"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="form-group"> 
                 <label>Criador</label>
-                <input type="text" class="form-control" name="SerieCriador" id="SerieCriador">
+                <select class="form-control select2" name="SerieCriador" id="SerieCriador">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $criadorService = new CriadorService();
+
+                        $criadores = $criadorService->ObterTodos();                        
+
+                        foreach ($criadores as $criador) {
+
+                            $idCriador = $criador["Id"];
+                            $nomeCriador = $criador["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idCriador ?>"><?php echo $nomeCriador ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group">       
                 <label>Elenco</label>
-                <input type="text" class="form-control" name="SerieElenco" id="SerieElenco">
+                <select class="form-control select2" name="SerieElenco" id="SerieElenco" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $atorService = new AtorService();
+
+                        $atores = $atorService->ObterTodos();                        
+
+                        foreach ($atores as $ator) {
+
+                            $idAtor = $ator["Id"];
+                            $nomeAtor = $ator["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group">       
                 <label>Genero</label>
-                <input type="text" class="form-control" name="SerieGenero" id="SerieGenero">
+                <select class="form-control select2" name="SerieGenero" id="SerieGenero" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $generoService = new GeneroService();
+
+                        $generos = $generoService->ObterTodos();                        
+
+                        foreach ($generos as $genero) {
+
+                            $idGenero = $genero["Id"];
+                            $nomeGenero = $genero["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group"> 
                 <label>Plataforma</label>
-                <input type="text" class="form-control" name="SeriePlataforma" id="SeriePlataforma">
+                <select class="form-control select2" name="SeriePlataforma" id="SeriePlataforma" multiple="multiple">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $plataformaService = new PlataformaService();
+
+                        $plataformas = $plataformaService->ObterTodos();                        
+
+                        foreach ($plataformas as $plataforma) {
+
+                            $idPlataforma = $plataforma["Id"];
+                            $nomePlataforma = $plataforma["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group"> 
                 <label>Foto</label>
@@ -92,7 +196,7 @@
             </div>
             <div class="form-group"> 
                 <label>Sinopse</label>
-                <textarea rows="5" class="form-control" name="SerieSinopse" id="SerieSinopse"></textarea>
+                <textarea rows="5" class="form-control" name="SerieSinopse" id="SerieSinopse" maxlength="1000"></textarea>
             </div>
         </div>                                      
         <!--end::Body-->
@@ -106,3 +210,10 @@
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<script src="/Noteflix/Scripts/Serie/Serie.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        SerieAPI.initCadastrar();
+    });
+</script>

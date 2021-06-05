@@ -25,7 +25,7 @@
 
                 $json = new JsonResult();
 
-                $result = $json->DataError();
+                $result = $json->DataError($e->getMessage());
 
                 echo $result;
 
