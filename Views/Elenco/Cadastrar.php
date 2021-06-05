@@ -19,7 +19,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Elenco/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Atores</a>
+                    <a href="/Noteflix/Elenco/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Elenco</a>
                     <!--end::Item--> 
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
@@ -46,7 +46,7 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Atores</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Ator</h3>
             </div>
             <div class="card-toolbar">
             </div>

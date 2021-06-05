@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Filme');
+            $cmd = $this->con->query('SELECT * FROM Filme ORDER BY Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             

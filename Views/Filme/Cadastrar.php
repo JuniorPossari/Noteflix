@@ -68,7 +68,28 @@
             </div>
             <div class="form-group"> 
                 <label>Diretor</label>
-                <input type="text" class="form-control" name="FilmeDiretor" id="FilmeDiretor">
+                <select class="form-control" name="FilmeDiretor" id="FilmeDiretor">
+
+                    <option value="">Selecione...</option>
+                    <?php
+
+                        $diretorService = new DiretorService();
+
+                        $diretores = $diretorService->ObterTodos();                        
+
+                        foreach ($diretores as $diretor) {
+
+                            $idDiretor = $diretor["Id"];
+                            $nomeDiretor = $diretor["Nome"];
+
+                            ?>
+                                <option value="<?php echo $idDiretor ?>"><?php echo $nomeDiretor ?></option>
+                            <?php
+                        }
+                    
+                    ?>
+                
+                </select>
             </div>
             <div class="form-group"> 
                 <label>Elenco</label>

@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Serie');
+            $cmd = $this->con->query('SELECT * FROM Serie ORDER BY Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             

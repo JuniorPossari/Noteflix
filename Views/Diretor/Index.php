@@ -69,29 +69,34 @@
                 </thead>
                 <tbody>
 
-                    <?php 
-                        $idElemento = 0;
-                        $nomeDiretor = "Teste";
+                    <?php
+                    
+                        $diretorService = new DiretorService();
 
-                        for ($i = 1; $i <= 1; $i++) {
-                            $idElemento = $i;
+                        $diretores = $diretorService->ObterTodos();                        
+
+                        foreach ($diretores as $diretor) {
+
+                            $idDiretor = $diretor["Id"];
+                            $nomeDiretor = $diretor["Nome"];
+
                             ?>
                                 <tr>
-                                    <td class="text-center">
-                                        <?php echo $idElemento; ?>
+                                    <td>
+                                        <?php echo $idDiretor; ?>
                                     </td>
-                                    <td class="text-center">
+                                    <td>
                                         <?php echo $nomeDiretor; ?>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idElemento; ?>" data-toggle="tooltip" title="Alterar">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Alterar">
                                             <i class="flaticon2-edit icon-md"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idElemento; ?>" data-toggle="tooltip" title="Excluir">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Excluir">
                                                 <i class="flaticon2-trash icon-md"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idElemento; ?>" data-toggle="tooltip" title="Visualizar">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Visualizar">
                                                 <i class="flaticon2-magnifier-tool icon-md"></i>
                                             </a>
                                         </div>

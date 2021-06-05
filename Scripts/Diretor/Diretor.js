@@ -69,7 +69,7 @@ var DiretorAPI = function() {
     };
 
     var OnClickVisualizar = function () {
-        $('#kt_datatable').on('click', '.detail', function () {
+        $('#kt_datatable').on('click', '.view', function () {
             var idElement = $(this).data('id');
             window.location.href = urlVisualizar + idElement;
         });
@@ -84,8 +84,84 @@ var DiretorAPI = function() {
 
     var OnClickExcluir = function () {
         $('#kt_datatable').on('click', '.delete', function () {
+
             var idElement = $(this).data('id');
-            window.location.href = urlExcluir + idElement;
+
+            swal.fire({
+                title: "Você tem certeza?",
+                text: "Realmente deseja excluir esse diretor?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não",
+                customClass: {
+                    confirmButton: "btn font-weight-bold btn-primary",
+                    cancelButton: "btn font-weight-bold btn-light"
+                }
+            }).then(function(result) {
+                if(result.value){
+            
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'info', // a bootstrap color
+                        message: 'Aguarde...'
+                    });					
+    
+                    $.ajax({
+                        url: urlExcluir,
+                        type: 'POST',
+                        dataType: "html",
+                        data: {"id":idElement},
+                        success: function (json) {
+    
+                            var data = JSON.parse(json);
+    
+                            KTApp.unblockPage();
+
+                            swal.fire({
+                                title: data.MessageTitle,
+                                text: data.Message,
+                                icon: data.Ok ? "success" : "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+
+                                if(data.Ok){							
+                                    window.location.href = urlSuccess;
+                                }
+                                else{        
+                                    
+                                    
+                                }
+
+                            });  
+        
+                        },
+                        error: function () {
+        
+                            swal.fire({
+                                title: "Aviso",
+                                text: "Desculpe, houve um erro na requisição!",
+                                icon: "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                KTUtil.scrollTop();
+                            });
+            
+                        }
+                    });
+                            
+                       
+    
+                }
+    
+            });
+            
         });
     };
     
@@ -120,7 +196,7 @@ var DiretorAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja salvar?",
+                text: "Realmente deseja cadastrar esse diretor?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",

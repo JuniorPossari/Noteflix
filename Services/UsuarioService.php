@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Usuario');
+            $cmd = $this->con->query('SELECT * FROM Usuario ORDER BY Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             

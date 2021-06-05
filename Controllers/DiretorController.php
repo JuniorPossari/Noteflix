@@ -14,12 +14,32 @@
 
         }
 
-        public function Listar($param){
+        public function Alterar($id){
+
+            $diretorService = new DiretorService();
+
+            $dados = $diretorService->ObterPorId($id);
+
+            $this->CarregarLayout('Diretor/Alterar', $dados);
+
+        }
+
+        public function Visualizar($id){
+
+            $diretorService = new DiretorService();
+
+            $dados = $diretorService->ObterPorId($id);
+
+            $this->CarregarLayout('Diretor/Visualizar', $dados);
+
+        }
+
+        public function Salvar($dados){
 
             try{
                 $diretorService = new DiretorService();
 
-                $result = $diretorService->Listar($param);
+                $result = $diretorService->Salvar($dados);
 
                 header('Content-Type: application/json');
 
@@ -37,12 +57,12 @@
 
         }
 
-        public function Salvar($dados){
+        public function Excluir($dados){
 
             try{
                 $diretorService = new DiretorService();
 
-                $result = $diretorService->Salvar($dados);
+                $result = $diretorService->Excluir($dados);
 
                 header('Content-Type: application/json');
 

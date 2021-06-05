@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Diretor');
+            $cmd = $this->con->query('SELECT * FROM Diretor ORDER BY Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             
@@ -89,7 +89,28 @@
 
             return $result;
 
-        }       
+        }  
+        
+        public function Excluir($dados){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível excluir esse diretor!");
+
+            $id = $_POST['id'];
+
+            $cmd = $this->con->prepare('DELETE FROM Diretor WHERE Id = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Diretor excluido com sucesso!");
+            }
+
+            return $result;
+
+        }
 
     }
 
