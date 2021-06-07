@@ -1,4 +1,22 @@
 <style>
+
+    h2 {
+        width: 310px;
+        opacity: 0.8;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 28px;
+        -webkit-transition: all 300ms ease;
+        transition: all 300ms ease;
+        text-transform: uppercase;
+        display: none;
+        text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
     .previa{
         background-color: #000;
         text-align: center;
@@ -8,15 +26,20 @@
         color: #fff;
         height: 420px;
         width: 310px;
-
     }
 
     .previa:hover {
         opacity: 0.9;
+        cursor: pointer;
+    }
+
+    .previa:hover h2 {
+        display: block; 
     }
 
     .slick-slide {
-        margin: 0 27px;        
+        margin: 0 27px;  
+        position: relative;      
     }
 
     .slick-slide img {
@@ -99,11 +122,12 @@
                 </div>
                 <div class="mt-20">
                     <div id="FilmesLancamentos" class="d-none">
-                        <div class="previa"><img src="/Noteflix/Content/img/invocação-do-mal-3.jpg"></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/cruella.jpg"></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg"></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/godzilla-vs-kong.jpg"></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/mortal-kombat.jpg"></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/invocação-do-mal-3.jpg"><h2 class="slide-name">Invocação Do Mal 3</h2></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/cruella.jpg"><h2 class="slide-name">Cruella</h2></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg"><h2 class="slide-name">Aqueles que me desejam a morte</h2></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/godzilla-vs-kong.jpg"><h2 class="slide-name">Godzilla VS Kong</h2></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/mortal-kombat.jpg"><h2 class="slide-name">Mortal Kombat</h2></div>
+                        <div class="previa"><img src="/Noteflix/Content/img/evitar.jpg"><h2 class="slide-name">Evitar</h2></div>
                     </div>
                 </div>
             </div>

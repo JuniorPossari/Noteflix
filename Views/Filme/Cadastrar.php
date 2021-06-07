@@ -130,7 +130,7 @@
                 </select>
             </div>
             <div class="form-group">       
-                <label>Genero</label>
+                <label>Gênero</label>
                 <select class="form-control select2" name="FilmeGenero" id="FilmeGenero" multiple="multiple">
 
                     <option value="">Selecione...</option>
