@@ -10,7 +10,7 @@
 
             if(!isset(self::$instancia)){
 
-                $dbname = 'noteflix';
+                $dbname = 'noteflixbd';
                 $host = 'localhost';
                 $user = 'root';
                 $password = '';
