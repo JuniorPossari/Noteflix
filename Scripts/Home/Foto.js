@@ -200,6 +200,7 @@ var FotoAPI = function () {
                             var foto64atual = $('#HdnNovaFoto').val();
                             var stringFoto = "url('data:image;base64," + foto64atual + "')";
                             document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
+                            KTApp.unblockPage();
                             swal.fire({
                                 text: "Desculpe, houve um erro na requisição!",
                                 icon: "error",

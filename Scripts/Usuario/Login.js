@@ -104,6 +104,8 @@ var KTLogin = function() {
 		
 						},
 						error: function () {
+
+							KTApp.unblockPage();
 		
 							swal.fire({
 								title: "Aviso",
@@ -276,6 +278,8 @@ var KTLogin = function() {
 		
 						},
 						error: function () {
+
+							KTApp.unblockPage();
 		
 							swal.fire({
 								title: "Aviso",

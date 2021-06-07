@@ -1,4 +1,14 @@
 
+.dropzone .dz-preview .dz-image {
+    width: 310px;
+    height: 420px;
+}
+
+.drop-zone{
+    width: 400px;
+    height: 520px;
+}
+
 .select2-container {
     width: 100% !important;
 }

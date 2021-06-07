@@ -55,7 +55,7 @@
         <!--begin::Body-->                    
         <div class="card-body">
             <form id="Form">
-                <input type="hidden" name="CriadorId" class="d-none" id="CriadorId" value="<?php echo $Id; ?>">
+                <input type="hidden" name="IdElement" class="d-none" id="IdElement" value="<?php echo $Id; ?>">
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" name="CriadorNome" class="form-control" id="CriadorNome" value="<?php echo $Nome; ?>">

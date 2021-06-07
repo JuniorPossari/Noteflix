@@ -1,5 +1,5 @@
 <!--begin::Sticky Toolbar-->
-<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">	
+<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-2 mt-4" style="background-color: #e2e1e6;">	
 	<!--begin::Item-->
 	<li class="dropdown dropdown-inline mb-2" data-toggle="tooltip" title="Gerenciamento" data-placement="left">		
 		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-icon-primary btn-hover-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

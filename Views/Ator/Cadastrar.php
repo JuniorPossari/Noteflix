@@ -19,7 +19,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Ator</a>
+                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Atores</a>
                     <!--end::Item--> 
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
@@ -60,8 +60,15 @@
                     <input type="text" name="AtorNome" class="form-control" id="AtorNome">
                 </div>
                 <div class="form-group">
-                    <label>Foto</label>
-                    <input type="text" name="AtorFoto" class="form-control" id="AtorFoto">
+                    <label>Foto</label>                               
+                    <div class="drop-zone dropzone dropzone-default d-flex align-items-center justify-content-center">
+                        <div class="dropzone-msg dz-message needsclick">
+                            <h3 class="dropzone-msg-title">Arraste a imagem ou clique aqui para fazer o upload ( Apenas .jpg ou .png ) </h3>
+                            <span class="dropzone-msg-desc">
+
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </form>            
         </div>                    

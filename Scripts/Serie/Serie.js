@@ -140,6 +140,8 @@ var SerieAPI = function() {
         
                         },
                         error: function () {
+
+                            KTApp.unblockPage();
         
                             swal.fire({
                                 title: "Aviso",
@@ -252,6 +254,8 @@ var SerieAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",
@@ -354,6 +358,8 @@ var SerieAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",
@@ -419,6 +425,7 @@ var SerieAPI = function() {
             rtl: KTUtil.isRTL(),
             todayHighlight: true,
             orientation: "bottom left",
+            format: 'dd/mm/yyyy',
             templates: {
                 leftArrow: '<i class="la la-angle-left"></i>',
                 rightArrow: '<i class="la la-angle-right"></i>'
@@ -429,6 +436,7 @@ var SerieAPI = function() {
             rtl: KTUtil.isRTL(),
             todayHighlight: true,
             orientation: "bottom left",
+            format: 'dd/mm/yyyy',
             templates: {
                 leftArrow: '<i class="la la-angle-left"></i>',
                 rightArrow: '<i class="la la-angle-right"></i>'
@@ -442,7 +450,6 @@ var SerieAPI = function() {
         $('#FilmeDuracao').timepicker({
             minuteStep: 1,
             defaultTime: '',
-            showSeconds: true,
             showMeridian: false,
             snapToStep: true
         });

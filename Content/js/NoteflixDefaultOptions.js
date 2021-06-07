@@ -59,7 +59,7 @@ const _DefaultKTDatatablesOptions = {
         scroll: false,
         footer: false,
         spinner: {
-            message: "Carregando..."
+            message: "Aguarde..."
         }
     },
 

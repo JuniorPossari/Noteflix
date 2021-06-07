@@ -64,7 +64,9 @@ var DiretorAPI = function() {
 
             translate: _datatablesTranslate,
 
-        });        
+        });    
+        
+        $('#kt_datatable').removeClass('d-none');
 
     };
 
@@ -140,6 +142,8 @@ var DiretorAPI = function() {
         
                         },
                         error: function () {
+
+                            KTApp.unblockPage();
         
                             swal.fire({
                                 title: "Aviso",
@@ -252,6 +256,8 @@ var DiretorAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",
@@ -318,7 +324,7 @@ var DiretorAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var diretorId = $('#DiretorId').val();
+                            var diretorId = $('#IdElement').val();
                             var diretorNome = $('#DiretorNome').val();					
             
                             $.ajax({
@@ -354,6 +360,8 @@ var DiretorAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",

@@ -53,7 +53,7 @@
         <div class="card-body">
             
             <!--begin: Datatable-->
-            <table style="min-height: 400px;" id="kt_datatable">
+            <table class="d-none" style="min-height: 400px;" id="kt_datatable">
                 <thead>
                     <tr>
                         <th data-title="Id">

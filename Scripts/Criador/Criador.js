@@ -64,7 +64,9 @@ var CriadorAPI = function() {
 
             translate: _datatablesTranslate,
 
-        });        
+        });   
+        
+        $('#kt_datatable').removeClass('d-none');
 
     };
 
@@ -140,6 +142,8 @@ var CriadorAPI = function() {
         
                         },
                         error: function () {
+
+                            KTApp.unblockPage();
         
                             swal.fire({
                                 title: "Aviso",
@@ -252,6 +256,8 @@ var CriadorAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",
@@ -318,7 +324,7 @@ var CriadorAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var criadorId = $('#CriadorId').val();
+                            var criadorId = $('#IdElement').val();
                             var criadorNome = $('#CriadorNome').val();					
             
                             $.ajax({
@@ -354,6 +360,8 @@ var CriadorAPI = function() {
                 
                                 },
                                 error: function () {
+
+                                    KTApp.unblockPage();
                 
                                     swal.fire({
                                         title: "Aviso",

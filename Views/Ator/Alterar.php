@@ -19,11 +19,11 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Diretor/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Diretores</a>
+                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Atores</a>
                     <!--end::Item--> 
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Diretor/Visualizar" class="text-white text-hover-white opacity-75 hover-opacity-100">Visualizar</a>
+                    <a href="/Noteflix/Ator/Alterar" class="text-white text-hover-white opacity-75 hover-opacity-100">Alterar</a>
                     <!--end::Item-->                    
                 </div>
                 <!--end::Breadcrumb-->
@@ -46,7 +46,7 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Visualizar Diretor</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Alterar Ator</h3>
             </div>
             <div class="card-toolbar">
             </div>
@@ -58,14 +58,26 @@
                 <input type="hidden" name="IdElement" class="d-none" id="IdElement" value="<?php echo $Id; ?>">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" name="DiretorNome" class="form-control" id="DiretorNome" value="<?php echo $Nome; ?>" disabled>
+                    <input type="text" name="AtorNome" class="form-control" id="AtorNome" value="<?php echo $Nome; ?>">
+                </div>
+                <div class="form-group">
+                    <label>Foto</label>                               
+                    <div class="drop-zone dropzone dropzone-default d-flex align-items-center justify-content-center">
+                        <div class="dropzone-msg dz-message needsclick">
+                            <h3 class="dropzone-msg-title">Arraste a imagem ou clique aqui para fazer o upload ( Apenas .jpg ou .png ) </h3>
+                            <span class="dropzone-msg-desc">
+
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </form>            
         </div>                    
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
-            <a href="/Noteflix/Diretor/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="/Noteflix/Ator/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
         </div>
         <!--end:Footer-->
     </div>
@@ -73,9 +85,9 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Diretor/Diretor.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Ator/Ator.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        DiretorAPI.initVisualizar();
+        AtorAPI.initAlterar();
     });
 </script>

@@ -19,7 +19,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Ator</a>
+                    <a href="/Noteflix/Ator/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Atores</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->
@@ -52,7 +52,66 @@
         <!--begin::Body-->                    
         <div class="card-body">
             
-            <div id="kt_datatable"></div>
+            <!--begin: Datatable-->
+            <table class="d-none" style="min-height: 400px;" id="kt_datatable">
+                <thead>
+                    <tr>
+                        <th data-title="Id">
+                            id
+                        </th>
+                        <th data-title="Nome">
+                            nome
+                        </th>
+                        <th data-title="Ações">
+                            action
+                        </th>                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    
+                        $atorService = new AtorService();
+
+                        $atores = $atorService->ObterTodos();                        
+
+                        foreach ($atores as $ator) {
+
+                            $idAtor = $ator["Id"];
+                            $nomeAtor = $ator["Nome"];
+
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $idAtor; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $nomeAtor; ?>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idAtor; ?>" data-toggle="tooltip" title="Alterar">
+                                            <i class="flaticon2-edit icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idAtor; ?>" data-toggle="tooltip" title="Excluir">
+                                                <i class="flaticon2-trash icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idAtor; ?>" data-toggle="tooltip" title="Visualizar">
+                                                <i class="flaticon2-magnifier-tool icon-md"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                
+                                </tr>
+                            <?php
+                        }
+
+                    ?>                   
+            
+                    
+                </tbody>
+            </table>
+            <!--end: Datatable-->
 
         </div>                    
         <!--end::Body-->

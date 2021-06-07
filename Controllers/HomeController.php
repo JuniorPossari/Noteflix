@@ -8,6 +8,16 @@
 
         }
 
+        public function FileCallback(){
+
+            $json = new JsonResult();
+            
+            $result = $json->Data(true, "Success", "FileCallback success!");
+
+            echo $result;
+
+        }
+
     }
 
 ?>
