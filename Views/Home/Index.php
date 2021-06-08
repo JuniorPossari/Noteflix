@@ -125,12 +125,54 @@
                 </div>
                 <div class="mt-20">
                     <div id="FilmesLancamentos" class="d-none">
-                        <div class="previa"><img src="/Noteflix/Content/img/invocação-do-mal-3.jpg"><h2 class="slide-name">Invocação Do Mal 3</h2></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/cruella.jpg"><h2 class="slide-name">Cruella</h2></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg"><h2 class="slide-name">Aqueles que me desejam a morte</h2></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/godzilla-vs-kong.jpg"><h2 class="slide-name">Godzilla VS Kong</h2></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/mortal-kombat.jpg"><h2 class="slide-name">Mortal Kombat</h2></div>
-                        <div class="previa"><img src="/Noteflix/Content/img/evitar.jpg"><h2 class="slide-name">Evitar</h2></div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
+                            <h2 class="slide-name">Invocação Do Mal 3
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/cruella.jpg">
+                            <h2 class="slide-name">Cruella
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg">
+                            <h2 class="slide-name">Aqueles que me desejam a morte
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/godzilla-vs-kong.jpg">
+                            <h2 class="slide-name">Godzilla VS Kong
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/mortal-kombat.jpg">
+                            <h2 class="slide-name">Mortal Kombat
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/evitar.jpg">
+                            <h2 class="slide-name">Evitar
+                                <span class="d-block">
+                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                </span>
+                            </h2>
+                        </div>
                     </div>
                 </div>
             </div>
