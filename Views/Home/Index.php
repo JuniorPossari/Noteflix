@@ -55,14 +55,26 @@
 
     .slick-prev{
         z-index: 9999;
+    }    
+
+    .slick-prev {
+        left: -15px;
     }
 
-    .slick-prev:before{
-        color: #5a00e0;
+    .slick-next {
+        right: 15px;
     }
-    
+
+    .slick-prev:before {
+        color: black;
+        font-size: 50px;
+        text-shadow: 0.8px 0 0 #FFF, -0.8px 0 0 #FFF, 0 0.8px 0 #FFF, 0 -0.8px 0 #FFF, 0.8px 0.8px #FFF, -0.8px -0.8px 0 #FFF, 0.8px -0.8px 0 #FFF, -0.8px 0.8px 0 #FFF;
+    }
+
     .slick-next:before {
-        color: #5a00e0;
+        color: black;
+        font-size: 50px;
+        text-shadow: 0.8px 0 0 #FFF, -0.8px 0 0 #FFF, 0 0.8px 0 #FFF, 0 -0.8px 0 #FFF, 0.8px 0.8px #FFF, -0.8px -0.8px 0 #FFF, 0.8px -0.8px 0 #FFF, -0.8px 0.8px 0 #FFF;
     }
 </style>
 
