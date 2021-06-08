@@ -52,7 +52,87 @@
         <!--begin::Body-->                    
         <div class="card-body">
             
-            <div id="kt_datatable"></div>
+            <!--begin: Datatable-->
+            <table class="d-none" style="min-height: 400px;" id="kt_datatable">
+                <thead>
+                    <tr>
+                        <th data-title="Id">
+                            id
+                        </th>
+                        <th data-title="Nome">
+                            nome
+                        </th>
+                        <th data-title="Primeiro EP">
+                            primeiroep
+                        </th>
+                        <th data-title="N° Temporadas">
+                            ntemporada
+                        </th>
+                        <th data-title="Criador">
+                            criador
+                        </th>
+                        <th data-title="Ações">
+                            action
+                        </th>                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    
+                        $serieService = new SerieService();
+
+                        $seriees = $serieService->ObterTodos();                        
+
+                        foreach ($seriees as $serie) {
+
+                            $idSerie = $serie["Id"];
+                            $nomeSerie = $serie["Nome"];
+                            $primeiroepSerie = $serie["PrimeiroEpisodio"];
+                            $ntemporadaSerie = $serie["NumeroTemporada"];
+                            $criadorSerie = $serie["Criador"];
+
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $idSerie; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $nomeSerie; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $primeiroepSerie; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $ntemporadaSerie; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $criadorSerie; ?>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idSerie; ?>" data-toggle="tooltip" title="Alterar">
+                                            <i class="flaticon2-edit icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idSerie; ?>" data-toggle="tooltip" title="Excluir">
+                                                <i class="flaticon2-trash icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idSerie; ?>" data-toggle="tooltip" title="Visualizar">
+                                                <i class="flaticon2-magnifier-tool icon-md"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                
+                                </tr>
+                            <?php
+                        }
+
+                    ?>                   
+            
+                    
+                </tbody>
+            </table>
+            <!--end: Datatable-->
 
         </div>                    
         <!--end::Body-->
@@ -60,3 +140,10 @@
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<script src="/Noteflix/Scripts/Serie/Serie.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        SerieAPI.initIndex();
+    });
+</script>

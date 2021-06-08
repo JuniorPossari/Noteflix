@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Serie ORDER BY Nome');
+            $cmd = $this->con->query('SELECT s.*, c.Nome Criador FROM Serie s INNER JOIN Criador c ON c.Id = s.IdCriador ORDER BY s.Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             

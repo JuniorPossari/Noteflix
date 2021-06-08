@@ -8,8 +8,11 @@ var SerieAPI = function() {
     var urlAlterar = "/Noteflix/Serie/Alterar/";
     var urlExcluir = "/Noteflix/Serie/Excluir/";
     var urlSuccess = "/Noteflix/Serie/Index/";
+    var urlFileCallback = "/Noteflix/Home/FileCallback/";
+    var urlBuscarFoto = "/Noteflix/Ator/BuscarFoto/";
 
-    var validation = null;    
+    var validation = null;
+    var ObjDropzone = null;   
 
     var table = function () {
 
@@ -52,6 +55,21 @@ var SerieAPI = function() {
                     width: 180
 
                 }, {
+                    field: 'primeiroep',
+                    textAlign: 'center',
+                    width: 100
+
+                }, {
+                    field: 'ntemporada',
+                    textAlign: 'center',
+                    width: 120
+
+                }, {
+                    field: 'criador',
+                    textAlign: 'center',
+                    width: 120
+
+                }, {
                     field: 'action',
                     textAlign: 'center',
                     sortable: false,
@@ -64,7 +82,9 @@ var SerieAPI = function() {
 
             translate: _datatablesTranslate,
 
-        });        
+        });    
+        
+        $('#kt_datatable').removeClass('d-none');
 
     };
 
@@ -180,6 +200,48 @@ var SerieAPI = function() {
 							},
 						},
 					},
+                    SeriePrimeiroEp: {
+						validators: {
+							notEmpty: {
+								message: 'A data do primeiro episódio é obrigatória!'
+							},
+						},
+					},
+                    SerieNumeroTemp: {
+						validators: {
+							notEmpty: {
+								message: 'O numero de temporadas da série é obrigatório!'
+							},
+						},
+					},
+                    SerieCriador: {
+						validators: {
+							notEmpty: {
+								message: 'O criador da série é obrigatório!'
+							},
+						},
+					},
+                    SerieElenco: {
+						validators: {
+							notEmpty: {
+								message: 'O elenco da série é obrigatório!'
+							},
+						},
+					},
+                    SerieGenero: {
+						validators: {
+							notEmpty: {
+								message: 'O gênero da série é obrigatório!'
+							},
+						},
+					},
+                    SerieSinopse: {
+						validators: {
+							notEmpty: {
+								message: 'A sinopse da série é obrigatória!'
+							},
+						},
+					},
 				},
 				plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -189,6 +251,165 @@ var SerieAPI = function() {
 				}
 			}
 		);
+
+    }
+
+    var UploadFoto = (blockClick) => {
+
+        KTApp.blockPage({
+            overlayColor: '#000000',
+            state: 'info', // a bootstrap color
+            message: 'Aguarde...'
+        }); 
+        
+        var idElement = $('#IdElement').val();
+
+        $.ajax({
+            url: urlBuscarFoto,
+            type: 'POST',
+            dataType: "html",
+            data: {"idElement":idElement},
+            success: function (json) {
+
+                var data = JSON.parse(json);
+
+                KTApp.unblockPage();
+
+                if (data.Result.url != null) {
+
+                    localStorage.removeItem('base64Foto');
+                    localStorage.setItem('base64Foto', data.Result.url.replace(/^data:image\/[a-z]+;base64,/, ""))
+                    InitDropzone(data.Result, blockClick);
+
+                } else {
+                    InitDropzone("", blockClick);
+                }
+
+            },
+            error: function () {
+
+                KTApp.unblockPage();
+
+                swal.fire({
+                    title: "Aviso",
+                    text: "Desculpe, houve um erro na requisição!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                }).then(function() {
+                    KTUtil.scrollTop();
+                });
+
+            }
+        });
+
+    }
+
+    var InitDropzone = (preloadFile, blockClick) => {
+
+        ObjDropzone = $('.drop-zone').dropzone({
+            url: urlFileCallback,
+            paramName: "file", // The name that will be used to transfer the file
+            maxFiles: 1,
+            maxFilesize: 5, // MB
+            thumbnailWidth: 310,
+            thumbnailHeight: 420,
+            addRemoveLinks: true,
+            acceptedFiles: ".jpg,.jpeg",
+            init: function () {
+                this.on("addedfile", function (file) {                    
+
+                    if (file.size > 1000000) {
+                        return;
+                    }
+
+                    if (this.files[1] != null) {
+                        this.removeFile(this.files[0]);
+                    }
+
+                    if (this.files[0] && $.inArray(this.files[0].type, ['image/jpeg', 'image/jpg', 'image/png']) == -1) {
+                        return;
+                    }
+
+                    if (this.files[1] != null) {
+                        this.removeFile(this.files[0]);
+                    }
+                    else if (this.files[0] instanceof Blob) {
+                        var reader = new FileReader();
+                        reader.onload = function (event) {
+                            var base64String = event.target.result;
+                            
+                            localStorage.removeItem('base64Foto');
+                            localStorage.setItem('base64Foto', base64String.replace(/^data:image\/[a-z]+;base64,/, ""))
+                        };
+                        reader.readAsDataURL(this.files[0]);
+
+                    }                    
+
+                });
+                this.on("complete", function (file) {
+
+                    if (!blockClick) {
+                        $(".dz-remove").html("<div><span class='text-danger font-size-h6'>Remover</span></div>");
+                    }
+                    else {
+                        $(".dz-remove").remove();
+                    }
+                    
+
+                    ObjDropzone = this;
+
+
+                });
+
+                if (preloadFile) {
+                    var mockFile = { name: preloadFile.name, size: preloadFile.size, type: 'image/jpg', dataUrl: " data:image/jpg;charset=utf-8;base64, " + preloadFile.url };
+                    this.files.push(mockFile);
+                    this.displayExistingFile(mockFile, " data:image/jpg;charset=utf-8;base64, " + preloadFile.url);
+                }
+
+                if (blockClick) {
+                    this.disable();
+                }
+
+                this.on("error", function (file) {
+                    this.removeFile(file);
+                    localStorage.removeItem('base64Foto');
+                });
+
+            },
+            addedFile: (file) => {
+                console.log(file);
+            },
+            accept: function (file, done) {
+                done();
+            },
+            error: (file, message, xhr) => {
+
+                var erro = message;
+
+                if (message == "You can't upload files of this type.") {
+                    erro = "Esse tipo de arquivo não é permitido!";
+                }
+                
+                if (message.substring(0, 15) == "File is too big") {
+                    erro = "O tamanho máximo é de 1 MB!";
+                }
+
+                Swal.fire({
+                    text: erro,
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light"
+                    }
+                })
+
+            }
+        });
 
     }
 
@@ -468,13 +689,20 @@ var SerieAPI = function() {
         },
         initCadastrar: function() {
 
+            localStorage.removeItem('base64Foto');
+            InitDropzone();
+            Validar();
             Timepicker();
             Datepicker();
             Select2();
+            OnClickSalvar();
             
         },
         initAlterar: function() {
 
+            localStorage.removeItem('base64Foto');
+            UploadFoto();
+            Validar();
             Timepicker();
             Datepicker();
             Select2();
@@ -482,6 +710,8 @@ var SerieAPI = function() {
         },
         initVisualizar: function() {
 
+            localStorage.removeItem('base64Foto');
+            UploadFoto(true);
             Timepicker();
             Datepicker();
             Select2();

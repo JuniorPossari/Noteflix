@@ -52,7 +52,87 @@
         <!--begin::Body-->                    
         <div class="card-body">
             
-            <div id="kt_datatable"></div>
+            <!--begin: Datatable-->
+            <table class="d-none" style="min-height: 400px;" id="kt_datatable">
+                <thead>
+                    <tr>
+                        <th data-title="Id">
+                            id
+                        </th>
+                        <th data-title="Nome">
+                            nome
+                        </th>
+                        <th data-title="Duração">
+                            duracao
+                        </th>
+                        <th data-title="Lançamento">
+                            lancamento
+                        </th>
+                        <th data-title="Diretor">
+                            diretor
+                        </th>
+                        <th data-title="Ações">
+                            action
+                        </th>                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    
+                        $filmeService = new FilmeService();
+
+                        $filmees = $filmeService->ObterTodos();                        
+
+                        foreach ($filmees as $filme) {
+
+                            $idFilme = $filme["Id"];
+                            $nomeFilme = $filme["Nome"];
+                            $duracaoFilme = $filme["Duracao"];
+                            $lancamentoFilme = $filme["DataLancamento"];
+                            $diretorFilme = $filme["Diretor"];
+
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $idFilme; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $nomeFilme; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $duracaoFilme; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lancamentoFilme; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $diretorFilme; ?>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idFilme; ?>" data-toggle="tooltip" title="Alterar">
+                                            <i class="flaticon2-edit icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idFilme; ?>" data-toggle="tooltip" title="Excluir">
+                                                <i class="flaticon2-trash icon-md"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idFilme; ?>" data-toggle="tooltip" title="Visualizar">
+                                                <i class="flaticon2-magnifier-tool icon-md"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                
+                                </tr>
+                            <?php
+                        }
+
+                    ?>                   
+            
+                    
+                </tbody>
+            </table>
+            <!--end: Datatable-->
 
         </div>                    
         <!--end::Body-->
@@ -60,3 +140,10 @@
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<script src="/Noteflix/Scripts/Filme/Filme.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        FilmeAPI.initIndex();
+    });
+</script>

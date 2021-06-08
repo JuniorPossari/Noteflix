@@ -60,139 +60,151 @@
         <!--end::Header-->
         <!--begin::Body-->                    
         <div class="card-body">
-            <div class="form-group">
-                <label>Nome</label>
-                <input type="text" class="form-control" name="FilmeNome" id="FilmeNome">
-            </div>
-            <div class="form-group">   
-                <label>Duração</label>
-                <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" readonly placeholder="Selecione a hora" />
-            </div>
-            <div class="form-group"> 
-                <label>Data de lançamento</label>
-                <div class="input-group date">
-                    <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" readonly placeholder="Selecione uma data"/>
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="la la-calendar-check-o"></i>
-                        </span>
+            <form id="Form">
+
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" name="FilmeNome" id="FilmeNome">
+                </div>
+                <div class="form-group">   
+                    <label>Duração</label>
+                    <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" readonly placeholder="Selecione a hora" />
+                </div>
+                <div class="form-group"> 
+                    <label>Data de lançamento</label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" readonly placeholder="Selecione uma data"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-calendar-check-o"></i>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group"> 
-                <label>Diretor</label>
-                <select class="form-control select2" name="FilmeDiretor" id="FilmeDiretor">
+                <div class="form-group"> 
+                    <label>Diretor</label>
+                    <select class="form-control select2" name="FilmeDiretor" id="FilmeDiretor">
 
-                    <option value="">Selecione...</option>
-                    <?php
+                        <option value="">Selecione...</option>
+                        <?php
 
-                        $diretorService = new DiretorService();
+                            $diretorService = new DiretorService();
 
-                        $diretores = $diretorService->ObterTodos();                        
+                            $diretores = $diretorService->ObterTodos();                        
 
-                        foreach ($diretores as $diretor) {
+                            foreach ($diretores as $diretor) {
 
-                            $idDiretor = $diretor["Id"];
-                            $nomeDiretor = $diretor["Nome"];
+                                $idDiretor = $diretor["Id"];
+                                $nomeDiretor = $diretor["Nome"];
 
-                            ?>
-                                <option value="<?php echo $idDiretor ?>"><?php echo $nomeDiretor ?></option>
-                            <?php
-                        }
+                                ?>
+                                    <option value="<?php echo $idDiretor ?>"><?php echo $nomeDiretor ?></option>
+                                <?php
+                            }
+                        
+                        ?>
                     
-                    ?>
-                
-                </select>
-            </div>
-            <div class="form-group">       
-                <label>Elenco</label>
-                <select class="form-control select2" name="FilmeElenco" id="FilmeElenco" multiple="multiple">
+                    </select>
+                </div>
+                <div class="form-group">       
+                    <label>Elenco</label>
+                    <select class="form-control select2" name="FilmeElenco" id="FilmeElenco" multiple="multiple">
 
-                    <option value="">Selecione...</option>
-                    <?php
+                        <option value="">Selecione...</option>
+                        <?php
 
-                        $atorService = new AtorService();
+                            $atorService = new AtorService();
 
-                        $atores = $atorService->ObterTodos();                        
+                            $atores = $atorService->ObterTodos();                        
 
-                        foreach ($atores as $ator) {
+                            foreach ($atores as $ator) {
 
-                            $idAtor = $ator["Id"];
-                            $nomeAtor = $ator["Nome"];
+                                $idAtor = $ator["Id"];
+                                $nomeAtor = $ator["Nome"];
 
-                            ?>
-                                <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
-                            <?php
-                        }
+                                ?>
+                                    <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                                <?php
+                            }
+                        
+                        ?>
                     
-                    ?>
-                
-                </select>
-            </div>
-            <div class="form-group">       
-                <label>Gênero</label>
-                <select class="form-control select2" name="FilmeGenero" id="FilmeGenero" multiple="multiple">
+                    </select>
+                </div>
+                <div class="form-group">       
+                    <label>Gênero</label>
+                    <select class="form-control select2" name="FilmeGenero" id="FilmeGenero" multiple="multiple">
 
-                    <option value="">Selecione...</option>
-                    <?php
+                        <option value="">Selecione...</option>
+                        <?php
 
-                        $generoService = new GeneroService();
+                            $generoService = new GeneroService();
 
-                        $generos = $generoService->ObterTodos();                        
+                            $generos = $generoService->ObterTodos();                        
 
-                        foreach ($generos as $genero) {
+                            foreach ($generos as $genero) {
 
-                            $idGenero = $genero["Id"];
-                            $nomeGenero = $genero["Nome"];
+                                $idGenero = $genero["Id"];
+                                $nomeGenero = $genero["Nome"];
 
-                            ?>
-                                <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
-                            <?php
-                        }
+                                ?>
+                                    <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                                <?php
+                            }
+                        
+                        ?>
                     
-                    ?>
-                
-                </select>
-            </div>
-            <div class="form-group"> 
-                <label>Plataforma</label>
-                <select class="form-control select2" name="FilmePlataforma" id="FilmePlataforma" multiple="multiple">
+                    </select>
+                </div>
+                <div class="form-group"> 
+                    <label>Plataforma</label>
+                    <select class="form-control select2" name="FilmePlataforma" id="FilmePlataforma" multiple="multiple">
 
-                    <option value="">Selecione...</option>
-                    <?php
+                        <option value="">Selecione...</option>
+                        <?php
 
-                        $plataformaService = new PlataformaService();
+                            $plataformaService = new PlataformaService();
 
-                        $plataformas = $plataformaService->ObterTodos();                        
+                            $plataformas = $plataformaService->ObterTodos();                        
 
-                        foreach ($plataformas as $plataforma) {
+                            foreach ($plataformas as $plataforma) {
 
-                            $idPlataforma = $plataforma["Id"];
-                            $nomePlataforma = $plataforma["Nome"];
+                                $idPlataforma = $plataforma["Id"];
+                                $nomePlataforma = $plataforma["Nome"];
 
-                            ?>
-                                <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
-                            <?php
-                        }
+                                ?>
+                                    <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                                <?php
+                            }
+                        
+                        ?>
                     
-                    ?>
-                
-                </select>
-            </div>
-            <div class="form-group"> 
-                <label>Foto</label>
-                <input type="text" class="form-control" name="FilmeFoto" id="FilmeFoto">
-            </div>
-            <div class="form-group"> 
-                <label>Sinopse</label>
-                <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse" maxlength="1000"></textarea>
-            </div>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Foto</label>                               
+                    <div class="drop-zone dropzone dropzone-default d-flex align-items-center justify-content-center">
+                        <div class="dropzone-msg dz-message needsclick">
+                            <h3 class="dropzone-msg-title">Arraste a imagem ou clique aqui para fazer o upload ( Apenas .jpg ) </h3>
+                            <span class="dropzone-msg-desc">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <label>Sinopse</label>
+                    <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse" maxlength="1000"></textarea>
+                </div>
+            
+            </form>
+            
         </div>                    
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
             <a href="/Noteflix/Filme/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
-            <a href="javascript:;" class="btn btn-primary font-weight-bold">Salvar</a>
+            <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
         </div>
         <!--end:Footer-->
     </div>

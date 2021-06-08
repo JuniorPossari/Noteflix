@@ -260,7 +260,7 @@ var AtorAPI = function() {
             thumbnailWidth: 310,
             thumbnailHeight: 420,
             addRemoveLinks: true,
-            acceptedFiles: ".jpg,.png,.jpeg",
+            acceptedFiles: ".jpg,.jpeg",
             init: function () {
                 this.on("addedfile", function (file) {                    
 

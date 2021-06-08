@@ -29,12 +29,15 @@
     }
 
     .previa:hover {
-        opacity: 0.9;
         cursor: pointer;
     }
 
     .previa:hover h2 {
         display: block; 
+    }
+
+    .previa:hover img {
+        filter: brightness(30%); 
     }
 
     .slick-slide {

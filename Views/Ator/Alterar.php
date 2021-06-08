@@ -64,7 +64,7 @@
                     <label>Foto</label>                               
                     <div class="drop-zone dropzone dropzone-default d-flex align-items-center justify-content-center">
                         <div class="dropzone-msg dz-message needsclick">
-                            <h3 class="dropzone-msg-title">Arraste a imagem ou clique aqui para fazer o upload ( Apenas .jpg ou .png ) </h3>
+                            <h3 class="dropzone-msg-title">Arraste a imagem ou clique aqui para fazer o upload ( Apenas .jpg ) </h3>
                             <span class="dropzone-msg-desc">
 
                             </span>

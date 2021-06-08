@@ -14,7 +14,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->query('SELECT * FROM Filme ORDER BY Nome');
+            $cmd = $this->con->query('SELECT f.*, d.Nome Diretor FROM Filme f INNER JOIN Diretor d ON d.Id = f.IdDiretor ORDER BY f.Nome');
 
             $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             
