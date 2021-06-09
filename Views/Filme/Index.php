@@ -89,7 +89,7 @@
                             $idFilme = $filme["Id"];
                             $nomeFilme = $filme["Nome"];
                             $duracaoFilme = $filme["Duracao"];
-                            $lancamentoFilme = $filme["DataLancamento"];
+                            $lancamentoFilme = implode("/",array_reverse(explode("-", $filme["DataLancamento"])));
                             $diretorFilme = $filme["Diretor"];
 
                             ?>

@@ -121,7 +121,7 @@
 			<!--end:Heading-->
 			
 			<!--begin::Item-->
-			<div class="bg-light-warning rounded p-2 gutter-b">
+			<div class="bg-light-warning rounded p-2 gutter-b border border-dark">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
 						<div class="">

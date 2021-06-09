@@ -115,7 +115,7 @@ var SerieAPI = function() {
                 confirmButtonText: "Sim",
                 cancelButtonText: "Não",
                 customClass: {
-                    confirmButton: "btn font-weight-bold btn-primary",
+                    confirmButton: "btn font-weight-bold btn-danger",
                     cancelButton: "btn font-weight-bold btn-light"
                 }
             }).then(function(result) {
@@ -233,6 +233,29 @@ var SerieAPI = function() {
 							notEmpty: {
 								message: 'O gênero da série é obrigatório!'
 							},
+						},
+					},
+                    SerieFoto: {
+						validators: {
+							callback: {
+                                callback: function(input) {
+
+                                    var foto = localStorage.getItem('base64Foto');
+
+                                    if(foto == null || foto == "" || typeof(foto) == "undefined"){
+                                        return {
+                                            valid: false,
+                                            message: 'A foto da série é obrigatória!',
+                                        };
+                                    }
+                                    else{
+                                        return {
+                                            valid: true,
+                                        };
+                                    }
+
+                                }
+                            },
 						},
 					},
                     SerieSinopse: {

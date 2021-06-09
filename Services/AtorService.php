@@ -134,7 +134,7 @@
                     $fotoArray = array("url"=>$url, "name"=>"Foto.jpg", "size"=>strlen($usuario["Foto"]));
                 }                
                 
-                $result = $json->Data(true, "Sucesso", "Foi encontrada a foto do usuário!", $fotoArray);
+                $result = $json->Data(true, "Sucesso", "A foto do ator foi encontrada!", $fotoArray);
 
             }
 

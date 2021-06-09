@@ -68,12 +68,19 @@
                 </div>
                 <div class="form-group">   
                     <label>Duração</label>
-                    <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" readonly placeholder="Selecione a hora" />
+                    <div class="input-group timepicker">
+                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" placeholder="Selecione a hora" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-clock-o"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group"> 
                     <label>Data de lançamento</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" readonly placeholder="Selecione uma data"/>
+                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" placeholder="Selecione uma data"/>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>
@@ -191,6 +198,7 @@
                             </span>
                         </div>
                     </div>
+                    <input class="d-none" name="FilmeFoto" id="FilmeFoto" value="">
                 </div>
                 <div class="form-group"> 
                     <label>Sinopse</label>

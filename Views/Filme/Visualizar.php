@@ -1,3 +1,9 @@
+<?php
+
+    $filmeService = new FilmeService();
+
+?>
+
 <style>
     textarea {
         resize: none;
@@ -25,11 +31,11 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Serie/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Séries</a>
+                    <a href="/Noteflix/Filme/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Filmes</a>
                     <!--end::Item--> 
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Serie/Cadastrar" class="text-white text-hover-white opacity-75 hover-opacity-100">Cadastrar</a>
+                    <a href="/Noteflix/Filme/Visualizar" class="text-white text-hover-white opacity-75 hover-opacity-100">Visualizar</a>
                     <!--end::Item-->                    
                 </div>
                 <!--end::Breadcrumb-->
@@ -52,7 +58,7 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Cadastrar Série</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Visualizar Filme</h3>
             </div>
             <div class="card-toolbar">
             </div>
@@ -61,15 +67,26 @@
         <!--begin::Body-->                    
         <div class="card-body">
             <form id="Form">
-
+                <input type="hidden" name="IdElement" class="d-none" id="IdElement" value="<?php echo $Id; ?>">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" class="form-control" name="SerieNome" id="SerieNome">
+                    <input type="text" class="form-control" name="FilmeNome" id="FilmeNome" value="<?php echo $Nome; ?>" disabled>
                 </div>
                 <div class="form-group">   
-                    <label>Primeiro Episódio</label>
+                    <label>Duração</label>
+                    <div class="input-group timepicker">
+                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" value="<?php echo $Duracao; ?>" disabled/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-clock-o"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <label>Data de lançamento</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="SeriePrimeiroEp" id="SeriePrimeiroEp" placeholder="Selecione uma data"/>
+                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" value="<?php echo implode("/",array_reverse(explode("-", $DataLancamento))); ?>" disabled/>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>
@@ -78,38 +95,23 @@
                     </div>
                 </div>
                 <div class="form-group"> 
-                    <label>Numero de Temporadas</label>
-                    <input type="number" class="form-control" min="1" name="SerieNumeroTemp" id="SerieNumeroTemp">
-                </div>
-                <div class="form-group"> 
-                    <label>Data de Termino</label>
-                    <div class="input-group date">
-                        <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" placeholder="Selecione uma data"/>
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="la la-calendar-check-o"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group"> 
-                    <label>Criador</label>
-                    <select class="form-control select2" name="SerieCriador" id="SerieCriador">
+                    <label>Diretor</label>
+                    <select class="form-control select2" name="FilmeDiretor" id="FilmeDiretor" disabled>
 
                         <option value="">Selecione...</option>
                         <?php
 
-                            $criadorService = new CriadorService();
+                            $diretorService = new DiretorService();
 
-                            $criadores = $criadorService->ObterTodos();                        
+                            $diretores = $diretorService->ObterTodos();                        
 
-                            foreach ($criadores as $criador) {
+                            foreach ($diretores as $diretor) {
 
-                                $idCriador = $criador["Id"];
-                                $nomeCriador = $criador["Nome"];
+                                $idDiretor = $diretor["Id"];
+                                $nomeDiretor = $diretor["Nome"];
 
                                 ?>
-                                    <option value="<?php echo $idCriador ?>"><?php echo $nomeCriador ?></option>
+                                    <option value="<?php echo $idDiretor ?>" <?php if($idDiretor == $IdDiretor){ echo "selected"; } ?> ><?php echo $nomeDiretor; ?></option>
                                 <?php
                             }
                         
@@ -119,14 +121,16 @@
                 </div>
                 <div class="form-group">       
                     <label>Elenco</label>
-                    <select class="form-control select2" name="SerieElenco" id="SerieElenco" multiple="multiple">
+                    <select class="form-control select2" name="FilmeElenco" id="FilmeElenco" multiple="multiple" disabled>
 
                         <option value="">Selecione...</option>
                         <?php
 
-                            $atorService = new AtorService();
+                            $atorService = new AtorService();                          
 
-                            $atores = $atorService->ObterTodos();                        
+                            $atores = $atorService->ObterTodos();
+
+                            $atoresIds = $filmeService->ObterFilmeAtorIds($Id); 
 
                             foreach ($atores as $ator) {
 
@@ -134,7 +138,7 @@
                                 $nomeAtor = $ator["Nome"];
 
                                 ?>
-                                    <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                                    <option value="<?php echo $idAtor ?>" <?php if(in_array($idAtor, $atoresIds)){ echo "selected"; } ?> ><?php echo $nomeAtor; ?></option>
                                 <?php
                             }
                         
@@ -144,14 +148,16 @@
                 </div>
                 <div class="form-group">       
                     <label>Gênero</label>
-                    <select class="form-control select2" name="SerieGenero" id="SerieGenero" multiple="multiple">
+                    <select class="form-control select2" name="FilmeGenero" id="FilmeGenero" multiple="multiple" disabled>
 
                         <option value="">Selecione...</option>
                         <?php
 
                             $generoService = new GeneroService();
 
-                            $generos = $generoService->ObterTodos();                        
+                            $generos = $generoService->ObterTodos();
+
+                            $generosIds = $filmeService->ObterFilmeGeneroIds($Id);
 
                             foreach ($generos as $genero) {
 
@@ -159,7 +165,7 @@
                                 $nomeGenero = $genero["Nome"];
 
                                 ?>
-                                    <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                                    <option value="<?php echo $idGenero ?>" <?php if(in_array($idGenero, $generosIds)){ echo "selected"; } ?> ><?php echo $nomeGenero; ?></option>
                                 <?php
                             }
                         
@@ -169,14 +175,16 @@
                 </div>
                 <div class="form-group"> 
                     <label>Plataforma</label>
-                    <select class="form-control select2" name="SeriePlataforma" id="SeriePlataforma" multiple="multiple">
+                    <select class="form-control select2" name="FilmePlataforma" id="FilmePlataforma" multiple="multiple" disabled>
 
                         <option value="">Selecione...</option>
                         <?php
 
                             $plataformaService = new PlataformaService();
 
-                            $plataformas = $plataformaService->ObterTodos();                        
+                            $plataformas = $plataformaService->ObterTodos();
+
+                            $plataformasIds = $filmeService->ObterFilmePlataformaIds($Id);
 
                             foreach ($plataformas as $plataforma) {
 
@@ -184,7 +192,7 @@
                                 $nomePlataforma = $plataforma["Nome"];
 
                                 ?>
-                                    <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                                    <option value="<?php echo $idPlataforma ?>" <?php if(in_array($idPlataforma, $plataformasIds)){ echo "selected"; } ?> ><?php echo $nomePlataforma; ?></option>
                                 <?php
                             }
                         
@@ -202,20 +210,20 @@
                             </span>
                         </div>
                     </div>
-                    <input class="d-none" name="SerieFoto" id="SerieFoto" value="">
-                </div> 
+                    <input class="d-none" name="FilmeFoto" id="FilmeFoto" value="">
+                </div>
                 <div class="form-group"> 
                     <label>Sinopse</label>
-                    <textarea rows="5" class="form-control" name="SerieSinopse" id="SerieSinopse" maxlength="1000"></textarea>
+                    <textarea rows="5" class="form-control" name="FilmeSinopse" id="FilmeSinopse" maxlength="1000" disabled><?php echo $Sinopse; ?></textarea>
                 </div>
-
-            </form>            
-        </div>                                      
+            
+            </form>
+            
+        </div>                    
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
-            <a href="/Noteflix/Serie/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
-            <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
+            <a href="/Noteflix/Filme/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
         </div>
         <!--end:Footer-->
     </div>
@@ -223,9 +231,9 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Serie/Serie.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Filme/Filme.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        SerieAPI.initCadastrar();
+        FilmeAPI.initVisualizar();
     });
 </script>

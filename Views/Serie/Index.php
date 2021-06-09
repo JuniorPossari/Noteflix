@@ -88,7 +88,7 @@
 
                             $idSerie = $serie["Id"];
                             $nomeSerie = $serie["Nome"];
-                            $primeiroepSerie = $serie["PrimeiroEpisodio"];
+                            $primeiroepSerie = implode("/",array_reverse(explode("-", $serie["PrimeiroEpisodio"])));
                             $ntemporadaSerie = $serie["NumeroTemporada"];
                             $criadorSerie = $serie["Criador"];
 

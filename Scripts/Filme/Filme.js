@@ -9,7 +9,7 @@ var FilmeAPI = function() {
     var urlExcluir = "/Noteflix/Filme/Excluir/";
     var urlSuccess = "/Noteflix/Filme/Index/";
     var urlFileCallback = "/Noteflix/Home/FileCallback/";
-    var urlBuscarFoto = "/Noteflix/Ator/BuscarFoto/";
+    var urlBuscarFoto = "/Noteflix/Filme/BuscarFoto/";
 
     var validation = null;
     var ObjDropzone = null;    
@@ -115,7 +115,7 @@ var FilmeAPI = function() {
                 confirmButtonText: "Sim",
                 cancelButtonText: "Não",
                 customClass: {
-                    confirmButton: "btn font-weight-bold btn-primary",
+                    confirmButton: "btn font-weight-bold btn-danger",
                     cancelButton: "btn font-weight-bold btn-light"
                 }
             }).then(function(result) {
@@ -233,6 +233,29 @@ var FilmeAPI = function() {
 							notEmpty: {
 								message: 'O gênero do filme é obrigatório!'
 							},
+						},
+					},
+                    FilmeFoto: {
+						validators: {
+							callback: {
+                                callback: function(input) {
+
+                                    var foto = localStorage.getItem('base64Foto');
+
+                                    if(foto == null || foto == "" || typeof(foto) == "undefined"){
+                                        return {
+                                            valid: false,
+                                            message: 'A foto do filme é obrigatória!',
+                                        };
+                                    }
+                                    else{
+                                        return {
+                                            valid: true,
+                                        };
+                                    }
+
+                                }
+                            },
 						},
 					},
                     FilmeSinopse: {
@@ -432,76 +455,76 @@ var FilmeAPI = function() {
                 if(result.value){
     
                     validation.validate().then(function(status) {
-                        if (status == 'Valid') {
+                        if (status == 'Valid') { 
+            
+                            KTApp.blockPage({
+                                overlayColor: '#000000',
+                                state: 'info', // a bootstrap color
+                                message: 'Aguarde...'
+                            });
 
-                            swal.fire({
-                                title: "Sucesso",
-                                text: "Filme cadastrado com sucesso!",
-                                icon: "success",
-                                confirmButtonText: "Ok",
-                                customClass: {
-                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                            var dados = {};
+
+                            dados.Nome = $('#FilmeNome').val();
+                            dados.Duracao = $('#FilmeDuracao').val();
+                            dados.DataLancamento = $('#FilmeDataLancamento').val();
+                            dados.IdDiretor = $('#FilmeDiretor').val();
+                            dados.Elenco = $('#FilmeElenco').val();
+                            dados.Genero = $('#FilmeGenero').val();
+                            dados.Plataforma = $('#FilmePlataforma').val();
+                            dados.Foto = localStorage.getItem('base64Foto');
+                            dados.Sinopse = $('#FilmeSinopse').val();                            				
+            
+                            $.ajax({
+                                url: urlSalvar,
+                                type: 'POST',
+                                dataType: "html",
+                                data: {"dados":dados},
+                                success: function (json) {
+            
+                                    var data = JSON.parse(json);
+            
+                                    KTApp.unblockPage();
+    
+                                    swal.fire({
+                                        title: data.MessageTitle,
+                                        text: data.Message,
+                                        icon: data.Ok ? "success" : "error",
+                                        confirmButtonText: "Ok",
+                                        customClass: {
+                                            confirmButton: "btn font-weight-bold btn-light-primary"
+                                        }
+                                    }).then(function() {
+    
+                                        if(data.Ok){							
+                                            window.location.href = urlSuccess;
+                                        }
+                                        else{        
+                                            
+                                            
+                                        }
+    
+                                    });  
+                
+                                },
+                                error: function () {
+
+                                    KTApp.unblockPage();
+                
+                                    swal.fire({
+                                        title: "Aviso",
+                                        text: "Desculpe, houve um erro na requisição!",
+                                        icon: "error",
+                                        confirmButtonText: "Ok",
+                                        customClass: {
+                                            confirmButton: "btn font-weight-bold btn-light-primary"
+                                        }
+                                    }).then(function() {
+                                        KTUtil.scrollTop();
+                                    });
+                    
                                 }
                             });
-            
-                            // KTApp.blockPage({
-                            //     overlayColor: '#000000',
-                            //     state: 'info', // a bootstrap color
-                            //     message: 'Aguarde...'
-                            // });
-                            
-                            // var filmeNome = $('#FilmeNome').val();					
-            
-                            // $.ajax({
-                            //     url: urlSalvar,
-                            //     type: 'POST',
-                            //     dataType: "html",
-                            //     data: {"filmeNome":filmeNome},
-                            //     success: function (json) {
-            
-                            //         var data = JSON.parse(json);
-            
-                            //         KTApp.unblockPage();
-    
-                            //         swal.fire({
-                            //             title: data.MessageTitle,
-                            //             text: data.Message,
-                            //             icon: data.Ok ? "success" : "error",
-                            //             confirmButtonText: "Ok",
-                            //             customClass: {
-                            //                 confirmButton: "btn font-weight-bold btn-light-primary"
-                            //             }
-                            //         }).then(function() {
-    
-                            //             if(data.Ok){							
-                            //                 window.location.href = urlSuccess;
-                            //             }
-                            //             else{        
-                                            
-                                            
-                            //             }
-    
-                            //         });  
-                
-                            //     },
-                            //     error: function () {
-
-                            //         KTApp.unblockPage();
-                
-                            //         swal.fire({
-                            //             title: "Aviso",
-                            //             text: "Desculpe, houve um erro na requisição!",
-                            //             icon: "error",
-                            //             confirmButtonText: "Ok",
-                            //             customClass: {
-                            //                 confirmButton: "btn font-weight-bold btn-light-primary"
-                            //             }
-                            //         }).then(function() {
-                            //             KTUtil.scrollTop();
-                            //         });
-                    
-                            //     }
-                            // });
                             
                         } else {
                             swal.fire({

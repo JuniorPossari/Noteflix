@@ -97,7 +97,7 @@ var CriadorAPI = function() {
                 confirmButtonText: "Sim",
                 cancelButtonText: "Não",
                 customClass: {
-                    confirmButton: "btn font-weight-bold btn-primary",
+                    confirmButton: "btn font-weight-bold btn-danger",
                     cancelButton: "btn font-weight-bold btn-light"
                 }
             }).then(function(result) {
