@@ -52,9 +52,9 @@
 </div>
 <!--end::Subheader-->
 <!--begin::Container-->
-<div class="container-fluid h-100" style="width: 80% !important;">
+<div class="container-fluid fundo-padrao">
     <!--begin::Card-->
-    <div class="card card-custom h-100" style="background-color: #f8f7ff; border-radius: 20px; border: 2px solid;">
+    <div class="card card-custom card-padrao">
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">

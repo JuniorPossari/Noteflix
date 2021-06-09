@@ -1,3 +1,14 @@
+.fundo-padrao{
+    width: 90%;
+    height: 100%;
+}
+
+.card-padrao{
+    background-color: #f8f7ff !important;
+    border-radius: 20px !important;
+    border: 2px solid !important;
+    height: 100% !important;
+}
 
 .auto-size-img{
     width: 130%;
@@ -9,13 +20,13 @@
 }
 
 .dropzone .dz-preview .dz-image {
-    width: 310px;
-    height: 420px;
+    width: auto;
+    height: auto;
 }
 
 .drop-zone{
-    width: 400px;
-    height: 520px;
+    width: 100%;
+    height: auto;
 }
 
 .select2-container {
