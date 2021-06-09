@@ -119,12 +119,31 @@
 			<!--begin:Heading-->
 			<h5 class="mb-5">Notificações</h5>
 			<!--end:Heading-->
-			
+
 			<!--begin::Item-->
-			<div class="bg-light-warning rounded p-2 gutter-b border border-dark">
+			<div class="bg-light-primary bg-hover-light-light rounded p-2 gutter-b border border-dark">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
-						<div class="">
+						<img class="auto-size-img ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg">
+					</div>
+					<div class="col-md-9">
+						<div class="text-left font-weight-bold">Uma noite alucinante!!</div>
+											
+						<div class="d-flex flex-column mt-2">
+							<label>Acabamos de adicionar "Uma noite alucinante" a lista de filmes para avaliar, dê sua nota agora para esse clássico do cinema! :D</label>
+							<span class="text-right text-muted font-size-sm">13:35 08/06/2021</span>
+						</div>
+					</div>
+				</div>
+							
+			</div>			
+			<!--end::Item-->
+			
+			<!--begin::Item-->
+			<div class="bg-light-primary rounded p-2 gutter-b border border-dark">
+				<div class="row">
+					<div class="col-md-3 d-flex align-items-center justify-content-center">
+						<div class="ml-4">
 							<span class="svg-icon svg-icon-warning ">
 								<span class="svg-icon svg-icon-lg">
 									<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Home/Library.svg-->
@@ -144,7 +163,7 @@
 						<div class="text-left font-weight-bold">Bem vindo!</div>
 											
 						<div class="d-flex flex-column mt-2">
-							<label>Seja muito bem vindo ao Noteflix, seu site de avaliação de filmes e séries!</label>
+							<label>Seja bem vindo ao Noteflix, o melhor site de avaliação de filmes e séries!</label>
 							<span class="text-right text-muted font-size-sm">23:44 04/06/2021</span>
 						</div>
 					</div>

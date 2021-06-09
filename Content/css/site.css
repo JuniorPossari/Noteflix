@@ -1,4 +1,9 @@
 
+.auto-size-img{
+    width: 130%;
+    height: auto;
+}
+
 .drop-zone:hover .dropzone-msg-title{
     opacity: 0.7;
 }
