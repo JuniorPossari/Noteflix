@@ -94,6 +94,69 @@
 
         }
 
+        public function ObterNota($id){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM NotaFilme WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            if($nota >= 0 && $nota < 0.5){
+                return '<i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 0.5 && $nota < 1){
+                return '<i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 1 && $nota < 1.5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 1.5 && $nota < 2){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 2 && $nota < 2.5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 2.5 && $nota < 3){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 3 && $nota < 3.5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 3.5 && $nota < 4){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 4 && $nota < 4.5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 4.5 && $nota < 5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning"></i>';
+            }
+
+            if($nota >= 5){
+                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning"></i>';
+            }
+            
+            return '<i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+
+        }
+
         public function VerificarSeFilmeExiste($filmeNome){
 
             $cmd = $this->con->prepare('SELECT Nome FROM Filme WHERE Nome = :filmeNome');
@@ -308,6 +371,153 @@
             return $result;
 
         }
+
+        public function SalvarAlteracao($dados){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar esse filme!");
+
+            $filme = $_POST['dados'];
+            $filmeId = $filme["Id"];
+            $filmeNome = $filme["Nome"];
+            $filmeDuracao = $filme["Duracao"];
+            $filmeDataLancamento = $filme["DataLancamento"];  
+            $filmeIdDiretor = $filme["IdDiretor"];          
+            $filmeSinopse = $filme["Sinopse"];
+            $filmeFoto = $filme["Foto"];
+            
+            //Arrays que vão ser gravados em outras tabelas
+            $filmeAtores = $filme["Elenco"];
+            $filmeGeneros = $filme["Genero"];
+            $filmePlataformas = array();
+            if(isset($filme["Plataforma"])){
+                $filmePlataformas = $filme["Plataforma"]; 
+            }                       
+
+            if(!isset($filme) || !isset($filmeNome) || !isset($filmeDuracao) || !isset($filmeDataLancamento) || !isset($filmeIdDiretor) || !isset($filmeSinopse) || !isset($filmeFoto) || !isset($filmeAtores) || !isset($filmeGeneros) || count($filmeAtores) == 0 || count($filmeGeneros) == 0){
+                return $result;
+            }
+
+            if(!isset($filmeFoto)){
+                $filmeFoto = "";
+            }
+
+            if($filmeFoto != ""){
+                $filmeFoto = base64_decode($filmeFoto);
+            }            
+
+            $filmeDataLancamento = implode("-",array_reverse(explode("/", $filmeDataLancamento)));
+
+            //Alterar filme
+            $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Duracao = :filmeDuracao, DataLancamento = :filmeDataLancamento, IdDiretor = :filmeIdDiretor, Sinopse = :filmeSinopse, Foto = :filmeFoto WHERE Id = :filmeId');
+
+            $cmd->bindValue(':filmeNome', $filmeNome);
+            $cmd->bindValue(':filmeDuracao', $filmeDuracao);
+            $cmd->bindValue(':filmeDataLancamento', $filmeDataLancamento);
+            $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);
+            $cmd->bindValue(':filmeSinopse', $filmeSinopse);
+            $cmd->bindValue(':filmeFoto', $filmeFoto);
+            $cmd->bindValue(':filmeId', $filmeId);
+
+            $sucesso = $cmd->execute();
+
+            //Alterar atores do filme
+            if($sucesso){
+
+                $cmd = $this->con->prepare('DELETE FROM FilmeAtor WHERE IdFilme = :filmeId');
+
+                $cmd->bindValue(':filmeId', $filmeId);
+
+                $sucesso = $cmd->execute();
+
+                foreach($filmeAtores as $atorId){
+
+                    if($sucesso){
+
+                        $cmd = $this->con->prepare('INSERT INTO FilmeAtor (IdFilme, IdAtor) VALUES (:filmeId, :atorId)');
+
+                        $cmd->bindValue(':filmeId', $filmeId);
+                        $cmd->bindValue(':atorId', $atorId);                
+    
+                        $sucesso = $cmd->execute();
+
+                    } 
+                    else{
+                        $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar os atores do filme!");
+                        break;
+                    }                   
+
+                }
+
+            }
+
+            //Alterar generos do filme
+            if($sucesso){
+
+                $cmd = $this->con->prepare('DELETE FROM FilmeGenero WHERE IdFilme = :filmeId');
+
+                $cmd->bindValue(':filmeId', $filmeId);
+
+                $sucesso = $cmd->execute();
+
+                foreach($filmeGeneros as $generoId){
+
+                    if($sucesso){
+
+                        $cmd = $this->con->prepare('INSERT INTO FilmeGenero (IdFilme, IdGenero) VALUES (:filmeId, :generoId)');
+
+                        $cmd->bindValue(':filmeId', $filmeId);
+                        $cmd->bindValue(':generoId', $generoId);                
+    
+                        $sucesso = $cmd->execute();
+
+                    } 
+                    else{
+                        $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar os gêneros do filme!");
+                        break;
+                    }                   
+
+                }
+
+            }
+
+            //Alterar plataformas do filme
+            if($sucesso && isset($filmePlataformas) && count($filmePlataformas) > 0){
+
+                $cmd = $this->con->prepare('DELETE FROM FilmePlataforma WHERE IdFilme = :filmeId');
+
+                $cmd->bindValue(':filmeId', $filmeId);
+
+                $sucesso = $cmd->execute();
+
+                foreach($filmePlataformas as $plataformaId){
+
+                    if($sucesso){
+
+                        $cmd = $this->con->prepare('INSERT INTO FilmePlataforma (IdFilme, IdPlataforma) VALUES (:filmeId, :plataformaId)');
+
+                        $cmd->bindValue(':filmeId', $filmeId);
+                        $cmd->bindValue(':plataformaId', $plataformaId);                
+    
+                        $sucesso = $cmd->execute();
+
+                    }
+                    else{
+                        $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar as plataformas do filme!");
+                        break;
+                    }                  
+
+                }
+
+            }            
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Filme alterado com sucesso!");
+            }
+
+            return $result;
+
+        }
         
         public function BuscarFoto($dados){
 
@@ -344,43 +554,6 @@
                 
                 $result = $json->Data(true, "Sucesso", "A foto do filme foi encontrada!", $fotoArray);
 
-            }
-
-            return $result;
-
-        }
-
-        public function SalvarAlteracao($dados){
-
-            $json = new JsonResult();
-            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar esse filme!");
-
-            $filmeId = $_POST['filmeId'];
-            $filmeNome = $_POST['filmeNome'];
-            $filmeFoto = $_POST['filmeFoto'];
-
-            if(!isset($filmeId) || !isset($filmeNome)){
-                return $result;
-            }   
-            
-            if(!isset($filmeFoto)){
-                $filmeFoto = "";
-            }
-
-            if($filmeFoto != ""){
-                $filmeFoto = base64_decode($filmeFoto);
-            }
-
-            $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Foto = :filmeFoto WHERE Id = :filmeId');
-
-            $cmd->bindValue(':filmeId', $filmeId);
-            $cmd->bindValue(':filmeNome', $filmeNome);
-            $cmd->bindValue(':filmeFoto', $filmeFoto);
-
-            $sucesso = $cmd->execute();
-
-            if($sucesso){
-                $result = $json->Data(true, "Sucesso", "Filme alterado com sucesso!");
             }
 
             return $result;

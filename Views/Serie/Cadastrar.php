@@ -69,7 +69,7 @@
                 <div class="form-group">   
                     <label>Primeiro Episódio</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="SeriePrimeiroEp" id="SeriePrimeiroEp" placeholder="Selecione uma data"/>
+                        <input type="text" class="form-control" name="SeriePrimeiroEp" id="SeriePrimeiroEp" placeholder="Defina a data" autocomplete="off"/>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>
@@ -84,7 +84,7 @@
                 <div class="form-group"> 
                     <label>Data de Termino</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" placeholder="Selecione uma data"/>
+                        <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" placeholder="Defina a data" autocomplete="off"/>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>

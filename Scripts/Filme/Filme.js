@@ -529,7 +529,7 @@ var FilmeAPI = function() {
                         } else {
                             swal.fire({
                                 title: "Aviso",
-                                text: "Você deve preencher todos os campos!",
+                                text: "Você deve preencher todos os campos obrigatórios!",
                                 icon: "error",
                                 confirmButtonText: "Ok",
                                 customClass: {
@@ -576,14 +576,24 @@ var FilmeAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var filmeId = $('#FilmeId').val();
-                            var filmeNome = $('#FilmeNome').val();					
+                            var dados = {};
+
+                            dados.Id = $('#IdElement').val();
+                            dados.Nome = $('#FilmeNome').val();
+                            dados.Duracao = $('#FilmeDuracao').val();
+                            dados.DataLancamento = $('#FilmeDataLancamento').val();
+                            dados.IdDiretor = $('#FilmeDiretor').val();
+                            dados.Elenco = $('#FilmeElenco').val();
+                            dados.Genero = $('#FilmeGenero').val();
+                            dados.Plataforma = $('#FilmePlataforma').val();
+                            dados.Foto = localStorage.getItem('base64Foto');
+                            dados.Sinopse = $('#FilmeSinopse').val();					
             
                             $.ajax({
                                 url: urlSalvarAlteracao,
                                 type: 'POST',
                                 dataType: "html",
-                                data: {"filmeId":filmeId, "filmeNome":filmeNome},
+                                data: {"dados":dados},
                                 success: function (json) {
             
                                     var data = JSON.parse(json);
@@ -633,7 +643,7 @@ var FilmeAPI = function() {
                         } else {
                             swal.fire({
                                 title: "Aviso",
-                                text: "Você deve preencher todos os campos!",
+                                text: "Você deve preencher todos os campos obrigatórios!",
                                 icon: "error",
                                 confirmButtonText: "Ok",
                                 customClass: {
@@ -657,18 +667,38 @@ var FilmeAPI = function() {
 
         $('#FilmeDiretor').select2({
             placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#FilmeElenco').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#FilmeGenero').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#FilmePlataforma').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
     }
@@ -729,6 +759,7 @@ var FilmeAPI = function() {
             Timepicker();
             Datepicker();
             Select2();
+            OnClickSalvarAlteracao();
             
         },
         initVisualizar: function() {

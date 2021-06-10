@@ -75,7 +75,7 @@
                 <div class="form-group">   
                     <label>Duração</label>
                     <div class="input-group timepicker">
-                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" value="<?php echo $Duracao; ?>" />
+                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" autocomplete="off" value="<?php echo $Duracao; ?>" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-clock-o"></i>
@@ -86,7 +86,7 @@
                 <div class="form-group"> 
                     <label>Data de lançamento</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" value="<?php echo implode("/",array_reverse(explode("-", $DataLancamento))); ?>" />
+                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" autocomplete="off" value="<?php echo implode("/",array_reverse(explode("-", $DataLancamento))); ?>" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>

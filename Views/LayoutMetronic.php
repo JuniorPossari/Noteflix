@@ -83,6 +83,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<link rel="stylesheet" href="/Noteflix/Content/css/site.css">
 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 		<!-- jQuery library -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

@@ -519,7 +519,7 @@ var SerieAPI = function() {
                         } else {
                             swal.fire({
                                 title: "Aviso",
-                                text: "Você deve preencher todos os campos!",
+                                text: "Você deve preencher todos os campos obrigatórios!",
                                 icon: "error",
                                 confirmButtonText: "Ok",
                                 customClass: {
@@ -623,7 +623,7 @@ var SerieAPI = function() {
                         } else {
                             swal.fire({
                                 title: "Aviso",
-                                text: "Você deve preencher todos os campos!",
+                                text: "Você deve preencher todos os campos obrigatórios!",
                                 icon: "error",
                                 confirmButtonText: "Ok",
                                 customClass: {
@@ -646,19 +646,39 @@ var SerieAPI = function() {
     var Select2 = function(){
 
         $('#SerieCriador').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#SerieElenco').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#SerieGenero').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
         $('#SeriePlataforma').select2({
-            placeholder: "Selecione..."
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
         });
 
     }

@@ -69,7 +69,7 @@
                 <div class="form-group">   
                     <label>Duração</label>
                     <div class="input-group timepicker">
-                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" placeholder="Selecione a hora" />
+                        <input type="text" class="form-control" name="FilmeDuracao" id="FilmeDuracao" autocomplete="off" placeholder="Defina a hora" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-clock-o"></i>
@@ -80,7 +80,7 @@
                 <div class="form-group"> 
                     <label>Data de lançamento</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" placeholder="Selecione uma data"/>
+                        <input type="text" class="form-control" name="FilmeDataLancamento" id="FilmeDataLancamento" placeholder="Defina a data" autocomplete="off" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>

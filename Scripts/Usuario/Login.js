@@ -125,7 +125,7 @@ var KTLogin = function() {
 				} else {
 					swal.fire({
 						title: "Aviso",
-		                text: "Você deve preencher todos os campos!",
+		                text: "Você deve preencher todos os campos obrigatórios!",
 		                icon: "error",
 		                confirmButtonText: "Ok",
                         customClass: {
@@ -299,7 +299,7 @@ var KTLogin = function() {
 				} else {
 					swal.fire({
 						title: "Aviso",
-		                text: "Você deve preencher todos os campos!",
+		                text: "Você deve preencher todos os campos obrigatórios!",
 		                icon: "error",
 		                confirmButtonText: "Ok",
                         customClass: {

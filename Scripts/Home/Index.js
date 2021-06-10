@@ -4,7 +4,7 @@ var IndexAPI = function() {
     
     var MontarSlickCarousel = function(){
 
-        $('#FilmesLancamentos').not('.slick-initialized').slick({
+        $('#FilmesRecentes').not('.slick-initialized').slick({
             dots: true,
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -15,7 +15,19 @@ var IndexAPI = function() {
             centerMode: true,       
         });
 
-        $('#FilmesLancamentos').removeClass('d-none');
+        $('#SeriesRecentes').not('.slick-initialized').slick({
+            dots: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            variableWidth: true,
+            adaptiveHeight: true,
+            centerMode: true,       
+        });
+
+        $('#FilmesRecentes').removeClass('d-none');
+        $('#SeriesRecentes').removeClass('d-none');
 
     }
 

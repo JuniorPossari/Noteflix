@@ -4,7 +4,7 @@
 }
 
 .card-padrao{
-    background-color: #f8f7ff !important;
+    background-color: rgba(243, 243, 243, 0.98);
     border-radius: 20px !important;
     border: 2px solid !important;
     height: 100% !important;
@@ -32,6 +32,13 @@
 .select2-container {
     width: 100% !important;
 }
+
+.datatable-altura{
+    min-height: 520px;
+}
+
+.tabela-noteflix {
+    opacity: 0.95 !important; }
 
 .tabela-noteflix th:not(.table-cell-center) span, .tabela-noteflix td:not(.table-cell-center) > span, .tabela-noteflix td:not(.table-cell-center) > div {
     padding-left: 1.55rem !important; }

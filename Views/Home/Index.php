@@ -131,17 +131,18 @@
         <!--end::Header-->
         <!--begin::Body-->                    
         <div class="card-body">
-            <div class="container">
-                <div class="text-center mt-2">
-                    <h1>Novos lançamentos</h1>
+            <div class="container-xxl">
+                <!--begin::Filmes-->
+                <div class="text-center mt-10">
+                    <h3 class="font-weight-bolder">FILMES RECENTES</h3>
                 </div>
-                <div class="mt-20">
-                    <div id="FilmesLancamentos" class="d-none">
+                <div class="mt-10">
+                    <div id="FilmesRecentes" class="d-none">
                         <div class="previa">
                             <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
                             <h2 class="slide-name">Invocação Do Mal 3
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
@@ -149,7 +150,7 @@
                             <img src="/Noteflix/Content/img/cruella.jpg">
                             <h2 class="slide-name">Cruella
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
@@ -157,7 +158,7 @@
                             <img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg">
                             <h2 class="slide-name">Aqueles que me desejam a morte
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
@@ -165,7 +166,7 @@
                             <img src="/Noteflix/Content/img/godzilla-vs-kong.jpg">
                             <h2 class="slide-name">Godzilla VS Kong
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
@@ -173,7 +174,7 @@
                             <img src="/Noteflix/Content/img/mortal-kombat.jpg">
                             <h2 class="slide-name">Mortal Kombat
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
@@ -181,12 +182,74 @@
                             <img src="/Noteflix/Content/img/evitar.jpg">
                             <h2 class="slide-name">Evitar
                                 <span class="d-block">
-                                    <i class="flaticon-star text-warning mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star mr-1"></i><i class="flaticon-star "></i>
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning"></i>
                                 </span>
                             </h2>
                         </div>
                     </div>
                 </div>
+                <!--end::Filmes-->
+
+                <div class="separator separator-solid separator-border-4 border-dark mt-20 mb-10" style="opacity: 0.8;"></div>
+
+                <!--begin::Series-->
+                <div class="text-center">
+                    <h3 class="font-weight-bolder">SÉRIES RECENTES</h3>
+                </div>
+                <div class="mt-10">
+                    <div id="SeriesRecentes" class="d-none">
+                    <div class="previa">
+                            <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
+                            <h2 class="slide-name">Invocação Do Mal 3
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/cruella.jpg">
+                            <h2 class="slide-name">Cruella
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg">
+                            <h2 class="slide-name">Aqueles que me desejam a morte
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/godzilla-vs-kong.jpg">
+                            <h2 class="slide-name">Godzilla VS Kong
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/mortal-kombat.jpg">
+                            <h2 class="slide-name">Mortal Kombat
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="previa">
+                            <img src="/Noteflix/Content/img/evitar.jpg">
+                            <h2 class="slide-name">Evitar
+                                <span class="d-block">
+                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning"></i>
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Series-->
+
             </div>
         </div>                    
         <!--end::Body-->
