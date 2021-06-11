@@ -109,7 +109,7 @@ var SerieAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja excluir esse série?",
+                text: "Realmente deseja excluir essa série?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -455,21 +455,32 @@ var SerieAPI = function() {
                 if(result.value){
     
                     validation.validate().then(function(status) {
-                        if (status == 'Valid') {
+                        if (status == 'Valid') { 
             
                             KTApp.blockPage({
                                 overlayColor: '#000000',
                                 state: 'info', // a bootstrap color
                                 message: 'Aguarde...'
                             });
-                            
-                            var serieNome = $('#SerieNome').val();					
+
+                            var dados = {};
+
+                            dados.Nome = $('#SerieNome').val();
+                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEpisodio').val();
+                            dados.NumeroTemporada = $('#SerieNumeroTemporada').val();
+                            dados.DataTermino = $('#SerieDataTermino').val();
+                            dados.IdCriador = $('#SerieCriador').val();
+                            dados.Elenco = $('#SerieElenco').val();
+                            dados.Genero = $('#SerieGenero').val();
+                            dados.Plataforma = $('#SeriePlataforma').val();
+                            dados.Foto = localStorage.getItem('base64Foto');
+                            dados.Sinopse = $('#SerieSinopse').val();                            				
             
                             $.ajax({
                                 url: urlSalvar,
                                 type: 'POST',
                                 dataType: "html",
-                                data: {"serieNome":serieNome},
+                                data: {"dados":dados},
                                 success: function (json) {
             
                                     var data = JSON.parse(json);
@@ -545,7 +556,7 @@ var SerieAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                text: "Realmente deseja alterar esse série?",
+                text: "Realmente deseja alterar essa série?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -566,14 +577,24 @@ var SerieAPI = function() {
                                 message: 'Aguarde...'
                             });
                             
-                            var serieId = $('#SerieId').val();
-                            var serieNome = $('#SerieNome').val();					
+                            var dados = {};
+
+                            dados.Id = $('#IdElement').val();
+                            dados.Nome = $('#SerieNome').val();
+                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEpisodio').val();
+                            dados.DataTermino = $('#SerieDataTermino').val();
+                            dados.IdCriador = $('#SerieCriador').val();
+                            dados.Elenco = $('#SerieElenco').val();
+                            dados.Genero = $('#SerieGenero').val();
+                            dados.Plataforma = $('#SeriePlataforma').val();
+                            dados.Foto = localStorage.getItem('base64Foto');
+                            dados.Sinopse = $('#SerieSinopse').val();					
             
                             $.ajax({
                                 url: urlSalvarAlteracao,
                                 type: 'POST',
                                 dataType: "html",
-                                data: {"serieId":serieId, "serieNome":serieNome},
+                                data: {"dados":dados},
                                 success: function (json) {
             
                                     var data = JSON.parse(json);
@@ -708,17 +729,6 @@ var SerieAPI = function() {
         });
 
     }
-
-    var Timepicker = function(){
-
-        $('#FilmeDuracao').timepicker({
-            minuteStep: 1,
-            defaultTime: '',
-            showMeridian: false,
-            snapToStep: true
-        });
-
-    }
     
     return {
         
@@ -735,7 +745,6 @@ var SerieAPI = function() {
             localStorage.removeItem('base64Foto');
             InitDropzone();
             Validar();
-            Timepicker();
             Datepicker();
             Select2();
             OnClickSalvar();
@@ -746,16 +755,15 @@ var SerieAPI = function() {
             localStorage.removeItem('base64Foto');
             UploadFoto();
             Validar();
-            Timepicker();
             Datepicker();
             Select2();
+            OnClickSalvarAlteracao();
             
         },
         initVisualizar: function() {
 
             localStorage.removeItem('base64Foto');
             UploadFoto(true);
-            Timepicker();
             Datepicker();
             Select2();
             

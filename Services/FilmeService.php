@@ -94,7 +94,7 @@
 
         }
 
-        public function ObterNota($id){
+        public function ObterNota($id, $tamanho = 'icon-md'){
 
             $nota = 0;
 
@@ -110,50 +110,50 @@
             }
 
             if($nota >= 0 && $nota < 0.5){
-                return '<i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 0.5 && $nota < 1){
-                return '<i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 1 && $nota < 1.5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 1.5 && $nota < 2){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 2 && $nota < 2.5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 2.5 && $nota < 3){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 3 && $nota < 3.5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 3.5 && $nota < 4){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 4 && $nota < 4.5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 4.5 && $nota < 5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
             }
 
             if($nota >= 5){
-                return '<i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning"></i>';
+                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
             }
             
-            return '<i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>';
+            return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
 
         }
 
@@ -270,7 +270,7 @@
 
                     $sucesso = $cmd->execute();
 
-                    $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao cadastrar os filmees do filme!");     
+                    $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao cadastrar os atores do filme!");     
                     
                     return $result;
 
