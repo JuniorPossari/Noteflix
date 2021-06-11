@@ -8,6 +8,12 @@
 
         }
 
+        public function Erro(){
+
+            $this->CarregarView('Home/Erro');
+
+        }
+
         public function FileCallback(){
 
             $json = new JsonResult();

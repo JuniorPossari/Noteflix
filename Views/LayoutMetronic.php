@@ -1,37 +1,23 @@
 <?php	
 
-	$isAuthenticated = false;
+	$usuarioService = new UsuarioService();
+	$cargoService = new CargoService();
+
+	$isAuthenticated = $usuarioService->VerificarSeUsuarioEstaLogado();
 	$isAdmin = false;
 
-	if (isset($_SESSION['usr'])) {
+	if($isAuthenticated){
 
-		$usuarioService = new UsuarioService();
-		$cargoService = new CargoService();
+		$usuario = $usuarioService->ObterPorId($_SESSION['usr']);
+        
+		if(isset($usuario)){
 
-		$idUsuario = $_SESSION['usr'];
+			extract($usuario);
 
-		$user = $usuarioService->ObterPorId($idUsuario);
+			$isAdmin = $cargoService->VerificarCargoDoUsuario($Id, "Administrador");
 
-		if(isset($user)){
-
-			extract($user);
-
-			if(isset($Id)){
-
-				$isAuthenticated = true;
-
-				$isAdmin = $cargoService->VerificarCargoDoUsuario($Id, "Administrador");
-
-			}
-
-		}
-
+		} 
 		
-	}
-	
-	if(!$isAuthenticated){
-		session_unset();
-		session_destroy();
 	}
 
 ?>
@@ -50,7 +36,7 @@ Purchase: https://1.envato.market/EA4JP
 Renew Support: https://1.envato.market/EA4JP
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<html lang="pt-br">
+<html lang="pt-BR">
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />

@@ -45,8 +45,24 @@
 
             if(!file_exists($caminho) && !method_exists($controller, $metodo)){
                 $controller = 'HomeController';
-                $metodo = 'Index';
+                $metodo = 'Erro';
             }
+            else{
+
+                $m = new ReflectionMethod($controller, $metodo);
+                $metodoParametros = $m->getParameters();
+
+                if(empty($metodoParametros) && !empty($parametros)) {
+
+                    if($parametros[0] != ''){
+                        $controller = 'HomeController';
+                        $metodo = 'Erro';
+                        $parametros = array();
+                    }
+                    
+                }
+
+            }            
 
             if(!$this->user){
                 $pg_permission = ['HomeController', 'UsuarioController'];
@@ -58,6 +74,28 @@
             }
             else{
                 //Verificar se é admin e configurar as paginas que não são permitidas
+
+                $usuarioService = new UsuarioService();
+                $cargoService = new CargoService();
+
+                $isAuthenticated = $usuarioService->VerificarSeUsuarioEstaLogado();
+                $isAdmin = false;
+
+                if($isAuthenticated){
+                    $isAdmin = $cargoService->VerificarCargoDoUsuario($_SESSION['usr'], "Administrador");
+                }
+
+                if(!$isAdmin){
+
+                    $pg_permission = ['HomeController', 'UsuarioController'];
+
+                    if(!isset($controller) || !in_array($controller, $pg_permission)){
+                        $controller = 'HomeController';
+                        $metodo = 'Erro';
+                    }
+
+                }
+
             }
             
 

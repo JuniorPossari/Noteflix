@@ -138,13 +138,38 @@
                 </div>
                 <div class="mt-10">
                     <div id="FilmesRecentes" class="d-none">
+
+                        <?php
+                        
+                            $filmeService = new FilmeService();
+
+                            $filme = $filmeService->ObterPorId(1);
+
+                            $foto = base64_encode($filme["Foto"]);
+
+                            $nota = $filmeService->ObterNota(1);
+                        
+                        ?>
+
                         <div class="previa">
-                            <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
-                            <h2 class="slide-name">Invocação Do Mal 3
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
+                            <a href="/Noteflix/Home/Filme/<?php echo $filme["Id"]; ?>">
+                                <img src="data:image/jpeg;base64,<?php echo $foto; ?>">
+                                <h2 class="slide-name"><?php echo $filme["Nome"]; ?>
+                                    <span class="d-block">
+                                        <?php echo $nota; ?>
+                                    </span>
+                                </h2>
+                            </a> 
+                        </div>
+                        <div class="previa">
+                            <a href="/Noteflix/Home/Filme/1">
+                                <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
+                                <h2 class="slide-name">Invocação Do Mal 3
+                                    <span class="d-block">
+                                        <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
+                                    </span>
+                                </h2>
+                            </a> 
                         </div>
                         <div class="previa">
                             <img src="/Noteflix/Content/img/cruella.jpg">
@@ -199,7 +224,7 @@
                 <div class="mt-10">
                     <div id="SeriesRecentes" class="d-none">
                         <div class="previa">
-                            <a href="/Noteflix/Avaliacao/Serie/1">
+                            <a href="/Noteflix/Home/Serie/1">
                                 <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
                                 <h2 class="slide-name">Invocação Do Mal 3
                                     <span class="d-block">

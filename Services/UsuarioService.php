@@ -40,6 +40,39 @@
 
         }
 
+        public function VerificarSeUsuarioEstaLogado(){
+
+            $logado = false;
+
+            if (isset($_SESSION['usr'])) {                
+        
+                $idUsuario = $_SESSION['usr'];
+        
+                $user = $this->ObterPorId($idUsuario);
+        
+                if(isset($user)){
+        
+                    extract($user);
+        
+                    if(isset($Id)){
+        
+                        $logado = true;                       
+        
+                    }
+        
+                }        
+                
+            }
+
+            if(!$logado){
+                session_unset();
+                session_destroy();
+            }
+
+            return $logado;
+
+        }
+
         public function ObterIdPorEmail($email){
 
             $dados = array();
