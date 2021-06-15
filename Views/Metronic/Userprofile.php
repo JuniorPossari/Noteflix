@@ -15,7 +15,7 @@
 			<div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(<?php if(isset($Foto) && $Foto != ""){ echo 'data:image;base64,'.base64_encode($Foto); }else{ echo '/Noteflix/Content/img/sem-foto.png'; } ?>)">
 				<div class="image-input-wrapper border border-dark" style="border-width:2px !important;"></div>
 				<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Alterar">
-					<i class="fa fa-pen icon-sm text-muted"></i>
+					<i class="fa fa-edit icon-md text-muted"></i>
 					<input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
 					<input type="hidden" name="profile_avatar_remove" />
 					<input type="hidden" class="d-none" id="HdnNovaFoto" />
