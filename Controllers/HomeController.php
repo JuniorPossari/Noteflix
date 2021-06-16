@@ -8,6 +8,18 @@
 
         }
 
+        public function Filmes(){
+
+            $this->CarregarLayout('Home/Filmes');
+
+        }
+
+        public function Series(){
+
+            $this->CarregarLayout('Home/Series');
+
+        }
+
         public function Erro(){
 
             $this->CarregarView('Home/Erro');
