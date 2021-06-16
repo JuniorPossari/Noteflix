@@ -22,6 +22,20 @@
 
         }
 
+        public function ObterTop5Recentes(){
+
+            $dados = array();
+
+            $cmd = $this->con->query('SELECT * FROM Filme ORDER BY DataLancamento DESC LIMIT 6');
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }  
+            
+            return $dados;
+
+        }
+
         public function ObterPorId($id){
 
             $dados = array();

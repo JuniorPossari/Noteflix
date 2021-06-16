@@ -143,81 +143,34 @@
                         
                             $filmeService = new FilmeService();
 
-                            $filme = $filmeService->ObterPorId(1);                            
+                            $filmes = $filmeService->ObterTop5Recentes();                            
 
-                            if(isset($filme) && !empty($filme)){
+                            if(isset($filmes) && !empty($filmes)){
 
-                                $foto = base64_encode($filme["Foto"]);
+                                foreach($filmes as $filme){
 
-                                $nota = $filmeService->ObterNota(1);
+                                    $foto = base64_encode($filme["Foto"]);
 
-                                echo    '<div class="previa">
-                                            <a href="/Noteflix/Home/Filme/'.$filme["Id"].'">
-                                                <img src="data:image/jpeg;base64,'.$foto.'">
-                                                <h2 class="slide-name">'.$filme["Nome"].'
-                                                    <span class="d-block">
-                                                        '.$nota.'
-                                                    </span>
-                                                </h2>
-                                            </a> 
-                                        </div>';
+                                    $nota = $filmeService->ObterNota($filme["Id"]);
+
+                                    echo    '<div class="previa">
+                                                <a href="/Noteflix/Home/Filme/'.$filme["Id"].'">
+                                                    <img src="data:image/jpeg;base64,'.$foto.'">
+                                                    <h2 class="slide-name">'.$filme["Nome"].'
+                                                        <span class="d-block">
+                                                            '.$nota.'
+                                                        </span>
+                                                    </h2>
+                                                </a> 
+                                            </div>';
+
+                                }                                
 
                             }
 
                         
                         ?>
-
                         
-                        <div class="previa">
-                            <a href="/Noteflix/Home/Filme/1">
-                                <img src="/Noteflix/Content/img/invocação-do-mal-3.jpg">
-                                <h2 class="slide-name">Invocação Do Mal 3
-                                    <span class="d-block">
-                                        <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                    </span>
-                                </h2>
-                            </a> 
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/cruella.jpg">
-                            <h2 class="slide-name">Cruella
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/aqueles-que-me-desejam-a-morte.jpg">
-                            <h2 class="slide-name">Aqueles que me desejam a morte
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/godzilla-vs-kong.jpg">
-                            <h2 class="slide-name">Godzilla VS Kong
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/mortal-kombat.jpg">
-                            <h2 class="slide-name">Mortal Kombat
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/evitar.jpg">
-                            <h2 class="slide-name">Evitar
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
                     </div>
                 </div>
                 <!--end::Filmes-->
@@ -230,56 +183,39 @@
                 </div>
                 <div class="mt-10">
                     <div id="SeriesRecentes" class="d-none">
-                        <div class="previa">
-                            <a href="/Noteflix/Home/Serie/1">
-                                <img src="/Noteflix/Content/img/lucifer.jpg">
-                                <h2 class="slide-name">Lucifer
-                                    <span class="d-block">
-                                        <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                    </span>
-                                </h2>
-                            </a>                            
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/the-walking-dead.jpg">
-                            <h2 class="slide-name">The Walking Dead
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/sobrenatural.jpg">
-                            <h2 class="slide-name">Sobrenatural
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/game-of-thrones.jpg">
-                            <h2 class="slide-name">Game Of Thrones
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/greys-anatomy.jpg">
-                            <h2 class="slide-name">Greys Anatomy
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="previa">
-                            <img src="/Noteflix/Content/img/sweet-tooth.jpg">
-                            <h2 class="slide-name">Sweet Tooth
-                                <span class="d-block">
-                                    <i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star icon-md text-warning mr-1"></i><i class="fa fa-star-half-o icon-md text-warning mr-1"></i><i class="fa fa-star-o icon-md text-warning"></i>
-                                </span>
-                            </h2>
-                        </div>
+                        
+                    <?php
+                        
+                        $serieService = new SerieService();
+
+                        $series = $serieService->ObterTop5Recentes();                            
+
+                        if(isset($series) && !empty($series)){
+
+                            foreach($series as $serie){
+
+                                $foto = base64_encode($serie["Foto"]);
+
+                                $nota = $serieService->ObterNota($serie["Id"]);
+
+                                echo    '<div class="previa">
+                                            <a href="/Noteflix/Home/Filme/'.$serie["Id"].'">
+                                                <img src="data:image/jpeg;base64,'.$foto.'">
+                                                <h2 class="slide-name">'.$serie["Nome"].'
+                                                    <span class="d-block">
+                                                        '.$nota.'
+                                                    </span>
+                                                </h2>
+                                            </a> 
+                                        </div>';
+
+                            }                                
+
+                        }
+
+                    
+                    ?>
+
                     </div>
                 </div>
                 <!--end::Series-->
