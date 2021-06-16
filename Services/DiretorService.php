@@ -79,7 +79,7 @@
 
             $cmd = $this->con->prepare('INSERT INTO Diretor (Nome) VALUES (:diretorNome)');
 
-            $cmd->bindValue(':diretorNome', $diretorNome);
+            $cmd->bindValue(':diretorNome', strtoupper($diretorNome));
 
             $sucesso = $cmd->execute();
 
@@ -106,7 +106,7 @@
             $cmd = $this->con->prepare('UPDATE Diretor SET Nome = :diretorNome WHERE Id = :diretorId');
 
             $cmd->bindValue(':diretorId', $diretorId);
-            $cmd->bindValue(':diretorNome', $diretorNome);
+            $cmd->bindValue(':diretorNome', strtoupper($diretorNome));
 
             $sucesso = $cmd->execute();
 

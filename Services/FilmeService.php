@@ -222,7 +222,7 @@
             //Cadastrar filme
             $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto)');
 
-            $cmd->bindValue(':filmeNome', $filmeNome);
+            $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
             $cmd->bindValue(':filmeDataLancamento', $filmeDataLancamento);
             $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);
@@ -411,7 +411,7 @@
             //Alterar filme
             $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Duracao = :filmeDuracao, DataLancamento = :filmeDataLancamento, IdDiretor = :filmeIdDiretor, Sinopse = :filmeSinopse, Foto = :filmeFoto WHERE Id = :filmeId');
 
-            $cmd->bindValue(':filmeNome', $filmeNome);
+            $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
             $cmd->bindValue(':filmeDataLancamento', $filmeDataLancamento);
             $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);

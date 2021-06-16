@@ -79,7 +79,7 @@
 
             $cmd = $this->con->prepare('INSERT INTO Criador (Nome) VALUES (:criadorNome)');
 
-            $cmd->bindValue(':criadorNome', $criadorNome);
+            $cmd->bindValue(':criadorNome', strtoupper($criadorNome));
 
             $sucesso = $cmd->execute();
 
@@ -106,7 +106,7 @@
             $cmd = $this->con->prepare('UPDATE Criador SET Nome = :criadorNome WHERE Id = :criadorId');
 
             $cmd->bindValue(':criadorId', $criadorId);
-            $cmd->bindValue(':criadorNome', $criadorNome);
+            $cmd->bindValue(':criadorNome', strtoupper($criadorNome));
 
             $sucesso = $cmd->execute();
 

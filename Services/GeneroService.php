@@ -79,7 +79,7 @@
 
             $cmd = $this->con->prepare('INSERT INTO Genero (Nome) VALUES (:generoNome)');
 
-            $cmd->bindValue(':generoNome', $generoNome);
+            $cmd->bindValue(':generoNome', strtoupper($generoNome));
 
             $sucesso = $cmd->execute();
 
@@ -106,7 +106,7 @@
             $cmd = $this->con->prepare('UPDATE Genero SET Nome = :generoNome WHERE Id = :generoId');
 
             $cmd->bindValue(':generoId', $generoId);
-            $cmd->bindValue(':generoNome', $generoNome);
+            $cmd->bindValue(':generoNome', strtoupper($generoNome));
 
             $sucesso = $cmd->execute();
 
