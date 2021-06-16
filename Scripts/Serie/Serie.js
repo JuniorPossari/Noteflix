@@ -9,7 +9,7 @@ var SerieAPI = function() {
     var urlExcluir = "/Noteflix/Serie/Excluir/";
     var urlSuccess = "/Noteflix/Serie/Index/";
     var urlFileCallback = "/Noteflix/Home/FileCallback/";
-    var urlBuscarFoto = "/Noteflix/Ator/BuscarFoto/";
+    var urlBuscarFoto = "/Noteflix/Serie/BuscarFoto/";
 
     var validation = null;
     var ObjDropzone = null;   
@@ -466,8 +466,8 @@ var SerieAPI = function() {
                             var dados = {};
 
                             dados.Nome = $('#SerieNome').val();
-                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEpisodio').val();
-                            dados.NumeroTemporada = $('#SerieNumeroTemporada').val();
+                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEp').val();
+                            dados.NumeroTemporada = $('#SerieNumeroTemp').val();
                             dados.DataTermino = $('#SerieDataTermino').val();
                             dados.IdCriador = $('#SerieCriador').val();
                             dados.Elenco = $('#SerieElenco').val();
@@ -581,7 +581,8 @@ var SerieAPI = function() {
 
                             dados.Id = $('#IdElement').val();
                             dados.Nome = $('#SerieNome').val();
-                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEpisodio').val();
+                            dados.PrimeiroEpisodio = $('#SeriePrimeiroEp').val();
+                            dados.NumeroTemporada = $('#SerieNumeroTemp').val();
                             dados.DataTermino = $('#SerieDataTermino').val();
                             dados.IdCriador = $('#SerieCriador').val();
                             dados.Elenco = $('#SerieElenco').val();

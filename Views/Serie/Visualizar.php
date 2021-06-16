@@ -90,7 +90,7 @@
                 <div class="form-group"> 
                     <label>Data de Termino</label>
                     <div class="input-group date">
-                        <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" placeholder="Defina a data" autocomplete="off" value="<?php echo implode("/",array_reverse(explode("-", $DataTermino))); ?>" disabled />
+                        <input type="text" class="form-control" name="SerieDataTermino" id="SerieDataTermino" placeholder="Defina a data" autocomplete="off" value="<?php if(isset($DataTermino) && $DataTermino != "0000-00-00"){ echo implode("/",array_reverse(explode("-", $DataTermino))); } ?>" disabled />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="la la-calendar-check-o"></i>

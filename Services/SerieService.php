@@ -416,7 +416,7 @@
                 $serieFoto = base64_decode($serieFoto);
             }            
 
-            $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));
+            $seriePrimeiroEpisodio = implode("-",array_reverse(explode("/", $seriePrimeiroEpisodio)));
 
             if(isset($serieDataTermino) && $serieDataTermino != ""){
                 $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));

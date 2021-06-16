@@ -101,9 +101,9 @@
                     
                         $serieService = new SerieService();
 
-                        $seriees = $serieService->ObterTodos();                        
+                        $series = $serieService->ObterTodos();                        
 
-                        foreach ($seriees as $serie) {
+                        foreach ($series as $serie) {
 
                             $idSerie = $serie["Id"];
                             $nomeSerie = $serie["Nome"];
