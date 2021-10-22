@@ -72,6 +72,24 @@
 
         }
 
+        public function ObterFilmeAtores($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT a.* FROM FilmeAtor fa INNER JOIN Ator a ON a.Id = fa.IdAtor WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
         public function ObterFilmeGeneroIds($id){
 
             $dados = array();
@@ -90,6 +108,24 @@
 
         }
 
+        public function ObterFilmeGeneros($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT g.* FROM FilmeGenero fg INNER JOIN Genero g ON g.Id = fg.IdGenero WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
         public function ObterFilmePlataformaIds($id){
 
             $dados = array();
@@ -102,6 +138,24 @@
 
             if($cmd->rowCount() > 0){
                 $dados = $cmd->fetchall(PDO::FETCH_COLUMN);
+            }            
+            
+            return $dados;
+
+        }
+
+        public function ObterFilmePlataformas($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT p.* FROM FilmePlataforma fp INNER JOIN Plataforma p ON p.Id = fp.IdPlataforma WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             }            
             
             return $dados;

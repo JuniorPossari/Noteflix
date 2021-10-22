@@ -72,7 +72,7 @@
             <!--end::Search Form-->
             
             <!--begin: Datatable-->
-            <table class="d-none datatable-altura" id="kt_datatable">
+            <table class="d-none datatable-altura table-hover" id="kt_datatable">
                 <thead>
                     <tr>
                         <th data-title="Id">
@@ -101,9 +101,9 @@
                     
                         $filmeService = new FilmeService();
 
-                        $filmees = $filmeService->ObterTodos();                        
+                        $filmes = $filmeService->ObterTodos();                        
 
-                        foreach ($filmees as $filme) {
+                        foreach ($filmes as $filme) {
 
                             $idFilme = $filme["Id"];
                             $nomeFilme = $filme["Nome"];

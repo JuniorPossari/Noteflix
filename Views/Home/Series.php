@@ -72,7 +72,7 @@
             <!--end::Search Form-->
             
             <!--begin: Datatable-->
-            <table class="d-none datatable-altura" id="kt_datatable">
+            <table class="d-none datatable-altura table-hover" id="kt_datatable">
                 <thead>
                     <tr>                        
                         <th data-title="Nome">
@@ -138,7 +138,7 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Serie/Serie.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Home/Serie.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         SerieAPI.initIndex();

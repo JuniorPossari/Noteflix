@@ -72,7 +72,7 @@
             <!--end::Search Form-->
             
             <!--begin: Datatable-->
-            <table class="d-none datatable-altura" id="kt_datatable">
+            <table class="d-none datatable-altura table-hover" id="kt_datatable">
                 <thead>
                     <tr>
                         <th data-title="Id">

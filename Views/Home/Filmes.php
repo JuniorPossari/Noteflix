@@ -1,3 +1,46 @@
+<style>
+
+    .slide-name {
+        width: 310px;
+        opacity: 0.8;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 28px;
+        -webkit-transition: all 300ms ease;
+        transition: all 300ms ease;
+        text-transform: uppercase;
+        display: none;
+        text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    .previa{
+        background-color: #000;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 400px;
+        font-size: 100px;
+        color: #fff;
+        height: 420px;
+        width: 310px;
+    }
+
+    .previa:hover {
+        cursor: pointer;
+    }
+
+    .previa:hover .slide-name{
+        display: block; 
+    }
+
+    .previa:hover img {
+        filter: brightness(30%); 
+    }
+</style>
+
 <!--begin::Subheader-->
 <div class="subheader py-2 py-lg-12 subheader-transparent" id="kt_subheader">
     <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -72,21 +115,12 @@
             <!--end::Search Form-->
             
             <!--begin: Datatable-->
-            <table class="d-none datatable-altura" id="kt_datatable">
+            <table class="d-none datatable-altura table-hover" id="kt_datatable">
                 <thead>
                     <tr>                        
-                        <th data-title="Nome">
-                            nome
-                        </th>
-                        <th data-title="Duração">
-                            duracao
-                        </th>
-                        <th data-title="Lançamento">
-                            lancamento
-                        </th>
-                        <th data-title="Diretor">
-                            diretor
-                        </th>                                               
+                        <th data-title="">
+                            filmes
+                        </th>                                              
                     </tr>
                 </thead>
                 <tbody>
@@ -95,32 +129,112 @@
                     
                         $filmeService = new FilmeService();
 
-                        $filmees = $filmeService->ObterTodos();                        
+                        $filmes = $filmeService->ObterTodos();                        
 
-                        foreach ($filmees as $filme) {
+                        foreach ($filmes as $filme) {
 
                             $idFilme = $filme["Id"];
                             $nomeFilme = $filme["Nome"];
                             $duracaoFilme = $filme["Duracao"];
+                            $horasFilme = explode(":", $duracaoFilme)[0]."h";
+                            $minutosFilme = explode(":", $duracaoFilme)[1]."min";
                             $lancamentoFilme = implode("/",array_reverse(explode("-", $filme["DataLancamento"])));
                             $diretorFilme = $filme["Diretor"];
+                            $fotoFilme = base64_encode($filme["Foto"]);
+                            $notaFilme = $filmeService->ObterNota($idFilme);
+                            $sinopseFilme = $filme["Sinopse"];
+
+                            $atores = $filmeService->ObterFilmeAtores($idFilme);
+                            $generos = $filmeService->ObterFilmeGeneros($idFilme);
+                            $plataformas = $filmeService->ObterFilmePlataformas($idFilme);
 
                             ?>
                                 <tr>                                   
                                     <td>
-                                        <?php echo $nomeFilme; ?>
+                                        
+                                        <div class="row align-items-center" style="height: 440px;">
+
+                                            <div class="col-md-5">
+
+                                                <a class="previa" href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>">
+                                                    <img class="foto-fixa" src="data:image/jpeg;base64,<?php echo $fotoFilme; ?>">
+                                                    <h2 class="slide-name"><?php echo $nomeFilme; ?>
+                                                        <span class="d-block">
+                                                            <?php echo $notaFilme; ?>
+                                                        </span>
+                                                    </h2>
+                                                </a>
+                                                
+                                            </div>
+
+                                            <div class="col-md-7 text-left">
+                                                <div class="form-group">
+                                                    <h2 class="font-weight-bold"><?php echo $nomeFilme; ?></h2>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h3><?php echo $lancamentoFilme; ?> - <?php echo $horasFilme . " " . $minutosFilme; ?></h3>
+                                                </div>                                                
+
+                                                <div class="form-group">
+                                                    <h5><b class="text-secondary">Direção: </b><?php echo $diretorFilme; ?></h5>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5>
+                                                        <b class="text-secondary">Elenco: </b>
+                                                        <?php
+                                                            $i = 1;
+                                                            foreach ($atores as $ator) {
+
+                                                                $idAtor = $ator["Id"];
+                                                                $nomeAtor = $ator["Nome"];
+
+                                                                echo $nomeAtor;
+
+                                                                if($i < count($atores)){
+                                                                    echo ', ';
+                                                                }
+
+                                                                $i = $i + 1;
+                                                            }
+                                                        ?>
+                                                    </h5>
+                                                </div>
+
+                                                <div class="form-group d-flex align-items-center">
+                                                    <?php
+                                                        foreach ($generos as $genero) {
+
+                                                            $idGenero = $genero["Id"];
+                                                            $nomeGenero = $genero["Nome"];
+                            
+                                                            echo '<h4 class="bg-light-dark p-1 mr-2 mb-0" style="border-radius: 5px;">'.$nomeGenero.'</h4>';
+                                                        }
+                                                    ?>                                                    
+                                                </div>
+
+                                                <div class="d-flex align-items-center <?php if(count($plataformas) > 0) echo 'form-group'; ?>">
+                                                    <?php
+                                                        foreach ($plataformas as $plataforma) {
+
+                                                            $idPlataforma = $plataforma["Id"];
+                                                            $nomePlataforma = $plataforma["Nome"];
+                            
+                                                            echo '<h4 class="bg-light-danger p-1 mr-2 mb-0" style="border-radius: 5px;">'.$nomePlataforma.'</h4>';
+                                                        }
+                                                    ?>                                                    
+                                                </div>
+
+                                                <div class="form-group"><?php echo $notaFilme; ?></div>
+
+                                                <div class="form-group"><?php echo substr($sinopseFilme, 0, 600).'...'; ?></div>
+                                                                                                
+                                            </div>
+                                        
+                                        </div>
+                                        
                                     </td>
-                                    <td>
-                                        <?php echo $duracaoFilme; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $lancamentoFilme; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $diretorFilme; ?>
-                                    </td>
-                                   
-                                
                                 </tr>
                             <?php
                         }
@@ -139,7 +253,7 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Filme/Filme.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Home/Filme.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         FilmeAPI.initIndex();
