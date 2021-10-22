@@ -33,9 +33,9 @@
     width: 100% !important;
 }
 
-.datatable-altura{
+/* .datatable-altura{
     min-height: 520px;
-}
+} */
 
 .tabela-noteflix {
     opacity: 0.95 !important; }
@@ -45,6 +45,12 @@
   
 .tabela-noteflix th {
 background-color: #000000; }
+
+.tabela-noteflix tbody {
+    background-color: #eeeeee; }
+
+.tabela-noteflix tbody tr {
+    border-bottom: 1px solid #b1b1b1; }
 
 .tabela-noteflix th span {
     color: white !important;

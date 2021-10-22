@@ -195,7 +195,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<!--begin::Aside-->
 				<!--begin::Content-->
-				<div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)">
+				<div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg); background-size: cover;">
 					<!--begin::Title-->
 					<div class="d-flex flex-column justify-content-center text-center pt-lg-40 pt-md-5 pt-sm-5 px-lg-0 pt-5 px-7">
 						<h3 class="display4 font-weight-bolder my-7">Dê sua nota!</h3>
