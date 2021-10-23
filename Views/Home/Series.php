@@ -19,7 +19,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Serie/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Séries</a>
+                    <a href="/Noteflix/Home/Series" class="text-white text-hover-white opacity-75 hover-opacity-100">Séries</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->

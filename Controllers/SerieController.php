@@ -34,12 +34,12 @@
 
         }
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             try{
                 $serieService = new SerieService();
 
-                $result = $serieService->Salvar($dados);
+                $result = $serieService->Salvar();
 
                 header('Content-Type: application/json');
 
@@ -80,12 +80,12 @@
 
         }
 
-        public function SalvarAlteracao($dados){
+        public function SalvarAlteracao(){
 
             try{
                 $serieService = new SerieService();
 
-                $result = $serieService->SalvarAlteracao($dados);
+                $result = $serieService->SalvarAlteracao();
 
                 header('Content-Type: application/json');
 
@@ -103,12 +103,12 @@
 
         }
 
-        public function Excluir($dados){
+        public function Excluir(){
 
             try{
                 $serieService = new SerieService();
 
-                $result = $serieService->Excluir($dados);
+                $result = $serieService->Excluir();
 
                 header('Content-Type: application/json');
 

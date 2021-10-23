@@ -59,7 +59,7 @@
 
         }        
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível cadastrar esse criador!");
@@ -91,7 +91,7 @@
 
         }
         
-        public function SalvarAlteracao($dados){
+        public function SalvarAlteracao(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar esse criador!");
@@ -118,7 +118,7 @@
 
         }
         
-        public function Excluir($dados){
+        public function Excluir(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível excluir esse criador!");

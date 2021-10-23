@@ -34,12 +34,12 @@
 
         }
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             try{
                 $criadorService = new CriadorService();
 
-                $result = $criadorService->Salvar($dados);
+                $result = $criadorService->Salvar();
 
                 header('Content-Type: application/json');
 
@@ -57,12 +57,12 @@
 
         }
 
-        public function SalvarAlteracao($dados){
+        public function SalvarAlteracao(){
 
             try{
                 $criadorService = new CriadorService();
 
-                $result = $criadorService->SalvarAlteracao($dados);
+                $result = $criadorService->SalvarAlteracao();
 
                 header('Content-Type: application/json');
 
@@ -80,12 +80,12 @@
 
         }
 
-        public function Excluir($dados){
+        public function Excluir(){
 
             try{
                 $criadorService = new CriadorService();
 
-                $result = $criadorService->Excluir($dados);
+                $result = $criadorService->Excluir();
 
                 header('Content-Type: application/json');
 

@@ -8,13 +8,13 @@
 
         }
 
-        public function Entrar($dados){
+        public function Entrar(){
 
             try{
 
                 $usuarioService = new UsuarioService();
 
-                $result = $usuarioService->Entrar($dados);
+                $result = $usuarioService->Entrar();
 
                 header('Content-Type: application/json');
 
@@ -33,6 +33,31 @@
 
         }
 
+        public function EsqueciMinhaSenha(){
+
+            try{
+
+                $usuarioService = new UsuarioService();
+
+                $result = $usuarioService->EsqueciMinhaSenha();
+
+                header('Content-Type: application/json');
+
+                echo $result;
+
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError($e->getMessage());
+
+                echo $result;
+
+            }
+
+        }        
+
         public function Sair(){
 
             session_unset();
@@ -41,13 +66,13 @@
 
         }
 
-        public function SalvarUsuario($dados){
+        public function SalvarUsuario(){
 
             try{
 
                 $usuarioService = new UsuarioService();
 
-                $result = $usuarioService->Salvar($dados);
+                $result = $usuarioService->Salvar();
 
                 header('Content-Type: application/json');
 
@@ -66,13 +91,13 @@
 
         }
 
-        public function AlterarFoto($dados){
+        public function AlterarFoto(){
 
             try{
 
                 $usuarioService = new UsuarioService();
 
-                $result = $usuarioService->AlterarFoto($dados);
+                $result = $usuarioService->AlterarFoto();
 
                 header('Content-Type: application/json');
 

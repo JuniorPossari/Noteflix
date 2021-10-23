@@ -34,12 +34,12 @@
 
         }
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             try{
                 $atorService = new AtorService();
 
-                $result = $atorService->Salvar($dados);
+                $result = $atorService->Salvar();
 
                 header('Content-Type: application/json');
 
@@ -57,12 +57,12 @@
 
         }
 
-        public function BuscarFoto($dados){
+        public function BuscarFoto(){
 
             try{
                 $atorService = new AtorService();
 
-                $result = $atorService->BuscarFoto($dados);
+                $result = $atorService->BuscarFoto();
 
                 header('Content-Type: application/json');
 
@@ -80,12 +80,12 @@
 
         }
 
-        public function SalvarAlteracao($dados){
+        public function SalvarAlteracao(){
 
             try{
                 $atorService = new AtorService();
 
-                $result = $atorService->SalvarAlteracao($dados);
+                $result = $atorService->SalvarAlteracao();
 
                 header('Content-Type: application/json');
 
@@ -103,12 +103,12 @@
 
         }
 
-        public function Excluir($dados){
+        public function Excluir(){
 
             try{
                 $atorService = new AtorService();
 
-                $result = $atorService->Excluir($dados);
+                $result = $atorService->Excluir();
 
                 header('Content-Type: application/json');
 

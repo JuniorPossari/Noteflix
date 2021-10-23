@@ -40,6 +40,62 @@
 
         }
 
+        public function ObterPorEmail($email){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT * FROM Usuario WHERE Email = :email');
+
+            $cmd->bindValue(':email', $email);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+            }
+            
+            return $dados;
+
+        }
+
+        public function EsqueciMinhaSenha(){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Não foi possível encontrar esse email!");
+            
+            $email = $_POST['email'];
+
+            if(!isset($email)){
+                return $result;
+            }
+            
+            $existeEmail = $this::VerificarSeEmailExiste($email);
+
+            if(!$existeEmail){
+                return $result;
+            }
+            
+            $emailService = new EmailService();
+
+            $usuario =  $this::ObterPorEmail($email);
+            $assunto = 'Redefinição de senha';
+            $mensagem = $emailService->GetEmailBody('RedefinirSenha');
+            
+            $token = bin2hex(random_bytes(20));
+            $site = 'https://'.$_SERVER['SERVER_NAME'].'/Noteflix';
+            $url = $site.'/Usuario/RedefinirSenha?token='.$token;
+
+            $mensagem = str_replace("{{NOME}}", $usuario['Nome'], $mensagem);
+            $mensagem = str_replace("{{SITE}}", $site, $mensagem);
+            $mensagem = str_replace("{{URL}}", $url, $mensagem);
+            
+
+            $result = $emailService->SendEmail($usuario, $assunto, $mensagem);
+
+            return $result;
+
+        }
+
         public function VerificarSeUsuarioEstaLogado(){
 
             $logado = false;
@@ -127,7 +183,7 @@
 
         }
 
-        public function Entrar($dados){
+        public function Entrar(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível acessar sua conta, tente novamente!");
@@ -185,7 +241,7 @@
 
         }
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível cadastrar seu usuário!");
@@ -240,7 +296,7 @@
 
         }
 
-        public function AlterarFoto($dados){
+        public function AlterarFoto(){
 
             $json = new JsonResult();
             $result = $json->Data(false, "Aviso", "Desculpe, não foi possível alterar sua foto!");

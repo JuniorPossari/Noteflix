@@ -62,7 +62,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Filme/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Filmes</a>
+                    <a href="/Noteflix/Home/Filmes" class="text-white text-hover-white opacity-75 hover-opacity-100">Filmes</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->
@@ -141,7 +141,7 @@
                             $lancamentoFilme = implode("/",array_reverse(explode("-", $filme["DataLancamento"])));
                             $diretorFilme = $filme["Diretor"];
                             $fotoFilme = base64_encode($filme["Foto"]);
-                            $notaFilme = $filmeService->ObterNota($idFilme);
+                            $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl");
                             $sinopseFilme = $filme["Sinopse"];
 
                             $atores = $filmeService->ObterFilmeAtores($idFilme);
@@ -222,6 +222,7 @@
                                                             $nomePlataforma = $plataforma["Nome"];
                             
                                                             echo '<h4 class="bg-light-danger p-1 mr-2 mb-0" style="border-radius: 5px;">'.$nomePlataforma.'</h4>';
+                                                            //echo '<img class="mr-2 mb-0" style="height: 35px; width: auto;" src="/Noteflix/Content/img/plataformas/netflix.png"> <img class="mr-2 mb-0" style="height: 35px; width: auto;" src="/Noteflix/Content/img/plataformas/prime-video.png"> <img class="mr-2 mb-0" style="height: 35px; width: auto;" src="/Noteflix/Content/img/plataformas/disney-plus.png">';
                                                         }
                                                     ?>                                                    
                                                 </div>

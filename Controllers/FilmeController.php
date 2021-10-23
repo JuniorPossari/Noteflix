@@ -34,12 +34,12 @@
 
         }
 
-        public function Salvar($dados){
+        public function Salvar(){
 
             try{
                 $filmeService = new FilmeService();
 
-                $result = $filmeService->Salvar($dados);
+                $result = $filmeService->Salvar();
 
                 header('Content-Type: application/json');
 
@@ -80,12 +80,12 @@
 
         }
 
-        public function SalvarAlteracao($dados){
+        public function SalvarAlteracao(){
 
             try{
                 $filmeService = new FilmeService();
 
-                $result = $filmeService->SalvarAlteracao($dados);
+                $result = $filmeService->SalvarAlteracao();
 
                 header('Content-Type: application/json');
 
@@ -103,12 +103,12 @@
 
         }
 
-        public function Excluir($dados){
+        public function Excluir(){
 
             try{
                 $filmeService = new FilmeService();
 
-                $result = $filmeService->Excluir($dados);
+                $result = $filmeService->Excluir();
 
                 header('Content-Type: application/json');
 
