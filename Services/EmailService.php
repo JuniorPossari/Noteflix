@@ -20,8 +20,7 @@
 
         public function SendEmail($usuario, $assunto, $mensagem){
 
-            $mail = new PHPMailer(true); 
-            $json = new JsonResult();            
+            $mail = new PHPMailer(true);          
 
             try {
 
@@ -58,14 +57,12 @@
                 // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             
                 $mail->send();
-                
-                $result = $json->Data(true, "Sucesso", "Enviamos um email para redefinir usa senha!");
-                return $result;
+
+                return true;
 
             } catch (Exception $e) {
 
-                $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao enviar o email!");
-                return $result;
+                return false;
 
             }
 

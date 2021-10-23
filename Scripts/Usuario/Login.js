@@ -6,6 +6,7 @@ var KTLogin = function() {
 
 	var urlSalvarUsuario = "/Noteflix/Usuario/SalvarUsuario/";
 	var urlEntrar = "/Noteflix/Usuario/Entrar/";
+	var urlEsqueciMinhaSenha = "/Noteflix/Usuario/EsqueciMinhaSenha/";
 
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
@@ -359,13 +360,63 @@ var KTLogin = function() {
 						message: 'Aguarde...'
 					});
 
-					KTApp.unblockPage();
-                    // Submit form
-                    KTUtil.scrollTop();
+					var email = $('#kt_login_forgot_form input[name="email"]').val();
+
+					$.ajax({
+						url: urlEsqueciMinhaSenha,
+						type: 'POST',
+						dataType: "html",
+						data: {"email":email},
+						success: function (json) {
+
+							var data = JSON.parse(json);
+
+							KTApp.unblockPage();
+			
+							swal.fire({
+								title: data.MessageTitle,
+								text: data.Message,
+								icon: data.Ok ? "success" : "error",
+								confirmButtonText: "Ok",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function() {
+
+								if(data.Ok){
+									$('#kt_login_forgot_form input[name="email"]').val('');									
+									_showForm('signin');					
+								}
+								else{
+									KTUtil.scrollTop();
+								}
+
+							});
+		
+						},
+						error: function () {
+
+							KTApp.unblockPage();
+		
+							swal.fire({
+								title: "Aviso",
+								text: "Desculpe, houve um erro na requisição!",
+								icon: "error",
+								confirmButtonText: "Ok",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function() {
+								KTUtil.scrollTop();
+							});
+			
+						}
+					});
+
 				} else {
 					swal.fire({
 						title: "Aviso",
-		                text: "Desculpe! Houve um erro, tente novamente.",
+		                text: "Você deve preencher todos os campos obrigatórios!",
 		                icon: "error",
 		                confirmButtonText: "Ok",
                         customClass: {

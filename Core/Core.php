@@ -5,7 +5,7 @@
         private $user;
 
         public function __construct(){
-            $this->user = $_SESSION['usr'] ?? null;
+            $this->user = $_SESSION['2A66DC91515A4715850091B6F9035AAE'] ?? null;
             $this->run();
         }
 
@@ -82,7 +82,7 @@
                 $isAdmin = false;
 
                 if($isAuthenticated){
-                    $isAdmin = $cargoService->VerificarCargoDoUsuario($_SESSION['usr'], "Administrador");
+                    $isAdmin = $cargoService->VerificarCargoDoUsuario($_SESSION['2A66DC91515A4715850091B6F9035AAE'], "Administrador");
                 }
 
                 if(!$isAdmin){

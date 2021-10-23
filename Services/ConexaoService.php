@@ -10,7 +10,7 @@
 
             if(!isset(self::$instancia)){
 
-                $prod = true; //ALTERE PARA TRUE ANTES DE PUBLICAR
+                $prod = false; //ALTERE PARA TRUE ANTES DE PUBLICAR
 
                 if($prod){ //PRODUCTION
 

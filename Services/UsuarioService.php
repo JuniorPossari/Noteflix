@@ -58,11 +58,11 @@
 
         }
 
-        public function EsqueciMinhaSenha(){
+        public function EsqueciMinhaSenha(){            
 
             $json = new JsonResult();
-            $result = $json->Data(false, "Aviso", "Não foi possível encontrar esse email!");
-            
+            $result = $json->Data(true, "Sucesso", "Caso você possua uma conta, enviamos um email para redefinir sua senha!");
+                        
             $email = $_POST['email'];
 
             if(!isset($email)){
@@ -83,14 +83,68 @@
             
             $token = bin2hex(random_bytes(20));
             $site = 'https://'.$_SERVER['SERVER_NAME'].'/Noteflix';
-            $url = $site.'/Usuario/RedefinirSenha?token='.$token;
+            $url = $site.'/Usuario/RedefinirSenha/'.$token;
+
+            $_SESSION['EDC9BBAB7D5E46159D6C839B90361D88'] = $email;
+            $_SESSION['489F6CB951564E4CBF5E3452FAFAB1DE'] = $token;
 
             $mensagem = str_replace("{{NOME}}", $usuario['Nome'], $mensagem);
             $mensagem = str_replace("{{SITE}}", $site, $mensagem);
-            $mensagem = str_replace("{{URL}}", $url, $mensagem);
-            
+            $mensagem = str_replace("{{URL}}", $url, $mensagem);            
 
-            $result = $emailService->SendEmail($usuario, $assunto, $mensagem);
+            $enviado = $emailService->SendEmail($usuario, $assunto, $mensagem);
+
+            if(!$enviado){
+                $result = $json->Data(false, "Aviso", "Desculpe, não foi possível enviar o email para redefinir sua senha!");
+            }
+
+            return $result;
+
+        }
+
+        public function FinalizarRedefinicaoSenha(){            
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível redefinir sua senha!");
+            
+            $token = $_POST['token'];
+            $password = $_POST['password'];
+            $cpassword = $_POST['cpassword'];
+
+            if(!isset($token) || !isset($password) || !isset($cpassword)){
+                return $result;
+            }
+                           
+            if($password != $cpassword){
+                $result = $json->Data(false, "Aviso", "A senha não confere com a confirmação de senha, confira e tente novamente!");
+                return $result;
+            }
+
+            if($_SESSION['489F6CB951564E4CBF5E3452FAFAB1DE'] != $token){
+                $result = $json->Data(false, "Aviso", "O token informado é inválido ou expirou!");
+                return $result;
+            }
+
+            $email = $_SESSION['EDC9BBAB7D5E46159D6C839B90361D88'];
+
+            if(!isset($email)){
+                return $result;
+            }
+
+            $passwordhash = password_hash($password, PASSWORD_DEFAULT);
+
+            $cmd = $this->con->prepare('UPDATE Usuario SET Senha = :senha WHERE Email = :email');
+
+            $cmd->bindValue(':senha', $passwordhash);
+            $cmd->bindValue(':email', $email);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Senha senha foi redefinida com sucesso!"); 
+                session_unset();
+		        session_destroy();
+            }            
 
             return $result;
 
@@ -100,9 +154,9 @@
 
             $logado = false;
 
-            if (isset($_SESSION['usr'])) {                
+            if (isset($_SESSION['2A66DC91515A4715850091B6F9035AAE'])) {                
         
-                $idUsuario = $_SESSION['usr'];
+                $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
         
                 $user = $this->ObterPorId($idUsuario);
         
@@ -211,7 +265,7 @@
             
             $idUsuario = $this::ObterIdPorEmail($email);
 
-            $_SESSION['usr'] = $idUsuario;
+            $_SESSION['2A66DC91515A4715850091B6F9035AAE'] = $idUsuario;
 
             $result = $json->Data(true, "Sucesso", "Você foi conectado com sucesso!");            
 
@@ -335,11 +389,11 @@
 
             $isAdmin = false;
 
-            if (isset($_SESSION['usr'])) {
+            if (isset($_SESSION['2A66DC91515A4715850091B6F9035AAE'])) {
                 
                 $cargoService = new CargoService();
         
-                $idUsuario = $_SESSION['usr'];
+                $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
         
                 $user = $this->ObterPorId($idUsuario);
         

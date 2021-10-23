@@ -8,7 +8,7 @@
 
 	if($isAuthenticated){
 
-		$usuario = $usuarioService->ObterPorId($_SESSION['usr']);
+		$usuario = $usuarioService->ObterPorId($_SESSION['2A66DC91515A4715850091B6F9035AAE']);
         
 		if(isset($usuario)){
 
