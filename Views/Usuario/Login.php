@@ -102,7 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Action-->
 									<div class="text-center pt-2">
-										<button id="kt_login_signin_submit" class="btn btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Entrar</button>
+										<button id="kt_login_signin_submit" class="btn btn-lg btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Entrar</button>
 									</div>
 									<!--end::Action-->
 								</form>
@@ -155,8 +155,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
-										<button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cadastrar</button>
-										<button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
+										<button type="button" id="kt_login_signup_submit" class="btn btn-lg btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cadastrar</button>
+										<button type="button" id="kt_login_signup_cancel" class="btn btn-lg btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
 									</div>
 									<!--end::Form group-->
 								</form>
@@ -180,8 +180,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
-										<button type="button" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Enviar</button>
-										<button type="button" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
+										<button type="button" id="kt_login_forgot_submit" class="btn btn-lg btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Enviar</button>
+										<button type="button" id="kt_login_forgot_cancel" class="btn btn-lg btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Cancelar</button>
 									</div>
 									<!--end::Form group-->
 								</form>

@@ -94,10 +94,10 @@ License: You must have a valid license purchased only from themeforest(the above
 			<!--end::Logo-->
 			<!--begin::Toolbar-->
 			<div class="d-flex align-items-center">
-				<button class="btn p-0 burger-icon burger-icon-left ml-4" id="kt_header_mobile_toggle">
+				<button class="btn btn-lg p-0 burger-icon burger-icon-left ml-4" id="kt_header_mobile_toggle">
 					<span></span>
 				</button>
-				<button class="btn btn-icon btn-hover-transparent-white p-0 ml-3" id="kt_header_mobile_topbar_toggle">
+				<button class="btn btn-lg btn-icon btn-hover-transparent-white p-0 ml-3" id="kt_header_mobile_topbar_toggle">
 					<span class="svg-icon svg-icon-xl">
 						<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -148,7 +148,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="dropdown">
 									<!--begin::Toggle-->
 									<div class="topbar-item" data-toggle="dropdown" data-offset="-70px,-70px">
-										<div class="btn btn-icon btn-hover-transparent-white btn-lg btn-dropdown mr-1">
+										<div class="btn btn-lg btn-icon btn-hover-transparent-white btn-lg btn-dropdown mr-1">
 											<span class="svg-icon svg-icon-xl">
 												<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/General/Search.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -184,7 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															</span>
 														</span>
 													</div>
-													<input type="text" class="form-control" placeholder="Search..." />
+													<input type="text" class="form-control" placeholder="Procurar..." />
 													<div class="input-group-append">
 														<span class="input-group-text">
 															<i class="quick-search-close ki ki-close icon-sm text-muted"></i>
@@ -212,7 +212,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="dropdown">
 												<!--begin::Toggle-->
 												<div class="topbar-item">
-													<div class="btn btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto" id="kt_quick_user_toggle">
+													<div class="btn btn-lg btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto" id="kt_quick_user_toggle">
 														<span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Olá,</span>
 														<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">'.$Nome.'</span>
 														<span class="symbol symbol-35">

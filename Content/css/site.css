@@ -76,3 +76,15 @@ color: white !important; }
 
 .datatable.datatable-default.tabela-noteflix > .datatable-pager > .datatable-pager-info .datatable-pager-size .btn.dropdown-toggle:hover {
 background-color: #000000 !important; }
+
+.select2-search__field{
+    margin-bottom: 2.26px;
+}
+
+input.form-control{
+    min-height: 39.80px !important;
+}
+
+.select2-selection{
+    min-height: 39.80px !important;
+}

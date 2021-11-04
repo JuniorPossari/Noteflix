@@ -45,7 +45,7 @@
                 <h3 class="card-label font-weight-bolder text-dark">Diretores</h3>
             </div>
             <div class="card-toolbar">
-                <a href="/Noteflix/Diretor/Cadastrar" class="btn btn-light-dark font-weight-bold"><i class="flaticon2-add-square icon-md mb-1"></i>Cadastrar</a>
+                <a href="/Noteflix/Diretor/Cadastrar" class="btn btn-lg btn-light-dark font-weight-bold"><i class="flaticon2-add-square icon-md mb-1"></i>Cadastrar</a>
             </div>
         </div>
         <!--end::Header-->
@@ -53,21 +53,15 @@
         <div class="card-body">
 
             <!--begin::Search Form-->
-            <div class="mb-7">
-                <div class="row align-items-center">
-                    <div class="col-lg-9 col-xl-8">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 my-2 my-md-0">
-                                <div class="input-icon">
-                                    <input type="text" class="form-control" placeholder="Procurar..." id="kt_datatable_search_query" />
-                                    <span>
-                                        <i class="flaticon2-search-1 text-muted"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row align-items-center mb-10">
+                <div class="col-md-3">
+                    <div class="input-icon">
+                        <input type="text" class="form-control" placeholder="Procurar..." id="kt_datatable_search_query" />
+                        <span>
+                            <i class="flaticon2-search-1 text-muted"></i>
+                        </span>
                     </div>
-                </div>
+                </div>                    
             </div>
             <!--end::Search Form-->
             
@@ -109,13 +103,13 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Alterar">
+                                            <a href="javascript:;" class="btn btn-lg btn-sm btn-clean btn-icon mr-2 edit" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Alterar">
                                             <i class="flaticon2-edit icon-md"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Excluir">
+                                            <a href="javascript:;" class="btn btn-lg btn-sm btn-clean btn-icon mr-2 delete" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Excluir">
                                                 <i class="flaticon2-trash icon-md"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon view" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Visualizar">
+                                            <a href="javascript:;" class="btn btn-lg btn-sm btn-clean btn-icon view" data-id="<?php echo $idDiretor; ?>" data-toggle="tooltip" title="Visualizar">
                                                 <i class="flaticon2-magnifier-tool icon-md"></i>
                                             </a>
                                         </div>

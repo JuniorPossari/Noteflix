@@ -102,7 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 									<!--begin::Form group-->
 									<div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
-										<button type="button" id="kt_login_reset_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Redefinir</button>
+										<button type="button" id="kt_login_reset_submit" class="btn btn-lg btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-4">Redefinir</button>
 									</div>
 									<!--end::Form group-->
 								</form>

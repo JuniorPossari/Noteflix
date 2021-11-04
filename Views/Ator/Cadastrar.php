@@ -75,8 +75,8 @@
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
-            <a href="/Noteflix/Ator/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
-            <a href="javascript:;" id="Salvar" class="btn btn-primary font-weight-bold">Salvar</a>
+            <a href="/Noteflix/Ator/Index" class="btn btn-lg btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="javascript:;" id="Salvar" class="btn btn-lg btn-primary font-weight-bold">Salvar</a>
         </div>
         <!--end:Footer-->
     </div>

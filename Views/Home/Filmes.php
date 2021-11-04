@@ -95,24 +95,144 @@
         <!--begin::Body-->                    
         <div class="card-body">
 
-            <!--begin::Search Form-->
-            <div class="mb-7">
-                <div class="row align-items-center">
-                    <div class="col-lg-9 col-xl-8">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 my-2 my-md-0">
-                                <div class="input-icon">
-                                    <input type="text" class="form-control" placeholder="Procurar..." id="kt_datatable_search_query" />
-                                    <span>
-                                        <i class="flaticon2-search-1 text-muted"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-md-3">
+                    <div class="input-icon" style="margin-top: 25.39px;">
+                        <input type="text" class="form-control" placeholder="Procurar..." id="kt_datatable_search_query" />
+                        <span>
+                            <i class="flaticon2-search-1 text-muted"></i>
+                        </span>
                     </div>
                 </div>
+                <div class="col-md-3">
+                    <label>Diretor</label>
+                    <select class="form-control select2" name="FilmeDiretor" id="FilmeDiretor">
+
+                        <option value="0">Selecione...</option>
+                        <?php
+
+                            $diretorService = new DiretorService();
+
+                            $diretores = $diretorService->ObterTodos();                        
+
+                            foreach ($diretores as $diretor) {
+
+                                $idDiretor = $diretor["Id"];
+                                $nomeDiretor = $diretor["Nome"];
+
+                                ?>
+                                    <option value="<?php echo $idDiretor ?>"><?php echo $nomeDiretor ?></option>
+                                <?php
+                            }
+                        
+                        ?>
+                    
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Ator</label>
+                    <select class="form-control select2" name="FilmeAtor" id="FilmeAtor">
+
+                        <option value="0">Selecione...</option>
+                        <?php
+
+                            $atorService = new AtorService();
+
+                            $atores = $atorService->ObterTodos();                        
+
+                            foreach ($atores as $ator) {
+
+                                $idAtor = $ator["Id"];
+                                $nomeAtor = $ator["Nome"];
+
+                                ?>
+                                    <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                                <?php
+                            }
+                        
+                        ?>
+                    
+                    </select>
+                </div>
+                <div class="col-md-3">       
+                    <label>Gênero</label>
+                    <select class="form-control select2" name="FilmeGenero" id="FilmeGenero">
+
+                        <option value="0">Selecione...</option>
+                        <?php
+
+                            $generoService = new GeneroService();
+
+                            $generos = $generoService->ObterTodos();                        
+
+                            foreach ($generos as $genero) {
+
+                                $idGenero = $genero["Id"];
+                                $nomeGenero = $genero["Nome"];
+
+                                ?>
+                                    <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                                <?php
+                            }
+                        
+                        ?>
+                    
+                    </select>
+                </div>                                     
             </div>
-            <!--end::Search Form-->
+
+            <div class="row align-items-center mb-10">
+                <div class="col-md-3"> 
+                    <label>Plataforma</label>
+                    <select class="form-control select2" name="FilmePlataforma" id="FilmePlataforma">
+
+                        <option value="0">Selecione...</option>
+                        <?php
+
+                            $plataformaService = new PlataformaService();
+
+                            $plataformas = $plataformaService->ObterTodos();                        
+
+                            foreach ($plataformas as $plataforma) {
+
+                                $idPlataforma = $plataforma["Id"];
+                                $nomePlataforma = $plataforma["Nome"];
+
+                                ?>
+                                    <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                                <?php
+                            }
+                        
+                        ?>
+                    
+                    </select>
+                </div> 
+                <div class="col-md-3"> 
+                    <label>Lançamento</label>
+                    <div class="input-daterange input-group" id="FilmeDataLancamento">
+                        <input type="text" class="form-control" placeholder="Início" name="Inicio"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Fim" name="Fim"/>
+                    </div>
+                </div>  
+                <div class="col-md-3"> 
+                    <label>Ordem</label>
+                    <select class="form-control select2" name="FilmeOrdem" id="FilmeOrdem">
+
+                        <option value="1">Maior nota</option>
+                        <option value="2">Menor nota</option>                        
+                    
+                    </select>
+                </div>
+                <div class="col-md-3">       
+                    <div class="d-flex justify-content-end" style="margin-top: 25.39px;">
+                        <a href="javascript:;" id="Pesquisar" class="btn btn-lg btn-primary font-weight-bold mr-2"><i class="la la-search icon-lg"></i>Pesquisar</a>
+                        <a href="javascript:;" id="Limpar" class="btn btn-lg btn-secondary font-weight-bold"><i class="la la-broom icon-lg"></i>Limpar</a>       
+                    </div>
+                </div>             
+            </div>
             
             <!--begin: Datatable-->
             <table class="d-none datatable-altura table-hover" id="kt_datatable">

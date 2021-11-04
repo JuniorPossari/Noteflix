@@ -227,7 +227,7 @@
         <!--end::Body-->
         <!--begin:Footer-->
         <div class="card-footer">
-            <a href="/Noteflix/Serie/Index" class="btn btn-secondary font-weight-bold mr-2">Voltar</a>
+            <a href="/Noteflix/Serie/Index" class="btn btn-lg btn-secondary font-weight-bold mr-2">Voltar</a>
         </div>
         <!--end:Footer-->
     </div>
