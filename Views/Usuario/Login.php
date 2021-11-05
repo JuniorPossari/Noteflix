@@ -80,7 +80,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<form class="form" novalidate="novalidate" id="kt_login_signin_form">
 									<!--begin::Title-->
 									<div class="text-center pb-8">
-										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Login</h2>
+										<h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Entrar</h2>
 										<span class="text-muted font-weight-bold font-size-h4">Ou
 										<a href="" class="text-primary font-weight-bolder" id="kt_login_signup">Criar Conta</a></span>
 									</div>

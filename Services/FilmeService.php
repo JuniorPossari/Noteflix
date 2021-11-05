@@ -22,6 +22,80 @@
 
         }
 
+        public function Listar(){
+
+            $dados = array();
+
+            $cmd = $this->con->query('SELECT f.*, d.Nome Diretor FROM Filme f INNER JOIN Diretor d ON d.Id = f.IdDiretor');
+
+            $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+
+            if(isset($_POST['dados'])){
+
+                $filme = $_POST['dados'];
+                $filmeNome = $filme["Nome"];
+                $filmeDataInicio = $filme["DataInicio"]; 
+                $filmeDataFim = $filme["DataFim"]; 
+                $filmeIdDiretor = $filme["IdDiretor"];          
+                $filmeIdAtor = $filme["IdAtor"]; 
+                $filmeIdGenero = $filme["IdGenero"]; 
+                $filmeIdPlataforma = $filme["IdPlataforma"]; 
+                $filmeOrdem = $filme["Ordem"];
+
+                //Filtra por Nome
+                if($filmeNome != ""){
+                    $newdados = $dados;
+                    foreach($newdados as $key => $row){
+
+                        if(strpos(strtoupper($row['Nome']), strtoupper($filmeNome)) === false){
+                            unset($dados[$key]);
+                        }
+
+                    }
+                }                
+
+                //Filtra por Ordem
+                $nota = array();
+                
+                foreach ($dados as $key => $row)
+                {
+                    $nota[$key] = $this::ObterNotaNumerica($row['Id']);
+                }
+
+                if(isset($filmeOrdem)){
+                    if($filmeOrdem == 1){
+                        array_multisort($nota, SORT_ASC, $dados);
+                    }
+                    else{
+                        array_multisort($nota, SORT_DESC, $dados);
+                    }
+                }
+                else{
+                    array_multisort($nota, SORT_DESC, $dados);
+                }
+
+            }
+            else{
+
+                $nota = array();
+                
+                foreach ($dados as $key => $row)
+                {
+                    $nota[$key] = $this::ObterNotaNumerica($row['Id']);
+                }
+                
+                array_multisort($nota, SORT_DESC, $dados);
+
+            }
+
+            //Pega os 100 primeiros do array
+            $dados = array_splice($dados, 0, 100);
+                                
+            //Retorna os dados filtrados                
+            return $dados;
+
+        }
+
         public function ObterTop5Recentes(){
 
             $dados = array();
@@ -160,6 +234,25 @@
             
             return $dados;
 
+        }
+
+        public function ObterNotaNumerica($id){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM NotaFilme WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            return $nota;
+            
         }
 
         public function ObterNota($id, $tamanho = 'icon-md'){

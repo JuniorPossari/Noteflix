@@ -2,14 +2,16 @@
 
 var FilmeAPI = function() {
 
+    var urlListarFilmes = "/Noteflix/Home/ListarFilmes/";
     var urlFilme = "/Noteflix/Home/Filme/";
 
-    var validation = null;
-    var ObjDropzone = null;    
+    var datatable = null;    
 
     var table = function () {
 
-        $('#kt_datatable').KTDatatable({
+        datatable = null;
+
+        datatable = $('#kt_datatable').KTDatatable({
 
             data: {
                 saveState: { cookie: false },
@@ -18,11 +20,6 @@ var FilmeAPI = function() {
 
             rows: {
                 autoHide: false,                
-            },
-
-            search: {
-                input: $('#kt_datatable_search_query'),
-                key: 'generalSearch'
             },
 
             toolbar: {
@@ -45,9 +42,12 @@ var FilmeAPI = function() {
 
             translate: _datatablesTranslate,
 
-        });     
+        });
         
-        $('#kt_datatable').removeClass('d-none');
+        datatable.on('datatable-on-layout-updated', function(){
+            $(this).removeClass('d-none');
+            KTApp.unblockPage();
+        });
 
     };
 
@@ -99,17 +99,60 @@ var FilmeAPI = function() {
 
     }
 
-    var Timepicker = function(){
+    var OnClickPesquisar = function(){
 
-        $('#FilmeDuracao').timepicker({
-            minuteStep: 1,
-            defaultTime: '',
-            showMeridian: false,
-            snapToStep: true
+        $('#Pesquisar').on('click', function(){
+            
+            KTApp.blockPage({
+                overlayColor: '#000000',
+                state: 'info', // a bootstrap color
+                message: 'Aguarde...'
+            });
+
+            var dados = {};
+            
+            dados.Nome = $('#FilmeNome').val();
+            dados.DataInicio = $('#FilmeDataInicio').val();
+            dados.DataFim = $('#FilmeDataFim').val();
+            dados.IdDiretor = $('#FilmeDiretor').val();
+            dados.IdAtor = $('#FilmeAtor').val();
+            dados.IdGenero = $('#FilmeGenero').val();
+            dados.IdPlataforma = $('#FilmePlataforma').val();  
+            dados.Ordem = $('#FilmeOrdem').val();                        				
+
+            $.ajax({
+                url: urlListarFilmes,
+                type: 'POST',
+                dataType: "html",
+                data: {"dados":dados},
+                success: function (data) {
+                    
+                    $('#Filmes').html(data);
+                    table();
+
+                },
+                error: function () {
+
+                    KTApp.unblockPage();
+
+                    swal.fire({
+                        title: "Aviso",
+                        text: "Desculpe, houve um erro na requisição!",
+                        icon: "error",
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn font-weight-bold btn-light-primary"
+                        }
+                    }).then(function() {
+                        KTUtil.scrollTop();
+                    });
+    
+                }
+            });   
+
         });
 
     }
-
     
     return {
         
@@ -118,6 +161,7 @@ var FilmeAPI = function() {
             table();
             Select2();
             Datepicker();
+            OnClickPesquisar();
             
         }
 

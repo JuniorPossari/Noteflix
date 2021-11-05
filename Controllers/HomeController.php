@@ -14,6 +14,12 @@
 
         }
 
+        public function ListarFilmes(){
+
+            $this->CarregarView('Home/_ListarFilmes');
+
+        }
+
         public function Series(){
 
             $this->CarregarLayout('Home/Series');
