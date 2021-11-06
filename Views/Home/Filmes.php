@@ -14,7 +14,18 @@
         transition: all 300ms ease;
         text-transform: uppercase;
         display: none;
-        text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    .nota-numerica{
+        font-size: 20px !important;
+    }
+
+    .filme-nome:hover{
+        color: blue !important;
+    }
+
+    .modal-dialog {
+        max-width: 600px !important;
     }
 
     .previa{
@@ -210,11 +221,11 @@
                 <div class="col-md-3"> 
                     <label>Lançamento</label>
                     <div class="input-daterange input-group" id="FilmeDataLancamento">
-                        <input type="text" class="form-control" placeholder="Início" id="FilmeDataInicio" name="Inicio"/>
+                        <input type="text" class="form-control" placeholder="Início" id="FilmeDataInicio" name="Inicio" autocomplete="off"/>
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Fim" id="FilmeDataFim" name="Fim"/>
+                        <input type="text" class="form-control" placeholder="Fim" id="FilmeDataFim" name="Fim" autocomplete="off"/>
                     </div>
                 </div>  
                 <div class="col-md-3"> 
@@ -252,6 +263,26 @@
     <!--end::Card-->        
 </div>
 <!--end::Container-->
+
+<!-- Modal Trailer-->
+<div class="modal fade" id="modalTrailer" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTrailerTitle">Assista o trailer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-secondary font-weight-bold" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="/Noteflix/Scripts/Home/Filme.js" type="text/javascript"></script>
 <script type="text/javascript">

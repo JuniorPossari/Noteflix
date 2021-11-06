@@ -24,8 +24,9 @@
                 $lancamentoFilme = implode("/",array_reverse(explode("-", $filme["DataLancamento"])));
                 $diretorFilme = $filme["Diretor"];
                 $fotoFilme = base64_encode($filme["Foto"]);
-                $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl");
+                $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl", true);
                 $sinopseFilme = $filme["Sinopse"];
+                $trailerFilme = $filme["Trailer"];
 
                 $atores = $filmeService->ObterFilmeAtores($idFilme);
                 $generos = $filmeService->ObterFilmeGeneros($idFilme);
@@ -39,11 +40,11 @@
 
                                 <div class="col-md-5">
 
-                                    <a class="previa" href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>">
+                                    <a href="javascript:;"  class="previa btnAbrirModalTrailer" data-embed="<?php echo $trailerFilme; ?>" data-toggle="modal" data-target="#modalTrailer">
                                         <img class="foto-fixa" src="data:image/jpeg;base64,<?php echo $fotoFilme; ?>">
-                                        <h2 class="slide-name"><?php echo $nomeFilme; ?>
+                                        <h2 class="slide-name">
                                             <span class="d-block">
-                                                <?php echo $notaFilme; ?>
+                                                <i class="fas fa-play-circle fa-3x"></i>
                                             </span>
                                         </h2>
                                     </a>
@@ -52,7 +53,7 @@
 
                                 <div class="col-md-7 text-left">
                                     <div class="form-group">
-                                        <h2 class="font-weight-bold"><?php echo $nomeFilme; ?></h2>
+                                        <a href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>"><h2 class="font-weight-bold text-dark filme-nome d-inline p-0 m-0"><?php echo $nomeFilme; ?></h2></a>                                        
                                     </div>
 
                                     <div class="form-group">
@@ -111,7 +112,7 @@
 
                                     <div class="form-group"><?php echo $notaFilme; ?></div>
 
-                                    <div class="form-group"><?php echo substr($sinopseFilme, 0, 600).'...'; ?></div>
+                                    <div class="form-group"><?php if(strlen($sinopseFilme) > 600){ echo substr($sinopseFilme, 0, 600).'...'; }else{ echo $sinopseFilme; } ?></div>
                                                                                     
                                 </div>
                             

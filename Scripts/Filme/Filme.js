@@ -472,8 +472,9 @@ var FilmeAPI = function() {
                             dados.Elenco = $('#FilmeElenco').val();
                             dados.Genero = $('#FilmeGenero').val();
                             dados.Plataforma = $('#FilmePlataforma').val();
+                            dados.Trailer = $('#FilmeTrailer').val();
                             dados.Foto = localStorage.getItem('base64Foto');
-                            dados.Sinopse = $('#FilmeSinopse').val();                            				
+                            dados.Sinopse = $('#FilmeSinopse').val();                                                        				
             
                             $.ajax({
                                 url: urlSalvar,
@@ -586,6 +587,7 @@ var FilmeAPI = function() {
                             dados.Elenco = $('#FilmeElenco').val();
                             dados.Genero = $('#FilmeGenero').val();
                             dados.Plataforma = $('#FilmePlataforma').val();
+                            dados.Trailer = $('#FilmeTrailer').val();
                             dados.Foto = localStorage.getItem('base64Foto');
                             dados.Sinopse = $('#FilmeSinopse').val();					
             

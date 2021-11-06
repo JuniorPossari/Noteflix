@@ -42,17 +42,64 @@
                 $filmeIdPlataforma = $filme["IdPlataforma"]; 
                 $filmeOrdem = $filme["Ordem"];
 
-                //Filtra por Nome
-                if($filmeNome != ""){
-                    $newdados = $dados;
-                    foreach($newdados as $key => $row){
+                $newdados = $dados;
+                foreach($newdados as $key => $row){
 
+                    //Filtra por Nome
+                    if($filmeNome != ""){
                         if(strpos(strtoupper($row['Nome']), strtoupper($filmeNome)) === false){
                             unset($dados[$key]);
+                            continue;
                         }
-
                     }
-                }                
+
+                    //Filtra por Data
+                    if($filmeDataInicio != "" && $filmeDataFim != ""){
+                        $inicio = implode("-",array_reverse(explode("/", $filmeDataInicio)));
+                        $fim = implode("-",array_reverse(explode("/", $filmeDataFim)));
+                        $lancamento = $row['DataLancamento'];
+                        if($lancamento < $inicio || $lancamento > $fim){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Diretor
+                    if($filmeIdDiretor != 0){
+                        if($row['IdDiretor'] != $filmeIdDiretor){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Ator
+                    if($filmeIdAtor != 0){
+                        $idsAtores = $this::ObterFilmeAtorIds($row['Id']);
+                        if(!in_array($filmeIdAtor, $idsAtores)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Genero
+                    if($filmeIdGenero != 0){
+                        $idsGeneros = $this::ObterFilmeGeneroIds($row['Id']);
+                        if(!in_array($filmeIdGenero, $idsGeneros)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Plataforma
+                    if($filmeIdPlataforma != 0){
+                        $idsPlataformas = $this::ObterFilmePlataformaIds($row['Id']);
+                        if(!in_array($filmeIdPlataforma, $idsPlataformas)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                }           
 
                 //Filtra por Ordem
                 $nota = array();
@@ -255,7 +302,7 @@
             
         }
 
-        public function ObterNota($id, $tamanho = 'icon-md'){
+        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false){
 
             $nota = 0;
 
@@ -270,51 +317,50 @@
                 $nota = $dados["Nota"];
             }
 
+            $notaicon = "";
+
             if($nota >= 0 && $nota < 0.5){
-                return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 0.5 && $nota < 1){
-                return '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 0.5 && $nota < 1){
+                $notaicon = '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 1 && $nota < 1.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 1 && $nota < 1.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 1.5 && $nota < 2){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 1.5 && $nota < 2){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 2 && $nota < 2.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 2 && $nota < 2.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 2.5 && $nota < 3){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 2.5 && $nota < 3){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 3 && $nota < 3.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 3 && $nota < 3.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 3.5 && $nota < 4){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 3.5 && $nota < 4){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 4 && $nota < 4.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 4 && $nota < 4.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 4.5 && $nota < 5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 4.5 && $nota < 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            else if($nota >= 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            }
+            else{
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
             
-            return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            if($mostrarNumero){
+                $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            return $notaicon;
 
         }
 
@@ -350,6 +396,7 @@
             $filmeIdDiretor = $filme["IdDiretor"];          
             $filmeSinopse = $filme["Sinopse"];
             $filmeFoto = $filme["Foto"];
+            $filmeTrailer = $filme["Trailer"];
             
             //Arrays que vão ser gravados em outras tabelas
             $filmeAtores = $filme["Elenco"];
@@ -376,12 +423,16 @@
 
             if($filmeFoto != ""){
                 $filmeFoto = base64_decode($filmeFoto);
-            }            
+            }
+            
+            if(!isset($filmeTrailer)){
+                $filmeTrailer = "";
+            }
 
             $filmeDataLancamento = implode("-",array_reverse(explode("/", $filmeDataLancamento)));
 
             //Cadastrar filme
-            $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto)');
+            $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto, :filmeTrailer)');
 
             $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
@@ -389,6 +440,7 @@
             $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);
             $cmd->bindValue(':filmeSinopse', $filmeSinopse);
             $cmd->bindValue(':filmeFoto', $filmeFoto);
+            $cmd->bindValue(':filmeTrailer', $filmeTrailer);
 
             $sucesso = $cmd->execute();            
 
@@ -546,6 +598,7 @@
             $filmeIdDiretor = $filme["IdDiretor"];          
             $filmeSinopse = $filme["Sinopse"];
             $filmeFoto = $filme["Foto"];
+            $filmeTrailer = $filme["Trailer"];
             
             //Arrays que vão ser gravados em outras tabelas
             $filmeAtores = $filme["Elenco"];
@@ -565,12 +618,16 @@
 
             if($filmeFoto != ""){
                 $filmeFoto = base64_decode($filmeFoto);
-            }            
+            }  
+            
+            if(!isset($filmeTrailer)){
+                $filmeTrailer = "";
+            }
 
             $filmeDataLancamento = implode("-",array_reverse(explode("/", $filmeDataLancamento)));
 
             //Alterar filme
-            $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Duracao = :filmeDuracao, DataLancamento = :filmeDataLancamento, IdDiretor = :filmeIdDiretor, Sinopse = :filmeSinopse, Foto = :filmeFoto WHERE Id = :filmeId');
+            $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Duracao = :filmeDuracao, DataLancamento = :filmeDataLancamento, IdDiretor = :filmeIdDiretor, Sinopse = :filmeSinopse, Foto = :filmeFoto, Trailer = :filmeTrailer WHERE Id = :filmeId');
 
             $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
@@ -579,6 +636,7 @@
             $cmd->bindValue(':filmeSinopse', $filmeSinopse);
             $cmd->bindValue(':filmeFoto', $filmeFoto);
             $cmd->bindValue(':filmeId', $filmeId);
+            $cmd->bindValue(':filmeTrailer', $filmeTrailer);
 
             $sucesso = $cmd->execute();
 

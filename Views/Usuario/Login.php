@@ -102,7 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Action-->
 									<div class="text-center pt-2">
-										<button id="kt_login_signin_submit" class="btn btn-lg btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Entrar</button>
+										<button id="kt_login_signin_submit" class="btn btn-lg btn-light-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Entrar</button>
 									</div>
 									<!--end::Action-->
 								</form>

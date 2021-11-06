@@ -76,6 +76,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<script src="/Noteflix/Content/js/NoteflixDefaultOptions.js"></script>
 
+		<script src="/Noteflix/Content/js/site.js"></script>
+
 
 	</head>
 	<!--end::Head-->

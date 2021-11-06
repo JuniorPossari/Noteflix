@@ -153,6 +153,35 @@ var FilmeAPI = function() {
         });
 
     }
+
+    var OnClickLimpar = function(){
+        $('#Limpar').on('click', function () {
+            
+            $('#FilmeNome').val('');
+            $('#FilmeDiretor').select2("val", "0");
+            $('#FilmeAtor').select2("val", "0");
+            $('#FilmeGenero').select2("val", "0");
+            $('#FilmePlataforma').select2("val", "0");
+            $('#FilmeDataInicio').val('');
+            $('#FilmeDataFim').val('');
+            $('#FilmeOrdem').select2("val", "0");
+            
+
+        });
+    }
+
+    var OnClickAbrirModalTrailer = function(){
+        $('#Filmes').on('click', '.btnAbrirModalTrailer', function () {
+            var embed = $(this).data('embed');
+            $('#modalTrailer iframe').attr('src', embed);
+        });
+    }
+
+    var OnCloseModalTrailer = function(){
+        $('#modalTrailer').on('hidden.bs.modal', function () {
+            $('#modalTrailer iframe').attr('src', '');
+        });
+    }
     
     return {
         
@@ -162,6 +191,9 @@ var FilmeAPI = function() {
             Select2();
             Datepicker();
             OnClickPesquisar();
+            OnClickLimpar();
+            OnClickAbrirModalTrailer();
+            OnCloseModalTrailer();
             
         }
 
