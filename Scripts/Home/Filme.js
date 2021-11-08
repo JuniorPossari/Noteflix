@@ -3,7 +3,6 @@
 var FilmeAPI = function() {
 
     var urlListarFilmes = "/Noteflix/Home/ListarFilmes/";
-    var urlFilme = "/Noteflix/Home/Filme/";
 
     var datatable = null;    
 
@@ -53,7 +52,34 @@ var FilmeAPI = function() {
 
     var Select2 = function(){
 
-        $('.select2').select2({
+        $('#FilmeDiretor').select2({
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
+        });
+
+        $('#FilmeAtor').select2({
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
+        });
+
+        $('#FilmeGenero').select2({
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
+            }
+        });
+
+        $('#FilmePlataforma').select2({
             placeholder: "Selecione...",
             language: {
                 noResults: function (params) {
@@ -62,21 +88,23 @@ var FilmeAPI = function() {
             },
             templateResult: function (option) {
 
-                if(option.text == "Disney Plus"){
-                    var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/disney-plus.png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                if(option.text == "Selecione..."){
+                    var $span = $("<span>" + option.text + "</span>");
                     return $span;
                 }
-                else if(option.text == "Netflix"){
-                    var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/netflix.png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
-                    return $span;
-                }
-                else if(option.text == "Prime Video"){
-                    var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/prime-video.png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
-                    return $span;
-                }
-
-                var $span = $("<span>" + option.text + "</span>");
+                
+                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
                 return $span;
+                
+            }
+        });
+
+        $('#FilmeOrdem').select2({
+            placeholder: "Selecione...",
+            language: {
+                noResults: function (params) {
+                  return "Nenhum resultado encontrado";
+                }
             }
         });
 
@@ -89,6 +117,7 @@ var FilmeAPI = function() {
             todayHighlight: true,
             orientation: "bottom left",
             format: 'dd/mm/yyyy',
+            language: 'pt-BR',
             endDate: '+1d',
             datesDisabled: '+1d',
             templates: {

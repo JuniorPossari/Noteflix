@@ -473,6 +473,7 @@ var SerieAPI = function() {
                             dados.Elenco = $('#SerieElenco').val();
                             dados.Genero = $('#SerieGenero').val();
                             dados.Plataforma = $('#SeriePlataforma').val();
+                            dados.Trailer = $('#SerieTrailer').val();
                             dados.Foto = localStorage.getItem('base64Foto');
                             dados.Sinopse = $('#SerieSinopse').val();                            				
             
@@ -588,6 +589,7 @@ var SerieAPI = function() {
                             dados.Elenco = $('#SerieElenco').val();
                             dados.Genero = $('#SerieGenero').val();
                             dados.Plataforma = $('#SeriePlataforma').val();
+                            dados.Trailer = $('#SerieTrailer').val();
                             dados.Foto = localStorage.getItem('base64Foto');
                             dados.Sinopse = $('#SerieSinopse').val();					
             
@@ -700,6 +702,17 @@ var SerieAPI = function() {
                 noResults: function (params) {
                   return "Nenhum resultado encontrado";
                 }
+            },
+            templateResult: function (option) {
+
+                if(option.text == "Selecione..."){
+                    var $span = $("<span>" + option.text + "</span>");
+                    return $span;
+                }
+                
+                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                return $span;
+                
             }
         });
 
@@ -712,6 +725,7 @@ var SerieAPI = function() {
             todayHighlight: true,
             orientation: "bottom left",
             format: 'dd/mm/yyyy',
+            language: 'pt-BR',
             templates: {
                 leftArrow: '<i class="la la-angle-left"></i>',
                 rightArrow: '<i class="la la-angle-right"></i>'
@@ -723,6 +737,7 @@ var SerieAPI = function() {
             todayHighlight: true,
             orientation: "bottom left",
             format: 'dd/mm/yyyy',
+            language: 'pt-BR',
             templates: {
                 leftArrow: '<i class="la la-angle-left"></i>',
                 rightArrow: '<i class="la la-angle-right"></i>'

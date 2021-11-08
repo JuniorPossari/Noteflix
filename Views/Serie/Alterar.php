@@ -205,6 +205,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label>Trailer</label>
+                    <input type="text" class="form-control" name="SerieTrailer" id="SerieTrailer" value="<?php echo $Trailer; ?>" >
+                </div>
+                <div class="form-group">
                     <label>Foto</label>                               
                     <div class="drop-zone dropzone dropzone-default d-flex align-items-center justify-content-center">
                         <div class="dropzone-msg dz-message needsclick">

@@ -26,6 +26,12 @@
 
         }
 
+        public function ListarSeries(){
+
+            $this->CarregarView('Home/_ListarSeries');
+
+        }
+
         public function Erro(){
 
             $this->CarregarView('Home/Erro');

@@ -22,6 +22,127 @@
 
         }
 
+        public function Listar(){
+
+            $dados = array();
+
+            $cmd = $this->con->query('SELECT f.*, d.Nome Criador FROM Serie f INNER JOIN Criador d ON d.Id = f.IdCriador');
+
+            $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+
+            if(isset($_POST['dados'])){
+
+                $serie = $_POST['dados'];
+                $serieNome = $serie["Nome"];
+                $serieDataInicio = $serie["DataInicio"]; 
+                $serieDataFim = $serie["DataFim"]; 
+                $serieIdCriador = $serie["IdCriador"];          
+                $serieIdAtor = $serie["IdAtor"]; 
+                $serieIdGenero = $serie["IdGenero"]; 
+                $serieIdPlataforma = $serie["IdPlataforma"]; 
+                $serieOrdem = $serie["Ordem"];
+
+                $newdados = $dados;
+                foreach($newdados as $key => $row){
+
+                    //Filtra por Nome
+                    if($serieNome != ""){
+                        if(strpos(strtoupper($row['Nome']), strtoupper($serieNome)) === false){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Data
+                    if($serieDataInicio != "" && $serieDataFim != ""){
+                        $inicio = implode("-",array_reverse(explode("/", $serieDataInicio)));
+                        $fim = implode("-",array_reverse(explode("/", $serieDataFim)));
+                        $lancamento = $row['PrimeiroEpisodio'];
+                        if($lancamento < $inicio || $lancamento > $fim){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Criador
+                    if($serieIdCriador != 0){
+                        if($row['IdCriador'] != $serieIdCriador){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Ator
+                    if($serieIdAtor != 0){
+                        $idsAtores = $this::ObterSerieAtorIds($row['Id']);
+                        if(!in_array($serieIdAtor, $idsAtores)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Genero
+                    if($serieIdGenero != 0){
+                        $idsGeneros = $this::ObterSerieGeneroIds($row['Id']);
+                        if(!in_array($serieIdGenero, $idsGeneros)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                    //Filtra por Plataforma
+                    if($serieIdPlataforma != 0){
+                        $idsPlataformas = $this::ObterSeriePlataformaIds($row['Id']);
+                        if(!in_array($serieIdPlataforma, $idsPlataformas)){
+                            unset($dados[$key]);
+                            continue;
+                        }
+                    }
+
+                }           
+
+                //Filtra por Ordem
+                $nota = array();
+                
+                foreach ($dados as $key => $row)
+                {
+                    $nota[$key] = $this::ObterNotaNumerica($row['Id']);
+                }
+
+                if(isset($serieOrdem)){
+                    if($serieOrdem == 1){
+                        array_multisort($nota, SORT_ASC, $dados);
+                    }
+                    else{
+                        array_multisort($nota, SORT_DESC, $dados);
+                    }
+                }
+                else{
+                    array_multisort($nota, SORT_DESC, $dados);
+                }
+
+            }
+            else{
+
+                $nota = array();
+                
+                foreach ($dados as $key => $row)
+                {
+                    $nota[$key] = $this::ObterNotaNumerica($row['Id']);
+                }
+                
+                array_multisort($nota, SORT_DESC, $dados);
+
+            }
+
+            //Pega os 100 primeiros do array
+            $dados = array_splice($dados, 0, 100);
+                                
+            //Retorna os dados filtrados                
+            return $dados;
+
+        }
+
         public function ObterTop5Recentes(){
 
             $dados = array();
@@ -72,6 +193,24 @@
 
         }
 
+        public function ObterSerieAtores($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT a.* FROM SerieAtor fa INNER JOIN Ator a ON a.Id = fa.IdAtor WHERE IdSerie = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
         public function ObterSerieGeneroIds($id){
 
             $dados = array();
@@ -84,6 +223,24 @@
 
             if($cmd->rowCount() > 0){
                 $dados = $cmd->fetchall(PDO::FETCH_COLUMN);
+            }            
+            
+            return $dados;
+
+        }
+
+        public function ObterSerieGeneros($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT g.* FROM SerieGenero fg INNER JOIN Genero g ON g.Id = fg.IdGenero WHERE IdSerie = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
             }            
             
             return $dados;
@@ -108,7 +265,25 @@
 
         }
 
-        public function ObterNota($id, $tamanho = 'icon-md'){
+        public function ObterSeriePlataformas($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT p.* FROM SeriePlataforma fp INNER JOIN Plataforma p ON p.Id = fp.IdPlataforma WHERE IdSerie = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
+        public function ObterNotaNumerica($id){
 
             $nota = 0;
 
@@ -123,51 +298,69 @@
                 $nota = $dados["Nota"];
             }
 
+            return $nota;
+            
+        }
+
+        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM NotaSerie WHERE IdSerie = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            $notaicon = "";
+
             if($nota >= 0 && $nota < 0.5){
-                return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 0.5 && $nota < 1){
-                return '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 0.5 && $nota < 1){
+                $notaicon = '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 1 && $nota < 1.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 1 && $nota < 1.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 1.5 && $nota < 2){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 1.5 && $nota < 2){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 2 && $nota < 2.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 2 && $nota < 2.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 2.5 && $nota < 3){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 2.5 && $nota < 3){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 3 && $nota < 3.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 3 && $nota < 3.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 3.5 && $nota < 4){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 3.5 && $nota < 4){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 4 && $nota < 4.5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 4 && $nota < 4.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 4.5 && $nota < 5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
+            else if($nota >= 4.5 && $nota < 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
             }
-
-            if($nota >= 5){
-                return '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            else if($nota >= 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            }
+            else{
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
             }
             
-            return '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            if($mostrarNumero){
+                $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            return $notaicon;
 
         }
 
@@ -204,6 +397,7 @@
             $serieIdCriador = $serie["IdCriador"];          
             $serieSinopse = $serie["Sinopse"];
             $serieFoto = $serie["Foto"];
+            $serieTrailer = $serie["Trailer"];
             
             //Arrays que vão ser gravados em outras tabelas
             $serieAtores = $serie["Elenco"];
@@ -239,10 +433,14 @@
             }
             else{
                 $serieDataTermino = 'NULL';
-            }            
+            }  
+            
+            if(!isset($serieTrailer)){
+                $serieTrailer = "";
+            }
 
             //Cadastrar serie
-            $cmd = $this->con->prepare('INSERT INTO Serie (Nome, PrimeiroEpisodio, NumeroTemporada, DataTermino, IdCriador, Sinopse, Foto) VALUES (:serieNome, :seriePrimeiroEpisodio, :serieNumeroTemporada, :serieDataTermino, :serieIdCriador, :serieSinopse, :serieFoto)');
+            $cmd = $this->con->prepare('INSERT INTO Serie (Nome, PrimeiroEpisodio, NumeroTemporada, DataTermino, IdCriador, Sinopse, Foto) VALUES (:serieNome, :seriePrimeiroEpisodio, :serieNumeroTemporada, :serieDataTermino, :serieIdCriador, :serieSinopse, :serieFoto, :serieTrailer)');
 
             $cmd->bindValue(':serieNome', strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
@@ -251,6 +449,7 @@
             $cmd->bindValue(':serieIdCriador', $serieIdCriador);
             $cmd->bindValue(':serieSinopse', $serieSinopse);
             $cmd->bindValue(':serieFoto', $serieFoto);
+            $cmd->bindValue(':serieTrailer', $serieTrailer);
 
             $sucesso = $cmd->execute();            
 
@@ -409,6 +608,7 @@
             $serieIdCriador = $serie["IdCriador"];          
             $serieSinopse = $serie["Sinopse"];
             $serieFoto = $serie["Foto"];
+            $serieTrailer = $serie["Trailer"];
             
             //Arrays que vão ser gravados em outras tabelas
             $serieAtores = $serie["Elenco"];
@@ -439,8 +639,12 @@
                 $serieDataTermino = 'NULL';
             } 
 
+            if(!isset($serieTrailer)){
+                $serieTrailer = "";
+            }
+
             //Alterar serie
-            $cmd = $this->con->prepare('UPDATE Serie SET Nome = :serieNome, PrimeiroEpisodio = :seriePrimeiroEpisodio, NumeroTemporada = :serieNumeroTemporada, DataTermino = :serieDataTermino, IdCriador = :serieIdCriador, Sinopse = :serieSinopse, Foto = :serieFoto WHERE Id = :serieId');
+            $cmd = $this->con->prepare('UPDATE Serie SET Nome = :serieNome, PrimeiroEpisodio = :seriePrimeiroEpisodio, NumeroTemporada = :serieNumeroTemporada, DataTermino = :serieDataTermino, IdCriador = :serieIdCriador, Sinopse = :serieSinopse, Foto = :serieFoto, Trailer = :serieTrailer WHERE Id = :serieId');
 
             $cmd->bindValue(':serieNome', strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
@@ -450,6 +654,7 @@
             $cmd->bindValue(':serieSinopse', $serieSinopse);
             $cmd->bindValue(':serieFoto', $serieFoto);
             $cmd->bindValue(':serieId', $serieId);
+            $cmd->bindValue(':serieTrailer', $serieTrailer);
 
             $sucesso = $cmd->execute();
 

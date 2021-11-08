@@ -78,7 +78,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<script src="/Noteflix/Content/js/site.js"></script>
 
-
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -274,7 +273,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
-								<span class="text-muted font-weight-bold mr-2">2021©</span>
+								<span class="text-muted font-weight-bold mr-2">2022©</span>
 								<a href="javascript:;" class="text-dark-75 text-hover-primary">Noteflix Team</a>
 							</div>
 							<!--end::Copyright-->
@@ -342,6 +341,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- Slick JavaScript -->
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
 	</body>
 	<!--end::Body-->

@@ -700,6 +700,17 @@ var FilmeAPI = function() {
                 noResults: function (params) {
                   return "Nenhum resultado encontrado";
                 }
+            },
+            templateResult: function (option) {
+
+                if(option.text == "Selecione..."){
+                    var $span = $("<span>" + option.text + "</span>");
+                    return $span;
+                }
+                
+                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                return $span;
+                
             }
         });
 
@@ -712,6 +723,7 @@ var FilmeAPI = function() {
             todayHighlight: true,
             orientation: "bottom left",
             format: 'dd/mm/yyyy',
+            language: 'pt-BR',
             templates: {
                 leftArrow: '<i class="la la-angle-left"></i>',
                 rightArrow: '<i class="la la-angle-right"></i>'

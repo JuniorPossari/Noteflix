@@ -38,7 +38,7 @@
                 }
                 else{ //DEVELOPMENT
 
-                    $dbname = 'id17053183_noteflixbd';
+                    $dbname = 'noteflix';
                     $host = 'localhost';
                     $user = 'root';
                     $password = '';
