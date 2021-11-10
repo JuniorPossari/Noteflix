@@ -106,143 +106,158 @@
         <!--begin::Body-->                    
         <div class="card-body">
 
-            <div class="row align-items-center mb-2">
-                <div class="col-md-3">
-                    <div class="input-icon" style="margin-top: 25.39px;">
+        <div class="row align-items-center mb-3">
+                <div class="col-md-4">
+                    <div class="input-icon">
                         <input type="text" class="form-control" placeholder="Procurar..." id="SerieNome" />
                         <span>
                             <i class="flaticon2-search-1 text-muted"></i>
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <label>Criador</label>
-                    <select class="form-control select2" name="SerieCriador" id="SerieCriador">
-
-                        <option value="0">Selecione...</option>
-                        <?php
-
-                            $criadorService = new CriadorService();
-
-                            $criadores = $criadorService->ObterTodos();                        
-
-                            foreach ($criadores as $criador) {
-
-                                $idCriador = $criador["Id"];
-                                $nomeCriador = $criador["Nome"];
-
-                                ?>
-                                    <option value="<?php echo $idCriador ?>"><?php echo $nomeCriador ?></option>
-                                <?php
-                            }
-                        
-                        ?>
-                    
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Ator</label>
-                    <select class="form-control select2" name="SerieAtor" id="SerieAtor">
-
-                        <option value="0">Selecione...</option>
-                        <?php
-
-                            $atorService = new AtorService();
-
-                            $atores = $atorService->ObterTodos();                        
-
-                            foreach ($atores as $ator) {
-
-                                $idAtor = $ator["Id"];
-                                $nomeAtor = $ator["Nome"];
-
-                                ?>
-                                    <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
-                                <?php
-                            }
-                        
-                        ?>
-                    
-                    </select>
-                </div>
-                <div class="col-md-3">       
-                    <label>Gênero</label>
-                    <select class="form-control select2" name="SerieGenero" id="SerieGenero">
-
-                        <option value="0">Selecione...</option>
-                        <?php
-
-                            $generoService = new GeneroService();
-
-                            $generos = $generoService->ObterTodos();                        
-
-                            foreach ($generos as $genero) {
-
-                                $idGenero = $genero["Id"];
-                                $nomeGenero = $genero["Nome"];
-
-                                ?>
-                                    <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
-                                <?php
-                            }
-                        
-                        ?>
-                    
-                    </select>
-                </div>                                     
+                <div class="col-md-8">       
+                    <div class="d-flex">
+                        <a href="javascript:;" id="Pesquisar" class="btn btn-lg btn-primary font-weight-bold mr-3"><i class="la la-search icon-lg"></i>Procurar</a>
+                        <a href="javascript:;" id="Limpar" class="btn btn-lg btn-secondary font-weight-bold mr-2"><i class="la la-broom icon-lg"></i>Limpar</a>
+                        <a class="btn btn-link font-weight-bold font-size-h6" data-toggle="collapse" href="#collapseBuscaAvancada" role="button" aria-expanded="false" aria-controls="collapseBuscaAvancada">Busca Avançada</a>      
+                    </div>
+                </div> 
             </div>
 
-            <div class="row align-items-center mb-10">
-                <div class="col-md-3"> 
-                    <label>Plataforma</label>
-                    <select class="form-control select2" name="SeriePlataforma" id="SeriePlataforma">
+            <div class="collapse" id="collapseBuscaAvancada">
 
-                        <option value="0">Selecione...</option>
-                        <?php
+                <div class="row align-items-center mb-2">
+                    
+                    <div class="col-md-4">
+                        <label class="text-dark font-weight-bolder font-size-h6">Criador</label>
+                        <select class="form-control select2" name="SerieCriador" id="SerieCriador">
 
-                            $plataformaService = new PlataformaService();
+                            <option value="0">Selecione...</option>
+                            <?php
 
-                            $plataformas = $plataformaService->ObterTodos();                        
+                                $criadorService = new CriadorService();
 
-                            foreach ($plataformas as $plataforma) {
+                                $criadores = $criadorService->ObterTodos();                        
 
-                                $idPlataforma = $plataforma["Id"];
-                                $nomePlataforma = $plataforma["Nome"];
+                                foreach ($criadores as $criador) {
 
-                                ?>
-                                    <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
-                                <?php
-                            }
+                                    $idCriador = $criador["Id"];
+                                    $nomeCriador = $criador["Nome"];
+
+                                    ?>
+                                        <option value="<?php echo $idCriador ?>"><?php echo $nomeCriador ?></option>
+                                    <?php
+                                }
+                            
+                            ?>
                         
-                        ?>
-                    
-                    </select>
-                </div> 
-                <div class="col-md-3"> 
-                    <label>Primeiro Episódio</label>
-                    <div class="input-daterange input-group" id="SeriePrimeiroEP">
-                        <input type="text" class="form-control" placeholder="Início" id="SerieDataInicio" name="Inicio" autocomplete="off"/>
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Fim" id="SerieDataFim" name="Fim" autocomplete="off"/>
+                        </select>
                     </div>
-                </div>  
-                <div class="col-md-3"> 
-                    <label>Ordem</label>
-                    <select class="form-control select2" name="SerieOrdem" id="SerieOrdem">
+                    <div class="col-md-4">
+                        <label class="text-dark font-weight-bolder font-size-h6">Ator</label>
+                        <select class="form-control select2" name="SerieAtor" id="SerieAtor">
 
-                        <option value="0">Maior nota</option>
-                        <option value="1">Menor nota</option>                        
-                    
-                    </select>
-                </div>
-                <div class="col-md-3">       
-                    <div class="d-flex justify-content-center" style="margin-top: 25.39px;">
-                        <a href="javascript:;" id="Pesquisar" class="btn btn-lg btn-primary font-weight-bold mr-2"><i class="la la-search icon-lg"></i>Pesquisar</a>
-                        <a href="javascript:;" id="Limpar" class="btn btn-lg btn-secondary font-weight-bold"><i class="la la-broom icon-lg"></i>Limpar</a>       
+                            <option value="0">Selecione...</option>
+                            <?php
+
+                                $atorService = new AtorService();
+
+                                $atores = $atorService->ObterTodos();                        
+
+                                foreach ($atores as $ator) {
+
+                                    $idAtor = $ator["Id"];
+                                    $nomeAtor = $ator["Nome"];
+
+                                    ?>
+                                        <option value="<?php echo $idAtor ?>"><?php echo $nomeAtor ?></option>
+                                    <?php
+                                }
+                            
+                            ?>
+                        
+                        </select>
                     </div>
-                </div>             
+                    <div class="col-md-4">       
+                        <label class="text-dark font-weight-bolder font-size-h6">Gênero</label>
+                        <select class="form-control select2" name="SerieGenero" id="SerieGenero">
+
+                            <option value="0">Selecione...</option>
+                            <?php
+
+                                $generoService = new GeneroService();
+
+                                $generos = $generoService->ObterTodos();                        
+
+                                foreach ($generos as $genero) {
+
+                                    $idGenero = $genero["Id"];
+                                    $nomeGenero = $genero["Nome"];
+
+                                    ?>
+                                        <option value="<?php echo $idGenero ?>"><?php echo $nomeGenero ?></option>
+                                    <?php
+                                }
+                            
+                            ?>
+                        
+                        </select>
+                    </div>                                     
+                </div>
+
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4"> 
+                        <label class="text-dark font-weight-bolder font-size-h6">Plataforma</label>
+                        <select class="form-control select2" name="SeriePlataforma" id="SeriePlataforma">
+
+                            <option value="0">Selecione...</option>
+                            <?php
+
+                                $plataformaService = new PlataformaService();
+
+                                $plataformas = $plataformaService->ObterTodos();                        
+
+                                foreach ($plataformas as $plataforma) {
+
+                                    $idPlataforma = $plataforma["Id"];
+                                    $nomePlataforma = $plataforma["Nome"];
+
+                                    ?>
+                                        <option value="<?php echo $idPlataforma ?>"><?php echo $nomePlataforma ?></option>
+                                    <?php
+                                }
+                            
+                            ?>
+                        
+                        </select>
+                    </div> 
+                    <div class="col-md-4"> 
+                        <label class="text-dark font-weight-bolder font-size-h6">Lançamento</label>
+                        <div class="input-daterange input-group" id="SerieDataLancamento">
+                            <input type="text" class="form-control" placeholder="Início" id="SerieDataInicio" name="Inicio" autocomplete="off"/>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Fim" id="SerieDataFim" name="Fim" autocomplete="off"/>
+                        </div>
+                    </div>  
+                    <div class="col-md-4"> 
+                        <label class="text-dark font-weight-bolder font-size-h6">Ordem</label>
+                        <div class="radio-inline d-flex align-items-center justify-content-center">
+                            <label class="radio radio-primary radio-lg">
+                                <input type="radio" class="SerieOrdem" id="MaiorNota" checked="checked" name="radios6" value="0"/>
+                                <span></span>
+                                Maior Nota
+                            </label>
+                            <label class="radio radio-primary radio-lg">
+                                <input type="radio" class="SerieOrdem" id="MenorNota" name="radios6" value="1"/>
+                                <span></span>
+                                Menor Nota
+                            </label>
+                        </div>
+                    </div>
+                                
+                </div>
             </div>
             
             <!--begin: Datatable-->

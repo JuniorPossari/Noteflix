@@ -8,6 +8,14 @@
 
         }
 
+        public function Procurar($query){
+
+            $dados = array('query' => $query);
+
+            $this->CarregarView('Home/_Procurar', $dados);
+
+        }
+
         public function Filmes(){
 
             $this->CarregarLayout('Home/Filmes');

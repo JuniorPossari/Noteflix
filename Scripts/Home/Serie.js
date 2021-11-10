@@ -99,15 +99,6 @@ var SerieAPI = function() {
             }
         });
 
-        $('#SerieOrdem').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            }
-        });
-
     }
 
     var Datepicker = function(){
@@ -147,7 +138,7 @@ var SerieAPI = function() {
             dados.IdAtor = $('#SerieAtor').val();
             dados.IdGenero = $('#SerieGenero').val();
             dados.IdPlataforma = $('#SeriePlataforma').val();  
-            dados.Ordem = $('#SerieOrdem').val();                        				
+            dados.Ordem = $('.SerieOrdem:checked').val();                        				
 
             $.ajax({
                 url: urlListarSeries,
@@ -193,7 +184,7 @@ var SerieAPI = function() {
             $('#SeriePlataforma').select2("val", "0");
             $('#SerieDataInicio').val('');
             $('#SerieDataFim').val('');
-            $('#SerieOrdem').select2("val", "0");
+            $('#MaiorNota').prop('checked', true);
             
 
         });

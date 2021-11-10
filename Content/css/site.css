@@ -88,3 +88,11 @@ input.form-control{
 .select2-selection{
     min-height: 39.80px !important;
 }
+
+.procurar-linha:hover{
+    background-color: rgba(223, 223, 223, 0.8);
+}
+
+.titulo-hover:hover{
+    color: blue !important;    
+}

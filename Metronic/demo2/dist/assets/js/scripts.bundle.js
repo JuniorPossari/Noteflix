@@ -10230,10 +10230,10 @@ var KTLayoutSearch = function() {
 
         setTimeout(function() {
             $.ajax({
-                url: HOST_URL + '/api/quick_search.php',
-                data: {
-                    query: _query
-                },
+                url: '/Noteflix/Home/Procurar/' + _query, //HOST_URL + '/api/quick_search.php',
+                // data: {
+                //     query: _query
+                // },
                 dataType: 'html',
                 success: function(res) {
                     _hasResult = true;
@@ -10247,7 +10247,7 @@ var KTLayoutSearch = function() {
                     _hasResult = false;
                     _hideProgress();
                     KTUtil.addClass(_target, _resultClass);
-                    KTUtil.setHTML(_resultWrapper, '<span class="font-weight-bold text-muted">Connection error. Please try again later..</div>');
+                    KTUtil.setHTML(_resultWrapper, '<span class="font-weight-bold text-muted">Desculpe, houve um erro na requisição!</div>');
                     _showDropdown();
                     KTUtil.scrollUpdate(_resultWrapper);
                 }

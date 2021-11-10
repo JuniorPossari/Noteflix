@@ -99,15 +99,6 @@ var FilmeAPI = function() {
             }
         });
 
-        $('#FilmeOrdem').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            }
-        });
-
     }
 
     var Datepicker = function(){
@@ -147,7 +138,7 @@ var FilmeAPI = function() {
             dados.IdAtor = $('#FilmeAtor').val();
             dados.IdGenero = $('#FilmeGenero').val();
             dados.IdPlataforma = $('#FilmePlataforma').val();  
-            dados.Ordem = $('#FilmeOrdem').val();                        				
+            dados.Ordem = $('.FilmeOrdem:checked').val();                        				
 
             $.ajax({
                 url: urlListarFilmes,
@@ -193,7 +184,7 @@ var FilmeAPI = function() {
             $('#FilmePlataforma').select2("val", "0");
             $('#FilmeDataInicio').val('');
             $('#FilmeDataFim').val('');
-            $('#FilmeOrdem').select2("val", "0");
+            $('#MaiorNota').prop('checked', true);
             
 
         });

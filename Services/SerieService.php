@@ -22,6 +22,24 @@
 
         }
 
+        public function Procurar($query){
+
+            $dados = array();
+
+            $pattern = '%'.$query.'%';
+
+            $cmd = $this->con->prepare('SELECT f.*, d.Nome Criador FROM Serie f INNER JOIN Criador d ON d.Id = f.IdCriador WHERE f.Nome LIKE :pattern ORDER BY f.Nome LIMIT 10');
+
+            $cmd->execute([':pattern' => $pattern]);
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }
+            
+            return $dados;
+
+        }
+
         public function Listar(){
 
             $dados = array();
@@ -287,7 +305,7 @@
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM NotaSerie WHERE IdSerie = :id');
+            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -306,7 +324,7 @@
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM NotaSerie WHERE IdSerie = :id');
+            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
 
             $cmd->bindValue(':id', $id);
 
