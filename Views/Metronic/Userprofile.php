@@ -117,11 +117,11 @@
 		<!--begin::Notifications-->
 		<div>
 			<!--begin:Heading-->
-			<h5 class="mb-5">Notificações</h5>
+			<h5 class="mb-3">Notificações</h5>
 			<!--end:Heading-->
 
 			<!--begin::Item-->
-			<div class="bg-light-primary bg-hover-light-light rounded p-2 gutter-b border border-dark">
+			<div class="bg-light-primary bg-hover-primary rounded p-2 mb-3">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
 						<img class="auto-size-img ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg">
@@ -134,17 +134,16 @@
 							<span class="text-right text-muted font-size-sm">13:35 08/06/2021</span>
 						</div>
 					</div>
-				</div>
-							
+				</div>							
 			</div>			
 			<!--end::Item-->
 			
 			<!--begin::Item-->
-			<div class="bg-light-primary rounded p-2 gutter-b border border-dark">
+			<div class="bg-light-primary bg-hover-primary rounded p-2 mb-3">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
 						<div class="ml-4">
-							<span class="svg-icon svg-icon-warning ">
+							<span class="svg-icon svg-icon-dark">
 								<span class="svg-icon svg-icon-lg">
 									<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Home/Library.svg-->
 									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -167,8 +166,7 @@
 							<span class="text-right text-muted font-size-sm">23:44 04/06/2021</span>
 						</div>
 					</div>
-				</div>
-							
+				</div>							
 			</div>			
 			<!--end::Item-->
 			

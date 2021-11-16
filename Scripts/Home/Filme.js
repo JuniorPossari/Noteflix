@@ -185,7 +185,8 @@ var FilmeAPI = function() {
             $('#FilmeDataInicio').val('');
             $('#FilmeDataFim').val('');
             $('#MaiorNota').prop('checked', true);
-            
+
+            $('#Pesquisar').trigger('click');            
 
         });
     }

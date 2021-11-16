@@ -186,6 +186,7 @@ var SerieAPI = function() {
             $('#SerieDataFim').val('');
             $('#MaiorNota').prop('checked', true);
             
+            $('#Pesquisar').trigger('click');
 
         });
     }
