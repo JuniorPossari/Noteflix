@@ -11,7 +11,7 @@
 				<li class="navi-item">
 					<a href="/Noteflix/Ator/Index" class="navi-link">
 						<span class="navi-icon">
-							<i class="flaticon2-setup"></i>
+							<i class="fas fa-user"></i>
 						</span>
 						<span class="navi-text">Atores</span>
 					</a>
@@ -19,7 +19,7 @@
 				<li class="navi-item">
 					<a href="/Noteflix/Criador/Index" class="navi-link">
 						<span class="navi-icon">
-							<i class="flaticon2-setup"></i>
+							<i class="fas fa-user-tie"></i>
 						</span>
 						<span class="navi-text">Criadores</span>
 					</a>
@@ -27,7 +27,7 @@
 				<li class="navi-item">
 					<a href="/Noteflix/Diretor/Index" class="navi-link">
 						<span class="navi-icon">
-							<i class="flaticon2-setup"></i>
+							<i class="fas fa-user-tie"></i>
 						</span>
 						<span class="navi-text">Diretores</span>
 					</a>
@@ -35,7 +35,7 @@
 				<li class="navi-item">
 					<a href="/Noteflix/Filme/Index" class="navi-link">
 						<span class="navi-icon">
-							<i class="flaticon2-setup"></i>
+							<i class="fas fa-film"></i>
 						</span>
 						<span class="navi-text">Filmes</span>
 					</a>
@@ -43,7 +43,7 @@
 				<li class="navi-item">
 					<a href="/Noteflix/Serie/Index" class="navi-link">
 						<span class="navi-icon">
-							<i class="flaticon2-setup"></i>
+							<i class="fas fa-video"></i>
 						</span>
 						<span class="navi-text">Séries</span>
 					</a>
