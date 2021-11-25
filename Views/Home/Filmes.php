@@ -119,7 +119,7 @@
                     <div class="d-flex">
                         <a href="javascript:;" id="Pesquisar" class="btn btn-lg btn-primary font-weight-bold mr-3"><i class="la la-search icon-lg"></i>Procurar</a>
                         <a href="javascript:;" id="Limpar" class="btn btn-lg btn-secondary font-weight-bold mr-2"><i class="la la-broom icon-lg"></i>Limpar</a>
-                        <a class="btn btn-link font-weight-bold font-size-h6" data-toggle="collapse" href="#collapseBuscaAvancada" role="button" aria-expanded="false" aria-controls="collapseBuscaAvancada">Busca Avançada</a>      
+                        <a class="btn btn-link font-weight-bold font-size-h6 mt-1" data-toggle="collapse" href="#collapseBuscaAvancada" role="button" aria-expanded="false" aria-controls="collapseBuscaAvancada">Busca Avançada</a>      
                     </div>
                 </div> 
             </div>

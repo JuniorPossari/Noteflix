@@ -1,6 +1,6 @@
 <style>
 
-    h2 {
+    .slide-name {
         width: 310px;
         opacity: 0.8;
         position: absolute;
@@ -14,7 +14,7 @@
         transition: all 300ms ease;
         text-transform: uppercase;
         display: none;
-        text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+        /*text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;*/
     }
 
     .previa{

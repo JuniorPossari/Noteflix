@@ -96,23 +96,22 @@
                                                 echo '<h4 class="bg-light-dark p-1 mr-2 mb-0" style="border-radius: 5px;">'.$nomeGenero.'</h4>';
                                             }
                                         ?>                                                    
-                                    </div>
+                                    </div>                                    
+
+                                    <div class="form-group"><?php echo $notaFilme; ?></div>
 
                                     <div class="d-flex align-items-center <?php if(count($plataformas) > 0) echo 'form-group'; ?>">
                                         <?php
                                             foreach ($plataformas as $plataforma) {
 
                                                 $idPlataforma = $plataforma["Id"];
-                                                $nomePlataforma = $plataforma["Nome"];
                 
-                                                echo '<h4 class="bg-light-danger p-1 mr-2 mb-0" style="border-radius: 5px;">'.$nomePlataforma.'</h4>';                                        
+                                                echo '<img class="mr-2" src="/Noteflix/Content/img/plataformas/'. $idPlataforma .'.png" />';                                        
                                             }
                                         ?>                                                    
                                     </div>
 
-                                    <div class="form-group"><?php echo $notaFilme; ?></div>
-
-                                    <div class="form-group"><?php if(strlen($sinopseFilme) > 600){ echo substr($sinopseFilme, 0, 600).'...'; }else{ echo $sinopseFilme; } ?></div>
+                                    <div class="form-group"><?php if(strlen($sinopseFilme) > 400){ echo substr($sinopseFilme, 0, 400).'...'; }else{ echo $sinopseFilme; } ?></div>
                                                                                     
                                 </div>
                             

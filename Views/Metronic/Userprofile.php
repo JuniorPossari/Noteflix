@@ -121,16 +121,16 @@
 			<!--end:Heading-->
 
 			<!--begin::Item-->
-			<div class="bg-light-primary bg-hover-primary rounded p-2 mb-3">
+			<div class="bg-hover-light-secondary p-2 mb-1">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
-						<img class="auto-size-img ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg">
+						<img class="ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg" style="height: 70px; width: auto;">
 					</div>
 					<div class="col-md-9">
 						<div class="text-left font-weight-bold">Uma noite alucinante!!</div>
 											
 						<div class="d-flex flex-column mt-2">
-							<label>Acabamos de adicionar "Uma noite alucinante" a lista de filmes para avaliar, dê sua nota agora para esse clássico do cinema! :D</label>
+							<div>Acabamos de adicionar "Uma noite alucinante" a lista de filmes para avaliar, dê sua nota agora para esse clássico do cinema! :D</div>
 							<span class="text-right text-muted font-size-sm">13:35 08/06/2021</span>
 						</div>
 					</div>
@@ -139,7 +139,7 @@
 			<!--end::Item-->
 			
 			<!--begin::Item-->
-			<div class="bg-light-primary bg-hover-primary rounded p-2 mb-3">
+			<div class="bg-hover-light-secondary p-2 mb-1">
 				<div class="row">
 					<div class="col-md-3 d-flex align-items-center justify-content-center">
 						<div class="ml-4">
@@ -162,7 +162,107 @@
 						<div class="text-left font-weight-bold">Bem vindo!</div>
 											
 						<div class="d-flex flex-column mt-2">
-							<label>Seja bem vindo ao Noteflix, o melhor site de avaliação de filmes e séries!</label>
+							<div>Seja bem vindo ao Noteflix, o melhor site de avaliação de filmes e séries!</div>
+							<span class="text-right text-muted font-size-sm">23:44 04/06/2021</span>
+						</div>
+					</div>
+				</div>							
+			</div>			
+			<!--end::Item-->
+
+			<!--begin::Item-->
+			<div class="bg-hover-light-secondary p-2 mb-1">
+				<div class="row">
+					<div class="col-md-3 d-flex align-items-center justify-content-center">
+						<img class="ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg" style="height: 70px; width: auto;">
+					</div>
+					<div class="col-md-9">
+						<div class="text-left font-weight-bold">Uma noite alucinante!!</div>
+											
+						<div class="d-flex flex-column mt-2">
+							<div>Acabamos de adicionar "Uma noite alucinante" a lista de filmes para avaliar, dê sua nota agora para esse clássico do cinema! :D</div>
+							<span class="text-right text-muted font-size-sm">13:35 08/06/2021</span>
+						</div>
+					</div>
+				</div>							
+			</div>			
+			<!--end::Item-->
+			
+			<!--begin::Item-->
+			<div class="bg-hover-light-secondary p-2 mb-1">
+				<div class="row">
+					<div class="col-md-3 d-flex align-items-center justify-content-center">
+						<div class="ml-4">
+							<span class="svg-icon svg-icon-dark">
+								<span class="svg-icon svg-icon-lg">
+									<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Home/Library.svg-->
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24" />
+											<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+											<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+										</g>
+									</svg>
+									<!--end::Svg Icon-->
+								</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="text-left font-weight-bold">Bem vindo!</div>
+											
+						<div class="d-flex flex-column mt-2">
+							<div>Seja bem vindo ao Noteflix, o melhor site de avaliação de filmes e séries!</div>
+							<span class="text-right text-muted font-size-sm">23:44 04/06/2021</span>
+						</div>
+					</div>
+				</div>							
+			</div>			
+			<!--end::Item-->
+
+			<!--begin::Item-->
+			<div class="bg-hover-light-secondary p-2 mb-1">
+				<div class="row">
+					<div class="col-md-3 d-flex align-items-center justify-content-center">
+						<img class="ml-4" src="/Noteflix/Content/img/uma-noite-alucinante.jpg" style="height: 70px; width: auto;">
+					</div>
+					<div class="col-md-9">
+						<div class="text-left font-weight-bold">Uma noite alucinante!!</div>
+											
+						<div class="d-flex flex-column mt-2">
+							<div>Acabamos de adicionar "Uma noite alucinante" a lista de filmes para avaliar, dê sua nota agora para esse clássico do cinema! :D</div>
+							<span class="text-right text-muted font-size-sm">13:35 08/06/2021</span>
+						</div>
+					</div>
+				</div>							
+			</div>			
+			<!--end::Item-->
+			
+			<!--begin::Item-->
+			<div class="bg-hover-light-secondary p-2 mb-1">
+				<div class="row">
+					<div class="col-md-3 d-flex align-items-center justify-content-center">
+						<div class="ml-4">
+							<span class="svg-icon svg-icon-dark">
+								<span class="svg-icon svg-icon-lg">
+									<!--begin::Svg Icon | path:Metronic/demo2/dist/assets/media/svg/icons/Home/Library.svg-->
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24" />
+											<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+											<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+										</g>
+									</svg>
+									<!--end::Svg Icon-->
+								</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="text-left font-weight-bold">Bem vindo!</div>
+											
+						<div class="d-flex flex-column mt-2">
+							<div>Seja bem vindo ao Noteflix, o melhor site de avaliação de filmes e séries!</div>
 							<span class="text-right text-muted font-size-sm">23:44 04/06/2021</span>
 						</div>
 					</div>
