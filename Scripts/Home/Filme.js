@@ -1,127 +1,15 @@
 "use strict";
 
-var FilmeAPI = function() {
+var FilmeAPI = function() {   
 
-    var urlListarFilmes = "/Noteflix/Home/ListarFilmes/";
+    var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaFilme/";
+    var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralFilme/";
+    var urlSalvarNota = "/Noteflix/Home/SalvarNotaFilme/";
+    var urlExcluirNota = "/Noteflix/Home/ExcluirNotaFilme/";
 
-    var datatable = null;    
+    var OnClickAbrirModalNota = function(){
 
-    var table = function () {
-
-        datatable = null;
-
-        datatable = $('#kt_datatable').KTDatatable({
-
-            data: {
-                saveState: { cookie: false },
-                pageSize: 10                
-            },
-
-            rows: {
-                autoHide: false,                
-            },
-
-            toolbar: {
-                layout: ['info', 'pagination']
-            },
-
-            layout: {
-                class: 'tabela-noteflix'
-            },
-           
-            columns: [
-                {
-                    field: 'filmes',
-                    textAlign: 'center',
-                    sortable: false,
-                    selector: false,
-
-                }
-            ],
-
-            translate: _datatablesTranslate,
-
-        });
-        
-        datatable.on('datatable-on-layout-updated', function(){
-            $(this).removeClass('d-none');
-            KTApp.unblockPage();
-        });
-
-    };
-
-    var Select2 = function(){
-
-        $('#FilmeDiretor').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            }
-        });
-
-        $('#FilmeAtor').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            }
-        });
-
-        $('#FilmeGenero').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            }
-        });
-
-        $('#FilmePlataforma').select2({
-            placeholder: "Selecione...",
-            language: {
-                noResults: function (params) {
-                  return "Nenhum resultado encontrado";
-                }
-            },
-            templateResult: function (option) {
-
-                if(option.text == "Selecione..."){
-                    var $span = $("<span>" + option.text + "</span>");
-                    return $span;
-                }
-                
-                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
-                return $span;
-                
-            }
-        });
-
-    }
-
-    var Datepicker = function(){
-
-        $('#FilmeDataLancamento').datepicker({
-            rtl: KTUtil.isRTL(),
-            todayHighlight: true,
-            orientation: "bottom left",
-            format: 'dd/mm/yyyy',
-            language: 'pt-BR',
-            endDate: '+1d',
-            datesDisabled: '+1d',
-            templates: {
-                leftArrow: '<i class="la la-angle-left"></i>',
-                rightArrow: '<i class="la la-angle-right"></i>'
-            }
-        });
-
-    }
-
-    var OnClickPesquisar = function(){
-
-        $('#Pesquisar').on('click', function(){
+        $('#btnAbrirModalNota').on('click', function(){
             
             KTApp.blockPage({
                 overlayColor: '#000000',
@@ -129,26 +17,25 @@ var FilmeAPI = function() {
                 message: 'Aguarde...'
             });
 
-            var dados = {};
-            
-            dados.Nome = $('#FilmeNome').val();
-            dados.DataInicio = $('#FilmeDataInicio').val();
-            dados.DataFim = $('#FilmeDataFim').val();
-            dados.IdDiretor = $('#FilmeDiretor').val();
-            dados.IdAtor = $('#FilmeAtor').val();
-            dados.IdGenero = $('#FilmeGenero').val();
-            dados.IdPlataforma = $('#FilmePlataforma').val();  
-            dados.Ordem = $('.FilmeOrdem:checked').val();                        				
+            var idFilme = $('#hdnIdFilme').val();                       				
 
             $.ajax({
-                url: urlListarFilmes,
-                type: 'POST',
-                dataType: "html",
-                data: {"dados":dados},
+                url: urlObterConteudoNota + idFilme,
+                type: 'GET',
                 success: function (data) {
                     
-                    $('#Filmes').html(data);
-                    table();
+                    $('#ConteudoNota').html(data);
+
+                    OnClickNota();
+                    
+                    var nota = $('.radio-nota:checked').val();
+                    if(nota != '0.0'){
+                        $('#btnRemoverNota').removeClass('d-none');
+                    }
+
+                    $('#modalNota').modal('show');
+
+                    KTApp.unblockPage();
 
                 },
                 error: function () {
@@ -174,25 +61,258 @@ var FilmeAPI = function() {
 
     }
 
-    var OnClickLimpar = function(){
-        $('#Limpar').on('click', function () {
-            
-            $('#FilmeNome').val('');
-            $('#FilmeDiretor').select2("val", "0");
-            $('#FilmeAtor').select2("val", "0");
-            $('#FilmeGenero').select2("val", "0");
-            $('#FilmePlataforma').select2("val", "0");
-            $('#FilmeDataInicio').val('');
-            $('#FilmeDataFim').val('');
-            $('#MaiorNota').prop('checked', true);
+    var OnCloseModalNota = function(){
+        $('#modalNota').on('hidden.bs.modal', function () {
+            $('#btnRemoverNota').addClass('d-none');
+        });
+    }
+    
+    var OnClickNota = function(){
+        $('.radio-nota').off().on('click', function(){
 
-            $('#Pesquisar').trigger('click');            
+            var nota = $('.radio-nota:checked').val();
+
+            $('.myratings').removeClass('nota-baixa');
+            $('.myratings').removeClass('nota-media');
+            $('.myratings').removeClass('nota-alta');
+            
+            if (nota < 2) {
+                $('.myratings').addClass('nota-baixa');
+            }
+            else if (nota >= 2 && nota <= 3) {
+                $('.myratings').addClass('nota-media');
+            }
+            else{
+                $('.myratings').addClass('nota-alta');                
+            }
+
+            $(".myratings").text(nota);
 
         });
+    };
+
+    var OnClickRemoverNota = function(){
+        $('#btnRemoverNota').on('click', function(){
+
+            swal.fire({
+                title: "Você tem certeza?",
+                html: "Sua nota e sua observação desse filme serão removidas! Realmente deseja continuar?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não",
+                customClass: {
+                    confirmButton: "btn font-weight-bold btn-danger",
+                    cancelButton: "btn font-weight-bold btn-light"
+                }
+            }).then(function(result) {
+                if(result.value){
+
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'info', // a bootstrap color
+                        message: 'Aguarde...'
+                    });	
+                    
+                    var idFilme = $('#hdnIdFilme').val();
+    
+                    $.ajax({
+                        url: urlExcluirNota,
+                        type: 'POST',
+                        dataType: "html",
+                        data: {"id":idFilme},
+                        success: function (json) {
+    
+                            var data = JSON.parse(json);
+
+                            if(data.Ok){
+                                $('#btnAbrirModalNota i').removeClass('text-warning');	
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);						
+                                $('#modalNota').modal('toggle');
+                            }
+    
+                            KTApp.unblockPage();
+
+                            swal.fire({
+                                title: data.MessageTitle,
+                                text: data.Message,
+                                icon: data.Ok ? "success" : "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+
+                            });  
+        
+                        },
+                        error: function () {
+
+                            KTApp.unblockPage();
+        
+                            swal.fire({
+                                title: "Aviso",
+                                text: "Desculpe, houve um erro na requisição!",
+                                icon: "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                KTUtil.scrollTop();
+                            });
+            
+                        }
+                    }); 
+    
+                }
+    
+            });
+
+        });
+    };
+
+    var OnClickSalvarNota = function(){
+
+        $('#btnSalvarNota').on('click', function(){
+
+            var idFilme = $('#hdnIdFilme').val();
+            var nota = $('.radio-nota:checked').val();
+            var observacao = $('#txtObservacao').val();
+
+            if(!idFilme || !nota){
+                return swal.fire({
+                    title: "Aviso",
+                    text: "Desculpe, houve um erro!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                });
+            }
+
+            if(nota == "0.0"){
+                return swal.fire({
+                    title: "Aviso",
+                    text: "É necessário selecionar uma nota!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                });
+            }
+
+            if(nota != "0.5" && nota != "1.0" && nota != "1.5" && nota != "2.0" && nota != "2.5" && nota != "3.0" && nota != "3.5" && nota != "4.0" && nota != "4.5" && nota != "5.0"){
+                return swal.fire({
+                    title: "Aviso",
+                    text: "Desculpe, não é possível salvar essa nota!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                });
+            }
+
+            if(!observacao){
+                return swal.fire({
+                    title: "Aviso",
+                    text: "É necessário deixar uma observação sobre o filme!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                });
+            }
+
+            swal.fire({
+                title: "Você tem certeza?",
+                text: "Realmente deseja salvar essa nota?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não",
+                customClass: {
+                    confirmButton: "btn font-weight-bold btn-primary",
+                    cancelButton: "btn font-weight-bold btn-light"
+                }
+            }).then(function(result) {
+                if(result.value){
+            
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'info', // a bootstrap color
+                        message: 'Aguarde...'
+                    });
+
+                    var dados = {};
+
+                    dados.IdFilme = idFilme;
+                    dados.Nota = nota;
+                    dados.Observacao = observacao;                                                                            				
+    
+                    $.ajax({
+                        url: urlSalvarNota,
+                        type: 'POST',
+                        dataType: "html",
+                        data: {"dados":dados},
+                        success: function (json) {
+    
+                            var data = JSON.parse(json);
+
+                            if(data.Ok){
+                                $('#btnAbrirModalNota i').addClass('text-warning');	
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);						
+                                $('#modalNota').modal('toggle');
+                            }
+    
+                            KTApp.unblockPage();
+
+                            swal.fire({
+                                title: data.MessageTitle,
+                                text: data.Message,
+                                icon: data.Ok ? "success" : "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+
+                            });  
+        
+                        },
+                        error: function () {
+
+                            KTApp.unblockPage();
+        
+                            swal.fire({
+                                title: "Aviso",
+                                text: "Desculpe, houve um erro na requisição!",
+                                icon: "error",
+                                confirmButtonText: "Ok",
+                                customClass: {
+                                    confirmButton: "btn font-weight-bold btn-light-primary"
+                                }
+                            }).then(function() {
+                                KTUtil.scrollTop();
+                            });
+            
+                        }
+                    });
+    
+                }
+    
+            });
+
+        });
+
     }
 
     var OnClickAbrirModalTrailer = function(){
-        $('#Filmes').on('click', '.btnAbrirModalTrailer', function () {
+        $('.btnAbrirModalTrailer').on('click', function () {
             var embed = $(this).data('embed');
             $('#modalTrailer iframe').attr('src', embed);
         });
@@ -207,14 +327,13 @@ var FilmeAPI = function() {
     return {
         
         initIndex: function() {
-
-            table();
-            Select2();
-            Datepicker();
-            OnClickPesquisar();
-            OnClickLimpar();
+            
             OnClickAbrirModalTrailer();
             OnCloseModalTrailer();
+            OnClickAbrirModalNota();  
+            OnCloseModalNota();          
+            OnClickRemoverNota();
+            OnClickSalvarNota();
             
         }
 

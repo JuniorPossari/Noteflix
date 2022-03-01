@@ -1,6 +1,6 @@
 "use strict";
 
-var SerieAPI = function() {
+var SeriesAPI = function() {
 
     var urlListarSeries = "/Noteflix/Home/ListarSeries/";
 

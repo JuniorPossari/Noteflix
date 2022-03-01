@@ -54,11 +54,11 @@
 	</li>
 	<!--end::Item-->
 	<!--begin::Item-->
-	<li class="nav-item mb-2" data-toggle="tooltip" title="Notificação" data-placement="left">
+	<!-- <li class="nav-item mb-2" data-toggle="tooltip" title="Notificação" data-placement="left">
 		<a class="btn btn-sm btn-icon btn-bg-light btn-icon-warning btn-hover-warning" href="#">
 			<i class="flaticon2-telegram-logo"></i>
 		</a>
-	</li>
+	</li> -->
 	<!--end::Item-->
 </ul>
 <!--end::Sticky Toolbar-->

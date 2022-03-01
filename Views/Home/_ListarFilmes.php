@@ -24,7 +24,7 @@
                 $lancamentoFilme = implode("/",array_reverse(explode("-", $filme["DataLancamento"])));
                 $diretorFilme = $filme["Diretor"];
                 $fotoFilme = base64_encode($filme["Foto"]);
-                $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl", true);
+                $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl", true, true);
                 $sinopseFilme = $filme["Sinopse"];
                 $trailerFilme = $filme["Trailer"];
 
@@ -53,7 +53,7 @@
 
                                 <div class="col-md-7 text-left">
                                     <div class="form-group">
-                                        <a href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>"><h2 class="font-weight-bold text-dark filme-nome d-inline p-0 m-0"><?php echo $nomeFilme; ?></h2></a>                                        
+                                        <a href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>"><h2 class="font-weight-bold text-dark filme-nome d-inline p-0 m-0"><?php echo $nomeFilme.' ('.explode("/", $lancamentoFilme)[2].')'; ?></h2></a>                                        
                                     </div>
 
                                     <div class="form-group">

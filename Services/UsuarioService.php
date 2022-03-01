@@ -174,10 +174,10 @@
                 
             }
 
-            if(!$logado){
-                session_unset();
-                session_destroy();
-            }
+            // if(!$logado){
+            //     session_unset();
+            //     session_destroy();
+            // }
 
             return $logado;
 

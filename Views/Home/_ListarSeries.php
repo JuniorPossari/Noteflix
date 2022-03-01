@@ -22,7 +22,7 @@
                 $lancamentoSerie = implode("/",array_reverse(explode("-", $serie["PrimeiroEpisodio"])));
                 $criadorSerie = $serie["Criador"];
                 $fotoSerie = base64_encode($serie["Foto"]);
-                $notaSerie = $serieService->ObterNota($idSerie, "icon-xl", true);
+                $notaSerie = $serieService->ObterNota($idSerie, "icon-xl", true, true);
                 $sinopseSerie = $serie["Sinopse"];
                 $trailerSerie = $serie["Trailer"];
 
@@ -51,7 +51,7 @@
 
                                 <div class="col-md-7 text-left">
                                     <div class="form-group">
-                                        <a href="/Noteflix/Home/Serie/<?php echo $idSerie; ?>"><h2 class="font-weight-bold text-dark serie-nome d-inline p-0 m-0"><?php echo $nomeSerie; ?></h2></a>                                        
+                                        <a href="/Noteflix/Home/Serie/<?php echo $idSerie; ?>"><h2 class="font-weight-bold text-dark serie-nome d-inline p-0 m-0"><?php echo $nomeSerie.' ('.explode("/", $lancamentoSerie)[2].')'; ?></h2></a>                                        
                                     </div>
 
                                     <div class="form-group">

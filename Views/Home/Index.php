@@ -54,7 +54,7 @@
     }
 
     .slick-prev{
-        z-index: 9999;
+        z-index: 10;
     }    
 
     .slick-prev {
@@ -161,7 +161,7 @@
                                 $nota = $serieService->ObterNota($serie["Id"]);
 
                                 echo    '<div class="previa">
-                                            <a href="/Noteflix/Home/Filme/'.$serie["Id"].'">
+                                            <a href="/Noteflix/Home/Serie/'.$serie["Id"].'">
                                                 <img src="data:image/jpeg;base64,'.$foto.'">
                                                 <h2 class="slide-name">'.$serie["Nome"].'
                                                     <span class="d-block">

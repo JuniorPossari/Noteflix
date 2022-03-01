@@ -305,7 +305,8 @@
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
+            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
+            $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM SerieNota WHERE IdSerie = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -320,11 +321,12 @@
             
         }
 
-        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false){
+        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false, $mostrarQtd = false){
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
+            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM SerieNota WHERE IdSerie = :id');
+            $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM SerieNota WHERE IdSerie = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -376,6 +378,19 @@
             
             if($mostrarNumero){
                 $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            if($mostrarQtd){
+
+                $cmd = $this->con->prepare('SELECT COUNT(*) FROM FilmeNota WHERE IdFilme = :id');
+
+                $cmd->bindValue(':id', $id);
+
+                $cmd->execute();
+
+                $rowsNumber = $cmd->fetchColumn(); 
+
+                $notaicon = $notaicon.'<label class="ml-2">('.$rowsNumber.($rowsNumber == 1 ? ' avaliação' : ' avaliações').')</label>';
             }
 
             return $notaicon;

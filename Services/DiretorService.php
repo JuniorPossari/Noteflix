@@ -38,7 +38,25 @@
             
             return $dados;
 
-        }    
+        } 
+        
+        public function ObterNomePorId($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT Nome FROM Diretor WHERE Id = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+            }
+            
+            return $dados['Nome'];
+
+        }   
 
         public function VerificarSeDiretorExiste($diretorNome){
 

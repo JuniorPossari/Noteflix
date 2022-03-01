@@ -56,6 +56,78 @@
 
         }
 
+        public function Filme($id){
+
+            $filmeService = new FilmeService();
+
+            $dados = $filmeService->ObterPorId($id);
+
+            $this->CarregarLayout('Home/Filme', $dados);
+
+        }
+
+        public function ObterConteudoNotaFilme($id){
+
+            $dados = array('idFilme' => $id);
+
+            $this->CarregarView('Home/_ObterConteudoNotaFilme', $dados);
+
+        }
+
+        public function ObterConteudoNotaGeralFilme($id){
+
+            $dados = array('idFilme' => $id);
+
+            $this->CarregarView('Home/_ObterConteudoNotaGeralFilme', $dados);
+
+        }
+
+        public function SalvarNotaFilme(){
+
+            try{
+                $filmeService = new FilmeService();
+
+                $result = $filmeService->SalvarNota();
+
+                header('Content-Type: application/json');
+
+                echo $result;
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError($e->getMessage());
+
+                echo $result;
+
+            }
+
+        }
+
+        public function ExcluirNotaFilme(){
+
+            try{
+                $filmeService = new FilmeService();
+
+                $result = $filmeService->ExcluirNota();
+
+                header('Content-Type: application/json');
+
+                echo $result;
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
+
+        }
+
     }
 
 ?>

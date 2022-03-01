@@ -301,11 +301,155 @@
 
         }
 
+        public function VerificarSeUsuarioTemNota($idFilme, $idUsuario){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $idFilme);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            return $nota > 0;
+            
+        }
+
+        public function SalvarNota(){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao tentar salvar sua nota!");
+
+            $dados = $_POST['dados'];
+            $idFilme = $dados["IdFilme"];
+            $nota = $dados["Nota"];
+            $observacao = $dados["Observacao"];             
+
+            if(!isset($dados) || !isset($_SESSION['2A66DC91515A4715850091B6F9035AAE']) || !isset($idFilme) || !isset($nota)){
+                return $result;
+            }
+
+            if($nota == "0.0"){
+                $result = $json->Data(false, "Aviso", "É necessário selecionar uma nota!");
+                return $result;
+            }
+
+            if($nota != "0.5" && $nota != "1.0" && $nota != "1.5" && $nota != "2.0" && $nota != "2.5" && $nota != "3.0" && $nota != "3.5" && $nota != "4.0" && $nota != "4.5" && $nota != "5.0"){
+                $result = $json->Data(false, "Aviso", "Desculpe, não é possível salvar essa nota!");
+                return $result;
+            }
+
+            $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+
+            if(!isset($observacao)){
+                $result = $json->Data(false, "Aviso", "É necessário deixar uma observação sobre o filme!");
+                return $result;
+            }
+
+            $cmd = $this->con->prepare('DELETE FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $idFilme);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+
+                $cmd = $this->con->prepare('INSERT INTO FilmeNota (IdUsuario, IdFilme, Nota, Observacao) VALUES (:idUsuario, :idFilme, :nota, :observacao)');
+
+                $cmd->bindValue(':idUsuario', $idUsuario);
+                $cmd->bindValue(':idFilme', $idFilme);
+                $cmd->bindValue(':nota', $nota);
+                $cmd->bindValue(':observacao', $observacao);
+
+                $sucesso = $cmd->execute(); 
+
+                if($sucesso){
+                    $result = $json->Data(true, "Sucesso", "Sua nota foi salva com sucesso!");
+                }
+
+            }
+
+            return $result;
+
+        }
+
+        public function ExcluirNota(){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível remover sua nota!");
+
+            $idFilme = $_POST['id'];
+
+            $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+
+            $cmd = $this->con->prepare('DELETE FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $idFilme);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Sua nota foi removida com sucesso!");
+            }
+
+            return $result;
+
+        }
+
+        public function ObterNotaNumericaUsuario($idFilme, $idUsuario){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $idFilme);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            return $nota;
+            
+        }
+
+        public function ObterObservacaoUsuario($idFilme, $idUsuario){
+
+            $obs = "";
+
+            $cmd = $this->con->prepare('SELECT Observacao FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $idFilme);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $obs = $dados["Observacao"];
+            }
+
+            return $obs;
+            
+        }
+
         public function ObterNotaNumerica($id){
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
+            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
+            $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM FilmeNota WHERE IdFilme = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -320,11 +464,12 @@
             
         }
 
-        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false){
+        public function ObterNota($id, $tamanho = 'icon-md', $mostrarNumero = false, $mostrarQtd = false){
 
             $nota = 0;
 
-            $cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
+            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
+            $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM FilmeNota WHERE IdFilme = :id');
 
             $cmd->bindValue(':id', $id);
 
@@ -376,6 +521,19 @@
             
             if($mostrarNumero){
                 $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            if($mostrarQtd){
+
+                $cmd = $this->con->prepare('SELECT COUNT(*) FROM FilmeNota WHERE IdFilme = :id');
+
+                $cmd->bindValue(':id', $id);
+
+                $cmd->execute();
+
+                $rowsNumber = $cmd->fetchColumn(); 
+
+                $notaicon = $notaicon.'<label class="ml-2">('.$rowsNumber.($rowsNumber == 1 ? ' avaliação' : ' avaliações').')</label>';
             }
 
             return $notaicon;

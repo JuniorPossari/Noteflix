@@ -41,13 +41,12 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Main-->
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Error-->
-			<div class="error error-3 d-flex flex-row-fluid bgi-size-cover bgi-position-center" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/error/bg3.jpg);">
+			<div class="error error-6 d-flex flex-row-fluid bgi-size-cover bgi-position-center" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/error/bg6.jpg);">
 				<!--begin::Content-->
-				<div class="px-10 px-md-30 py-10 py-md-0 d-flex flex-column justify-content-md-center">
-					<h1 class="error-title text-stroke text-dark text-transparent">404</h1>
-					<p class="display-4 font-weight-boldest text-white mb-12">Oxe, como você chegou aqui?</p>
-					<p class="font-size-h1 font-weight-boldest text-dark-75">Parece que não conseguimos encontrar a página que você está procurando.</p>
-					<p class="font-size-h4 line-height-md">Pode haver um erro de ortografia no URL inserido ou a página que você está procurando pode não existir mais.</p>
+				<div class="d-flex flex-column flex-row-fluid text-center">
+					<h1 class="error-title font-weight-boldest text-white mb-12" style="margin-top: 12rem;">Vixe...</h1>
+					<h1 class="font-weight-boldest text-white">Parece que alguém tirou o servidor da tomada</h1>
+					<h1 class="font-weight-boldest text-white">Nossa equipe já está trabalhando para resolver esse problema!</h1>
 				</div>
 				<!--end::Content-->
 			</div>

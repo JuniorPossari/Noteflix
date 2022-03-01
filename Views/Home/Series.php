@@ -299,9 +299,9 @@
     </div>
 </div>
 
-<script src="/Noteflix/Scripts/Home/Serie.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Home/Series.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        SerieAPI.initIndex();
+        SeriesAPI.initIndex();
     });
 </script>

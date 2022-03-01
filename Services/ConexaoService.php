@@ -31,7 +31,7 @@
                         self::$instancia = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $password, $options);
                     }
                     catch (Exception $e){
-                        echo '<center><div style="margin-top: 400px; font-size: 50px; font-family: Arial; font-weight: bold;">Desculpe! O servidor está fora do ar :(</div></center>';
+                        require 'Views/Home/ErroConexao.php';
                         exit;
                     }
 
@@ -47,7 +47,7 @@
                         self::$instancia = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $password);
                     }
                     catch (Exception $e){
-                        echo '<center><div style="margin-top: 400px; font-size: 50px; font-family: Arial; font-weight: bold;">Desculpe! O servidor está fora do ar :(</div></center>';
+                        require 'Views/Home/ErroConexao.php';
                         exit;
                     }
 
