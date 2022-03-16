@@ -36,7 +36,7 @@
                     <tr>                                   
                         <td>
                             
-                            <div class="row align-items-center" style="height: 440px;">
+                            <div class="row align-items-center">
 
                                 <div class="col-md-5">
 

@@ -30,9 +30,9 @@
 				</span>
 			</div>
 			<div class="d-flex flex-column ml-2">
-				<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $Nome; ?></a>
+				<a href="javascript:;" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $Nome; ?></a>
 				<div class="navi mt-2">
-					<a href="#" class="navi-item">
+					<a href="javascript:;" class="navi-item">
 						<span class="navi-link p-0 pb-2">
 							<span class="navi-icon mr-1">
 								<span class="svg-icon svg-icon-lg svg-icon-primary">

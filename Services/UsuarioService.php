@@ -40,6 +40,12 @@
 
         }
 
+        public function ObterIdUsuarioLogado(){
+            
+            return $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+
+        }
+
         public function ObterPorEmail($email){
 
             $dados = array();

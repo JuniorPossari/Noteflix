@@ -7,6 +7,51 @@ var FilmeAPI = function() {
     var urlSalvarNota = "/Noteflix/Home/SalvarNotaFilme/";
     var urlExcluirNota = "/Noteflix/Home/ExcluirNotaFilme/";
 
+    var datatable = null;    
+
+    var table = function () {
+
+        datatable = null;
+
+        datatable = $('#kt_datatable').KTDatatable({
+
+            data: {
+                saveState: { cookie: false },
+                pageSize: 10                
+            },
+
+            rows: {
+                autoHide: false,                
+            },
+
+            toolbar: {
+                layout: ['info', 'pagination']
+            },
+
+            layout: {
+                class: 'tabela-noteflix'
+            },
+           
+            columns: [
+                {
+                    field: 'avaliacoes',
+                    sortable: false,
+                    selector: false,
+
+                }
+            ],
+
+            translate: _datatablesTranslate,
+
+        });
+        
+        datatable.on('datatable-on-layout-updated', function(){
+            $(this).removeClass('d-none');
+            KTApp.unblockPage();
+        });
+
+    };
+
     var OnClickAbrirModalNota = function(){
 
         $('#btnAbrirModalNota').on('click', function(){
@@ -334,6 +379,7 @@ var FilmeAPI = function() {
             OnCloseModalNota();          
             OnClickRemoverNota();
             OnClickSalvarNota();
+            table();
             
         }
 

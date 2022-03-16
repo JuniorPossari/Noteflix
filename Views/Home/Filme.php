@@ -25,7 +25,7 @@
     $plataformas = $filmeService->ObterFilmePlataformas($idFilme);
 
     if($isAuthenticated){
-        $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+        $idUsuario = $usuarioService->ObterIdUsuarioLogado();
         $temNota = $filmeService->VerificarSeUsuarioTemNota($idFilme, $idUsuario);
     }
 
@@ -89,6 +89,30 @@
     textarea {
         background-color: rgba(243, 243, 243, 0.30) !important;
         resize: none;
+    }
+
+    .usuario-imagem{
+        border-width: 1px !important;
+        height: 70px !important;
+        width: 70px !important;
+    }
+
+    .usuario-imagem-background{
+        height: 70px !important;
+        width: 70px !important;
+    }
+
+    #kt_datatable tbody tr td span{
+        width: 100% !important;        
+    }
+
+    #kt_datatable thead tr th span{
+        width: 100% !important;
+        text-align: center;        
+    }
+
+    #kt_datatable thead tr th{
+        padding: 4px !important;
     }
 </style>
 
@@ -157,7 +181,7 @@
         <!--begin::Body-->                    
         <div class="card-body">
                     
-            <div class="row align-items-center" style="height: 440px;">
+            <div class="row align-items-center">
 
                 <div class="col-md-5 d-flex justify-content-center">
 
@@ -236,7 +260,18 @@
                                                                     
                 </div>
             
-            </div> 
+            </div>
+
+            <div id="Avaliacoes" class="mt-15 mb-10">
+
+                <?php
+                    
+                    require 'Views/Home/_ListarAvaliacoes.php';
+
+                ?>
+                
+            </div>
+            
 
         </div>                    
         <!--end::Body-->

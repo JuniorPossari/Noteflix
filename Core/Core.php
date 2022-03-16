@@ -82,7 +82,8 @@
                 $isAdmin = false;
 
                 if($isAuthenticated){
-                    $isAdmin = $cargoService->VerificarCargoDoUsuario($_SESSION['2A66DC91515A4715850091B6F9035AAE'], "Administrador");
+                    $idUsuario = $usuarioService->ObterIdUsuarioLogado();
+                    $isAdmin = $cargoService->VerificarCargoDoUsuario($idUsuario, "Administrador");
                 }
 
                 if(!$isAdmin){

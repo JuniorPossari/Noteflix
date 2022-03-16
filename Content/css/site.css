@@ -40,8 +40,14 @@
 .tabela-noteflix {
     opacity: 0.95 !important; }
 
-.tabela-noteflix th:not(.table-cell-center) span, .tabela-noteflix td:not(.table-cell-center) > span, .tabela-noteflix td:not(.table-cell-center) > div {
-    padding-left: 1.55rem !important; }
+/*.tabela-noteflix th:not(.table-cell-center) span, .tabela-noteflix td:not(.table-cell-center) > span, .tabela-noteflix td:not(.table-cell-center) > div {
+    padding-left: 1.55rem !important;    
+}*/
+
+.tabela-noteflix tbody tr td span{
+    padding-left: 1.55rem !important;
+    padding-right: 1.55rem !important;     
+}
   
 .tabela-noteflix th {
 background-color: #000000; }
