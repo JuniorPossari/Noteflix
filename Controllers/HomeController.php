@@ -66,6 +66,14 @@
 
         }
 
+        public function ListarAvaliacoesFilme($id){
+
+            $dados = array('idFilme' => $id);
+
+            $this->CarregarView('Home/_ListarAvaliacoesFilme', $dados);
+
+        }
+
         public function ObterConteudoNotaFilme($id){
 
             $dados = array('idFilme' => $id);

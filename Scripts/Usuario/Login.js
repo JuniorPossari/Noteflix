@@ -83,8 +83,13 @@ var KTLogin = function() {
 
 							KTApp.unblockPage();
 
-							if(data.Ok){							
-								window.location.href = "/Noteflix/";
+							if(data.Ok){
+								var urlRedirect = "";	
+								const queryString = window.location.search;
+								const urlParams = new URLSearchParams(queryString);
+								const url = urlParams.get('url');
+								if(url)	urlRedirect = url;					
+								window.location.href = "/Noteflix/" + urlRedirect;
 							}
 							else{
 

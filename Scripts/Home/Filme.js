@@ -4,6 +4,7 @@ var FilmeAPI = function() {
 
     var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaFilme/";
     var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralFilme/";
+    var urlListarAvaliacoesFilme = "/Noteflix/Home/ListarAvaliacoesFilme/";
     var urlSalvarNota = "/Noteflix/Home/SalvarNotaFilme/";
     var urlExcluirNota = "/Noteflix/Home/ExcluirNotaFilme/";
 
@@ -41,7 +42,7 @@ var FilmeAPI = function() {
                 }
             ],
 
-            translate: _datatablesTranslate,
+            translate: _datatablesTranslateRating,
 
         });
         
@@ -172,7 +173,10 @@ var FilmeAPI = function() {
 
                             if(data.Ok){
                                 $('#btnAbrirModalNota i').removeClass('text-warning');	
-                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);						
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);	
+                                $('#Avaliacoes').load(urlListarAvaliacoesFilme + idFilme, function() {
+                                    table();
+                                });					
                                 $('#modalNota').modal('toggle');
                             }
     
@@ -310,7 +314,10 @@ var FilmeAPI = function() {
 
                             if(data.Ok){
                                 $('#btnAbrirModalNota i').addClass('text-warning');	
-                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);						
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);		
+                                $('#Avaliacoes').load(urlListarAvaliacoesFilme + idFilme, function() {
+                                    table();
+                                });				
                                 $('#modalNota').modal('toggle');
                             }
     

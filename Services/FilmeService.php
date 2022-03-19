@@ -404,6 +404,100 @@
 
         }
 
+        public function ObterFilmeNotas($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT * FROM FilmeNota WHERE IdFilme = :id');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
+        public function ObterNotaUsuario($id, $idUsuario, $tamanho = 'icon-md', $mostrarNumero = false, $mostrarQtd = false){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idFilme', $id);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            $notaicon = "";
+
+            if($nota >= 0 && $nota < 0.5){
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 0.5 && $nota < 1){
+                $notaicon = '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 1 && $nota < 1.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 1.5 && $nota < 2){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 2 && $nota < 2.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 2.5 && $nota < 3){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 3 && $nota < 3.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 3.5 && $nota < 4){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 4 && $nota < 4.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 4.5 && $nota < 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            }
+            else{
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            
+            if($mostrarNumero){
+                $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            if($mostrarQtd){
+
+                $cmd = $this->con->prepare('SELECT COUNT(*) FROM FilmeNota WHERE IdFilme = :id');
+
+                $cmd->bindValue(':id', $id);
+
+                $cmd->execute();
+
+                $rowsNumber = $cmd->fetchColumn(); 
+
+                $notaicon = $notaicon.'<label class="ml-2">('.$rowsNumber.($rowsNumber == 1 ? ' avaliação' : ' avaliações').')</label>';
+            }
+
+            return $notaicon;
+            
+        }
+
         public function ObterNotaNumericaUsuario($idFilme, $idUsuario){
 
             $nota = 0;
@@ -448,7 +542,6 @@
 
             $nota = 0;
 
-            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
             $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM FilmeNota WHERE IdFilme = :id');
 
             $cmd->bindValue(':id', $id);
@@ -468,7 +561,6 @@
 
             $nota = 0;
 
-            //$cmd = $this->con->prepare('SELECT AVG((Fotografia + Roteiro + TrilhaSonora + EfeitoEspecial + Cenario) / 5) AS Nota FROM FilmeNota WHERE IdFilme = :id');
             $cmd = $this->con->prepare('SELECT AVG(Nota) AS Nota FROM FilmeNota WHERE IdFilme = :id');
 
             $cmd->bindValue(':id', $id);

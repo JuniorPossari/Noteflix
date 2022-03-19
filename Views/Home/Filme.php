@@ -55,6 +55,10 @@
         font-size: 20px !important;
     }
 
+    #Avaliacoes .nota-numerica{
+        font-size: 15px !important;
+    }
+
     .modal-dialog {
         max-width: 600px !important;
     }
@@ -171,7 +175,7 @@
                         echo '<a href="javascript:;" class="btn btn-lg btn-light-dark font-weight-bold" id="btnAbrirModalNota"><i class="fa fa-star '.($temNota ? 'text-warning ' : '').'icon-md mb-1"></i>Avaliar</a>';
                     }
                     else{
-                        echo '<a href="/Noteflix/Usuario/Login" class="btn btn-lg btn-light-dark font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
+                        echo '<a href="/Noteflix/Usuario/Login?url=Home/Filme/'.$idFilme.'" class="btn btn-lg btn-light-dark font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
                     }
 
                 ?>                
@@ -266,7 +270,7 @@
 
                 <?php
                     
-                    require 'Views/Home/_ListarAvaliacoes.php';
+                    require 'Views/Home/_ListarAvaliacoesFilme.php';
 
                 ?>
                 

@@ -23,6 +23,29 @@ const _datatablesTranslate = {
     }
 };
 
+const _datatablesTranslateRating = {
+    records: {
+        processing: "Por favor aguarde",
+        noRecords: "Seja o primeiro a avaliar essa obra!"
+    },
+    toolbar: {
+        pagination: {
+            items: {
+                default: {
+                    first: 'Primeira',
+                    prev: 'Anterior',
+                    next: 'Próxima',
+                    last: 'Última',
+                    more: 'Mais Páginas',
+                    input: 'Número da Página',
+                    select: 'Selecione a quantidade de registros'
+                },
+                info: 'Exibindo {{start}} - {{end}} de {{total}} registros'
+            }
+        }
+    }
+};
+
 const _DefaultKTDatatablesOptions = {
     // datasource definition
     data: {
