@@ -44,7 +44,7 @@
     padding-left: 1.55rem !important;    
 }*/
 
-.tabela-noteflix tbody tr td span{
+.tabela-noteflix tbody tr td span:first-child {
     padding-left: 1.55rem !important;
     padding-right: 1.55rem !important;     
 }

@@ -1,10 +1,10 @@
 <?php
 
-    $filmeService = new FilmeService();
+    $serieService = new SerieService();
 
     $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
     
-    $notaUsuario = $filmeService->ObterNotaNumericaUsuario($idFilme, $idUsuario);
+    $notaUsuario = $serieService->ObterNotaNumericaUsuario($idSerie, $idUsuario);
 
     $notaClasse = '';
 
@@ -20,7 +20,7 @@
 
     $nota = number_format((float)$notaUsuario, 1, '.', '');
 
-    $observacaoUsuario = $filmeService->ObterObservacaoUsuario($idFilme, $idUsuario);
+    $observacaoUsuario = $serieService->ObterObservacaoUsuario($idSerie, $idUsuario);
 
 ?>
 
@@ -43,4 +43,4 @@
     </div>
 </div>                   
 
-<textarea rows="5" class="form-control mt-10" id="txtObservacao" maxlength="10000" placeholder="Deixe sua observação sobre o filme..."><?php echo $observacaoUsuario; ?></textarea>
+<textarea rows="5" class="form-control mt-10" id="txtObservacao" maxlength="10000" placeholder="Deixe sua observação sobre a série..."><?php echo $observacaoUsuario; ?></textarea>

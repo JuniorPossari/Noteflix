@@ -301,6 +301,254 @@
 
         }
 
+        public function VerificarSeUsuarioTemNota($idSerie, $idUsuario){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM SerieNota WHERE IdSerie = :idSerie AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idSerie', $idSerie);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            return $nota > 0;
+            
+        }
+
+        public function SalvarNota(){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao tentar salvar sua avaliação!");
+
+            $dados = $_POST['dados'];
+            $idSerie = $dados["IdSerie"];
+            $nota = $dados["Nota"];
+            $observacao = $dados["Observacao"];             
+
+            if(!isset($dados) || !isset($_SESSION['2A66DC91515A4715850091B6F9035AAE']) || !isset($idSerie) || !isset($nota)){
+                return $result;
+            }
+
+            if($nota == "0.0"){
+                $result = $json->Data(false, "Aviso", "É necessário selecionar uma nota!");
+                return $result;
+            }
+
+            if($nota != "0.5" && $nota != "1.0" && $nota != "1.5" && $nota != "2.0" && $nota != "2.5" && $nota != "3.0" && $nota != "3.5" && $nota != "4.0" && $nota != "4.5" && $nota != "5.0"){
+                $result = $json->Data(false, "Aviso", "Desculpe, não é possível salvar essa nota!");
+                return $result;
+            }
+
+            $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+
+            if(!isset($observacao)){
+                $result = $json->Data(false, "Aviso", "É necessário deixar uma observação sobre a série!");
+                return $result;
+            }
+
+            $temNota = $this->VerificarSeUsuarioTemNota($idSerie, $idUsuario);
+
+            if($temNota){
+
+                $cmd = $this->con->prepare('UPDATE SerieNota SET Nota = :nota, Observacao = :observacao WHERE IdUsuario = :idUsuario AND IdSerie = :idSerie');
+
+                $cmd->bindValue(':idUsuario', $idUsuario);
+                $cmd->bindValue(':idSerie', $idSerie);
+                $cmd->bindValue(':nota', $nota);
+                $cmd->bindValue(':observacao', $observacao);
+
+                $sucesso = $cmd->execute(); 
+
+                if($sucesso){
+                    $result = $json->Data(true, "Sucesso", "Sua avaliação foi alterada com sucesso!");
+                }
+
+            }
+            else{
+
+                $cmd = $this->con->prepare('INSERT INTO SerieNota (IdUsuario, IdSerie, Nota, Observacao) VALUES (:idUsuario, :idSerie, :nota, :observacao)');
+
+                $cmd->bindValue(':idUsuario', $idUsuario);
+                $cmd->bindValue(':idSerie', $idSerie);
+                $cmd->bindValue(':nota', $nota);
+                $cmd->bindValue(':observacao', $observacao);
+
+                $sucesso = $cmd->execute(); 
+
+                if($sucesso){
+                    $result = $json->Data(true, "Sucesso", "Sua avaliação foi salva com sucesso!");
+                }
+
+            }
+
+            return $result;
+
+        }
+
+        public function ExcluirNota(){
+
+            $json = new JsonResult();
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível remover sua avaliação!");
+
+            $idSerie = $_POST['id'];
+
+            $idUsuario = $_SESSION['2A66DC91515A4715850091B6F9035AAE'];
+
+            $cmd = $this->con->prepare('DELETE FROM SerieNota WHERE IdSerie = :idSerie AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idSerie', $idSerie);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $sucesso = $cmd->execute();
+
+            if($sucesso){
+                $result = $json->Data(true, "Sucesso", "Sua avaliação foi removida com sucesso!");
+            }
+
+            return $result;
+
+        }
+
+        public function ObterSerieNotas($id){
+
+            $dados = array();
+
+            $cmd = $this->con->prepare('SELECT * FROM SerieNota WHERE IdSerie = :id ORDER BY Data DESC');
+
+            $cmd->bindValue(':id', $id);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetchall(PDO::FETCH_ASSOC);
+            }            
+            
+            return $dados;
+
+        }
+
+        public function ObterNotaUsuario($id, $idUsuario, $tamanho = 'icon-md', $mostrarNumero = false, $mostrarQtd = false){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM SerieNota WHERE IdSerie = :idSerie AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idSerie', $id);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            $notaicon = "";
+
+            if($nota >= 0 && $nota < 0.5){
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 0.5 && $nota < 1){
+                $notaicon = '<i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 1 && $nota < 1.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 1.5 && $nota < 2){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 2 && $nota < 2.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 2.5 && $nota < 3){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 3 && $nota < 3.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 3.5 && $nota < 4){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 4 && $nota < 4.5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 4.5 && $nota < 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-half-o '.$tamanho.' text-warning"></i>';
+            }
+            else if($nota >= 5){
+                $notaicon = '<i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star '.$tamanho.' text-warning"></i>';
+            }
+            else{
+                $notaicon = '<i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning mr-1"></i><i class="fa fa-star-o '.$tamanho.' text-warning"></i>';
+            }
+            
+            if($mostrarNumero){
+                $notaicon = $notaicon.'<label class="ml-2 font-weight-bolder nota-numerica">'.number_format((float)$nota, 1, '.', '').'</label>';
+            }
+
+            if($mostrarQtd){
+
+                $cmd = $this->con->prepare('SELECT COUNT(*) FROM SerieNota WHERE IdSerie = :id');
+
+                $cmd->bindValue(':id', $id);
+
+                $cmd->execute();
+
+                $rowsNumber = $cmd->fetchColumn(); 
+
+                $notaicon = $notaicon.'<label class="ml-2">('.$rowsNumber.($rowsNumber == 1 ? ' avaliação' : ' avaliações').')</label>';
+            }
+
+            return $notaicon;
+            
+        }
+
+        public function ObterNotaNumericaUsuario($idSerie, $idUsuario){
+
+            $nota = 0;
+
+            $cmd = $this->con->prepare('SELECT Nota FROM SerieNota WHERE IdSerie = :idSerie AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idSerie', $idSerie);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $nota = $dados["Nota"];
+            }
+
+            return $nota;
+            
+        }
+
+        public function ObterObservacaoUsuario($idSerie, $idUsuario){
+
+            $obs = "";
+
+            $cmd = $this->con->prepare('SELECT Observacao FROM SerieNota WHERE IdSerie = :idSerie AND IdUsuario = :idUsuario');
+
+            $cmd->bindValue(':idSerie', $idSerie);
+            $cmd->bindValue(':idUsuario', $idUsuario);
+
+            $cmd->execute();
+
+            if($cmd->rowCount() > 0){
+                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+                $obs = $dados["Observacao"];
+            }
+
+            return $obs;
+            
+        }
+
         public function ObterNotaNumerica($id){
 
             $nota = 0;
@@ -382,7 +630,7 @@
 
             if($mostrarQtd){
 
-                $cmd = $this->con->prepare('SELECT COUNT(*) FROM FilmeNota WHERE IdFilme = :id');
+                $cmd = $this->con->prepare('SELECT COUNT(*) FROM SerieNota WHERE IdSerie = :id');
 
                 $cmd->bindValue(':id', $id);
 

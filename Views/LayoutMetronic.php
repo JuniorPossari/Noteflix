@@ -345,6 +345,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
+		<script src="/Noteflix/Content/js/Plugins/Shorten/jquery.shorten.min.js"></script>
+
 	</body>
 	<!--end::Body-->
 </html>

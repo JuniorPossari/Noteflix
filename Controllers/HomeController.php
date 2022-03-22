@@ -16,30 +16,6 @@
 
         }
 
-        public function Filmes(){
-
-            $this->CarregarLayout('Home/Filmes');
-
-        }
-
-        public function ListarFilmes(){
-
-            $this->CarregarView('Home/_ListarFilmes');
-
-        }
-
-        public function Series(){
-
-            $this->CarregarLayout('Home/Series');
-
-        }
-
-        public function ListarSeries(){
-
-            $this->CarregarView('Home/_ListarSeries');
-
-        }
-
         public function Erro(){
 
             $this->CarregarView('Home/Erro');
@@ -53,6 +29,28 @@
             $result = $json->Data(true, "Success", "FileCallback success!");
 
             echo $result;
+
+        }
+
+        //Noteflix
+
+        public function Time(){
+
+            $this->CarregarLayout('Home/Time');
+
+        }
+
+        //Filme
+
+        public function Filmes(){
+
+            $this->CarregarLayout('Home/Filmes');
+
+        }
+
+        public function ListarFilmes(){
+
+            $this->CarregarView('Home/_ListarFilmes');
 
         }
 
@@ -119,6 +117,100 @@
                 $filmeService = new FilmeService();
 
                 $result = $filmeService->ExcluirNota();
+
+                header('Content-Type: application/json');
+
+                echo $result;
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError();
+
+                echo $result;
+
+            }
+
+        }
+
+        //Série
+
+        public function Series(){
+
+            $this->CarregarLayout('Home/Series');
+
+        }
+
+        public function ListarSeries(){
+
+            $this->CarregarView('Home/_ListarSeries');
+
+        }
+
+        public function Serie($id){
+
+            $serieService = new SerieService();
+
+            $dados = $serieService->ObterPorId($id);
+
+            $this->CarregarLayout('Home/Serie', $dados);
+
+        }
+
+        public function ListarAvaliacoesSerie($id){
+
+            $dados = array('idSerie' => $id);
+
+            $this->CarregarView('Home/_ListarAvaliacoesSerie', $dados);
+
+        }
+
+        public function ObterConteudoNotaSerie($id){
+
+            $dados = array('idSerie' => $id);
+
+            $this->CarregarView('Home/_ObterConteudoNotaSerie', $dados);
+
+        }
+
+        public function ObterConteudoNotaGeralSerie($id){
+
+            $dados = array('idSerie' => $id);
+
+            $this->CarregarView('Home/_ObterConteudoNotaGeralSerie', $dados);
+
+        }
+
+        public function SalvarNotaSerie(){
+
+            try{
+                $serieService = new SerieService();
+
+                $result = $serieService->SalvarNota();
+
+                header('Content-Type: application/json');
+
+                echo $result;
+            }
+            catch(Exception $e){
+
+                $json = new JsonResult();
+
+                $result = $json->DataError($e->getMessage());
+
+                echo $result;
+
+            }
+
+        }
+
+        public function ExcluirNotaSerie(){
+
+            try{
+                $serieService = new SerieService();
+
+                $result = $serieService->ExcluirNota();
 
                 header('Content-Type: application/json');
 

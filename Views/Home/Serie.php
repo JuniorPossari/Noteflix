@@ -1,37 +1,35 @@
 <?php
 
     $usuarioService = new UsuarioService();
-    $filmeService = new FilmeService();
-    $diretorService = new DiretorService();
+    $serieService = new SerieService();
+    $criadorService = new CriadorService();
 
     $isAuthenticated = $usuarioService->VerificarSeUsuarioEstaLogado();
 
     $temNota = false;
     $idUsuario = 0;
-    $idFilme = $Id;
-    $nomeFilme = $Nome;
-    $duracaoFilme = $Duracao;
-    $horasFilme = explode(":", $duracaoFilme)[0]."h";
-    $minutosFilme = explode(":", $duracaoFilme)[1]."min";
-    $lancamentoFilme = implode("/",array_reverse(explode("-", $DataLancamento)));
-    $diretorFilme = $diretorService->ObterNomePorId($IdDiretor);
-    $fotoFilme = base64_encode($Foto);
-    $notaFilme = $filmeService->ObterNota($idFilme, "icon-xl", true, true);
-    $sinopseFilme = $Sinopse;
-    $trailerFilme = $Trailer;
+    $idSerie = $Id;
+    $nomeSerie = $Nome;
+    $ntemporadaSerie = $NumeroTemporada;
+    $lancamentoSerie = implode("/",array_reverse(explode("-", $PrimeiroEpisodio)));
+    $criadorSerie = $criadorService->ObterNomePorId($IdCriador);
+    $fotoSerie = base64_encode($Foto);
+    $notaSerie = $serieService->ObterNota($idSerie, "icon-xl", true, true);
+    $sinopseSerie = $Sinopse;
+    $trailerSerie = $Trailer;
 
-    $atores = $filmeService->ObterFilmeAtores($idFilme);
-    $generos = $filmeService->ObterFilmeGeneros($idFilme);
-    $plataformas = $filmeService->ObterFilmePlataformas($idFilme);
+    $atores = $serieService->ObterSerieAtores($idSerie);
+    $generos = $serieService->ObterSerieGeneros($idSerie);
+    $plataformas = $serieService->ObterSeriePlataformas($idSerie);
 
     if($isAuthenticated){
         $idUsuario = $usuarioService->ObterIdUsuarioLogado();
-        $temNota = $filmeService->VerificarSeUsuarioTemNota($idFilme, $idUsuario);
+        $temNota = $serieService->VerificarSeUsuarioTemNota($idSerie, $idUsuario);
     }
 
 ?>  
 
-<input type="hidden" class="d-none" id="hdnIdFilme" value="<?php echo $idFilme; ?>">
+<input type="hidden" class="d-none" id="hdnIdSerie" value="<?php echo $idSerie; ?>">
 
 <style>
 
@@ -144,7 +142,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Home/Filme/<?php echo $Id; ?>" class="text-white text-hover-white opacity-75 hover-opacity-100">Filme</a>
+                    <a href="/Noteflix/Home/Serie/<?php echo $Id; ?>" class="text-white text-hover-white opacity-75 hover-opacity-100">Série</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->
@@ -167,7 +165,7 @@
         <!--begin::Header-->
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label font-weight-bolder text-dark">Filme</h3>
+                <h3 class="card-label font-weight-bolder text-dark">Série</h3>
             </div>
             <div class="card-toolbar">
                 <?php
@@ -176,7 +174,7 @@
                         echo '<a href="javascript:;" class="btn btn-lg btn-light-dark font-weight-bold" id="btnAbrirModalNota"><i class="fa fa-star '.($temNota ? 'text-warning ' : '').'icon-md mb-1"></i>Avaliar</a>';
                     }
                     else{
-                        echo '<a href="/Noteflix/Usuario/Login?url=Home/Filme/'.$idFilme.'" class="btn btn-lg btn-light-dark font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
+                        echo '<a href="/Noteflix/Usuario/Login?url=Home/Serie/'.$idSerie.'" class="btn btn-lg btn-light-dark font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
                     }
 
                 ?>                
@@ -190,8 +188,8 @@
 
                 <div class="col-md-5 d-flex justify-content-center">
 
-                    <a href="javascript:;"  class="previa btnAbrirModalTrailer" data-embed="<?php echo $trailerFilme; ?>" data-toggle="modal" data-target="#modalTrailer">
-                        <img class="foto-fixa" src="data:image/jpeg;base64,<?php echo $fotoFilme; ?>">
+                    <a href="javascript:;"  class="previa btnAbrirModalTrailer" data-embed="<?php echo $trailerSerie; ?>" data-toggle="modal" data-target="#modalTrailer">
+                        <img class="foto-fixa" src="data:image/jpeg;base64,<?php echo $fotoSerie; ?>">
                         <h2 class="slide-name">
                             <span class="d-block">
                                 <i class="fas fa-play-circle fa-3x"></i>
@@ -203,15 +201,19 @@
 
                 <div class="col-md-7 text-left">
                     <div class="form-group">
-                        <h2 class="font-weight-bold text-dark filme-nome d-inline p-0 m-0"><?php echo $nomeFilme.' ('.explode("/", $lancamentoFilme)[2].')'; ?></h2>                                       
+                        <h2 class="font-weight-bold text-dark serie-nome d-inline p-0 m-0"><?php echo $nomeSerie.' ('.explode("/", $lancamentoSerie)[2].')'; ?></h2>                                       
                     </div>
 
                     <div class="form-group">
-                        <h3><?php echo $lancamentoFilme; ?> - <?php echo $horasFilme . " " . $minutosFilme; ?></h3>
+                        <h3><?php echo $lancamentoSerie; ?></h3>
                     </div>                                                
 
                     <div class="form-group">
-                        <h5><b class="text-secondary">Direção: </b><?php echo $diretorFilme; ?></h5>
+                        <h5><b class="text-secondary">Temporadas: </b><?php echo $ntemporadaSerie; ?></h5>
+                    </div>
+
+                    <div class="form-group">
+                        <h5><b class="text-secondary">Criado por: </b><?php echo $criadorSerie; ?></h5>
                     </div>
 
                     <div class="form-group">
@@ -248,7 +250,7 @@
                         ?>                                                    
                     </div>                                    
 
-                    <div id="ConteudoNotaGeral" class="form-group"><?php echo $notaFilme; ?></div>
+                    <div id="ConteudoNotaGeral" class="form-group"><?php echo $notaSerie; ?></div>
 
                     <div class="d-flex align-items-center <?php if(count($plataformas) > 0) echo 'form-group'; ?>">
                         <?php
@@ -261,7 +263,7 @@
                         ?>                                                    
                     </div>
 
-                    <div class="form-group"><?php echo $sinopseFilme; ?></div>
+                    <div class="form-group"><?php echo $sinopseSerie; ?></div>
                                                                     
                 </div>
             
@@ -271,7 +273,7 @@
 
                 <?php
                     
-                    require 'Views/Home/_ListarAvaliacoesFilme.php';
+                    require 'Views/Home/_ListarAvaliacoesSerie.php';
 
                 ?>
                 
@@ -315,7 +317,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalNotaTitle">Avalie esse filme</h5>
+                            <h5 class="modal-title" id="modalNotaTitle">Avalie essa série</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <i aria-hidden="true" class="ki ki-close"></i>
                             </button>
@@ -336,9 +338,9 @@
 
 ?>
 
-<script src="/Noteflix/Scripts/Home/Filme.js" type="text/javascript"></script>
+<script src="/Noteflix/Scripts/Home/Serie.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        FilmeAPI.initIndex();
+        SerieAPI.initIndex();
     });
 </script>

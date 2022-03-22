@@ -10,10 +10,10 @@
 
         <?php
 
-            $filmeService = new FilmeService();
+            $serieService = new SerieService();
             $usuarioService = new UsuarioService();
 
-            $avaliacoes = $filmeService->ObterFilmeNotas($idFilme);
+            $avaliacoes = $serieService->ObterSerieNotas($idSerie);
 
             foreach($avaliacoes as $avaliacao){
 
@@ -40,7 +40,7 @@
                                         <label><?php echo $datetime->format("d/m/Y H:m:s"); ?></label>
                                     </div>                        
                                     <div class="mb-1 nota">
-                                        <?php echo $filmeService->ObterNotaUsuario($idFilme, $idUsuario, "icon-md", true); ?>
+                                        <?php echo $serieService->ObterNotaUsuario($idSerie, $idUsuario, "icon-md", true); ?>
                                     </div>
                                     <div class="observacao">
                                         <?php echo nl2br(str_replace(">", "&gt;", str_replace("<","&lt;", $observacao))); ?>

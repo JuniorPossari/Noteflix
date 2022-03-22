@@ -1,12 +1,12 @@
 "use strict";
 
-var FilmeAPI = function() {   
+var SerieAPI = function() {   
 
-    var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaFilme/";
-    var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralFilme/";
-    var urlListarAvaliacoesFilme = "/Noteflix/Home/ListarAvaliacoesFilme/";
-    var urlSalvarNota = "/Noteflix/Home/SalvarNotaFilme/";
-    var urlExcluirNota = "/Noteflix/Home/ExcluirNotaFilme/";
+    var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaSerie/";
+    var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralSerie/";
+    var urlListarAvaliacoesSerie = "/Noteflix/Home/ListarAvaliacoesSerie/";
+    var urlSalvarNota = "/Noteflix/Home/SalvarNotaSerie/";
+    var urlExcluirNota = "/Noteflix/Home/ExcluirNotaSerie/";
 
     var datatable = null;    
 
@@ -68,10 +68,10 @@ var FilmeAPI = function() {
                 message: 'Aguarde...'
             });
 
-            var idFilme = $('#hdnIdFilme').val();                       				
+            var idSerie = $('#hdnIdSerie').val();                       				
 
             $.ajax({
-                url: urlObterConteudoNota + idFilme,
+                url: urlObterConteudoNota + idSerie,
                 type: 'GET',
                 success: function (data) {
                     
@@ -148,7 +148,7 @@ var FilmeAPI = function() {
 
             swal.fire({
                 title: "Você tem certeza?",
-                html: "Sua avaliação desse filme sera removida! Realmente deseja continuar?",
+                html: "Sua avaliação dessa série sera removida! Realmente deseja continuar?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim",
@@ -166,21 +166,21 @@ var FilmeAPI = function() {
                         message: 'Aguarde...'
                     });	
                     
-                    var idFilme = $('#hdnIdFilme').val();
+                    var idSerie = $('#hdnIdSerie').val();
     
                     $.ajax({
                         url: urlExcluirNota,
                         type: 'POST',
                         dataType: "html",
-                        data: {"id":idFilme},
+                        data: {"id":idSerie},
                         success: function (json) {
     
                             var data = JSON.parse(json);
 
                             if(data.Ok){
                                 $('#btnAbrirModalNota i').removeClass('text-warning');	
-                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);	
-                                $('#Avaliacoes').load(urlListarAvaliacoesFilme + idFilme, function() {
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idSerie);	
+                                $('#Avaliacoes').load(urlListarAvaliacoesSerie + idSerie, function() {
                                     table();
                                 });					
                                 $('#modalNota').modal('toggle');
@@ -231,11 +231,11 @@ var FilmeAPI = function() {
 
         $('#btnSalvarNota').on('click', function(){
 
-            var idFilme = $('#hdnIdFilme').val();
+            var idSerie = $('#hdnIdSerie').val();
             var nota = $('.radio-nota:checked').val();
             var observacao = $('#txtObservacao').val();
 
-            if(!idFilme || !nota){
+            if(!idSerie || !nota){
                 return swal.fire({
                     title: "Aviso",
                     text: "Desculpe, houve um erro!",
@@ -274,7 +274,7 @@ var FilmeAPI = function() {
             if(!observacao){
                 return swal.fire({
                     title: "Aviso",
-                    text: "É necessário deixar uma observação sobre o filme!",
+                    text: "É necessário deixar uma observação sobre a série!",
                     icon: "error",
                     confirmButtonText: "Ok",
                     customClass: {
@@ -318,7 +318,7 @@ var FilmeAPI = function() {
 
                     var dados = {};
 
-                    dados.IdFilme = idFilme;
+                    dados.IdSerie = idSerie;
                     dados.Nota = nota;
                     dados.Observacao = observacao;                                                                            				
     
@@ -333,8 +333,8 @@ var FilmeAPI = function() {
 
                             if(data.Ok){
                                 $('#btnAbrirModalNota i').addClass('text-warning');	
-                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idFilme);		
-                                $('#Avaliacoes').load(urlListarAvaliacoesFilme + idFilme, function() {
+                                $('#ConteudoNotaGeral').load(urlObterConteudoNotaGeral + idSerie);		
+                                $('#Avaliacoes').load(urlListarAvaliacoesSerie + idSerie, function() {
                                     table();
                                 });				
                                 $('#modalNota').modal('toggle');

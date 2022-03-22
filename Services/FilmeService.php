@@ -324,7 +324,7 @@
         public function SalvarNota(){
 
             $json = new JsonResult();
-            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao tentar salvar sua nota!");
+            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao tentar salvar sua avaliação!");
 
             $dados = $_POST['dados'];
             $idFilme = $dados["IdFilme"];
@@ -352,14 +352,25 @@
                 return $result;
             }
 
-            $cmd = $this->con->prepare('DELETE FROM FilmeNota WHERE IdFilme = :idFilme AND IdUsuario = :idUsuario');
+            $temNota = $this->VerificarSeUsuarioTemNota($idFilme, $idUsuario);
 
-            $cmd->bindValue(':idFilme', $idFilme);
-            $cmd->bindValue(':idUsuario', $idUsuario);
+            if($temNota){
 
-            $sucesso = $cmd->execute();
+                $cmd = $this->con->prepare('UPDATE FilmeNota SET Nota = :nota, Observacao = :observacao WHERE IdUsuario = :idUsuario AND IdFilme = :idFilme');
 
-            if($sucesso){
+                $cmd->bindValue(':idUsuario', $idUsuario);
+                $cmd->bindValue(':idFilme', $idFilme);
+                $cmd->bindValue(':nota', $nota);
+                $cmd->bindValue(':observacao', $observacao);
+
+                $sucesso = $cmd->execute(); 
+
+                if($sucesso){
+                    $result = $json->Data(true, "Sucesso", "Sua avaliação foi alterada com sucesso!");
+                }
+
+            }
+            else{
 
                 $cmd = $this->con->prepare('INSERT INTO FilmeNota (IdUsuario, IdFilme, Nota, Observacao) VALUES (:idUsuario, :idFilme, :nota, :observacao)');
 
@@ -371,7 +382,7 @@
                 $sucesso = $cmd->execute(); 
 
                 if($sucesso){
-                    $result = $json->Data(true, "Sucesso", "Sua nota foi salva com sucesso!");
+                    $result = $json->Data(true, "Sucesso", "Sua avaliação foi salva com sucesso!");
                 }
 
             }
@@ -383,7 +394,7 @@
         public function ExcluirNota(){
 
             $json = new JsonResult();
-            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível remover sua nota!");
+            $result = $json->Data(false, "Aviso", "Desculpe, não foi possível remover sua avaliação!");
 
             $idFilme = $_POST['id'];
 
@@ -397,7 +408,7 @@
             $sucesso = $cmd->execute();
 
             if($sucesso){
-                $result = $json->Data(true, "Sucesso", "Sua nota foi removida com sucesso!");
+                $result = $json->Data(true, "Sucesso", "Sua avaliação foi removida com sucesso!");
             }
 
             return $result;
@@ -408,7 +419,7 @@
 
             $dados = array();
 
-            $cmd = $this->con->prepare('SELECT * FROM FilmeNota WHERE IdFilme = :id');
+            $cmd = $this->con->prepare('SELECT * FROM FilmeNota WHERE IdFilme = :id ORDER BY Data DESC');
 
             $cmd->bindValue(':id', $id);
 
