@@ -12,7 +12,7 @@
 	<div class="offcanvas-content pr-5 mr-n5">
 		<!--begin::Header-->
 		<div class="d-flex align-items-center mt-5">
-			<div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(<?php if(isset($Foto) && $Foto != ""){ echo 'data:image;base64,'.base64_encode($Foto); }else{ echo '/Noteflix/Content/img/sem-foto.png'; } ?>)">
+			<div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(<?php if(isset($Foto) && $Foto != ""){ echo 'data:image;base64,'.base64_encode($Foto); }else{ echo '/Content/img/sem-foto.png'; } ?>)">
 				<div class="image-input-wrapper border border-dark" style="border-width:2px !important;"></div>
 				<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Alterar">
 					<i class="fa fa-edit icon-md text-muted"></i>
@@ -50,7 +50,7 @@
 							<span class="navi-text text-muted text-hover-primary"><?php echo $Email; ?></span>
 						</span>
 					</a>
-					<a href="/Noteflix/Usuario/Sair" class="btn btn-sm btn-light-danger font-weight-bolder py-2 px-5">Sair</a>
+					<a href="/Usuario/Sair" class="btn btn-sm btn-light-danger font-weight-bolder py-2 px-5">Sair</a>
 				</div>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 </div>
 <!-- end::User Panel-->
 
-<script src="/Noteflix/Scripts/Home/Foto.js" type="text/javascript"></script>
+<script src="/Scripts/Home/Foto.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         FotoAPI.init();

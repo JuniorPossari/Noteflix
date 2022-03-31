@@ -31,7 +31,7 @@
                         <td>
 
                             <div class="d-flex">
-                                <div class="image-input image-input-outline usuario-imagem-background" style="background-image: url(<?php if(isset($foto) && $foto != ""){ echo 'data:image;base64,'.base64_encode($foto); }else{ echo '/Noteflix/Content/img/sem-foto.png'; } ?>)">
+                                <div class="image-input image-input-outline usuario-imagem-background" style="background-image: url(<?php if(isset($foto) && $foto != ""){ echo 'data:image;base64,'.base64_encode($foto); }else{ echo '/Content/img/sem-foto.png'; } ?>)">
                                     <div class="image-input-wrapper border border-dark usuario-imagem"></div>
                                 </div>
                                 <div class="ml-2 w-100">

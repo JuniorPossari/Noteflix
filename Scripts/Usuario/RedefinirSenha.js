@@ -4,7 +4,7 @@
 var KTLogin = function() {
     var _login;
 
-	var urlFinalizarRedefinicaoSenha = "/Noteflix/Usuario/FinalizarRedefinicaoSenha/";
+	var urlFinalizarRedefinicaoSenha = "/Usuario/FinalizarRedefinicaoSenha/";
 
     var _handleResetForm = function(e) {
         var validation;
@@ -85,7 +85,7 @@ var KTLogin = function() {
 							}).then(function() {
 
 								if(data.Ok){									
-									window.location.href = "/Noteflix/Usuario/Login";
+									window.location.href = "/Usuario/Login";
 								}
 								else{
 									KTUtil.scrollTop();

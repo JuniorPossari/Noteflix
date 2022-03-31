@@ -2,11 +2,11 @@
 
 var FilmeAPI = function() {   
 
-    var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaFilme/";
-    var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralFilme/";
-    var urlListarAvaliacoesFilme = "/Noteflix/Home/ListarAvaliacoesFilme/";
-    var urlSalvarNota = "/Noteflix/Home/SalvarNotaFilme/";
-    var urlExcluirNota = "/Noteflix/Home/ExcluirNotaFilme/";
+    var urlObterConteudoNota = "/Home/ObterConteudoNotaFilme/";
+    var urlObterConteudoNotaGeral = "/Home/ObterConteudoNotaGeralFilme/";
+    var urlListarAvaliacoesFilme = "/Home/ListarAvaliacoesFilme/";
+    var urlSalvarNota = "/Home/SalvarNotaFilme/";
+    var urlExcluirNota = "/Home/ExcluirNotaFilme/";
 
     var datatable = null;    
 

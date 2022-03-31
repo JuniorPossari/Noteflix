@@ -10230,7 +10230,7 @@ var KTLayoutSearch = function() {
 
         setTimeout(function() {
             $.ajax({
-                url: '/Noteflix/Home/Procurar/' + _query, //HOST_URL + '/api/quick_search.php',
+                url: '/Home/Procurar/' + _query, //HOST_URL + '/api/quick_search.php',
                 // data: {
                 //     query: _query
                 // },

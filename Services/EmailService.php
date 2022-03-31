@@ -10,7 +10,7 @@
         public function GetEmailBody($templateName){
 
             try{
-                return file_get_contents($_SERVER['DOCUMENT_ROOT']."/Noteflix/EmailTemplate/{$templateName}.html");
+                return file_get_contents($_SERVER['DOCUMENT_ROOT']."/EmailTemplate/{$templateName}.html");
             }
             catch(Exception $e){
                 return '';
@@ -24,7 +24,7 @@
 
             try {
 
-                $appsettings = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/Noteflix/appsettings.json'), true);
+                $appsettings = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/appsettings.json'), true);
                 $smtpconfig = $appsettings['SMTPConfig'];
 
                 //Server settings

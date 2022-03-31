@@ -2,7 +2,7 @@
 
 var FotoAPI = function () {
 
-    var urlAlterarFoto = '/Noteflix/Usuario/AlterarFoto/';
+    var urlAlterarFoto = '/Usuario/AlterarFoto/';
 
     var fv = null;//formValidate
     var datatable = null;//instancia do datatables
@@ -71,7 +71,7 @@ var FotoAPI = function () {
                                 var inputVelhaFoto = $('#HdnVelhaFoto').val();
 
                                 if (inputVelhaFoto == "" || inputVelhaFoto == null)
-                                    document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";
+                                    document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Content/img/sem-foto.png')";
                                 else {
                                     var stringFoto = "url('" + inputVelhaFoto + "')";
                                     document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
@@ -96,7 +96,7 @@ var FotoAPI = function () {
                             var inputVelhaFoto = $('#HdnVelhaFoto').val();
 
                             if (inputVelhaFoto == "" || inputVelhaFoto == null)
-                                document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Content/img/sem-foto.png')";
                             else {
                                 var stringFoto = "url('" + inputVelhaFoto + "')";
                                 document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
@@ -178,7 +178,7 @@ var FotoAPI = function () {
                                     stringFoto = "url('data:image;base64," + foto64 + "')";
                                 }
                                 else{
-                                    stringFoto = "url(/Noteflix/Content/img/sem-foto.png)";
+                                    stringFoto = "url(/Content/img/sem-foto.png)";
                                 } 
                                 
                                 document.getElementById('kt_profile_avatar').style.backgroundImage = stringFoto;
@@ -268,7 +268,7 @@ var FotoAPI = function () {
         
                             
                             if (data.Ok) {
-                                document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Noteflix/Content/img/sem-foto.png')";                        
+                                document.getElementById('kt_profile_avatar').style.backgroundImage = "url('/Content/img/sem-foto.png')";                        
                             }
                             else {
                                 var foto64atual = $('#HdnNovaFoto').val();

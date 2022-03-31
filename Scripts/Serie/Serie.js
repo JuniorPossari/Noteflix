@@ -2,14 +2,14 @@
 
 var SerieAPI = function() {
 
-    var urlSalvar = "/Noteflix/Serie/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Serie/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Serie/Visualizar/";
-    var urlAlterar = "/Noteflix/Serie/Alterar/";
-    var urlExcluir = "/Noteflix/Serie/Excluir/";
-    var urlSuccess = "/Noteflix/Serie/Index/";
-    var urlFileCallback = "/Noteflix/Home/FileCallback/";
-    var urlBuscarFoto = "/Noteflix/Serie/BuscarFoto/";
+    var urlSalvar = "/Serie/Salvar/";
+    var urlSalvarAlteracao = "/Serie/SalvarAlteracao/";
+    var urlVisualizar = "/Serie/Visualizar/";
+    var urlAlterar = "/Serie/Alterar/";
+    var urlExcluir = "/Serie/Excluir/";
+    var urlSuccess = "/Serie/Index/";
+    var urlFileCallback = "/Home/FileCallback/";
+    var urlBuscarFoto = "/Serie/BuscarFoto/";
 
     var validation = null;
     var ObjDropzone = null;   
@@ -710,7 +710,7 @@ var SerieAPI = function() {
                     return $span;
                 }
                 
-                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                var $span = $("<span><img class='mr-2' src='/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
                 return $span;
                 
             }

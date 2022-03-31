@@ -2,12 +2,12 @@
 
 var DiretorAPI = function() {
 
-    var urlSalvar = "/Noteflix/Diretor/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Diretor/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Diretor/Visualizar/";
-    var urlAlterar = "/Noteflix/Diretor/Alterar/";
-    var urlExcluir = "/Noteflix/Diretor/Excluir/";
-    var urlSuccess = "/Noteflix/Diretor/Index/";
+    var urlSalvar = "/Diretor/Salvar/";
+    var urlSalvarAlteracao = "/Diretor/SalvarAlteracao/";
+    var urlVisualizar = "/Diretor/Visualizar/";
+    var urlAlterar = "/Diretor/Alterar/";
+    var urlExcluir = "/Diretor/Excluir/";
+    var urlSuccess = "/Diretor/Index/";
 
     var validation = null;    
 

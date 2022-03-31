@@ -13,13 +13,13 @@
                 <!--begin::Breadcrumb-->
                 <div class="d-flex align-items-center font-weight-bold my-2">
                     <!--begin::Item-->
-                    <a href="/Noteflix/Home/Index" class="opacity-75 hover-opacity-100">
+                    <a href="/Home/Index" class="opacity-75 hover-opacity-100">
                         <i class="flaticon2-shelter text-white icon-1x"></i>
                     </a>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="/Noteflix/Serie/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Séries</a>
+                    <a href="/Serie/Index" class="text-white text-hover-white opacity-75 hover-opacity-100">Séries</a>
                     <!--end::Item-->                   
                 </div>
                 <!--end::Breadcrumb-->
@@ -45,7 +45,7 @@
                 <h3 class="card-label font-weight-bolder text-dark">Séries</h3>
             </div>
             <div class="card-toolbar">
-                <a href="/Noteflix/Serie/Cadastrar" class="btn btn-lg btn-light-dark font-weight-bold"><i class="flaticon2-add-square icon-md mb-1"></i>Cadastrar</a>
+                <a href="/Serie/Cadastrar" class="btn btn-lg btn-light-dark font-weight-bold"><i class="flaticon2-add-square icon-md mb-1"></i>Cadastrar</a>
             </div>
         </div>
         <!--end::Header-->
@@ -154,7 +154,7 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Serie/Serie.js" type="text/javascript"></script>
+<script src="/Scripts/Serie/Serie.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         SerieAPI.initIndex();

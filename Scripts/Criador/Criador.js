@@ -2,12 +2,12 @@
 
 var CriadorAPI = function() {
 
-    var urlSalvar = "/Noteflix/Criador/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Criador/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Criador/Visualizar/";
-    var urlAlterar = "/Noteflix/Criador/Alterar/";
-    var urlExcluir = "/Noteflix/Criador/Excluir/";
-    var urlSuccess = "/Noteflix/Criador/Index/";
+    var urlSalvar = "/Criador/Salvar/";
+    var urlSalvarAlteracao = "/Criador/SalvarAlteracao/";
+    var urlVisualizar = "/Criador/Visualizar/";
+    var urlAlterar = "/Criador/Alterar/";
+    var urlExcluir = "/Criador/Excluir/";
+    var urlSuccess = "/Criador/Index/";
 
     var validation = null;    
 

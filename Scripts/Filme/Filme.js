@@ -2,14 +2,14 @@
 
 var FilmeAPI = function() {
 
-    var urlSalvar = "/Noteflix/Filme/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Filme/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Filme/Visualizar/";
-    var urlAlterar = "/Noteflix/Filme/Alterar/";
-    var urlExcluir = "/Noteflix/Filme/Excluir/";
-    var urlSuccess = "/Noteflix/Filme/Index/";
-    var urlFileCallback = "/Noteflix/Home/FileCallback/";
-    var urlBuscarFoto = "/Noteflix/Filme/BuscarFoto/";
+    var urlSalvar = "/Filme/Salvar/";
+    var urlSalvarAlteracao = "/Filme/SalvarAlteracao/";
+    var urlVisualizar = "/Filme/Visualizar/";
+    var urlAlterar = "/Filme/Alterar/";
+    var urlExcluir = "/Filme/Excluir/";
+    var urlSuccess = "/Filme/Index/";
+    var urlFileCallback = "/Home/FileCallback/";
+    var urlBuscarFoto = "/Filme/BuscarFoto/";
 
     var validation = null;
     var ObjDropzone = null;    
@@ -708,7 +708,7 @@ var FilmeAPI = function() {
                     return $span;
                 }
                 
-                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                var $span = $("<span><img class='mr-2' src='/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
                 return $span;
                 
             }

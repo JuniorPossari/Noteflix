@@ -14,7 +14,7 @@
 
                 if($prod){ //PRODUCTION
 
-                    $appsettings = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/Noteflix/appsettings.json'), true);
+                    $appsettings = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/appsettings.json'), true);
                     $constr = $appsettings['ConnectionStrings'];
 
                     $dbname = $constr['DBName'];

@@ -9,7 +9,7 @@
 			<!--begin::Navigation-->
 			<ul class="navi navi-hover py-3">
 				<li class="navi-item">
-					<a href="/Noteflix/Ator/Index" class="navi-link">
+					<a href="/Ator/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="fas fa-user"></i>
 						</span>
@@ -17,7 +17,7 @@
 					</a>
 				</li>
 				<li class="navi-item">
-					<a href="/Noteflix/Criador/Index" class="navi-link">
+					<a href="/Criador/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="fas fa-user-tie"></i>
 						</span>
@@ -25,7 +25,7 @@
 					</a>
 				</li>
 				<li class="navi-item">
-					<a href="/Noteflix/Diretor/Index" class="navi-link">
+					<a href="/Diretor/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="fas fa-user-tie"></i>
 						</span>
@@ -33,7 +33,7 @@
 					</a>
 				</li>				
 				<li class="navi-item">
-					<a href="/Noteflix/Filme/Index" class="navi-link">
+					<a href="/Filme/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="fas fa-film"></i>
 						</span>
@@ -41,7 +41,7 @@
 					</a>
 				</li>
 				<li class="navi-item">
-					<a href="/Noteflix/Serie/Index" class="navi-link">
+					<a href="/Serie/Index" class="navi-link">
 						<span class="navi-icon">
 							<i class="fas fa-video"></i>
 						</span>

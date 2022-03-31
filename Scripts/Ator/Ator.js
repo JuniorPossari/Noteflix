@@ -2,14 +2,14 @@
 
 var AtorAPI = function() {
 
-    var urlSalvar = "/Noteflix/Ator/Salvar/";
-    var urlSalvarAlteracao = "/Noteflix/Ator/SalvarAlteracao/";
-    var urlVisualizar = "/Noteflix/Ator/Visualizar/";
-    var urlAlterar = "/Noteflix/Ator/Alterar/";
-    var urlExcluir = "/Noteflix/Ator/Excluir/";
-    var urlSuccess = "/Noteflix/Ator/Index/";
-    var urlFileCallback = "/Noteflix/Home/FileCallback/";
-    var urlBuscarFoto = "/Noteflix/Ator/BuscarFoto/";
+    var urlSalvar = "/Ator/Salvar/";
+    var urlSalvarAlteracao = "/Ator/SalvarAlteracao/";
+    var urlVisualizar = "/Ator/Visualizar/";
+    var urlAlterar = "/Ator/Alterar/";
+    var urlExcluir = "/Ator/Excluir/";
+    var urlSuccess = "/Ator/Index/";
+    var urlFileCallback = "/Home/FileCallback/";
+    var urlBuscarFoto = "/Ator/BuscarFoto/";
 
     var validation = null;
     var ObjDropzone = null;

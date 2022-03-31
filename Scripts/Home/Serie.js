@@ -2,11 +2,11 @@
 
 var SerieAPI = function() {   
 
-    var urlObterConteudoNota = "/Noteflix/Home/ObterConteudoNotaSerie/";
-    var urlObterConteudoNotaGeral = "/Noteflix/Home/ObterConteudoNotaGeralSerie/";
-    var urlListarAvaliacoesSerie = "/Noteflix/Home/ListarAvaliacoesSerie/";
-    var urlSalvarNota = "/Noteflix/Home/SalvarNotaSerie/";
-    var urlExcluirNota = "/Noteflix/Home/ExcluirNotaSerie/";
+    var urlObterConteudoNota = "/Home/ObterConteudoNotaSerie/";
+    var urlObterConteudoNotaGeral = "/Home/ObterConteudoNotaGeralSerie/";
+    var urlListarAvaliacoesSerie = "/Home/ListarAvaliacoesSerie/";
+    var urlSalvarNota = "/Home/SalvarNotaSerie/";
+    var urlExcluirNota = "/Home/ExcluirNotaSerie/";
 
     var datatable = null;    
 

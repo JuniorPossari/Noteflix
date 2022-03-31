@@ -121,7 +121,7 @@ img {
                     <div class="col-lg-6 col-md-8">
                         <div class="single-team-box">
                             <div class="team-image">
-                                <img src="/Noteflix/Content/img/junior-possari.jpg" alt="Junior Possari">
+                                <img src="/Content/img/junior-possari.jpg" alt="Junior Possari">
                             </div>
                             <div class="team-info">
                                 <h3>Junior Possari</h3>
@@ -133,7 +133,7 @@ img {
                     <div class="col-lg-6 col-md-8">
                         <div class="single-team-box">
                             <div class="team-image">
-                                <img src="/Noteflix/Content/img/joao-pedro.jpg" alt="João Pedro">
+                                <img src="/Content/img/joao-pedro.jpg" alt="João Pedro">
                             </div>
                             <div class="team-info">
                                 <h3>João Pedro</h3>

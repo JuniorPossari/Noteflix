@@ -29,7 +29,7 @@
     
                     <div class="col-md-9 text-left">
                         <div class="mb-2">
-                            <a href="/Noteflix/Home/Filme/<?php echo $idFilme; ?>"><div class="font-weight-bold text-dark titulo-hover d-inline p-0 m-0"><?php echo $nomeFilme; ?></div></a>                                        
+                            <a href="/Home/Filme/<?php echo $idFilme; ?>"><div class="font-weight-bold text-dark titulo-hover d-inline p-0 m-0"><?php echo $nomeFilme; ?></div></a>                                        
                         </div>                                         
     
                         <div class="mb-2">
@@ -90,7 +90,7 @@
     
                     <div class="col-md-9 text-left">
                         <div class="mb-2">
-                            <a href="/Noteflix/Home/Serie/<?php echo $idSerie; ?>"><div class="font-weight-bold text-dark titulo-hover d-inline p-0 m-0"><?php echo $nomeSerie; ?></div></a>                                        
+                            <a href="/Home/Serie/<?php echo $idSerie; ?>"><div class="font-weight-bold text-dark titulo-hover d-inline p-0 m-0"><?php echo $nomeSerie; ?></div></a>                                        
                         </div>                                         
     
                         <div class="mb-2">

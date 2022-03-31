@@ -49,16 +49,16 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Page Vendors Styles(used by this page)-->
-		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendors Styles-->
 		<!--begin::Global Theme Styles(used by all pages)-->
-		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/Noteflix/Metronic/demo2/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/Metronic/demo2/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="/Noteflix/Content/icon/noteflix.ico" />
+		<link rel="shortcut icon" href="/Content/icon/noteflix.ico" />
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -68,29 +68,29 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- Add the slick-theme.css if you want default styling -->
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
-		<link rel="stylesheet" href="/Noteflix/Content/css/site.css">
+		<link rel="stylesheet" href="/Content/css/site.css">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<!-- jQuery library -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-		<script src="/Noteflix/Content/js/NoteflixDefaultOptions.js"></script>
+		<script src="/Content/js/NoteflixDefaultOptions.js"></script>
 
-		<script src="/Noteflix/Content/js/site.js"></script>
+		<script src="/Content/js/site.js"></script>
 
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
-	<body id="kt_body" style="background-image: url(/Noteflix/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
+	<body id="kt_body" style="background-image: url(/Metronic/demo2/dist/assets/media/bg/bg-1.jpg)" class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
 		
 
 		<!--begin::Main-->
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile">
 			<!--begin::Logo-->
-			<a href="/Noteflix/Home/Index">
-				<img alt="Logo" src="/Noteflix/Content/icon/noteflix.png" heigth="30" width="30" />
+			<a href="/Home/Index">
+				<img alt="Logo" src="/Content/icon/noteflix.png" heigth="30" width="30" />
 				<!--Metronic/demo2/dist/assets/media/logos/logo-letter-1.png-->
 			</a>
 			<!--end::Logo-->
@@ -129,15 +129,15 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="d-flex align-items-stretch mr-3">
 								<!--begin::Header Logo-->
 								<div class="header-logo">
-									<a href="/Noteflix/Home/Index">
-										<img alt="Logo" src="/Noteflix/Content/icon/noteflix-lg.png" heigth="40" width="150" />
+									<a href="/Home/Index">
+										<img alt="Logo" src="/Content/icon/noteflix-lg.png" heigth="40" width="150" />
 									</a>
 								</div>
 								<!--end::Header Logo-->
 
 
 								<?php
-									include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Menu.php');
+									include($_SERVER['DOCUMENT_ROOT'].'/Views/Metronic/Menu.php');
 								?>
 
 
@@ -235,7 +235,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
 												<ul class="menu-nav">
 													<li class="menu-item" aria-haspopup="true">
-														<a href="/Noteflix/Usuario/Login" class="menu-link">													
+														<a href="/Usuario/Login" class="menu-link">													
 															<span class="menu-text text-hover-success">Entrar</span>
 														</a>
 													</li>
@@ -280,9 +280,9 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!--end::Copyright-->
 							<!--begin::Nav-->
 							<div class="nav nav-dark order-1 order-md-2">
-								<a href="/Noteflix/Home/Sobre" target="_blank" class="nav-link pr-3 pl-0">Sobre</a>
-								<a href="/Noteflix/Home/Time" target="_blank" class="nav-link px-3">Time</a>
-								<a href="/Noteflix/Home/Contato" target="_blank" class="nav-link pl-3 pr-0">Contato</a>
+								<a href="/Home/Sobre" target="_blank" class="nav-link pr-3 pl-0">Sobre</a>
+								<a href="/Home/Time" target="_blank" class="nav-link px-3">Time</a>
+								<a href="/Home/Contato" target="_blank" class="nav-link pl-3 pr-0">Contato</a>
 							</div>
 							<!--end::Nav-->
 						</div>
@@ -315,11 +315,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<?php
 		
 			if($isAuthenticated){
-				include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Userprofile.php');
+				include($_SERVER['DOCUMENT_ROOT'].'/Views/Metronic/Userprofile.php');
 			}
 
 			if($isAdmin && $isAuthenticated){				
-				include($_SERVER['DOCUMENT_ROOT'].'/Noteflix/Views/Metronic/Toolbar.php');
+				include($_SERVER['DOCUMENT_ROOT'].'/Views/Metronic/Toolbar.php');
 			}
 
 		?>
@@ -329,15 +329,15 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#6993FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#E1E9FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.js"></script>
-		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="/Noteflix/Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
+		<script src="/Metronic/demo2/dist/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/Metronic/demo2/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<script src="/Metronic/demo2/dist/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Vendors(used by this page)-->
-		<script src="/Noteflix/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="/Metronic/demo2/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="/Noteflix/Metronic/demo2/dist/assets/js/pages/widgets.js"></script>
+		<script src="/Metronic/demo2/dist/assets/js/pages/widgets.js"></script>
 		<!--end::Page Scripts-->
 
 		<!-- Slick JavaScript -->
@@ -345,7 +345,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
-		<script src="/Noteflix/Content/js/Plugins/Shorten/jquery.shorten.min.js"></script>
+		<script src="/Content/js/Plugins/Shorten/jquery.shorten.min.js"></script>
 
 	</body>
 	<!--end::Body-->

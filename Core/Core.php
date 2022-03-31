@@ -41,7 +41,7 @@
                 $metodo = 'Index';
             }
 
-            $caminho = '/Noteflix/Controllers/'.$controller.'.php';
+            $caminho = '/Controllers/'.$controller.'.php';
 
             if(!file_exists($caminho) && !method_exists($controller, $metodo)){
                 $controller = 'HomeController';

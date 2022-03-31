@@ -4,9 +4,9 @@
 var KTLogin = function() {
     var _login;
 
-	var urlSalvarUsuario = "/Noteflix/Usuario/SalvarUsuario/";
-	var urlEntrar = "/Noteflix/Usuario/Entrar/";
-	var urlEsqueciMinhaSenha = "/Noteflix/Usuario/EsqueciMinhaSenha/";
+	var urlSalvarUsuario = "/Usuario/SalvarUsuario/";
+	var urlEntrar = "/Usuario/Entrar/";
+	var urlEsqueciMinhaSenha = "/Usuario/EsqueciMinhaSenha/";
 
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
@@ -89,7 +89,7 @@ var KTLogin = function() {
 								const urlParams = new URLSearchParams(queryString);
 								const url = urlParams.get('url');
 								if(url)	urlRedirect = url;					
-								window.location.href = "/Noteflix/" + urlRedirect;
+								window.location.href = "/" + urlRedirect;
 							}
 							else{
 
@@ -276,7 +276,7 @@ var KTLogin = function() {
 									$('#kt_login_signup_form input[name="cpassword"]').removeClass('is-valid');
 									$('#kt_login_signup_form input[name="agree"]').prop('checked', false);
 									_showForm('signin');									
-									//window.location.href = "/Noteflix/Home/Index";
+									//window.location.href = "/Home/Index";
 								}
 								else{
 									KTUtil.scrollTop();

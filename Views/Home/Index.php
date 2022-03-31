@@ -116,7 +116,7 @@
                                     $nota = $filmeService->ObterNota($filme["Id"]);
 
                                     echo    '<div class="previa">
-                                                <a href="/Noteflix/Home/Filme/'.$filme["Id"].'">
+                                                <a href="/Home/Filme/'.$filme["Id"].'">
                                                     <img class="foto-fixa" src="data:image/jpeg;base64,'.$foto.'">
                                                     <h2 class="slide-name">'.$filme["Nome"].'
                                                         <span class="d-block">
@@ -161,7 +161,7 @@
                                 $nota = $serieService->ObterNota($serie["Id"]);
 
                                 echo    '<div class="previa">
-                                            <a href="/Noteflix/Home/Serie/'.$serie["Id"].'">
+                                            <a href="/Home/Serie/'.$serie["Id"].'">
                                                 <img src="data:image/jpeg;base64,'.$foto.'">
                                                 <h2 class="slide-name">'.$serie["Nome"].'
                                                     <span class="d-block">
@@ -190,7 +190,7 @@
 </div>
 <!--end::Container-->
 
-<script src="/Noteflix/Scripts/Home/Index.js" type="text/javascript"></script>
+<script src="/Scripts/Home/Index.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         IndexAPI.init();

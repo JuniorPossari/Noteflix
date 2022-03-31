@@ -2,7 +2,7 @@
 
 var SeriesAPI = function() {
 
-    var urlListarSeries = "/Noteflix/Home/ListarSeries/";
+    var urlListarSeries = "/Home/ListarSeries/";
 
     var datatable = null;    
 
@@ -93,7 +93,7 @@ var SeriesAPI = function() {
                     return $span;
                 }
                 
-                var $span = $("<span><img class='mr-2' src='/Noteflix/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
+                var $span = $("<span><img class='mr-2' src='/Content/img/plataformas/" + option.id + ".png' style='height: 25px; width: auto;' /> " + option.text + "</span>");
                 return $span;
                 
             }
