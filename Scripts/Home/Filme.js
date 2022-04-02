@@ -184,6 +184,7 @@ var FilmeAPI = function() {
                                     table();
                                 });					
                                 $('#modalNota').modal('toggle');
+                                $('#btnSalvarNota').html('Salvar');
                             }
     
                             KTApp.unblockPage();

@@ -184,6 +184,7 @@ var SerieAPI = function() {
                                     table();
                                 });					
                                 $('#modalNota').modal('toggle');
+                                $('#btnSalvarNota').html('Salvar');
                             }
     
                             KTApp.unblockPage();
