@@ -280,9 +280,9 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!--end::Copyright-->
 							<!--begin::Nav-->
 							<div class="nav nav-dark order-1 order-md-2">
-								<a href="/Noteflix/Home/Sobre" target="_blank" class="nav-link pr-3 pl-0">Sobre</a>
-								<a href="/Noteflix/Home/Time" target="_blank" class="nav-link px-3">Time</a>
-								<a href="/Noteflix/Home/Contato" target="_blank" class="nav-link pl-3 pr-0">Contato</a>
+								<a href="/Noteflix/Home/Sobre" class="nav-link pr-3 pl-0">Sobre</a>
+								<a href="/Noteflix/Home/Time" class="nav-link px-3">Time</a>
+								<a href="/Noteflix/Home/Contato" class="nav-link pl-3 pr-0">Contato</a>
 							</div>
 							<!--end::Nav-->
 						</div>
