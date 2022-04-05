@@ -34,11 +34,23 @@
 
         //Noteflix
 
+        public function Sobre(){
+
+            $this->CarregarLayout('Home/Sobre');
+
+        }
+
         public function Time(){
 
             $this->CarregarLayout('Home/Time');
 
         }
+
+        public function Contato(){
+
+            $this->CarregarLayout('Home/Contato');
+
+        }        
 
         //Filme
 

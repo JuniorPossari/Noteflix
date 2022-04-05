@@ -1,7 +1,7 @@
 <style>
 
 .section-title h5 {
-    color: #f35416;
+    color: #5603fc;
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -68,7 +68,7 @@ img {
 }
 
 .team-info span {
-    color: #f35416;
+    color: #5603fc;
     font-size: 14px;
     font-weight: 500;
     display: block;
@@ -112,9 +112,9 @@ img {
                 <div class="row">
 
                     <div class="col-md-12">
-                        <div class="section-title">
-                            <h5>Conheça nossa Equipe</h5>
-                            <h2>Nosso Time</h2>
+                        <div class="section-title">                            
+                            <h2>Time</h2>
+                            <h5>Conheça nossa equipe</h5>
                         </div>
                     </div>
 
