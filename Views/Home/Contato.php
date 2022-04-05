@@ -8,10 +8,6 @@
     letter-spacing: 0.3px;
 }
 
-.roxo{
-    color: #5603fc;
-}
-
 .section-title h2 {
     font-weight: 700;
     text-transform: capitalize;
@@ -123,12 +119,12 @@ img {
                     </div>
 
                     <div class="col-lg-12 mt-20 mb-5 text-center">
-                        <h2 class="font-weight-bold roxo">Email</h2>
-                        <h2>contato-noteflix@outlook.com</h2>
+                        <h2 class="font-weight-bold">Email</h2>
+                        <h2>contato.noteflix@outlook.com</h2>
                     </div>
 
                     <div class="col-lg-12 mb-5 text-center">
-                        <h2 class="font-weight-bold roxo">Telefone</h2>
+                        <h2 class="font-weight-bold">Telefone</h2>
                         <h2>+55 18 99762-5757</h2>
                     </div>
                     

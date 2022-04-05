@@ -16,10 +16,6 @@
     color: #333;
 }
 
-.roxo{
-    color: #5603fc;
-}
-
 .section-title {
     text-align: center;
     margin-top: 20px;
@@ -124,17 +120,17 @@ img {
 
                     <div class="container">
                         <div class="col-lg-12 mt-10 mb-5 text-center">
-                            <h4 class="font-weight-bold roxo">Missão</h4>
+                            <h4 class="font-weight-bold">Missão</h4>
                             <h5>Lorem ipsum posuere rhoncus nisi tellus magna porttitor suspendisse, libero et consectetur ad aenean curae. aenean est cursus duis vel in curabitur amet tempus, aenean dapibus faucibus nec habitasse torquent porttitor suscipit.</h5>
                         </div>
 
                         <div class="col-lg-12 mb-5 text-center">
-                            <h4 class="font-weight-bold roxo">Visão</h4>
+                            <h4 class="font-weight-bold">Visão</h4>
                             <h5>Habitant platea eget condimentum ultrices aenean nisl maecenas facilisis conubia in, cubilia litora conubia magna netus tortor sapien cras suspendisse suscipit donec.</h5>
                         </div>
 
                         <div class="col-lg-12 mb-5 text-center">
-                            <h4 class="font-weight-bold roxo">Valores</h4>
+                            <h4 class="font-weight-bold">Valores</h4>
                             <h5>Eros lacus etiam tincidunt pellentesque dictum tempus nam, justo varius sit sociosqu primis massa lobortis tortor, consequat felis dictum vehicula magna risus.</h5>
                         </div>
                     </div>
