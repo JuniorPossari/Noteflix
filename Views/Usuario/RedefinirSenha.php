@@ -52,6 +52,10 @@ License: You must have a valid license purchased only from themeforest(the above
 				width: 100%;
 				height: auto;
 			}
+
+			.disclaimer{
+				display: none !important;
+			}
 		</style>
 
 

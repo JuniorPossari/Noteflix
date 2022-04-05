@@ -336,13 +336,12 @@
 
             $passwordhash = password_hash($password, PASSWORD_DEFAULT);
 
-            $cmd = $this->con->prepare('INSERT INTO Usuario (Nome, Email, Senha, Ativo, DataCadastro, EmailConfirmado, TelefoneConfirmado) VALUES (:username, :email, :senha, :ativo, :dataCadastro, :emailConfirmado, :telefoneConfirmado)');
+            $cmd = $this->con->prepare('INSERT INTO Usuario (Nome, Email, Senha, Ativo, DataCadastro, EmailConfirmado, TelefoneConfirmado) VALUES (:username, :email, :senha, :ativo, CURRENT_TIMESTAMP(), :emailConfirmado, :telefoneConfirmado)');
 
             $cmd->bindValue(':username', $username);
             $cmd->bindValue(':email', $email);
             $cmd->bindValue(':senha', $passwordhash);
             $cmd->bindValue(':ativo', 1);
-            $cmd->bindValue(':dataCadastro', 'CURRENT_TIMESTAMP');
             $cmd->bindValue(':emailConfirmado', 0);
             $cmd->bindValue(':telefoneConfirmado', 0);
 

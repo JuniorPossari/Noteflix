@@ -21,14 +21,14 @@
                     $host = $constr['Host'];
                     $user = $constr['User'];
                     $password = $constr['Password'];
-                    $options = array(
-                        PDO::MYSQL_ATTR_SSL_CA => '/path/to/ssl-cert.pem',
-                        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-                    );
+                    // $options = array(
+                    //     PDO::MYSQL_ATTR_SSL_CA => '/path/to/ssl-cert.pem',
+                    //     PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+                    //     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+                    // );
 
                     try{
-                        self::$instancia = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $password, $options);
+                        self::$instancia = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $password);
                     }
                     catch (Exception $e){
                         require 'Views/Home/ErroConexao.php';

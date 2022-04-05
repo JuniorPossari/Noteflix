@@ -102,3 +102,7 @@ input.form-control{
 .titulo-hover:hover{
     color: blue !important;    
 }
+
+.disclaimer{
+    display: none !important;
+}

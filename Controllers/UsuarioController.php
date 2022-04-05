@@ -97,7 +97,7 @@
 
                 $json = new JsonResult();
 
-                $result = $json->DataError();
+                $result = $json->Data(false, "Aviso", $e->getMessage());
 
                 echo $result;
 

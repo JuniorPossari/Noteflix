@@ -34,6 +34,13 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="/Noteflix/Content/icon/noteflix.ico" />
+
+		<style>
+		    .disclaimer{
+                display: none !important;
+            }
+		</style>
+
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
