@@ -120,7 +120,7 @@ img {
 
                     <div class="col-lg-12 mt-20 mb-5 text-center">
                         <h2 class="font-weight-bold">Email</h2>
-                        <h2>contato.noteflix@outlook.com</h2>
+                        <h2>contato@noteflix.net.br</h2>
                     </div>
 
                     <div class="col-lg-12 mb-5 text-center">
