@@ -42,7 +42,7 @@ var CriadorAPI = function() {
                     field: 'id',
                     textAlign: 'center',
                     sortable: false,
-                    width: 50,
+                    width: 150,
                     type: 'number',
                     selector: false,
 
