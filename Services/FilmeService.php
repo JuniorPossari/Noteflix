@@ -711,7 +711,7 @@
             $filmeDataLancamento = implode("-",array_reverse(explode("/", $filmeDataLancamento)));
 
             //Cadastrar filme
-            $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto, :filmeTrailer)');
+            $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto, Trailer) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto, :filmeTrailer)');
 
             $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);

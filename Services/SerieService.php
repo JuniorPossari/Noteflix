@@ -721,7 +721,7 @@
             }
 
             //Cadastrar serie
-            $cmd = $this->con->prepare('INSERT INTO Serie (Nome, PrimeiroEpisodio, NumeroTemporada, DataTermino, IdCriador, Sinopse, Foto) VALUES (:serieNome, :seriePrimeiroEpisodio, :serieNumeroTemporada, :serieDataTermino, :serieIdCriador, :serieSinopse, :serieFoto, :serieTrailer)');
+            $cmd = $this->con->prepare('INSERT INTO Serie (Nome, PrimeiroEpisodio, NumeroTemporada, DataTermino, IdCriador, Sinopse, Foto, Trailer) VALUES (:serieNome, :seriePrimeiroEpisodio, :serieNumeroTemporada, :serieDataTermino, :serieIdCriador, :serieSinopse, :serieFoto, :serieTrailer)');
 
             $cmd->bindValue(':serieNome', strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
