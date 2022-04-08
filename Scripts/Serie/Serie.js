@@ -57,7 +57,7 @@ var SerieAPI = function() {
                 }, {
                     field: 'primeiroep',
                     textAlign: 'center',
-                    width: 100
+                    width: 110
 
                 }, {
                     field: 'ntemporada',
