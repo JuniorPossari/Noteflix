@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `id18700031_noteflix`
+-- Banco de dados: `noteflix`
 --
-CREATE DATABASE IF NOT EXISTS `id18700031_noteflix` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `id18700031_noteflix`;
+CREATE DATABASE IF NOT EXISTS `noteflix` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `noteflix`;
 
 -- --------------------------------------------------------
 
