@@ -65,7 +65,7 @@
 
                     //Filtra por Nome
                     if($filmeNome != ""){
-                        if(strpos(strtoupper($row['Nome']), strtoupper($filmeNome)) === false){
+                        if(strpos(mb_strtoupper($row['Nome']), mb_strtoupper($filmeNome)) === false){
                             unset($dados[$key]);
                             continue;
                         }
@@ -713,7 +713,7 @@
             //Cadastrar filme
             $cmd = $this->con->prepare('INSERT INTO Filme (Nome, Duracao, DataLancamento, IdDiretor, Sinopse, Foto, Trailer) VALUES (:filmeNome, :filmeDuracao, :filmeDataLancamento, :filmeIdDiretor, :filmeSinopse, :filmeFoto, :filmeTrailer)');
 
-            $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
+            $cmd->bindValue(':filmeNome', mb_strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
             $cmd->bindValue(':filmeDataLancamento', $filmeDataLancamento);
             $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);
@@ -908,7 +908,7 @@
             //Alterar filme
             $cmd = $this->con->prepare('UPDATE Filme SET Nome = :filmeNome, Duracao = :filmeDuracao, DataLancamento = :filmeDataLancamento, IdDiretor = :filmeIdDiretor, Sinopse = :filmeSinopse, Foto = :filmeFoto, Trailer = :filmeTrailer WHERE Id = :filmeId');
 
-            $cmd->bindValue(':filmeNome', strtoupper($filmeNome));
+            $cmd->bindValue(':filmeNome', mb_strtoupper($filmeNome));
             $cmd->bindValue(':filmeDuracao', $filmeDuracao);
             $cmd->bindValue(':filmeDataLancamento', $filmeDataLancamento);
             $cmd->bindValue(':filmeIdDiretor', $filmeIdDiretor);

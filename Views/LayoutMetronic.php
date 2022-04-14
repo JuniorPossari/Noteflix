@@ -218,7 +218,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Olá,</span>
 														<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">'.$Nome.'</span>
 														<span class="symbol symbol-35">
-															<span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">'.strtoupper(substr($Nome, 0, 1)).'</span>
+															<span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">'.mb_strtoupper(substr($Nome, 0, 1)).'</span>
 														</span>
 													</div>
 												</div>

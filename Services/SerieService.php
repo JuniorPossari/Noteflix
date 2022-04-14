@@ -65,7 +65,7 @@
 
                     //Filtra por Nome
                     if($serieNome != ""){
-                        if(strpos(strtoupper($row['Nome']), strtoupper($serieNome)) === false){
+                        if(strpos(mb_strtoupper($row['Nome']), mb_strtoupper($serieNome)) === false){
                             unset($dados[$key]);
                             continue;
                         }
@@ -723,7 +723,7 @@
             //Cadastrar serie
             $cmd = $this->con->prepare('INSERT INTO Serie (Nome, PrimeiroEpisodio, NumeroTemporada, DataTermino, IdCriador, Sinopse, Foto, Trailer) VALUES (:serieNome, :seriePrimeiroEpisodio, :serieNumeroTemporada, :serieDataTermino, :serieIdCriador, :serieSinopse, :serieFoto, :serieTrailer)');
 
-            $cmd->bindValue(':serieNome', strtoupper($serieNome));
+            $cmd->bindValue(':serieNome', mb_strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
             $cmd->bindValue(':serieDataTermino', $serieDataTermino);
@@ -927,7 +927,7 @@
             //Alterar serie
             $cmd = $this->con->prepare('UPDATE Serie SET Nome = :serieNome, PrimeiroEpisodio = :seriePrimeiroEpisodio, NumeroTemporada = :serieNumeroTemporada, DataTermino = :serieDataTermino, IdCriador = :serieIdCriador, Sinopse = :serieSinopse, Foto = :serieFoto, Trailer = :serieTrailer WHERE Id = :serieId');
 
-            $cmd->bindValue(':serieNome', strtoupper($serieNome));
+            $cmd->bindValue(':serieNome', mb_strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
             $cmd->bindValue(':serieDataTermino', $serieDataTermino);

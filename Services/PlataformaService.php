@@ -79,7 +79,7 @@
 
             $cmd = $this->con->prepare('INSERT INTO Plataforma (Nome) VALUES (:plataformaNome)');
 
-            $cmd->bindValue(':plataformaNome', strtoupper($plataformaNome));
+            $cmd->bindValue(':plataformaNome', mb_strtoupper($plataformaNome));
 
             $sucesso = $cmd->execute();
 
@@ -106,7 +106,7 @@
             $cmd = $this->con->prepare('UPDATE Plataforma SET Nome = :plataformaNome WHERE Id = :plataformaId');
 
             $cmd->bindValue(':plataformaId', $plataformaId);
-            $cmd->bindValue(':plataformaNome', strtoupper($plataformaNome));
+            $cmd->bindValue(':plataformaNome', mb_strtoupper($plataformaNome));
 
             $sucesso = $cmd->execute();
 

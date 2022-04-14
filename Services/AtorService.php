@@ -88,7 +88,7 @@
 
             $cmd = $this->con->prepare('INSERT INTO Ator (Nome, Foto) VALUES (:atorNome, :atorFoto)');
 
-            $cmd->bindValue(':atorNome', strtoupper($atorNome));
+            $cmd->bindValue(':atorNome', mb_strtoupper($atorNome));
             $cmd->bindValue(':atorFoto', $atorFoto);
 
             $sucesso = $cmd->execute();
@@ -166,7 +166,7 @@
             $cmd = $this->con->prepare('UPDATE Ator SET Nome = :atorNome, Foto = :atorFoto WHERE Id = :atorId');
 
             $cmd->bindValue(':atorId', $atorId);
-            $cmd->bindValue(':atorNome', strtoupper($atorNome));
+            $cmd->bindValue(':atorNome', mb_strtoupper($atorNome));
             $cmd->bindValue(':atorFoto', $atorFoto);
 
             $sucesso = $cmd->execute();

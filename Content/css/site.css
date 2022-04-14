@@ -106,3 +106,8 @@ input.form-control{
 .disclaimer{
     display: none !important;
 }
+
+.foto-fixa{
+    width: 310px !important;
+    height: 420px !important;
+}
