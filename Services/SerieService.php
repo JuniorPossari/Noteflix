@@ -727,7 +727,7 @@
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
             if($serieDataTermino == null){
-                $stmt->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
+                $cmd->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
             }
             else{
                 $cmd->bindValue(':serieDataTermino', $serieDataTermino);
@@ -936,7 +936,7 @@
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
             if($serieDataTermino == null){
-                $stmt->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
+                $cmd->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
             }
             else{
                 $cmd->bindValue(':serieDataTermino', $serieDataTermino);
