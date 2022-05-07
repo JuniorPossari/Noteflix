@@ -713,7 +713,7 @@
                 $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));
             }
             else{
-                $serieDataTermino = 'NULL';
+                $serieDataTermino = "";
             }  
             
             if(!isset($serieTrailer)){
@@ -917,7 +917,7 @@
                 $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));
             }
             else{
-                $serieDataTermino = 'NULL';
+                $serieDataTermino = "";
             } 
 
             if(!isset($serieTrailer)){
