@@ -713,7 +713,7 @@
                 $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));
             }
             else{
-                $serieDataTermino = "";
+                $serieDataTermino = null;
             }  
             
             if(!isset($serieTrailer)){
@@ -726,7 +726,12 @@
             $cmd->bindValue(':serieNome', mb_strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
-            $cmd->bindValue(':serieDataTermino', $serieDataTermino);
+            if($serieDataTermino == null){
+                $stmt->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
+            }
+            else{
+                $cmd->bindValue(':serieDataTermino', $serieDataTermino);
+            }
             $cmd->bindValue(':serieIdCriador', $serieIdCriador);
             $cmd->bindValue(':serieSinopse', $serieSinopse);
             $cmd->bindValue(':serieFoto', $serieFoto);
@@ -917,7 +922,7 @@
                 $serieDataTermino = implode("-",array_reverse(explode("/", $serieDataTermino)));
             }
             else{
-                $serieDataTermino = "";
+                $serieDataTermino = null;
             } 
 
             if(!isset($serieTrailer)){
@@ -930,7 +935,12 @@
             $cmd->bindValue(':serieNome', mb_strtoupper($serieNome));
             $cmd->bindValue(':seriePrimeiroEpisodio', $seriePrimeiroEpisodio);
             $cmd->bindValue(':serieNumeroTemporada', $serieNumeroTemporada);
-            $cmd->bindValue(':serieDataTermino', $serieDataTermino);
+            if($serieDataTermino == null){
+                $stmt->bindValue(":serieDataTermino", null, PDO::PARAM_NULL);
+            }
+            else{
+                $cmd->bindValue(':serieDataTermino', $serieDataTermino);
+            }
             $cmd->bindValue(':serieIdCriador', $serieIdCriador);
             $cmd->bindValue(':serieSinopse', $serieSinopse);
             $cmd->bindValue(':serieFoto', $serieFoto);
