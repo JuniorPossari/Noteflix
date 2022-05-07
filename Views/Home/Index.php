@@ -162,7 +162,7 @@
 
                                 echo    '<div class="previa">
                                             <a href="/Noteflix/Home/Serie/'.$serie["Id"].'">
-                                                <img src="data:image/jpeg;base64,'.$foto.'">
+                                                <img class="foto-fixa" src="data:image/jpeg;base64,'.$foto.'">
                                                 <h2 class="slide-name">'.$serie["Nome"].'
                                                     <span class="d-block">
                                                         '.$nota.'

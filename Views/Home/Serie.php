@@ -171,10 +171,10 @@
                 <?php
 
                     if($isAuthenticated){
-                        echo '<a href="javascript:;" class="btn btn-lg btn-light-dark font-weight-bold" id="btnAbrirModalNota"><i class="fa fa-star '.($temNota ? 'text-warning ' : '').'icon-md mb-1"></i>Avaliar</a>';
+                        echo '<a href="javascript:;" class="btn btn-lg btn-noteflix font-weight-bold" id="btnAbrirModalNota"><i class="fa fa-star '.($temNota ? 'text-warning ' : '').'icon-md mb-1"></i>Avaliar</a>';
                     }
                     else{
-                        echo '<a href="/Noteflix/Usuario/Login?url=Home/Serie/'.$idSerie.'" class="btn btn-lg btn-light-dark font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
+                        echo '<a href="/Noteflix/Usuario/Login?url=Home/Serie/'.$idSerie.'" class="btn btn-lg btn-noteflix font-weight-bold"><i class="fa fa-star icon-md mb-1"></i>Avaliar</a>';
                     }
 
                 ?>                

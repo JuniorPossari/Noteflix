@@ -111,3 +111,15 @@ input.form-control{
     width: 310px !important;
     height: 420px !important;
 }
+
+.btn-noteflix {
+    color: #ffffff;
+    background-color: #696eff;
+    border-color: #7156dd;
+}
+
+.btn-noteflix:hover {
+    color: #ffffff;
+    background-color: #8174eb;
+    border-color: #8e75b7;
+}
