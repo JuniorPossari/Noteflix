@@ -119,19 +119,19 @@ img {
                     </div>
 
                     <div class="container">
-                        <div class="col-lg-12 mt-10 mb-5 text-center">
+                        <div class="col-lg-12 mt-10 mb-20 text-center">
                             <h4 class="font-weight-bold">Missão</h4>
-                            <h5>Lorem ipsum posuere rhoncus nisi tellus magna porttitor suspendisse, libero et consectetur ad aenean curae. aenean est cursus duis vel in curabitur amet tempus, aenean dapibus faucibus nec habitasse torquent porttitor suscipit.</h5>
+                            <h4>Auxiliar os usuários a decidir sobre os filmes e séries que irão assistir através de avaliações e críticas dos demais usuários.</h4>
                         </div>
 
-                        <div class="col-lg-12 mb-5 text-center">
+                        <div class="col-lg-12 mb-20 text-center">
                             <h4 class="font-weight-bold">Visão</h4>
-                            <h5>Habitant platea eget condimentum ultrices aenean nisl maecenas facilisis conubia in, cubilia litora conubia magna netus tortor sapien cras suspendisse suscipit donec.</h5>
+                            <h4>Aperfeiçoar a experiencia do usuário com diferentes pontos de vista, resultando em uma decisão mais fiel e precisa ao que julgam ser a real qualidade de uma obra cinematográfica.</h4>
                         </div>
 
-                        <div class="col-lg-12 mb-5 text-center">
+                        <div class="col-lg-12 text-center">
                             <h4 class="font-weight-bold">Valores</h4>
-                            <h5>Eros lacus etiam tincidunt pellentesque dictum tempus nam, justo varius sit sociosqu primis massa lobortis tortor, consequat felis dictum vehicula magna risus.</h5>
+                            <h4>Transparência, integridade, comprometimento e flexibilidade.</h4>
                         </div>
                     </div>
                     
