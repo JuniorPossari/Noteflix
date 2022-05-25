@@ -372,12 +372,13 @@
             }
             else{
 
-                $cmd = $this->con->prepare('INSERT INTO SerieNota (IdUsuario, IdSerie, Nota, Observacao) VALUES (:idUsuario, :idSerie, :nota, :observacao)');
+                $cmd = $this->con->prepare('INSERT INTO SerieNota (IdUsuario, IdSerie, Nota, Observacao, Data) VALUES (:idUsuario, :idSerie, :nota, :observacao, :data)');
 
                 $cmd->bindValue(':idUsuario', $idUsuario);
                 $cmd->bindValue(':idSerie', $idSerie);
                 $cmd->bindValue(':nota', $nota);
                 $cmd->bindValue(':observacao', $observacao);
+                $cmd->bindValue(':data', date('Y-m-d H:i:s'));
 
                 $sucesso = $cmd->execute(); 
 

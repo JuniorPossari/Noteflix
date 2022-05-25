@@ -372,12 +372,13 @@
             }
             else{
 
-                $cmd = $this->con->prepare('INSERT INTO FilmeNota (IdUsuario, IdFilme, Nota, Observacao) VALUES (:idUsuario, :idFilme, :nota, :observacao)');
+                $cmd = $this->con->prepare('INSERT INTO FilmeNota (IdUsuario, IdFilme, Nota, Observacao, Data) VALUES (:idUsuario, :idFilme, :nota, :observacao, :data)');
 
                 $cmd->bindValue(':idUsuario', $idUsuario);
                 $cmd->bindValue(':idFilme', $idFilme);
                 $cmd->bindValue(':nota', $nota);
                 $cmd->bindValue(':observacao', $observacao);
+                $cmd->bindValue(':data', date('Y-m-d H:i:s'));
 
                 $sucesso = $cmd->execute(); 
 

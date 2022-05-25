@@ -37,7 +37,7 @@
                                 <div class="ml-2 w-100">
                                     <div class="mb-1 d-flex justify-content-between nome">
                                         <a href="javascript:;" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $nome; ?></a>
-                                        <label><?php echo $datetime->format("d/m/Y H:m:s"); ?></label>
+                                        <label><?php echo $datetime->format("d/m/Y H:i:s"); ?></label>
                                     </div>                        
                                     <div class="mb-1 nota">
                                         <?php echo $serieService->ObterNotaUsuario($idSerie, $idUsuario, "icon-md", true); ?>
