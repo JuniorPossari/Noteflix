@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--begin::Form group-->
 									<div class="form-group">
 										<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="email" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="email" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -130,7 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Form group-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Email" name="email" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Email" name="email" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
@@ -179,7 +179,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Title-->
 									<!--begin::Form group-->
 									<div class="form-group">
-										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Email" name="email" autocomplete="off" />
+										<input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Email" name="email" />
 									</div>
 									<!--end::Form group-->
 									<!--begin::Form group-->
