@@ -1011,7 +1011,7 @@
             }
 
             //Alterar plataformas do serie
-            if($sucesso && isset($seriePlataformas) && count($seriePlataformas) > 0){
+            if($sucesso){
 
                 $cmd = $this->con->prepare('DELETE FROM SeriePlataforma WHERE IdSerie = :serieId');
 
@@ -1019,25 +1019,27 @@
 
                 $sucesso = $cmd->execute();
 
-                foreach($seriePlataformas as $plataformaId){
+                if(isset($seriePlataformas) && count($seriePlataformas) > 0){
+                    foreach($seriePlataformas as $plataformaId){
 
-                    if($sucesso){
-
-                        $cmd = $this->con->prepare('INSERT INTO SeriePlataforma (IdSerie, IdPlataforma) VALUES (:serieId, :plataformaId)');
-
-                        $cmd->bindValue(':serieId', $serieId);
-                        $cmd->bindValue(':plataformaId', $plataformaId);                
+                        if($sucesso){
     
-                        $sucesso = $cmd->execute();
-
+                            $cmd = $this->con->prepare('INSERT INTO SeriePlataforma (IdSerie, IdPlataforma) VALUES (:serieId, :plataformaId)');
+    
+                            $cmd->bindValue(':serieId', $serieId);
+                            $cmd->bindValue(':plataformaId', $plataformaId);                
+        
+                            $sucesso = $cmd->execute();
+    
+                        }
+                        else{
+                            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar as plataformas da série!");
+                            break;
+                        }                  
+    
                     }
-                    else{
-                        $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar as plataformas da série!");
-                        break;
-                    }                  
-
                 }
-
+                
             }            
 
             if($sucesso){

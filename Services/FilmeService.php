@@ -981,7 +981,7 @@
             }
 
             //Alterar plataformas do filme
-            if($sucesso && isset($filmePlataformas) && count($filmePlataformas) > 0){
+            if($sucesso){
 
                 $cmd = $this->con->prepare('DELETE FROM FilmePlataforma WHERE IdFilme = :filmeId');
 
@@ -989,25 +989,27 @@
 
                 $sucesso = $cmd->execute();
 
-                foreach($filmePlataformas as $plataformaId){
+                if(isset($filmePlataformas) && count($filmePlataformas) > 0){
+                    foreach($filmePlataformas as $plataformaId){
 
-                    if($sucesso){
-
-                        $cmd = $this->con->prepare('INSERT INTO FilmePlataforma (IdFilme, IdPlataforma) VALUES (:filmeId, :plataformaId)');
-
-                        $cmd->bindValue(':filmeId', $filmeId);
-                        $cmd->bindValue(':plataformaId', $plataformaId);                
+                        if($sucesso){
     
-                        $sucesso = $cmd->execute();
-
+                            $cmd = $this->con->prepare('INSERT INTO FilmePlataforma (IdFilme, IdPlataforma) VALUES (:filmeId, :plataformaId)');
+    
+                            $cmd->bindValue(':filmeId', $filmeId);
+                            $cmd->bindValue(':plataformaId', $plataformaId);                
+        
+                            $sucesso = $cmd->execute();
+    
+                        }
+                        else{
+                            $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar as plataformas do filme!");
+                            break;
+                        }                  
+    
                     }
-                    else{
-                        $result = $json->Data(false, "Aviso", "Desculpe, houve um erro ao alterar as plataformas do filme!");
-                        break;
-                    }                  
-
                 }
-
+                
             }            
 
             if($sucesso){
